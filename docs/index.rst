@@ -57,3 +57,11 @@ Welcome to PC-microbit-extension's documentation
     bots/Maqueen/Maqueen_distance_sensors.rst
     bots/Maqueen/Maqueen_line_sensors.rst
     bots/Maqueen/Maqueen_line_follower.rst
+
+
+.. toctree::
+    :maxdepth: 2
+    :caption: Bots/MoveMotor
+    :numbered:
+
+    bots/MoveMotor/MoveMotor_info.rst
