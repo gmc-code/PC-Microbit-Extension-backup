@@ -42,7 +42,7 @@ Edublocks, https://app.edublocks.org/#MicroBit, is an online editor with both bl
 Microbit software with simulators:
 ----------------------------------------
 
-Create with code UK, https://create.withcode.uk/, works with standard python or micropython. Starting the code with "from microbit import *" will pop up the simulator when the code is run.
+Create with code UK, https://create.withcode.uk/, works with standard python or micropython. Starting the code with "from microbit import /*" will pop up the simulator when the code is run.
 
 The Makecode website https://makecode.microbit.org/ allows blocky code use, but it has its own unique version of micropython based on its own translation of the typescript code that it uses, and so it will not work with Mu editor or the standard online micropython editor. It has an excellent simulator and vast extensions library for exploring other devices that can be connected to the microbit.
 
