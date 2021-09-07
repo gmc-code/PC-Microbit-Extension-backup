@@ -52,6 +52,7 @@ Welcome to PC-microbit-extension's documentation
     bots/Maqueen/Maqueen_info.rst
     bots/Maqueen/Maqueen_module.rst
     bots/Maqueen/Maqueen_motors.rst
+    bots/Maqueen/Maqueen_headlights.rst
     bots/Maqueen/Maqueen_LEDs.rst
     bots/Maqueen/Maqueen_distance_sensors.rst
     bots/Maqueen/Maqueen_line_sensors.rst

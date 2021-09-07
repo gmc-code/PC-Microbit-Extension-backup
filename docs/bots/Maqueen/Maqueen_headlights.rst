@@ -1,13 +1,13 @@
 ====================================================
-Maqueen LEDs
+Maqueen headlights
 ====================================================
 
-| The maqueen buggy has 4 LEDs below the buggy.
+| The maqueen buggy has two red headlights.
 
-Set up buggy and LEDs
+Set up buggy and headlights
 ----------------------------------------
 
-| Import the maqueen module and set up the buggy and LEDs.
+| Import the maqueen module and set up the buggy and headlights.
 
 .. code-block:: python
 
