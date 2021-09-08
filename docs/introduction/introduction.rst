@@ -2,7 +2,7 @@
 Introduction
 ====================================================
 
-PC-Microbit-extension documentation!
+PC-Microbit-extension documentation
 ----------------------------------------
 
 .. admonition:: Tip
@@ -19,11 +19,20 @@ PC-Microbit-extension documentation!
 
 ----
 
-Home page:
+Home pages:
 ---------------------
 
-https://pc-microbit-extension.readthedocs.io/en/latest/index.html
+| https://pc-microbit-micropython.readthedocs.io/en/latest/index.html
+| https://pc-microbit-extension.readthedocs.io/en/latest/index.html
+| https://pc-python.readthedocs.io/en/latest/index.html
 
+----
+
+Key references:
+---------------------
+
+| python: https://www.w3schools.com/python/
+| microbit: https://microbit-micropython.readthedocs.io/en/v2-docs/index.html
 
 ----
 
@@ -48,7 +57,7 @@ The Makecode website https://makecode.microbit.org/ allows blocky code use, but 
 
 ----
 
-Key references:
+References:
 ------------------
 
 * https://microbit-micropython.readthedocs.io/en/v2-docs/index.html
@@ -69,7 +78,8 @@ For beginners, using blocky code, these sites may be useful:
 Python references:
 ------------------
 
-For a simple introduction to python see:
+For an introduction to python see:
 
 * https://www.w3schools.com/python/default.asp
-
+* https://www.programiz.com/python-programming
+* https://www.pythontutorial.net/
