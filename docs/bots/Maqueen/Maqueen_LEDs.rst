@@ -2,29 +2,6 @@
 Maqueen LEDs
 ====================================================
 
-Primary and secondary colours 
-------------------------------
-
-| Primary and secondary colours are show below for your reference.
-| The Red Green Blue (RGB) values for them are listed:
-| white = (255, 255, 255)
-| red = (255, 0, 0)
-| yellow = (255, 255, 0)
-| green = (0, 128, 0)
-| cyan = (0, 255, 255)
-| blue = (0, 0, 255)
-| magenta = (255, 0, 255)
-
-.. image:: images/primary_colours.png
-    :scale: 50 %
-    :align: left
-
-.. image:: images/secondary_colours.png
-    :scale: 50 %
-    :align: center
-
-----
-
 Set up  LEDs
 ----------------------------------------
 
@@ -96,6 +73,29 @@ Buggy lights and indicators
     #. Write code to blink the left indicator on and off each second.
     #. Write code to blink the right indicator on and off each second.
     #. Write code to alternate the left and right indicators each second.
+
+----
+
+Primary and secondary colours 
+------------------------------
+
+| Primary and secondary colours are shown below.
+| The Red Green Blue (RGB) values for them are listed:
+| white = (255, 255, 255)
+| red = (255, 0, 0)
+| yellow = (255, 255, 0)
+| green = (0, 128, 0)
+| cyan = (0, 255, 255)
+| blue = (0, 0, 255)
+| magenta = (255, 0, 255)
+
+.. image:: images/primary_colours.png
+    :scale: 50 %
+    :align: left
+
+.. image:: images/secondary_colours.png
+    :scale: 50 %
+    :align: center
 
 ----
 
