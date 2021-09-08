@@ -119,10 +119,14 @@ Set buggy lights and indicators
 
 | The default light settings can be altered.
 
+set_front
+~~~~~~~~~~~~~~~
+
 .. py:method:: set_front(rgb=(20, 20, 20))
 
-    | Set the front light LED colour to be used when ``front_lights()`` is used.
+    | Set the front light LED colour to be used when ``front_lights()``, ``left_indicator()`` or ``right_indicator()`` are used.
     | ``rgb`` is a tuple of 3 integers from 0 to 255, where 255 is full brightness.
+    | If no value for rgb is passed the default value of (20, 20, 20) will be set.
 
 | The code below sets the white lights at the front to full brightness.
 
@@ -146,10 +150,14 @@ Set buggy lights and indicators
 
 ---- 
 
-.. py:method:: set_indicator(rgb=(35, 25, 20))
+set_indicator
+~~~~~~~~~~~~~~~
+
+.. py:method:: set_indicator(rgb=(35, 25, 0))
 
     | Set the front light LED colour to be used when ``left_indicator()``, ``right_indicator()`` or ``both_indicators()`` are used.
     | ``rgb`` is a tuple of 3 integers from 0 to 255, where 255 is full brightness.
+    | If no value for rgb is passed the default value of (35, 25, 0) will be set.
 
 | The code below sets the indicator to yellow at the front to full brightness.
 
@@ -173,10 +181,14 @@ Set buggy lights and indicators
 
 ---- 
 
+set_rear
+~~~~~~~~~~~~~~~
+
 .. py:method:: set_rear(rgb=(20, 0, 0))
 
     | Set the rear light LED colour to be used when when ``front_lights()``, ``left_indicator()``, ``right_indicator()`` or ``both_indicators()`` are used.
     | ``rgb`` is a tuple of 3 integers from 0 to 255, where 255 is full brightness.
+    | If no value for rgb is passed the default value of (20, 0, 0) will be set.
 
 | The code below sets the red lights at the back to full brightness.
 
@@ -203,9 +215,63 @@ Set buggy lights and indicators
 Set LEDs
 ----------------------------------------
 
-| The default light settings can be altered.
+| Each LED can be set separately.
 
-.. py:method:: set_front(rgb=(20, 20, 20))
+set_led
+~~~~~~~~~~~~~~
 
-    | Set the front light LED colour to be used when ``front_lights()`` is used.
+.. py:method:: set_led(led_number, rgb=(20, 20, 20))
+
+    | Set and show the LED colour.
+    | ``led_number`` is 0 for front left, 1 for rear left, 2 for rear right and 3 for front right.
     | ``rgb`` is a tuple of 3 integers from 0 to 255, where 255 is full brightness.
+
+| The code below sets the front right LED to blue.
+
+.. code-block:: python
+
+    from microbit import *
+    import maqueen
+
+
+    leds = maqueen.MaqueenNeoPixels()
+
+    leds.set_led(rgb=(0, 0, 255))
+
+----
+
+.. admonition:: Tasks
+
+    #. Write code to set the rear left LED to magenta. 
+    #. Write code to set the rear right LED to yellow. 
+
+----
+
+set_leds
+~~~~~~~~~~~~~~
+
+.. py:method:: set_leds(rgb=(20, 20, 20))
+
+    | Set and show the same colour for all the LEDs.
+    | ``rgb`` is a tuple of 3 integers from 0 to 255, where 255 is full brightness.
+
+| The code below sets all the LEDs to cyan.
+
+.. code-block:: python
+
+    from microbit import *
+    import maqueen
+
+
+    leds = maqueen.MaqueenNeoPixels()
+
+    leds.set_leds(rgb=(0, 255, 255))
+
+
+----
+
+.. admonition:: Tasks
+
+    #. Write code to set all the LEDs to green. 
+    #. Write code to set all the LEDs to blue. 
+
