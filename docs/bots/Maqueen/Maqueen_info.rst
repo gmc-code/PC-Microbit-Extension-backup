@@ -2,6 +2,13 @@
 Maqueen info
 ====================================================
 
+.. Warning::
+
+    | v2 microbits are required for the module used here. 
+    | v1 microbits lack the memory space for the maqueen module.
+
+
+| For product info:
 | See: https://wiki.dfrobot.com/micro_Maqueen_for_micro_bit_SKU_ROB0148-E
 | See: https://edu.dfrobot.com/makelog-308323.html
 
