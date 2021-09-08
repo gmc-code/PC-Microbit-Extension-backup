@@ -4,7 +4,7 @@ Maqueen headlights
 
 | The maqueen buggy has two red headlights.
 
-Set up buggy and headlights
+Set up buggy headlights
 ----------------------------------------
 
 | Import the maqueen module and set up the buggy and headlights.
@@ -15,8 +15,6 @@ Set up buggy and headlights
     import maqueen
 
 
-    buggy = maqueen.MaqueenMotors()
-    buggy.stop()
     headlights = maqueen.MaqueenHeadLights()
 
 
@@ -39,8 +37,6 @@ set_headlight
     import maqueen
 
 
-    buggy = maqueen.MaqueenMotors()
-    buggy.stop()
     headlights = maqueen.MaqueenHeadLights()
 
     headlights.set_headlight(headlight='left', on=1)
@@ -71,10 +67,8 @@ set_headlights
     import maqueen
 
 
-    buggy = maqueen.MaqueenMotors()
-    buggy.stop()
     headlights = maqueen.MaqueenHeadLights()
-
+    
     headlights.set_headlights(left=1, right=1)
 
 ----

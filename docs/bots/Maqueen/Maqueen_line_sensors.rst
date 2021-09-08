@@ -48,7 +48,7 @@ Read values from the line sensors
 
     # set up line sensor
     line_sensor = maqueen.MaqueenLineSensors()
-
+    
     left_reading = line_sensor.line_sensor_read('left')
     display.scroll(left_reading)
 
