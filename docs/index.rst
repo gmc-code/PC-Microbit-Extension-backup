@@ -56,7 +56,7 @@ Key references:
 
 
 .. toctree::
-    :maxdepth: 4
+    :maxdepth: 2
     :caption: Bots/Maqueen
     :numbered:
 
@@ -72,7 +72,7 @@ Key references:
 
 .. toctree::
     :maxdepth: 2
-    :caption: Bots/MoveMotor
+    :caption: Bots/BitBotXL
     :numbered:
 
-    bots/MoveMotor/MoveMotor_info.rst
+    bots/BitBotXL/BitBotXL_info.rst
