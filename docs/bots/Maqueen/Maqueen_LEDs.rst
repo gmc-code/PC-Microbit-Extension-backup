@@ -29,7 +29,8 @@ Set up  LEDs
 MaqueenNeoPixels
 ----------------------------------------
 
-| When setting up the LEDs, the colours of the front, indicator and rear LED settings are set to their default values.
+| The module makes it easy to use the front LEDs, the rear LEDS and to the front LEDs as indicators such as when turning.
+| When setting up the LEDs, the front, indicator and rear colour settings are set to the default values below.
 
 .. py:class:: MaqueenNeoPixels(front=(20, 20, 20), indicator=(35, 25, 0), rear=(20, 0, 0))
 
@@ -42,23 +43,25 @@ MaqueenNeoPixels
 Buggy lights and indicators
 ----------------------------------------
 
-| There are four convenient methods that use the default LED settings:
+| There are four convenient methods that use the default LED settings.
+| They all set use the default red colour for the rear lights.
+| They are named based on their effect on the front LEDs.
 
 .. py:method:: front_lights()
 
-    | shows white at the front and red at the back.
+    | Shows white at the front and red at the back.
 
 .. py:method:: left_indicator()
 
-    | shows yellow front left, white front right and red at the back.
+    | Shows yellow front left, white front right and red at the back.
 
 .. py:method:: right_indicator()
 
-    | shows yellow front right, white front left and red at the back
+    | Shows yellow front right, white front left and red at the back
 
 .. py:method:: both_indicators()
 
-    | shows yellow at the front and red at the back.
+    | Shows yellow at the front and red at the back.
 
 
 | The code below shows white at the front and red at the back.
@@ -87,8 +90,18 @@ Buggy lights and indicators
 Primary and secondary colours 
 ------------------------------
 
+.. image:: images/primary_colours.png
+    :scale: 40 %
+    :align: right
+
 | Primary and secondary colours are shown below.
-| The Red Green Blue (RGB) values for them are listed:
+| The Red Green Blue (RGB) values for them are listed.
+| They are tuples of 3 integers from 0 to 255, where 0 is off and 255 if the brightest.
+
+.. image:: images/secondary_colours.png
+    :scale: 40 %
+    :align: right
+
 | white = (255, 255, 255)
 | red = (255, 0, 0)
 | yellow = (255, 255, 0)
@@ -97,13 +110,7 @@ Primary and secondary colours
 | blue = (0, 0, 255)
 | magenta = (255, 0, 255)
 
-.. image:: images/primary_colours.png
-    :scale: 50 %
-    :align: left
 
-.. image:: images/secondary_colours.png
-    :scale: 50 %
-    :align: center
 
 ----
 
