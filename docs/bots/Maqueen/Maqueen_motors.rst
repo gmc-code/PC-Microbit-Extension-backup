@@ -8,8 +8,10 @@ Set up the buggy
 
 .. py:class:: MaqueenMotors() 
 
-| Set up the buggy motors for use.
-| Use ``buggy = maqueen.MaqueenMotors()`` to be able to use the motor methods on the buggy.
+    | Set up the buggy's motors for use.
+    | Use ``buggy = maqueen.MaqueenMotors()`` to use the motor on the buggy.
+
+| The code below imports the maqueen module and sets up the motors.
 
 .. code-block:: python
 

@@ -2,23 +2,15 @@
 Maqueen line sensors
 ====================================================
 
-Use maqueen library
-----------------------------------------
-
-| To use the maqueen module, import it via: ``import maqueen``.
-
-.. code-block:: python
-
-    from microbit import *
-    import maqueen
-
-
 Set up the line sensors
 ----------------------------------------
 
 .. py:class:: MaqueenLineSensors() 
 
-| Set up the line sensors for use.
+    | Set up the buggy's line sensors for use.
+    | Use ``line_sensor = maqueen.MaqueenLineSensors()`` to use the buggy's line sensors.
+
+| The code below imports the maqueen module and sets up the line sensors.
 
 .. code-block:: python
 

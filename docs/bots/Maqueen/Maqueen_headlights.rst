@@ -7,7 +7,12 @@ Maqueen headlights
 Set up buggy headlights
 ----------------------------------------
 
-| Import the maqueen module and set up the buggy and headlights.
+.. py:class:: MaqueenHeadLights() 
+
+    | Set up the buggy's headlights for use.
+    | Use ``headlights = maqueen.MaqueenHeadLights()`` to use the buggy's headlights.
+
+| The code below imports the maqueen module and sets up the headlights.
 
 .. code-block:: python
 

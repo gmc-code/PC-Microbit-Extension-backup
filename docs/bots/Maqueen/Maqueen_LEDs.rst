@@ -6,7 +6,13 @@ Set up  LEDs
 ----------------------------------------
 
 | The maqueen buggy has 4 LEDs below the buggy.
-| Import the maqueen module and set up the buggy and LEDs.
+
+.. py:class:: MaqueenNeoPixels() 
+
+    | Set up the buggy's LEDs for use.
+    | Use ``headlights = maqueen.MaqueenNeoPixels()`` to use the buggy's LEDs.
+
+| The code below imports the maqueen module and sets up the LEDs.
 
 .. code-block:: python
 

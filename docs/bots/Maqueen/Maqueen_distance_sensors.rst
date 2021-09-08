@@ -7,9 +7,10 @@ Set up the distance sensors
 
 .. py:class:: MaqueenDistanceSensors() 
 
-| Set up the Distance Sensors for use.
-| Import the maqueen module first.
-| Use ``distance_sensor = maqueen.MaqueenDistanceSensors()`` to be able to use the distance sensing methods.
+    | Set up the buggy's distance sensors for use.
+    | Use ``headlights = maqueen.MaqueenDistanceSensors()`` to use the buggy's distance sensors.
+
+| The code below imports the maqueen module and sets up the distance sensors.
 
 .. code-block:: python
 
