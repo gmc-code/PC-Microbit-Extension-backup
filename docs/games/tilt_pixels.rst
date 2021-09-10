@@ -39,19 +39,26 @@ Game design
     from microbit import *
 
 
-    mypix = TiltPixels()
+    gamepix = TiltPixels()
     while True:
-        mypix.tilt()
+        gamepix.tilt()
         sleep(200)
-        if mypix.filled():
-            mypix.answer()
-            display.scroll(mypix.score())
-            mypix = TiltPixels()
+        if gamepix.filled():
+            gamepix.answer()
+            display.scroll(gamepix.score())
+            gamepix = TiltPixels()
 
 ----
 
 The TiltPixels class
 ------------------------
+
+.. admonition:: Tip
+    
+    **TiltPixels** is written in camel case. This is the python naming convention for classes. Each word is capitalized and their are no underscores. This is different to the convention for a variable which would be of the form **tilt_pixels**.
+
+
+| Use a class for the game object since it makes it easy to group together the game data (attributes are variables belonging to a class)and game functions (methods are functions associated with a class).
 
 .. py:class:: TiltPixels(x_position=random.randint(0, 4), y_position=random.randint(0, 4))
 
@@ -61,7 +68,7 @@ The TiltPixels class
     | ``x_position`` by default will be a random integer from 0 to 4.
     | ``y_position`` by default will be a random integer from 0 to 4.
 
-| The code below imports the random module and sets up the game object.
+| The code below imports the random module and creates the game object by creating an instance of the TiltPixels class.
 
 .. code-block:: python
 
@@ -69,7 +76,7 @@ The TiltPixels class
     import random
 
 
-    mypix = TiltPixels()
+    gamepix = TiltPixels()
 
 ----
 
