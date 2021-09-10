@@ -31,6 +31,14 @@ Key references:
 
 .. toctree::
     :maxdepth: 2
+    :caption: Games
+    :numbered:
+
+    games/tilt_pixels.rst
+
+
+.. toctree::
+    :maxdepth: 2
     :caption: Bots/Track_templates
     :numbered:
 
