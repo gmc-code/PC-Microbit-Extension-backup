@@ -16,17 +16,18 @@ Game design
 
 
 #. Set up the game object (initialize an instance of the class)
-    a. Set between 2 and 10 random pixels to be found.
+    #. Set between 2 and 10 random pixels to be found.
     #. Start from a random pixel and display it brightly then faintly.
 #. Repeat the following steps:
-    a. Use the accelerometer to detect a tilt and move the pixel.
+    #. Use the accelerometer to detect a tilt and move the pixel.
     #. If all the pixels have been found then:
-        i. Scroll the score.
-        ii. Set up the game object again.
+        a. Scroll the score.
+        b. Set up the game object again.
 
 
 | The code below is the uses the class, ``TiltPixels()``, for the game object.
-| 4 methods are used below in the running of the code:
+| 4 methods are used below in the running of the code.
+
     #. ``.tilt()`` will move a bright pixel in the direction of tilt
     #. ``.filled()`` will compare the hidden pixels with those arrived at by tilting
     #. ``.answer()`` will display the hidden pixels brightly and the other chosen pixels dimly.
