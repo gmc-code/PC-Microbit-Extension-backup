@@ -6,7 +6,7 @@ Game design
 --------------------
 
 | Code a game to find hidden pixels on the display by titling the microbit.
-| Use a class object for the games pixels.
+| Use a class object for the game's pixels.
 | The (x,y) coordinates of each pixel are in the diagram below.
 
 .. image:: images/microbit_coords.png
@@ -21,8 +21,8 @@ Game design
 #. Repeat the following steps:
     a. Use the accelerometer to detect a tilt and move the pixel.
     #. If all the pixels have been found then:
-        #. Scroll the score.
-        #. Set up the game object again.
+        i. Scroll the score.
+        ii. Set up the game object again.
 
 
 | The code below is the uses the class, ``TiltPixels()``, for the game object.
