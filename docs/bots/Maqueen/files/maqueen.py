@@ -261,7 +261,7 @@ class MaqueenHeadLights:
             else:
                 RIGHT_HEADLIGHT_PIN .write_digital(0)
 
-    def set_headlights(self, left=0, right=0):
+    def set_headlights(self, left=1, right=1):
         # value = 1 for on and 0 for off
         LEFT_HEADLIGHT_PIN.write_digital(left)
         RIGHT_HEADLIGHT_PIN .write_digital(right)
@@ -278,20 +278,20 @@ class MaqueenNeoPixels:
     # rgb: (red: {0-255}, green: {0-255}, blue: {0-255})
     # front left = 0; rear left = 1; rear right = 2; front right = 3
 
-    def set_front(self, rgb):
+    def set_front(self, rgb=(20, 20, 20)):
         self.front = rgb
 
-    def set_indicator(self, rgb):
+    def set_indicator(self, rgb=(35, 25, 0)):
         self.indicator = rgb
 
-    def set_rear(self, rgb):
+    def set_rear(self, rgb=(20, 0, 0)):
         self.rear = rgb
 
-    def set_led(self, led_number, rgb):
+    def set_led(self, led_number, rgb=(20, 20, 20)):
         self.np[led_number] = rgb
         self.np.show()
 
-    def set_leds(self, rgb):
+    def set_leds(self, rgb=(20, 20, 20)):
         for led_number in range(4):
             self.np[led_number] = rgb
         self.np.show()
