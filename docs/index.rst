@@ -35,7 +35,7 @@ Key references:
     :numbered:
 
     games/tilt_pixels.rst
-
+    games/magic_8.rst
 
 .. toctree::
     :maxdepth: 2
