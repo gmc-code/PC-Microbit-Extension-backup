@@ -121,16 +121,71 @@ The hidden pixels
 | ``pixels = set()`` creates an empty set.
 | ``pixels.add((x, y))`` adds a tuple of the x and y values to the set. These are the coordinates of each hidden pixel to find.
 | ``for _ in range(random.randint(2, 10))`` controls the number of pixels to find. There will be from 2 to 10 pixels to find. ``_`` is used by convention when the iterator variable is not needed in the for-loop body.
-
+| The decorator ``@staticmethod``, makes the function a static method. This utility function doesn't access any properties of the class. No reference to ``self`` is passed to it.
 
 .. code-block:: python
 
-    @staticmethod
-    def pixels_to_get():
-        pixels = set()
-        for _ in range(random.randint(2, 10)):
-            pixels.add((random.randint(0, 4), random.randint(0, 4)))
-        return pixels
+    class TiltPixels:
+    ...
+        @staticmethod
+        def pixels_to_get():
+            pixels = set()
+            for _ in range(random.randint(2, 10)):
+                pixels.add((random.randint(0, 4), random.randint(0, 4)))
+            return pixels
+
+----
+
+Accelerometer
+---------------------------------
+
+.. py:method:: acc_x_change()
+
+    | Return an integer that will be used to move the pixel left to right.
+    | Values are: -1 to move to the left, 0 for no change and 1 to move to the right.
+    | A sensitivity of 300 is exceeded with a small tilt.
+
+.. code-block:: python
+
+
+    class TiltPixels:
+    ...
+
+        def acc_x_change(self):
+            sensitivity = 300
+            accx = accelerometer.get_x()
+            if accx < -sensitivity:
+                xd = -1
+            elif accx > sensitivity:
+                xd = 1
+            else:
+                xd = 0
+            return xd
+
+----
+
+.. py:method:: acc_y_change()
+
+    | Return an integer that will be used to move the pixel left to right.
+    | Values are: -1 to move to the left, 0 for no change and 1 to move to the right.
+    | A sensitivity of 300 is exceeded with a small tilt.
+
+.. code-block:: python
+
+
+    class TiltPixels:
+    ...
+
+        def acc_y_change(self):
+            sensitivity = 300
+            accy = accelerometer.get_y()
+            if accy < -sensitivity:
+                yd = -1
+            elif accy > sensitivity:
+                yd = 1
+            else:
+                yd = 0
+            return yd
 
 
 
