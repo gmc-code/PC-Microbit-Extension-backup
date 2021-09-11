@@ -408,7 +408,7 @@ Game code
 
     #. Modify the code to require a button press to continue with a new game.
     #. Write code to store all the game scores and display the average score with a button press.
-    #. Write code to use the A and B buttons to adjust the tilt sensitivity in steps of about 100. Use both button being pressed to save the sensitivity and reuse it for new games.
+    #. Write code to use the A and B buttons to adjust the tilt sensitivity in steps of about 100. Use both buttons being pressed together to save the sensitivity and reuse it for new games.
     #. The game has a sleep in the while True loop. Experiment with shorter or longer sleeps.
 
 
