@@ -56,18 +56,16 @@ The TiltPixels class
 
 .. admonition:: Tip
     
-    **TiltPixels** is written in camel case. This is the python naming convention for classes. Each word is capitalized and their are no underscores. This is different to the convention for a variable which would be of the form **tilt_pixels**.
+    **TiltPixels** is written in camel case. This is the python naming convention for classes. Each word is capitalized and their are no underscores. This is different to the convention for a variable which would be written in snake case as **tilt_pixels**.
+
+| Use a class for the game object since it makes it easy to group together the game data and game functions.
+| The game data is in attributes. Attributes are variables belonging to a class.
+| The game functions are know as methods. Methods are functions associated with a class.
 
 
-| Use a class for the game object since it makes it easy to group together the game data (attributes are variables belonging to a class)and game functions (methods are functions associated with a class).
-
-.. py:class:: TiltPixels(x_position=random.randint(0, 4), y_position=random.randint(0, 4))
+.. py:class:: TiltPixels()
 
     | Set up the game object to control the pixels displayed and keep track of them.
-    | The starting pixel is (x_position, y_position).
-    | ``x_position`` and  ``y_position`` are optional. They are both integers from 0 to 4.
-    | ``x_position`` by default will be a random integer from 0 to 4.
-    | ``y_position`` by default will be a random integer from 0 to 4.
 
 | The code below imports the random module and creates the game object by creating an instance of the TiltPixels class.
 
@@ -81,3 +79,49 @@ The TiltPixels class
 
 ----
 
+The TiltPixels constructor
+---------------------------------
+
+.. py:method:: __init__(self, x_position=random.randint(0, 4), y_position=random.randint(0, 4))
+
+| The __init__() method is the constructor called when the game object is created.
+| The random starting pixel is ``(x_position, y_position)``.
+| ``x_position`` is the starting x value which by default will be a random integer from 0 to 4.
+| ``y_position`` is the starting y value which by default will be a random integer from 0 to 4.
+| ``self.x_position`` keeps track of the current pixel x position.
+| ``self.y_position`` keeps track of the current pixel y position.
+| ``self.pixels_filled`` is initialized as a set with the the starting pixel tuple: ``(x_position, y_position)``. A set is used to make it easy to keep track of the visited pixels. A set is used instead of a list because sets don't allow duplicate values to be stored. When the microbit is tilted, each pixel will be added to the set. 
+| ``self.pixels_to_get`` stores the set of hidden pixels. 
+
+| The __init__ method is given below.
+
+.. code-block:: python
+
+    class TiltPixels:
+        def __init__(self, x_position=random.randint(0, 4), y_position=random.randint(0, 4)):
+            self.x_position = x_position
+            self.y_position = y_position
+            self.pixels_filled = set((x_position, y_position))
+            self.pixels_to_get = self.pixels_to_get()
+            self.show()
+
+
+
+----
+
+The hidden pixels
+---------------------------------
+
+| ``pixels = set()`` creates an empty set.
+| ``pixels.add((x, y))`` adds a tuple of the x and y values to the set. These are the coordinates of each hidden pixel to find.
+| ``for _ in range(random.randint(2, 10))`` controls the number of pixels to find. There will be from 2 to 10 pixels to find. ``_`` is used by convention when the iterator variable is not needed in the following code.
+
+
+.. code-block:: python
+
+    @staticmethod
+    def pixels_to_get():
+        pixels = set()
+        for _ in range(random.randint(2, 10)):
+            pixels.add((random.randint(0, 4), random.randint(0, 4)))
+        return pixels

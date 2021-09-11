@@ -81,6 +81,7 @@ Python references:
 For an introduction to python see:
 
 * https://www.w3schools.com/python/default.asp
+* https://www.netjstech.com/p/python-tutorial.html
 * https://www.programiz.com/python-programming
 * https://www.pythontutorial.net/
 * https://docs.python.org/3.9/tutorial/introduction.html
