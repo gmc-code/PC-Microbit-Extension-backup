@@ -196,7 +196,7 @@ Tilt
 ---------------------------------
 
 | The ``while True`` loop calls ``gamepix.tilt()``
-| This gets the movement to be carried out in the x and y directions.
+| This gets the change in the x and y coordinates from tilting.
 | The new pixel is stored in the set, ``pixels_filled``.
 | The new pixel is then shown brightly, then dimly.
 
@@ -227,7 +227,7 @@ Move
     | y_delta is the integer returned from ``acc_y_change()``.
 
 | The min and max functions are used to restrict the new x and y values to 0 to 4.
-| ``pixels_filled.add((self.x_position, self.y_position)`` adds the new (x, y) tuple to the set ``pixels_filled``. Because sets can't include duplicate values, any previously visited pixels are only stored once.
+| ``pixels_filled.add((self.x_position, self.y_position)`` adds the new tuple (x, y) to the set ``pixels_filled``. Because sets can't include duplicate values, any previously visited pixels are only stored once.
 
 .. code-block:: python
 
@@ -247,7 +247,7 @@ Show
 
 .. py:method:: show()
 
-    | Set the brightness of new pixel at (self.x_position, self.y_position) to 9 then 2.
+    | Set the brightness of the new pixel to 9, then 2.
 
 .. code-block:: python
 
@@ -264,7 +264,7 @@ Show
 Filled
 ---------------------------------
 
-| After moving to a new pixel, the check to see if all the hidden pixels have been found.
+| After moving to a new pixel, check to see if all the hidden pixels have been found.
 
 
 .. py:method:: filled()
