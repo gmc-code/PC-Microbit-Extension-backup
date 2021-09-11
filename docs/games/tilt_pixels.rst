@@ -65,10 +65,10 @@ The TiltPixels class
 
 .. py:class:: TiltPixels()
 
-    | Set up the game object to control the pixels displayed and keep track of them.
-    | Initial x, y values for the initial pixel could be passed here.
+    | Set up the game object to control the game, including the hidden and visited pixels.
+    | Initial x, y values for the initial pixel could be passed here as an argument.
     | ``gamepix = TiltPixels(2,2)`` would place the initial pixel in the center of the 5 by 5 grid.
-    | There is no need to do so since the game will start at a random pixel.
+    | There is no need to do so since the game has a constructor method to start at a random pixel.
 
 | The code below imports the random module and creates the game object by creating an instance of the TiltPixels class.
 
@@ -85,14 +85,15 @@ The TiltPixels class
 The TiltPixels constructor
 ---------------------------------
 
-.. py:method:: __init__(self, x_position=random.randint(0, 4), y_position=random.randint(0, 4))
+.. py:method:: __init__(x_position=random.randint(0, 4), y_position=random.randint(0, 4))
 
-| The __init__() method is the constructor called when the game object is created.
-| The starting pixel is at the coordinates: ``(x_position, y_position)``.
-| ``x_position`` is the starting x value which by default will be a random integer from 0 to 4.
-| ``y_position`` is the starting y value which by default will be a random integer from 0 to 4.
-| ``self.x_position`` keeps track of the current pixel x position.
-| ``self.y_position`` keeps track of the current pixel y position.
+    | The __init__() method is the constructor called when the game object is created.
+    | The starting pixel is at the coordinates: ``(x_position, y_position)``.
+    | ``x_position`` is the starting x value which by default will be a random integer from 0 to 4.
+    | ``y_position`` is the starting y value which by default will be a random integer from 0 to 4.
+
+| ``self.x_position`` keeps track of the x position of the current pixel.
+| ``self.y_position`` keeps track of the y position of the current pixel.
 | ``self.pixels_filled`` is initialized as a set with the the starting pixel tuple: ``(x_position, y_position)``. A set is used to make it easy to keep track of the visited pixels. A set is used instead of a list because sets don't allow duplicate values to be stored. When the microbit is tilted, each pixel will be added to the set. 
 | ``self.pixels_to_get`` stores the set of hidden pixels created using ``pixels_to_get()``. 
 | ``self.show`` displays the pixel at (x_position, y_position).
@@ -117,10 +118,12 @@ The hidden pixels
 .. py:method:: pixels_to_get()
 
     | Create a set of tuples of x, y coordinates for 2 to 10 hidden pixels.
+    | e.g with 5 pixels: {(2, 1), (4, 1), (3, 4), (2, 0), (1, 1)}
 
 | ``pixels = set()`` creates an empty set.
 | ``pixels.add((x, y))`` adds a tuple of the x and y values to the set. These are the coordinates of each hidden pixel to find.
-| ``for _ in range(random.randint(2, 10))`` controls the number of pixels to find. There will be from 2 to 10 pixels to find. ``_`` is used by convention when the iterator variable is not needed in the for-loop body.
+| ``for _ in range(random.randint(2, 10))`` controls the number of pixels to find. There will be from 2 to 10 pixels to find. 
+| ``_`` is used by convention when the iterator variable is not needed in the for-loop body.
 | The decorator ``@staticmethod``, makes the function a static method. This utility function doesn't access any properties of the class. No reference to ``self`` is passed to it.
 
 .. code-block:: python
