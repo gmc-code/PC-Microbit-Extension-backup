@@ -129,7 +129,8 @@ The hidden pixels
 .. code-block:: python
 
     class TiltPixels:
-    ...
+        ...
+
         @staticmethod
         def pixels_to_get():
             pixels = set()
@@ -144,15 +145,14 @@ Accelerometer
 
 .. py:method:: acc_x_change()
 
-    | Return an integer that will be used to move the pixel left to right.
+    | Return an integer that will be used to move the pixel left or right.
     | Values are: -1 to move to the left, 0 for no change and 1 to move to the right.
-    | A sensitivity of 300 is exceeded with a small tilt.
+    | A sensitivity of 300 can be exceeded with a small tilt.
 
 .. code-block:: python
 
-
     class TiltPixels:
-    ...
+        ...
 
         def acc_x_change(self):
             sensitivity = 300
@@ -170,14 +170,13 @@ Accelerometer
 .. py:method:: acc_y_change()
 
     | Return an integer that will be used to move the pixel left to right.
-    | Values are: -1 to move to the left, 0 for no change and 1 to move to the right.
-    | A sensitivity of 300 is exceeded with a small tilt.
+    | Values are: -1 to move to the top, 0 for no change and 1 to move to the bottom.
+    | A sensitivity of 300 can be exceeded with a small tilt.
 
 .. code-block:: python
 
-
     class TiltPixels:
-    ...
+        ...
 
         def acc_y_change(self):
             sensitivity = 300
@@ -190,6 +189,75 @@ Accelerometer
                 yd = 0
             return yd
 
+
+----
+
+Tilt
+---------------------------------
+
+| The ``while True`` loop calls ``gamepix.tilt()``
+| This gets the movement to be carried out in the x and y directions.
+| The new pixel is stored in the set, ``pixels_filled``.
+| The new pixel is then shown brightly, then dimly.
+
+
+.. py:method:: tilt()
+
+    | Calls the move method and the show method.
+
+.. code-block:: python
+
+    class TiltPixels:
+        ...
+
+        def tilt(self):
+            self.move(self.acc_x_change(),self.acc_y_change())
+            self.show()
+
+
+----
+
+Move
+~~~~~~~~~~~~~~~~
+
+.. py:method:: move(x_delta, y_delta)
+
+    | Updates the x_position and y_position values for the new pixel.
+    | x_delta is the integer returned from ``acc_x_change()``.
+    | y_delta is the integer returned from ``acc_y_change()``.
+
+| The min and max functions are used to restrict the new x and y values to 0 to 4.
+| ``pixels_filled.add((self.x_position, self.y_position)`` adds the new (x, y) tuple to the set ``pixels_filled``. Because sets can't include duplicate values, any previously visited pixels are only stored once.
+
+.. code-block:: python
+
+    class TiltPixels:
+        ...
+
+        def move(self, x_delta, y_delta):
+            self.x_position = min(4, max(0, self.x_position + x_delta))
+            self.y_position = min(4, max(0, self.y_position + y_delta))
+            self.pixels_filled.add((self.x_position, self.y_position))
+
+
+----
+
+Show
+~~~~~~~~~~~~~~~~
+
+.. py:method:: show()
+
+    | Set the brightness of new pixel at (self.x_position, self.y_position) to 9 then 2.
+
+.. code-block:: python
+
+    class TiltPixels:
+        ...
+
+        def show(self):
+            display.set_pixel(self.x_position, self.y_position, 9)
+            sleep(50)
+            display.set_pixel(self.x_position, self.y_position, 2)
 
 
 
