@@ -259,7 +259,152 @@ Show
             sleep(50)
             display.set_pixel(self.x_position, self.y_position, 2)
 
+----
 
+Filled
+---------------------------------
+
+| After moving to a new pixel, the check to see if all the hidden pixels have been found.
+
+
+.. py:method:: filled()
+
+    | Returns True if all the hidden pixels have been visited, or False if not.
+
+.. code-block:: python
+
+    class TiltPixels:
+        ...
+
+        def answer(self):
+            # display.clear()
+            for i in self.pixels_to_get:
+                display.set_pixel(i[0], i[0], 9)
+            sleep(2000)
+
+        def filled(self):
+            return self.pixels_to_get.issubset(self.pixels_filled)
+        
+        def score(self):
+            return len(self.pixels_filled) - len(self.pixels_to_get)
+    
+----
+
+Answer and score
+---------------------------------
+
+| If all the hidden pixels have been found, display the hidden pixel brightly while keeping all the visited pixels.
+
+.. py:method:: answer()
+
+    | Loop through the set of hidden pixels and set their brightness to 9.
+
+.. py:method:: score()
+
+    | Return the game score by finding teh difference between hte number of pixels visited and the number of hidden pixels.
+    | The lower the number the better. The best score is 0 and the worst score possible is 23 if all pixels were visited and there were only 2 hidden.
+
+.. code-block:: python
+
+    class TiltPixels:
+        ...
+
+        def answer(self):
+            # display.clear()
+            for i in self.pixels_to_get:
+                display.set_pixel(i[0], i[0], 9)
+            sleep(2000)
+        
+        def score(self):
+            return len(self.pixels_filled) - len(self.pixels_to_get)
+    
+----
+
+Game code
+---------------------------------
+
+| The game code is below.
+
+.. code-block:: python
+
+    """TiltPixels game: tilt to find the hidden pixels"""
+
+    from microbit import *
+    import random
+
+
+    class TiltPixels:
+        def __init__(self, x_position=random.randint(0, 4), y_position=random.randint(0, 4)):
+            self.x_position = x_position
+            self.y_position = y_position
+            self.pixels_filled = set((x_position, y_position))
+            self.pixels_to_get = self.pixels_to_get()
+            self.show()
+
+        @staticmethod
+        def pixels_to_get():
+            pixels = set()
+            for _ in range(random.randint(2, 10)):
+                pixels.add((random.randint(0, 4), random.randint(0, 4)))
+            return pixels
+
+        def answer(self):
+            # display.clear()
+            for i in self.pixels_to_get:
+                display.set_pixel(i[0], i[0], 9)
+            sleep(2000)
+
+        def filled(self):
+            return self.pixels_to_get.issubset(self.pixels_filled)
+        
+        def score(self):
+            return len(self.pixels_filled) - len(self.pixels_to_get)
+        
+        def move(self, x_delta, y_delta):
+            self.x_position = min(4, max(0, self.x_position + x_delta))
+            self.y_position = min(4, max(0, self.y_position + y_delta))
+            self.pixels_filled.add((self.x_position, self.y_position))
+
+        def show(self):
+            display.set_pixel(self.x_position, self.y_position, 9)
+            sleep(50)
+            display.set_pixel(self.x_position, self.y_position, 2)
+
+        def acc_x_change(self):
+            sensitivity = 300
+            accx = accelerometer.get_x()
+            if accx < -sensitivity:
+                xd = -1
+            elif accx > sensitivity:
+                xd = 1
+            else:
+                xd = 0
+            return xd
+
+        def acc_y_change(self):
+            sensitivity = 300
+            accy = accelerometer.get_y()
+            if accy < -sensitivity:
+                yd = -1
+            elif accy > sensitivity:
+                yd = 1
+            else:
+                yd = 0
+            return yd
+            
+        def tilt(self):
+            self.move(self.acc_x_change(),self.acc_y_change())
+            self.show()
+
+
+    gamepix = TiltPixels(0,0)
+    while True:
+        gamepix.tilt()
+        sleep(200)
+        if gamepix.filled():
+            gamepix.answer()
+            display.scroll(gamepix.score())
+            gamepix = TiltPixels()
 
 
 
