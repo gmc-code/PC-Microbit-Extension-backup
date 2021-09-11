@@ -7,7 +7,7 @@ Game design
 
 | The user asks a yes–no question then shakes the microbit to receive an answer.
 | The standard responses are in a list, RESPONSES. (The convention is to use capitals for a constant.)
-| A random choice from the list is obtained using the ``random.choice(RESPONSES)``
+| A random choice from the list is obtained using ``random.choice(RESPONSES)``.
 
 Specific Syntax
 --------------------
