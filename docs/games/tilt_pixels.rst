@@ -59,13 +59,16 @@ The TiltPixels class
     **TiltPixels** is written in camel case. This is the python naming convention for classes. Each word is capitalized and their are no underscores. This is different to the convention for a variable which would be written in snake case as **tilt_pixels**.
 
 | Use a class for the game object since it makes it easy to group together the game data and game functions.
-| The game data is in attributes. Attributes are variables belonging to a class.
-| The game functions are know as methods. Methods are functions associated with a class.
+| The game data are attributes. Attributes are variables belonging to a class.
+| The game functions are methods. Methods are functions associated with a class.
 
 
 .. py:class:: TiltPixels()
 
     | Set up the game object to control the pixels displayed and keep track of them.
+    | Initial x, y values for the initial pixel could be passed here.
+    | ``gamepix = TiltPixels(2,2)`` would place the initial pixel in the center of the 5 by 5 grid.
+    | There is no need to do so since the game will start at a random pixel.
 
 | The code below imports the random module and creates the game object by creating an instance of the TiltPixels class.
 
@@ -85,15 +88,16 @@ The TiltPixels constructor
 .. py:method:: __init__(self, x_position=random.randint(0, 4), y_position=random.randint(0, 4))
 
 | The __init__() method is the constructor called when the game object is created.
-| The random starting pixel is ``(x_position, y_position)``.
+| The starting pixel is at the coordinates: ``(x_position, y_position)``.
 | ``x_position`` is the starting x value which by default will be a random integer from 0 to 4.
 | ``y_position`` is the starting y value which by default will be a random integer from 0 to 4.
 | ``self.x_position`` keeps track of the current pixel x position.
 | ``self.y_position`` keeps track of the current pixel y position.
 | ``self.pixels_filled`` is initialized as a set with the the starting pixel tuple: ``(x_position, y_position)``. A set is used to make it easy to keep track of the visited pixels. A set is used instead of a list because sets don't allow duplicate values to be stored. When the microbit is tilted, each pixel will be added to the set. 
-| ``self.pixels_to_get`` stores the set of hidden pixels. 
+| ``self.pixels_to_get`` stores the set of hidden pixels created using ``pixels_to_get()``. 
+| ``self.show`` displays the pixel at (x_position, y_position).
 
-| The __init__ method is given below.
+| The __init__ method is given below in its class.
 
 .. code-block:: python
 
@@ -105,16 +109,18 @@ The TiltPixels constructor
             self.pixels_to_get = self.pixels_to_get()
             self.show()
 
-
-
 ----
 
 The hidden pixels
 ---------------------------------
 
+.. py:method:: pixels_to_get()
+
+    | Create a set of tuples of x, y coordinates for 2 to 10 hidden pixels.
+
 | ``pixels = set()`` creates an empty set.
 | ``pixels.add((x, y))`` adds a tuple of the x and y values to the set. These are the coordinates of each hidden pixel to find.
-| ``for _ in range(random.randint(2, 10))`` controls the number of pixels to find. There will be from 2 to 10 pixels to find. ``_`` is used by convention when the iterator variable is not needed in the following code.
+| ``for _ in range(random.randint(2, 10))`` controls the number of pixels to find. There will be from 2 to 10 pixels to find. ``_`` is used by convention when the iterator variable is not needed in the for-loop body.
 
 
 .. code-block:: python
@@ -125,3 +131,20 @@ The hidden pixels
         for _ in range(random.randint(2, 10)):
             pixels.add((random.randint(0, 4), random.randint(0, 4)))
         return pixels
+
+
+
+
+
+
+
+
+----
+
+.. admonition:: Tasks
+
+    #. Modify the code to require a button press to continue with a new game.
+    #. Write code to store all the game scores and display the average score with a button press.
+    #. Write code to use the A and B buttons to adjust the tilt sensitivity in steps of about 100. Use both button being pressed to save the sensitivity and reuse it for new games.
+
+
