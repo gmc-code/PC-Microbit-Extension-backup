@@ -94,11 +94,11 @@ The TiltPixels constructor
 
 | ``self.x_position`` keeps track of the x position of the current pixel.
 | ``self.y_position`` keeps track of the y position of the current pixel.
-| ``self.pixels_filled`` is initialized as a set with the the starting pixel tuple: ``(x_position, y_position)``. A set is used to make it easy to keep track of the visited pixels. A set is used instead of a list because sets don't allow duplicate values to be stored. When the microbit is tilted, each pixel will be added to the set. 
+| ``self.pixels_filled`` is initialized as a set with the starting pixel tuple: ``(x_position, y_position)``. A set is used to make it easy to keep track of the visited pixels. A set is used instead of a list because sets don't allow duplicate values to be stored. When the microbit is tilted, each pixel will be added to the set. 
 | ``self.pixels_to_get`` stores the set of hidden pixels created using ``pixels_to_get()``. 
-| ``self.show`` displays the pixel at (x_position, y_position).
+| ``self.show()`` displays the pixel at (x_position, y_position).
 
-| The __init__ method is given below in its class.
+| The __init__ method is given below.
 
 .. code-block:: python
 
