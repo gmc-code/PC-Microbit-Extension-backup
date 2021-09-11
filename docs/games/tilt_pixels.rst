@@ -117,14 +117,14 @@ The hidden pixels
 
 .. py:method:: pixels_to_get()
 
-    | Create a set of tuples of x, y coordinates for 2 to 10 hidden pixels.
+    | Create a set of tuples of (x, y) coordinates for 2 to 10 hidden pixels.
     | e.g with 5 pixels: {(2, 1), (4, 1), (3, 4), (2, 0), (1, 1)}
 
-| ``pixels = set()`` creates an empty set.
-| ``pixels.add((x, y))`` adds a tuple of the x and y values to the set. These are the coordinates of each hidden pixel to find.
-| ``for _ in range(random.randint(2, 10))`` controls the number of pixels to find. There will be from 2 to 10 pixels to find. 
-| ``_`` is used by convention when the iterator variable is not needed in the for-loop body.
 | The decorator ``@staticmethod``, makes the function a static method. This utility function doesn't access any properties of the class. No reference to ``self`` is passed to it.
+| ``pixels = set()`` creates an empty set.
+| ``pixels.add((x, y))`` adds a tuple of x and y values to the set. These are the coordinates of each hidden pixel to find.
+| ``for _ in range(random.randint(2, 10))`` controls the number of pixels to find. There will be a random number of pixels, from 2 to 10 pixels, to find. 
+| ``_`` is used by convention when the iterator variable is not needed in the for-loop body.
 
 .. code-block:: python
 
