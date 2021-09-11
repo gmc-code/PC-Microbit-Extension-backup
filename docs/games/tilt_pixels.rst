@@ -27,11 +27,11 @@ Game design
         #. Set up the game object again and play again.
 
 | The code uses the class, ``TiltPixels()``, for the game object.
-| 4 methods will be used below in the running of the code.
+| 4 methods will be used.
 
 #. ``.tilt()`` will move a bright pixel in the direction of tilt.
-#. ``.filled()`` will check if the hidden pixels have all been visited at by tilting.
-#. ``.answer()`` will display the originally hidden pixels brightly and the other chosen pixels dimly.
+#. ``.filled()`` will check if all the hidden pixels have been visited by tilting.
+#. ``.answer()`` will display the hidden pixels brightly and the visited pixels dimly.
 #. ``.score()`` will calculate the score.
 
 
