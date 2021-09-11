@@ -270,30 +270,22 @@ Filled
 .. py:method:: filled()
 
     | Returns True if all the hidden pixels have been visited, or False if not.
+    | It uses the issubset method to check if the tall the values in teh set pixels_to_get are in teh set pixels_filled.
 
 .. code-block:: python
 
     class TiltPixels:
         ...
 
-        def answer(self):
-            # display.clear()
-            for i in self.pixels_to_get:
-                display.set_pixel(i[0], i[0], 9)
-            sleep(2000)
-
         def filled(self):
             return self.pixels_to_get.issubset(self.pixels_filled)
-        
-        def score(self):
-            return len(self.pixels_filled) - len(self.pixels_to_get)
     
 ----
 
 Answer and score
 ---------------------------------
 
-| If all the hidden pixels have been found, display the hidden pixel brightly while keeping all the visited pixels.
+| If all the hidden pixels have been found, display the hidden pixels brightly while keeping all the visited pixels displayed dimly.
 
 .. py:method:: answer()
 
@@ -301,7 +293,7 @@ Answer and score
 
 .. py:method:: score()
 
-    | Return the game score by finding teh difference between hte number of pixels visited and the number of hidden pixels.
+    | Return the game score by finding the difference between the number of pixels visited and the number of hidden pixels.
     | The lower the number the better. The best score is 0 and the worst score possible is 23 if all pixels were visited and there were only 2 hidden.
 
 .. code-block:: python
