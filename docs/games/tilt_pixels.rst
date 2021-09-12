@@ -78,8 +78,8 @@ The TiltPixels class methods
 | The TiltPixels class methods are described bwlow.
 
 #. ``.pixels_to_get()`` creates a set of tuples of (x, y) coordinates for 2 to 10 hidden pixels.
-#. ``.acc_x_change()`` return -1 to move to the left, 0 for no change and 1 to move to the right.
-#. ``.acc_y_change()``return -1 to move to the top, 0 for no change and 1 to move to the bottom.
+#. ``.acc_x_change()`` returns -1 to move to the left, 0 for no change and 1 to move to the right.
+#. ``.acc_y_change()`` returns -1 to move to the top, 0 for no change and 1 to move to the bottom.
 #. ``.tilt()`` will move a bright pixel in the direction of tilt.
 #. ``.prepare_move()`` updates the new pixel and adds it to the pixels_filled set.
 #. ``.show()`` sets the brightness of the new pixel to bright, then dim.
@@ -102,6 +102,8 @@ The TiltPixels constructor
 
 | ``self.x_position`` keeps track of the x position of the current pixel.
 | ``self.y_position`` keeps track of the y position of the current pixel.
+| ``self.tilt_sensitivity`` sets the amount of tilt needed to move the pixel.
+| ``self.game_speed`` sets the sleep time between pixel moves.
 | ``self.pixels_filled`` is initialized as a set with the starting pixel tuple: ``(x_position, y_position)``. A set is used to make it easy to keep track of the visited pixels. A set is used instead of a list because sets don't allow duplicate values to be stored. When the microbit is tilted, each pixel will be added to the set. 
 | ``self.pixels_to_get`` stores the set of hidden pixels created using ``pixels_to_get()``. 
 | ``self.show()`` displays the pixel at (x_position, y_position).
@@ -115,6 +117,7 @@ The TiltPixels constructor
             self.x_position = x_position
             self.y_position = y_position
             self.tilt_sensitivity = 100
+            self.game_speed = 400
             self.pixels_filled = set((x_position, y_position))
             self.pixels_to_get = self.pixels_to_get()
             self.show()
@@ -341,7 +344,7 @@ Run game
         game_over = False
         while game_over is False:
             self.tilt()
-            sleep(200)
+            sleep(self.game_speed)
             if self.filled():
                 game_over = True
                 self.answer()
@@ -367,6 +370,7 @@ Game code
             self.x_position = x_position
             self.y_position = y_position
             self.tilt_sensitivity = 100
+            self.game_speed = 400
             self.pixels_filled = set((x_position, y_position))
             self.pixels_to_get = self.pixels_to_get()
             self.show()
@@ -432,7 +436,7 @@ Game code
             game_over = False
             while game_over is False:
                 self.tilt()
-                sleep(200)
+                sleep(self.game_speed)
                 if self.filled():
                     game_over = True
                     self.answer()
@@ -452,9 +456,9 @@ Game code
 
 .. admonition:: Tasks
 
-    #. Modify the code to require a button press to continue with a new game.
+    #. Modify the code to use a button press to peek at the answer for half a second while still playing the game.
     #. Write code to store all the game scores and display the average score with a button press.
-    #. Write code to use the A and B buttons to adjust the tilt sensitivity in steps of about 100. Use both buttons being pressed together to save the sensitivity and reuse it for new games.
-    #. The game has a sleep in the while True loop. Experiment with shorter or longer sleeps.
+    #. Write code to use the A and B buttons to adjust the game speed in steps of about 100.
+    #. Add a default parameter to the __init__ method for the game speed and use a for loop to increment the game speed from 200 to 500 in steps of 100 so that only 4 games are played.
 
 
