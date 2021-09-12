@@ -88,20 +88,20 @@ Converting to using a class
 ---------------------------------
 
 | The class version of the game code is below.
-| The ``__init__`` method has the responses list as well as an attribute for the text to display between responses.
-| The ``run_game`` method has the game code that was previously within the body of the while loop.
 | ``game = Magic8()`` instantiates the class by creating a copy of the class which inherits all the class attributes and methods.
+| The ``__init__`` method has the **responses** list as well as an attribute for the text to display between responses, **magic_text**.
+| The ``run_game`` method has the game code that was previously within the body of the while loop.
 | ``game.run_game()`` calls the ``run_game`` method on the game object to run the game.
 
 .. code-block:: python
 
-    """Magic_8 see standard responses at https://en.wikipedia.org/wiki/Magic_8-Ball"""
 
     from microbit import *
     import random
 
 
     class Magic8:
+        """Magic_8 game using a class"""
         def __init__(self, magic_text=8):
             self.magic_text = magic_text
             self.responses = [
@@ -146,7 +146,7 @@ Modifying classes
 
 | Below are some examples of how some challenge tasks can be achieved by modifying the use of classes.
 | To keep the code shorter, the standard game responses are replaced with the 4 below:
-| responses = ["For sure", "Yes", "No", "No way"]
+| ``responses = ["For sure", "Yes", "No", "No way"]``
 
 ----
 
@@ -157,14 +157,15 @@ Pass arguments to the class
 
     #. Use '?' as an argument for ``Magic8()`` to show '?' instead of '8'.
 
-| When no argument is passed when instantiating the game object, magic_text defaults to 8.
+| When no argument is passed when instantiating the game object, **magic_text** defaults to 8.
 | ``game = Magic8('?')`` replaces the default value of 8 with '?'.
 
 .. code-block:: python
 
     from microbit import *
     import random
-    
+
+
     class Magic8:
         def __init__(self, magic_text=8):
             self.magic_text = magic_text
@@ -181,7 +182,7 @@ Pass arguments to the class
         game = Magic8('?')
         game.run_game()
     
----
+----
 
 Modify the __init__ method in a child class
 ------------------------------------------------------
@@ -192,7 +193,7 @@ Modify the __init__ method in a child class
 
 | The Magic8 class can be used as the parent class.
 | A child class, ``Magic8pos``, can inherit from the ``Magic8`` class by passing ``Magic8`` as an argument when declaring ``Magic8pos``, as in: ``class Magic8pos(Magic8):``
-| Use ``super().__init__(magic_text=8)`` to inherit attributes from the ``__init__`` in the ``Magic8`` class.
+| Use ``super().__init__(magic_text=8)`` to inherit attributes from the ``__init__`` method in the ``Magic8`` class.
 | Modify the ``self.responses`` attribute in the child class, ``Magic8pos``, to just use positive responses.
 | There is no need to include a **run_game** method in the child class since it is inherited.
 
@@ -200,6 +201,7 @@ Modify the __init__ method in a child class
 
     from microbit import *
     import random
+
 
     class Magic8:
         def __init__(self, magic_text=8):
@@ -273,7 +275,6 @@ Use tilting in the run_game method in a child class
     while True:
         game = Magic8tilt()
         game.run_game()
-
 
 ----
 
