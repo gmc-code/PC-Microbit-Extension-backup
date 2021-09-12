@@ -40,14 +40,14 @@ Game design
     from microbit import *
 
 
-    gamepix = TiltPixels()
+    game = TiltPixels()
     while True:
-        gamepix.tilt()
+        game.tilt()
         sleep(200)
-        if gamepix.filled():
-            gamepix.answer()
-            display.scroll(gamepix.score())
-            gamepix = TiltPixels()
+        if game.filled():
+            game.answer()
+            display.scroll(game.score())
+            game = TiltPixels()
 
 ----
 
@@ -67,7 +67,7 @@ The TiltPixels class
 
     | Set up the game object to control the game, including the hidden and visited pixels.
     | Initial x, y values for the initial pixel could be passed here as an argument.
-    | ``gamepix = TiltPixels(2,2)`` would place the initial pixel in the center of the 5 by 5 grid.
+    | ``game = TiltPixels(2,2)`` would place the initial pixel in the center of the 5 by 5 grid.
     | There is no need to do so since the game has a constructor method to start at a random pixel.
 
 | The code below imports the random module and creates the game object by creating an instance of the TiltPixels class.
@@ -78,7 +78,7 @@ The TiltPixels class
     import random
 
 
-    gamepix = TiltPixels()
+    game = TiltPixels()
 
 ----
 
@@ -195,7 +195,7 @@ Accelerometer
 Tilt
 ---------------------------------
 
-| The ``while True`` loop calls ``gamepix.tilt()``
+| The ``while True`` loop calls ``game.tilt()``
 | This gets the change in the x and y coordinates from tilting.
 | The new pixel is stored in the set, ``pixels_filled``.
 | The new pixel is then shown brightly, then dimly.
@@ -389,14 +389,14 @@ Game code
             self.show()
 
 
-    gamepix = TiltPixels(0,0)
+    game = TiltPixels(0,0)
     while True:
-        gamepix.tilt()
+        game.tilt()
         sleep(200)
-        if gamepix.filled():
-            gamepix.answer()
-            display.scroll(gamepix.score())
-            gamepix = TiltPixels()
+        if game.filled():
+            game.answer()
+            display.scroll(game.score())
+            game = TiltPixels()
 
 
 

@@ -6,8 +6,8 @@ Game design
 --------------------
 
 | The user asks a yes–no question then shakes the microbit to receive an answer.
-| The standard responses are in a list, RESPONSES. (The convention is to use capitals for a constant.)
-| A random choice from the list is obtained using ``random.choice(RESPONSES)``.
+| The standard responses are in a list, responses.
+| A random choice from the list is obtained using ``random.choice(responses)``.
 
 Specific Syntax
 --------------------
@@ -16,7 +16,7 @@ Specific Syntax
 
     Return a random element from a sequence such as a list.
 
-.. py:function::  microbit.accelerometer.was_gesture(gesture)
+.. py:function::  accelerometer.was_gesture(gesture)
 
     Return True or False to indicate if the named gesture was active since the last call.
 
@@ -36,7 +36,7 @@ Simple Game code
     import random
 
 
-    RESPONSES = [
+    responses = [
         "It is certain",
         "It is decidedly so",
         "Without a doubt",
@@ -64,14 +64,16 @@ Simple Game code
         if accelerometer.was_gesture("shake"):
             display.clear()
             sleep(1000)
-            display.scroll(random.choice(RESPONSES), delay=120)
+            display.scroll(random.choice(responses), delay=120)
 
 ----
 
 .. admonition:: Tasks
 
+    #. Modify the code to require a tilt to the left or right instead of a shake.
     #. Modify the code to require a button press instead of a shake.
     #. Divide up the responses into positive responses and negative responses. Display a positive response when the A button is pressed and a negative response when the B button is pressed.
+    #. Divide up the responses into positive responses and negative responses. Display a positive response when the microbit is tilted to the left and a negative response when the microbit is tilted to the right.
 
 ----
 
@@ -79,10 +81,10 @@ Converting to using a class
 ---------------------------------
 
 | The class version of the game code is below.
-| The ``__init__`` method has the responses list.
+| The ``__init__`` method has the responses list as well as an attribute for the text to display between responses.
 | The ``run_game`` method has the game code that was previously within the body of the while loop.
-| ``m8 = Magic8()`` instantiates the class by creating a copy of the class which inherits all the class attributes and methods.
-| ``m8.run_game()`` calls the ``run_game`` method on the game object to run the game.
+| ``game = Magic8()`` instantiates the class by creating a copy of the class which inherits all the class attributes and methods.
+| ``game.run_game()`` calls the ``run_game`` method on the game object to run the game.
 
 .. code-block:: python
 
@@ -93,8 +95,9 @@ Converting to using a class
 
 
     class Magic8:
-        def __init__(self):
-            self.RESPONSES = [
+        def __init__(self, magic_text=8):
+            self.magic_text = magic_text
+            self.responses = [
                 "It is certain",
                 "It is decidedly so",
                 "Without a doubt",
@@ -113,26 +116,227 @@ Converting to using a class
                 "Don't count on it",
                 "My reply is no",
                 "My sources say no",
-                "Outlook not so good",0
+                "Outlook not so good",
                 "Very doubtful",
             ]
             
         def run_game(self):
-            display.show("8")
+            display.show(self.magic_text)
             if accelerometer.was_gesture("shake"):
                 display.clear()
                 sleep(1000)
-                display.scroll(random.choice(self.RESPONSES), delay=120)
+                display.scroll(random.choice(self.responses), delay=120)
 
     while True:
-        m8 = Magic8()
-        m8.run_game()
+        game = Magic8()
+        game.run_game()
 
 
 ----
 
+Modifying classes
+---------------------------------
+
+| Below are some examples of how some challenge tasks can be achieved by modifying the use of classes.
+| To keep the code shorter, the standard game responses are replaced with the 4 below:
+| responses = ["For sure", "Yes", "No", "No way"]
+
+----
+
+Pass arguments to the class
+---------------------------------
+
+.. admonition:: Tasks
+
+    #. Use '?' as an argument for ``Magic8()`` to show '?' instead of '8'.
+
+| When no argument is passed when instantiating the game object, magic_text defaults to 8.
+| ``game = Magic8('?')`` replaces the default value of 8 with '?'.
+
+.. code-block:: python
+
+    from microbit import *
+    import random
+    
+    class Magic8:
+        def __init__(self, magic_text=8):
+            self.magic_text = magic_text
+            self.responses = ["For sure", "Yes", "No", "No way"]
+
+        def run_game(self):
+            display.show(self.magic_text)
+            if accelerometer.was_gesture("shake"):
+                display.clear()
+            sleep(1000)
+            display.scroll(random.choice(self.responses), delay=120)
+
+    while True:
+        game = Magic8('?')
+        game.run_game()
+    
+---
+
+Modify the __init__ method in a child class
+------------------------------------------------------
+
+.. admonition:: Tasks
+
+    #. Modify the code to only respond with positive responses.
+
+| The Magic8 class can be used as the parent class.
+| A child class, ``Magic8pos``, can inherit from the ``Magic8`` class by passing ``Magic8`` as an argument when declaring ``Magic8pos``, as in: ``class Magic8pos(Magic8):``
+| Use ``super().__init__(magic_text=8)`` to inherit attributes from the ``__init__`` in the ``Magic8`` class.
+| Modify the ``self.responses`` attribute in the child class, ``Magic8pos``, to just use positive responses.
+| There is no need to include a **run_game** method in the child class since it is inherited.
+
+.. code-block:: python
+
+    from microbit import *
+    import random
+
+    class Magic8:
+        def __init__(self, magic_text=8):
+            self.magic_text = magic_text
+            self.responses = ["For sure", "Yes", "No", "No way"]
+
+        def run_game(self):
+            display.show(self.magic_text)
+            if accelerometer.was_gesture("shake"):
+                display.clear()
+                sleep(1000)
+                display.scroll(random.choice(self.responses), delay=120)
+
+
+    class Magic8pos(Magic8):
+        """modifies responses to just positive ones"""
+        def __init__(self, magic_text=8):
+            super().__init__(magic_text=8)
+            self.responses = ["It is certain", "Yes"]
+
+    while True:
+        game = Magic8pos(Magic8)
+        game.run_game()    
+
+----
+
+Use tilting in the run_game method in a child class
+----------------------------------------------------------
+
+.. admonition:: Tasks
+
+    #. Modify the code to require a tilt to the left or right instead of a shake.
+
+| The Magic8 class can be used as the parent class.
+| A child class, ``Magic8tilt``, can inherit from the ``Magic8`` class by passing it as an argument when declaring it, as in: ``class Magic8tilt(Magic8):``
+| Use ``super().__init__(magic_text=8)`` to inherit attributes from the ``__init__`` in the ``Magic8`` class.
+| Modify the ``run_game`` method in the child class, ``Magic8tilt``, to use tilts.
+
+.. code-block:: python
+
+    from microbit import *
+    import random
+
+
+    class Magic8:
+        def __init__(self, magic_text=8):
+            self.magic_text = magic_text
+            self.responses = ["For sure", "Yes", "No", "No way"]
+
+        def run_game(self):
+            display.show(self.magic_text)
+            if accelerometer.was_gesture("shake"):
+                display.clear()
+                sleep(1000)
+                display.scroll(random.choice(self.responses), delay=120)
+
+
+    class Magic8tilt(Magic8):
+        """modifies run_game to use tilts"""
+        def __init__(self, magic_text=8):
+            super().__init__(magic_text=8)
+                
+        def run_game(self):
+            display.show(self.magic_text)
+            if accelerometer.was_gesture("left") or accelerometer.was_gesture("right"):
+                display.clear()
+                sleep(1000)
+                display.scroll(random.choice(self.responses), delay=120)
+
+                    
+    while True:
+        game = Magic8tilt()
+        game.run_game()
+
+
+----
+
+Use button pressing in the run_game method in a child class
+-----------------------------------------------------------------------
+
 .. admonition:: Tasks
 
     #. Modify the code to require a button press instead of a shake.
-    #. Divide up the responses into positive responses and negative responses. Display a positive response when the A button is pressed and a negative response when the B button is pressed.
 
+| The Magic8 class can be used as the parent class.
+| A child class, ``Magic8button``, can inherit from the ``Magic8`` class by passing it as an argument when declaring it, as in: ``class Magic8button(Magic8):``
+| Use ``super().__init__(magic_text=8)`` to inherit attributes from the ``__init__`` in the ``Magic8`` class.
+| Modify the ``self.responses`` attribute to just use positive responses.
+
+.. code-block:: python
+
+    from microbit import *
+    import random
+
+
+    class Magic8:
+        def __init__(self, magic_text=8):
+            self.magic_text = magic_text
+            self.responses = ["For sure", "Yes", "No", "No way"]
+
+        def run_game(self):
+            display.show(self.magic_text)
+            if accelerometer.was_gesture("shake"):
+                display.clear()
+                sleep(1000)
+                display.scroll(random.choice(self.responses), delay=120)
+
+
+    class Magic8button(Magic8):
+        """modifies run_game to use button pressing"""
+        def __init__(self, magic_text=8):
+            super().__init__(magic_text=8)
+                
+        def run_game(self):
+            display.show(self.magic_text)
+            if button_a.is_pressed() or button_b.is_pressed():
+                display.clear()
+                sleep(1000)
+                display.scroll(random.choice(self.responses), delay=120)
+
+                    
+    while True:
+        game = Magic8button()
+        game.run_game()
+
+
+----
+
+
+                              
+while True:
+    game = Magic8button()
+    game.run_game()
+
+
+
+
+----
+
+
+
+.. admonition:: Tasks
+
+    #. 
+    #. 
+    #. Divide up the responses into positive responses and negative responses. Display a positive response when the A button is pressed and a negative response when the B button is pressed.
+    #. Divide up the responses into positive responses and negative responses. Display a positive response when the microbit is tilted to the left and a negative response when the microbit is tilted to the right.
