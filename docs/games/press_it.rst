@@ -54,7 +54,7 @@ The PressItGame class
 
 .. py:class:: PressItGame()
 
-    | Set up the game object to control the game, including the SPEED dictionary, the LEVELUP tuple, the initial level and score.
+    | Set up the game object to control the game, including the TIMELIMIT dictionary, the LEVELUP tuple, the initial level and score.
 
 | The code below imports the random module and creates the game object by creating an instance of the TiltPixels class.
 
@@ -65,38 +65,6 @@ The PressItGame class
 
 
     game = PressItGame()
-
-
-----
-
-The TiltPixels constructor
----------------------------------
-
-.. py:method:: __init__(x_position=random.randint(0, 4), y_position=random.randint(0, 4))
-
-    | The __init__() method is the constructor called when the game object is created.
-    | The starting pixel is at the coordinates: ``(x_position, y_position)``.
-    | ``x_position`` is the starting x value which by default will be a random integer from 0 to 4.
-    | ``y_position`` is the starting y value which by default will be a random integer from 0 to 4.
-
-| ``self.x_position`` keeps track of the x position of the current pixel.
-| ``self.y_position`` keeps track of the y position of the current pixel.
-| ``self.pixels_filled`` is initialized as a set with the starting pixel tuple: ``(x_position, y_position)``. A set is used to make it easy to keep track of the visited pixels. A set is used instead of a list because sets don't allow duplicate values to be stored. When the microbit is tilted, each pixel will be added to the set. 
-| ``self.pixels_to_get`` stores the set of hidden pixels created using ``pixels_to_get()``. 
-| ``self.show()`` displays the pixel at (x_position, y_position).
-
-| The __init__ method is given below.
-
-.. code-block:: python
-
-    class PressItGame:
-        def __init__(self, x_position=random.randint(0, 4), y_position=random.randint(0, 4)):
-            self.x_position = x_position
-            self.y_position = y_position
-            self.pixels_filled = set((x_position, y_position))
-            self.pixels_to_get = self.pixels_to_get()
-            self.show()
-
 
 ----
 
