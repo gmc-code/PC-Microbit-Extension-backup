@@ -333,7 +333,7 @@ Run game
 
 .. py:method:: run_game()
 
-    | Turn on pixels as teh microbit is tilted until the hidden pixels are found.
+    | Turn on pixels as the microbit is tilted until the hidden pixels are found.
 
 .. code-block:: python
 
