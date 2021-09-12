@@ -23,28 +23,6 @@ Game design
         #. Display an X (Image.NO)
         #. Scroll the score
 
-| The code uses the class, ``PressItGame()``, for the game object.
-| 8 methods will be used.
-
-#. ``.show_a()`` shows 'A' to direct the user to press the A button.
-#. ``.show_b()`` shows 'B' to direct the user to press the B button.
-#. ``.show_yes()`` displays a tick when the correct button is pressed.
-#. ``.show_no()`` displays a cross when the wrong button is pressed.
-#. ``.show_levelup()`` shows an up arrow then the level number.
-#. ``.is_correct_button()`` waits according to the level TIMELIMIT and returns
-#. ``.show_a()`` show 'A' to direct the user to press the A button.
-#. ``.show_b()`` show 'B' to direct the user to press the B button.
-
-
-
-.. code-block:: python
-
-    from microbit import *
-    import random
-
-
-    game = PressItGame()
-
 ----
 
 The PressItGame class
@@ -56,7 +34,7 @@ The PressItGame class
 
     | Set up the game object to control the game, including the TIMELIMIT dictionary, the LEVELUP tuple, the initial level and score.
 
-| The code below imports the random module and creates the game object by creating an instance of the TiltPixels class.
+| The code below imports the random module and creates the game object by creating an instance of the PressItGame class.
 
 .. code-block:: python
 
