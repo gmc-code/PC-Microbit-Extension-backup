@@ -23,39 +23,25 @@ Game design
 
 #. ``.tilt()`` will move a bright pixel in the direction of tilt.
 #. ``.filled()`` will check if all the hidden pixels have been visited by tilting.
-#. ``.answer()`` will display the hidden pixels brightly and the visited pixels dimly.
-#. ``.score()`` will calculate the score.
+
 
 
 .. code-block:: python
 
     from microbit import *
+    import random
 
 
-    gamepix = TiltPixels()
-    while True:
-        gamepix.tilt()
-        sleep(200)
-        if gamepix.filled():
-            gamepix.answer()
-            display.scroll(gamepix.score())
-            gamepix = TiltPixels()
+    game = PressItGame()
 
 ----
 
-The TiltPixels class
+The PressItGame class
 ------------------------
 
-.. admonition:: Tip
-    
-    **TiltPixels** is written in camel case. This is the python naming convention for classes. Each word is capitalized and their are no underscores. This is different to the convention for a variable which would be written in snake case as **tilt_pixels**.
-
 | Use a class for the game object since it makes it easy to group together the game data and game functions.
-| The game data are attributes. Attributes are variables belonging to a class.
-| The game functions are methods. Methods are functions associated with a class.
 
-
-.. py:class:: TiltPixels()
+.. py:class:: PressItGame()
 
     | Set up the game object to control the game, including the hidden and visited pixels.
     | Initial x, y values for the initial pixel could be passed here as an argument.
@@ -70,7 +56,8 @@ The TiltPixels class
     import random
 
 
-    gamepix = TiltPixels()
+    game = PressItGame()
+
 
 ----
 
@@ -94,7 +81,7 @@ The TiltPixels constructor
 
 .. code-block:: python
 
-    class TiltPixels:
+    class PressItGame:
         def __init__(self, x_position=random.randint(0, 4), y_position=random.randint(0, 4)):
             self.x_position = x_position
             self.y_position = y_position
@@ -113,51 +100,13 @@ The hidden pixels
     | e.g with 5 pixels: {(2, 1), (4, 1), (3, 4), (2, 0), (1, 1)}
 
 | The decorator ``@staticmethod``, makes the function a static method. This utility function doesn't access any properties of the class. No reference to ``self`` is passed to it.
-| ``pixels = set()`` creates an empty set.
-| ``pixels.add((x, y))`` adds a tuple of x and y values to the set. These are the coordinates of each hidden pixel to find.
-| ``for _ in range(random.randint(2, 10))`` controls the number of pixels to find. There will be a random number of pixels, from 2 to 10 pixels, to find. 
-| ``_`` is used by convention when the iterator variable is not needed in the for-loop body.
+
 
 .. code-block:: python
 
-    class TiltPixels:
+    class PressItGame:
         ...
 
-        @staticmethod
-        def pixels_to_get():
-            pixels = set()
-            for _ in range(random.randint(2, 10)):
-                pixels.add((random.randint(0, 4), random.randint(0, 4)))
-            return pixels
-
-----
-
-Accelerometer
----------------------------------
-
-.. py:method:: acc_x_change()
-
-    | Return an integer that will be used to move the pixel left or right.
-    | Values are: -1 to move to the left, 0 for no change and 1 to move to the right.
-    | A sensitivity of 300 can be exceeded with a small tilt.
-
-.. code-block:: python
-
-    class TiltPixels:
-        ...
-
-        def acc_x_change(self):
-            sensitivity = 300
-            accx = accelerometer.get_x()
-            if accx < -sensitivity:
-                xd = -1
-            elif accx > sensitivity:
-                xd = 1
-            else:
-                xd = 0
-            return xd
-
-----
 ----
 
 Game code
@@ -247,8 +196,8 @@ Game code
     while True:
         if button_a.is_pressed() and button_b.is_pressed():
             break
-        pg = PressItGame()
-        pg.run_game()
+        game = PressItGame()
+        game.run_game()
 
 
 
