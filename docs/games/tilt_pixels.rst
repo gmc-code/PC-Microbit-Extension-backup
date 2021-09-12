@@ -326,9 +326,7 @@ Run game
 ---------------------------------
 
 | Use the accelerometer to detect a tilt and move the pixel.
-| If all the pixels have been found then:
-| Display the location of the hidden pixels as well as the visited pixels.
-| Scroll the score.
+| If all the pixels have been found then display the location of the hidden pixels as well as the visited pixels and scroll the score.
 
 
 .. py:method:: run_game()
