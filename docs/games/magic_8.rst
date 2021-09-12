@@ -280,7 +280,8 @@ Use button pressing in the run_game method in a child class
 | The Magic8 class can be used as the parent class.
 | A child class, ``Magic8button``, can inherit from the ``Magic8`` class by passing it as an argument when declaring it, as in: ``class Magic8button(Magic8):``
 | Use ``super().__init__(magic_text=8)`` to inherit attributes from the ``__init__`` in the ``Magic8`` class.
-| Modify the ``self.responses`` attribute to just use positive responses.
+| Modify the ``run_game`` method in the child class, ``Magic8button``, to use button pressing.
+
 
 .. code-block:: python
 
@@ -321,22 +322,50 @@ Use button pressing in the run_game method in a child class
 
 ----
 
-
-                              
-while True:
-    game = Magic8button()
-    game.run_game()
-
-
-
-
-----
-
-
+Modify the __init__ and run_game methods in a new class
+-----------------------------------------------------------------------
 
 .. admonition:: Tasks
 
-    #. 
-    #. 
     #. Divide up the responses into positive responses and negative responses. Display a positive response when the A button is pressed and a negative response when the B button is pressed.
-    #. Divide up the responses into positive responses and negative responses. Display a positive response when the microbit is tilted to the left and a negative response when the microbit is tilted to the right.
+
+| Rewrite the Magic8 class since both methods need changing.
+| In the __init__ method, use **responses_pos** and **responses_neg** instead of just **responses**
+| In the ``run_game`` method, use button pressing to set the responses_choice to pick from for display.
+
+.. code-block:: python
+
+    from microbit import *
+    import random
+
+
+    class Magic8PosNegButtons:
+        def __init__(self, magic_text=8):
+            self.magic_text = magic_text
+            self.responses_pos = ["For sure", "Yes"]
+            self.responses_neg = ["No", "No way"]
+
+        def run_game(self):
+            display.show(self.magic_text)
+            if button_a.is_pressed():
+                responses_choice = self.responses_pos
+            elif button_b.is_pressed():
+                responses_choice = self.responses_neg
+            else:    
+                responses_choice = ""
+            if responses_choice is not "":
+                display.clear()
+                sleep(1000)
+                display.scroll(random.choice(responses_choice), delay=120)
+
+
+    while True:
+        game = Magic8PosNegButtons()
+        game.run_game()
+
+----
+
+.. admonition:: Tasks
+
+    #. Use a subclass of ``Magic8PosNegButtons`` to display a positive response when the microbit is tilted to the left and a negative response when the microbit is tilted to the right.
+
