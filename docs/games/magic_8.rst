@@ -6,7 +6,7 @@ Game design
 --------------------
 
 | The user asks a yes–no question then shakes the microbit to receive an answer.
-| The standard responses are in a list, responses.
+| The standard responses are in a list named **responses**.
 | A random choice from the list is obtained using ``random.choice(responses)``.
 
 Specific Syntax
@@ -16,9 +16,15 @@ Specific Syntax
 
     Return a random element from a sequence such as a list.
 
+| e.g. Randomly choose from the list, responses, and scroll the choice.
+| ``display.scroll(random.choice(responses), delay=120)``
+
 .. py:function::  accelerometer.was_gesture(gesture)
 
     Return True or False to indicate if the named gesture was active since the last call.
+
+| e.g. Decide what to do if the microbit was shaken.
+| ``if accelerometer.was_gesture("shake"):``
 
 ----
 
