@@ -75,16 +75,19 @@ The TiltPixels class
 The TiltPixels class methods
 -------------------------------
 
-| Other methods will be used within the class.
+| The TiltPixels class methods are described bwlow.
 
-#. ``.run_game()`` runs the game in full.
+#. ``.pixels_to_get()`` creates a set of tuples of (x, y) coordinates for 2 to 10 hidden pixels.
+#. ``.acc_x_change()`` return -1 to move to the left, 0 for no change and 1 to move to the right.
+#. ``.acc_y_change()``return -1 to move to the top, 0 for no change and 1 to move to the bottom.
 #. ``.tilt()`` will move a bright pixel in the direction of tilt.
+#. ``.prepare_move()`` updates the new pixel and adds it to the pixels_filled set.
+#. ``.show()`` sets the brightness of the new pixel to bright, then dim.
 #. ``.filled()`` will check if all the hidden pixels have been visited by tilting.
 #. ``.answer()`` will display the hidden pixels brightly and the visited pixels dimly.
 #. ``.score()`` will calculate the score.
-#. ``.acc_x_change()`` 
-#. ``.acc_y_change()``
-
+#. ``.run_game()`` runs the game in full.
+#. 
 ----
 
 The TiltPixels constructor
@@ -111,6 +114,7 @@ The TiltPixels constructor
         def __init__(self, x_position=random.randint(0, 4), y_position=random.randint(0, 4)):
             self.x_position = x_position
             self.y_position = y_position
+            self.tilt_sensitivity = 100
             self.pixels_filled = set((x_position, y_position))
             self.pixels_to_get = self.pixels_to_get()
             self.show()
@@ -140,7 +144,9 @@ The hidden pixels
         def pixels_to_get():
             pixels = set()
             for _ in range(random.randint(2, 10)):
-                pixels.add((random.randint(0, 4), random.randint(0, 4)))
+                x = random.randint(0, 4)
+                y = random.randint(0, 4)
+                pixels.add((x, y))
             return pixels
 
 ----
@@ -152,7 +158,7 @@ Accelerometer
 
     | Return an integer that will be used to move the pixel left or right.
     | Values are: -1 to move to the left, 0 for no change and 1 to move to the right.
-    | A sensitivity of 300 can be exceeded with a small tilt.
+    | A sensitivity of 100 can be exceeded with a small tilt.
 
 .. code-block:: python
 
@@ -160,7 +166,7 @@ Accelerometer
         ...
 
         def acc_x_change(self):
-            sensitivity = 300
+            sensitivity = self.tilt_sensitivity
             accx = accelerometer.get_x()
             if accx < -sensitivity:
                 xd = -1
@@ -176,7 +182,7 @@ Accelerometer
 
     | Return an integer that will be used to move the pixel left to right.
     | Values are: -1 to move to the top, 0 for no change and 1 to move to the bottom.
-    | A sensitivity of 300 can be exceeded with a small tilt.
+    | A sensitivity of 100 can be exceeded with a small tilt.
 
 .. code-block:: python
 
@@ -184,7 +190,7 @@ Accelerometer
         ...
 
         def acc_y_change(self):
-            sensitivity = 300
+            sensitivity = self.tilt_sensitivity
             accy = accelerometer.get_y()
             if accy < -sensitivity:
                 yd = -1
@@ -206,7 +212,7 @@ Tilt
 
 .. py:method:: tilt()
 
-    | Calls the move method and the show method.
+    | Calls the **prepare_move** method and the **show** method.
 
 .. code-block:: python
 
@@ -214,17 +220,17 @@ Tilt
         ...
 
         def tilt(self):
-            self.move(self.acc_x_change(),self.acc_y_change())
+            self.prepare_move(self.acc_x_change(),self.acc_y_change())
             self.show()
 
 ----
 
-Move
+Prepare move
 ~~~~~~~~~~~~~~~~
 
-.. py:method:: move(x_delta, y_delta)
+.. py:method:: prepare_move(x_delta, y_delta)
 
-    | Updates the x_position and y_position values for the new pixel.
+    | Updates the x_position and y_position values for the new pixel and adds it to the pixels_filled set.
     | x_delta is the integer returned from ``acc_x_change()``.
     | y_delta is the integer returned from ``acc_y_change()``.
 
@@ -236,7 +242,7 @@ Move
     class TiltPixels:
         ...
 
-        def move(self, x_delta, y_delta):
+        def prepare_move(self, x_delta, y_delta):
             self.x_position = min(4, max(0, self.x_position + x_delta))
             self.y_position = min(4, max(0, self.y_position + y_delta))
             self.pixels_filled.add((self.x_position, self.y_position))
@@ -305,11 +311,41 @@ Answer and score
         def answer(self):
             # display.clear()
             for i in self.pixels_to_get:
-                display.set_pixel(i[0], i[0], 9)
+                display.set_pixel(i[0], i[1], 9)
             sleep(2000)
         
         def score(self):
             return len(self.pixels_filled) - len(self.pixels_to_get)
+    
+----
+
+Run game
+---------------------------------
+
+| Use the accelerometer to detect a tilt and move the pixel.
+| If all the pixels have been found then:
+| Display the location of the hidden pixels as well as the visited pixels.
+| Scroll the score.
+
+
+.. py:method:: run_game()
+
+    | Turn on pixels as teh microbit is tilted until the hidden pixels are found.
+
+.. code-block:: python
+
+    class TiltPixels:
+        ...
+
+    def run_game(self):
+        game_over = False
+        while game_over is False:
+            self.tilt()
+            sleep(200)
+            if self.filled():
+                game_over = True
+                self.answer()
+                display.scroll(self.score())
     
 ----
 
@@ -330,6 +366,7 @@ Game code
         def __init__(self, x_position=random.randint(0, 4), y_position=random.randint(0, 4)):
             self.x_position = x_position
             self.y_position = y_position
+            self.tilt_sensitivity = 100
             self.pixels_filled = set((x_position, y_position))
             self.pixels_to_get = self.pixels_to_get()
             self.show()
@@ -338,13 +375,15 @@ Game code
         def pixels_to_get():
             pixels = set()
             for _ in range(random.randint(2, 10)):
-                pixels.add((random.randint(0, 4), random.randint(0, 4)))
+                x = random.randint(0, 4)
+                y = random.randint(0, 4)
+                pixels.add((x, y))
             return pixels
 
         def answer(self):
             # display.clear()
             for i in self.pixels_to_get:
-                display.set_pixel(i[0], i[0], 9)
+                display.set_pixel(i[0], i[1], 9)
             sleep(2000)
 
         def filled(self):
@@ -353,7 +392,7 @@ Game code
         def score(self):
             return len(self.pixels_filled) - len(self.pixels_to_get)
         
-        def move(self, x_delta, y_delta):
+        def prepare_move(self, x_delta, y_delta):
             self.x_position = min(4, max(0, self.x_position + x_delta))
             self.y_position = min(4, max(0, self.y_position + y_delta))
             self.pixels_filled.add((self.x_position, self.y_position))
@@ -364,7 +403,7 @@ Game code
             display.set_pixel(self.x_position, self.y_position, 2)
 
         def acc_x_change(self):
-            sensitivity = 300
+            sensitivity = self.tilt_sensitivity
             accx = accelerometer.get_x()
             if accx < -sensitivity:
                 xd = -1
@@ -375,7 +414,7 @@ Game code
             return xd
 
         def acc_y_change(self):
-            sensitivity = 300
+            sensitivity = self.tilt_sensitivity
             accy = accelerometer.get_y()
             if accy < -sensitivity:
                 yd = -1
@@ -386,7 +425,7 @@ Game code
             return yd
             
         def tilt(self):
-            self.move(self.acc_x_change(),self.acc_y_change())
+            self.prepare_move(self.acc_x_change(),self.acc_y_change())
             self.show()
 
         def run_game(self):
@@ -407,8 +446,6 @@ Game code
             game.run_game()
         else:
             sleep(2000)
-
-
 
 
 ----
