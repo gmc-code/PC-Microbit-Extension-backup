@@ -10,9 +10,9 @@ Games using classes
 | The game data are attributes. **Attributes** are variables belonging to a class.
 | The game functions are methods. **Methods** are functions associated with a class.
 
-| Modifying the game while keeping the original game intact is possible thanks to **Polymorphism** and  **Inheritance**.
-| Inheritance: Subclasses can be created which inherit the attributes and methods from the original game class.
-| Polymorphism: Selected attributes or methods in the subclasses can be adjusted to create different versions of the game.
+| Modifying the game while keeping the original game intact is possible thanks to Polymorphism and  Inheritance.
+| **Inheritance**: Subclasses can be created which inherit the attributes and methods from the original game class.
+| **Polymorphism**: Selected attributes or methods in the subclasses can be adjusted to create different versions of the game.
 
 | See https://pc-microbit-extension.readthedocs.io/en/latest/games/magic_8.html for examples of modifying classes.
 
@@ -21,5 +21,5 @@ Games using classes
 
 .. admonition:: Tip
     
-    **MicrobitGame** is written in camel case. This is the python naming convention for classes. Each word is capitalized and their are no underscores. This is different to the convention for a variable which would be written in snake case as **microbit_game**.
+    **MicrobitGame** is written in camel case. This is the python naming convention for classes. Each word is capitalized and there are no underscores. This is different to the convention for a variable which would be written, in snake case, as **microbit_game**.
 
