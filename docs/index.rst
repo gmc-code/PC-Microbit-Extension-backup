@@ -31,7 +31,7 @@ Key references:
 
 .. toctree::
     :maxdepth: 2
-    :caption: Games
+    :caption: Class Games
     :numbered:
 
     games/introduction.rst
