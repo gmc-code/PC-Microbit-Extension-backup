@@ -27,13 +27,10 @@ Game design
         #. Set up the game object again and play again.
 
 | The code uses the class, ``TiltPixels()``, for the game object.
-| 4 methods will be used.
+| Only the ``run_game`` method is used outside the class itself.
 
-#. ``.tilt()`` will move a bright pixel in the direction of tilt.
-#. ``.filled()`` will check if all the hidden pixels have been visited by tilting.
-#. ``.answer()`` will display the hidden pixels brightly and the visited pixels dimly.
-#. ``.score()`` will calculate the score.
-
+| The code below omits the TiltPixels class for simplicity, but shows the rest of the game code.
+| The while True loop repeats the game if both buttons have been pressed.
 
 .. code-block:: python
 
@@ -41,27 +38,20 @@ Game design
 
 
     game = TiltPixels()
+    game.run_game()
     while True:
-        game.tilt()
-        sleep(200)
-        if game.filled():
-            game.answer()
-            display.scroll(game.score())
+        if button_a.was_pressed() and button_b.was_pressed():
             game = TiltPixels()
+            game.run_game()
+        else:
+            sleep(2000)
 
 ----
 
 The TiltPixels class
 ------------------------
 
-.. admonition:: Tip
-    
-    **TiltPixels** is written in camel case. This is the python naming convention for classes. Each word is capitalized and their are no underscores. This is different to the convention for a variable which would be written in snake case as **tilt_pixels**.
-
-| Use a class for the game object since it makes it easy to group together the game data and game functions.
-| The game data are attributes. Attributes are variables belonging to a class.
-| The game functions are methods. Methods are functions associated with a class.
-
+| The ``TiltPixels`` class groups together the game attributes and game methods.
 
 .. py:class:: TiltPixels()
 
@@ -79,6 +69,21 @@ The TiltPixels class
 
 
     game = TiltPixels()
+
+----
+
+The TiltPixels class methods
+-------------------------------
+
+| Other methods will be used within the class.
+
+#. ``.run_game()`` runs the game in full.
+#. ``.tilt()`` will move a bright pixel in the direction of tilt.
+#. ``.filled()`` will check if all the hidden pixels have been visited by tilting.
+#. ``.answer()`` will display the hidden pixels brightly and the visited pixels dimly.
+#. ``.score()`` will calculate the score.
+#. ``.acc_x_change()`` 
+#. ``.acc_y_change()``
 
 ----
 
@@ -189,7 +194,6 @@ Accelerometer
                 yd = 0
             return yd
 
-
 ----
 
 Tilt
@@ -199,7 +203,6 @@ Tilt
 | This gets the change in the x and y coordinates from tilting.
 | The new pixel is stored in the set, ``pixels_filled``.
 | The new pixel is then shown brightly, then dimly.
-
 
 .. py:method:: tilt()
 
@@ -213,7 +216,6 @@ Tilt
         def tilt(self):
             self.move(self.acc_x_change(),self.acc_y_change())
             self.show()
-
 
 ----
 
@@ -238,7 +240,6 @@ Move
             self.x_position = min(4, max(0, self.x_position + x_delta))
             self.y_position = min(4, max(0, self.y_position + y_delta))
             self.pixels_filled.add((self.x_position, self.y_position))
-
 
 ----
 
@@ -388,16 +389,24 @@ Game code
             self.move(self.acc_x_change(),self.acc_y_change())
             self.show()
 
+        def run_game(self):
+            game_over = False
+            while game_over is False:
+                self.tilt()
+                sleep(200)
+                if self.filled():
+                    game_over = True
+                    self.answer()
+                    display.scroll(self.score())
 
-    game = TiltPixels(0,0)
+    game = TiltPixels()
+    game.run_game()
     while True:
-        game.tilt()
-        sleep(200)
-        if game.filled():
-            game.answer()
-            display.scroll(game.score())
+        if button_a.was_pressed() and button_b.was_pressed():
             game = TiltPixels()
-
+            game.run_game()
+        else:
+            sleep(2000)
 
 
 

@@ -238,7 +238,7 @@ Use tilting in the run_game method in a child class
 | The Magic8 class can be used as the parent class.
 | A child class, ``Magic8tilt``, can inherit from the ``Magic8`` class by passing it as an argument when declaring it, as in: ``class Magic8tilt(Magic8):``
 | Use ``super().__init__(magic_text=8)`` to inherit attributes from the ``__init__`` in the ``Magic8`` class.
-| Modify the ``run_game`` method in the child class, ``Magic8tilt``, to use tilts.
+| Modify the ``run_game`` method in the child class, ``Magic8tilt``, to use tilting.
 
 .. code-block:: python
 
@@ -339,7 +339,7 @@ Modify the __init__ and run_game methods in a new class
 
 | Rewrite the Magic8 class since both methods need changing.
 | In the __init__ method, use **responses_pos** and **responses_neg** instead of just **responses**
-| In the ``run_game`` method, use button pressing to set the responses_choice to pick from for display.
+| In the ``run_game`` method, use button pressing to set the **responses_choice** to pick from for display.
 
 .. code-block:: python
 
@@ -361,7 +361,7 @@ Modify the __init__ and run_game methods in a new class
                 responses_choice = self.responses_neg
             else:    
                 responses_choice = ""
-            if responses_choice is not "":
+            if responses_choice != "":
                 display.clear()
                 sleep(1000)
                 display.scroll(random.choice(responses_choice), delay=120)

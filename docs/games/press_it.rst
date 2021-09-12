@@ -8,21 +8,32 @@ Game design
 | Press It is a game to press the A or B button after 'A' or 'B' is shown.
 | A class is used to run the game.
 
-#. Set up the game object (initialize an instance of the class)
-    a. Set between 2 and 10 random pixels to be found.
-    b. Start from a random pixel and display it brightly then faintly.
-#. Repeat the following steps:
-    a. Use the accelerometer to detect a tilt and move the pixel.
-    b. If all the pixels have been found then:
-        #. Display the location of the hidden pixels as when as the visited pixels.
-        #. Scroll the score.
-        #. Set up the game object again and play again.
+#. Set up the game object
+    a. Assign values to the TIMELIMIT dictionary.
+    b. Assign values to the LEVELUP tuple.
+    c. Set the score to 0.
+    d. Set the level to 1
+#. Run the game:
+    a. Show 'A' or 'B'.
+    b. If the correct button is pressed within the time limit then:
+        #. Display a tick (Image.YES)
+        #. Add one to the score
+        #. Level up if the next level has been reached.
+    b. If the wrong button is pressed or no button is pressed within the time limit then:
+        #. Display an X (Image.NO)
+        #. Scroll the score
 
-| The code uses the class, ``TiltPixels()``, for the game object.
-| 4 methods will be used.
+| The code uses the class, ``PressItGame()``, for the game object.
+| 8 methods will be used.
 
-#. ``.tilt()`` will move a bright pixel in the direction of tilt.
-#. ``.filled()`` will check if all the hidden pixels have been visited by tilting.
+#. ``.show_a()`` shows 'A' to direct the user to press the A button.
+#. ``.show_b()`` shows 'B' to direct the user to press the B button.
+#. ``.show_yes()`` displays a tick when the correct button is pressed.
+#. ``.show_no()`` displays a cross when the wrong button is pressed.
+#. ``.show_levelup()`` shows an up arrow then the level number.
+#. ``.is_correct_button()`` waits according to the level TIMELIMIT and returns
+#. ``.show_a()`` show 'A' to direct the user to press the A button.
+#. ``.show_b()`` show 'B' to direct the user to press the B button.
 
 
 
@@ -39,14 +50,11 @@ Game design
 The PressItGame class
 ------------------------
 
-| Use a class for the game object since it makes it easy to group together the game data and game functions.
+| Use a class for the game object.
 
 .. py:class:: PressItGame()
 
-    | Set up the game object to control the game, including the hidden and visited pixels.
-    | Initial x, y values for the initial pixel could be passed here as an argument.
-    | ``gamepix = TiltPixels(2,2)`` would place the initial pixel in the center of the 5 by 5 grid.
-    | There is no need to do so since the game has a constructor method to start at a random pixel.
+    | Set up the game object to control the game, including the SPEED dictionary, the LEVELUP tuple, the initial level and score.
 
 | The code below imports the random module and creates the game object by creating an instance of the TiltPixels class.
 
@@ -89,23 +97,6 @@ The TiltPixels constructor
             self.pixels_to_get = self.pixels_to_get()
             self.show()
 
-----
-
-The hidden pixels
----------------------------------
-
-.. py:method:: pixels_to_get()
-
-    | Create a set of tuples of (x, y) coordinates for 2 to 10 hidden pixels.
-    | e.g with 5 pixels: {(2, 1), (4, 1), (3, 4), (2, 0), (1, 1)}
-
-| The decorator ``@staticmethod``, makes the function a static method. This utility function doesn't access any properties of the class. No reference to ``self`` is passed to it.
-
-
-.. code-block:: python
-
-    class PressItGame:
-        ...
 
 ----
 
@@ -122,15 +113,15 @@ Game code
     import random
 
 
-    SPEED = {1: 1200, 2: 1000, 3: 800, 4: 700, 5: 600, 6: 550, 7: 500, 8: 450}
-    LEVELUP = (3, 6, 9, 12, 15, 18, 21)
-        
     class PressItGame():
-            
+        
+        TIMELIMIT = {1: 1200, 2: 1000, 3: 800, 4: 700, 5: 600, 6: 550, 7: 500, 8: 450, 9: 400}
+        LEVELUP = (3, 6, 9, 12, 15, 18, 21, 24)
+        
         def __init__(self):
-            self.level = 1
             self.score = 0
-            
+            self.level = 1
+
         def show_a(self):
             display.show("A")
 
@@ -140,11 +131,11 @@ Game code
         def show_yes(self):
             display.show(Image.YES)
             sleep(500)
-            
+
         def show_no(self):
             display.show(Image.NO)
             sleep(500)
-            
+
         def show_levelup(self):
             display.show(Image.ARROW_N)
             display.scroll('level ' + str(self.level), delay=60)
@@ -155,12 +146,12 @@ Game code
             if button_number == 0:
                 self.show_a()
             elif button_number == 1:
-                self.show_b()  
+                self.show_b()
             a_pressed = False
             b_pressed = False
             start_time= running_time()
             now = running_time()
-            while now - start_time < SPEED[self.level]:
+            while now - start_time < self.TIMELIMIT[self.level]:
                 if button_a.is_pressed():
                     a_pressed = True
                 if button_b.is_pressed():
@@ -176,28 +167,33 @@ Game code
                     return True
                 else:
                     return False
-                    
+
         def run_game(self):
             display.scroll("A or B")
             display.scroll('level ' + str(self.level), delay=60)
-            gameover = False
-            while gameover is False:
+            game_over = False
+            while game_over is False:
                 if self.is_correct_button():
                     self.show_yes()
                     self.score += 1
-                    if self.score in LEVELUP:
+                    if self.score in self.LEVELUP:
                         self.level += 1
                         self.show_levelup()
                 else:
-                    gameover = True
+                    game_over = True
                     self.show_no()
                     display.scroll('score ' + str(self.score), delay=60)
 
+    game = PressItGame()
+    game.run_game()
+    if button_a.was_pressed() and button_b.was_pressed():
+        sleep(100)
     while True:
-        if button_a.is_pressed() and button_b.is_pressed():
-            break
-        game = PressItGame()
-        game.run_game()
+        if button_a.was_pressed() and button_b.was_pressed():
+            game = PressItGame()
+            game.run_game()
+        else:
+            sleep(2000)
 
 
 
