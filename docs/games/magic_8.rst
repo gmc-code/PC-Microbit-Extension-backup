@@ -1,5 +1,5 @@
 ====================================================
-Magic 8-ball simulation
+Magic 8-ball
 ====================================================
 
 Game design
@@ -76,6 +76,7 @@ Simple Game code
 
 .. admonition:: Tasks
 
+    #. Modify the code to only respond with positive responses.
     #. Modify the code to require a tilt to the left or right instead of a shake.
     #. Modify the code to require a button press instead of a shake.
     #. Divide up the responses into positive responses and negative responses. Display a positive response when the A button is pressed and a negative response when the B button is pressed.
