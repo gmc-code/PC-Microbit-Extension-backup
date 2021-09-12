@@ -34,8 +34,10 @@ Key references:
     :caption: Games
     :numbered:
 
-    games/tilt_pixels.rst
+    games/introduction.rst
     games/magic_8.rst
+    games/tilt_pixels.rst
+    games/press_it.rst
 
 .. toctree::
     :maxdepth: 2
