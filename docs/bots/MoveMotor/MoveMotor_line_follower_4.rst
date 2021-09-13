@@ -64,7 +64,7 @@ Add thick line following: modify the while True loop
 | Add button pressing to change the line following mode.
 | Use the A button to set the buggy to follow a thin line by setting ``thin_line_follow_flag`` to True.
 | Use the B button to set the buggy to follow a thick line by setting ``thin_line_follow_flag`` to False.
-| Add the if-else block to set teh line following mode based on ``thin_line_follow_flag``.
+| Add the if-else block to set the line following mode based on ``thin_line_follow_flag``.
 
 .. code-block:: python
 

@@ -75,7 +75,7 @@ The TiltPixels class
 The TiltPixels class methods
 -------------------------------
 
-| The TiltPixels class methods are described bwlow.
+| The TiltPixels class methods are described below.
 
 #. ``.pixels_to_get()`` creates a set of tuples of (x, y) coordinates for 2 to 10 hidden pixels.
 #. ``.acc_x_change()`` returns -1 to move to the left, 0 for no change and 1 to move to the right.
@@ -87,7 +87,7 @@ The TiltPixels class methods
 #. ``.answer()`` will display the hidden pixels brightly and the visited pixels dimly.
 #. ``.score()`` will calculate the score.
 #. ``.run_game()`` runs the game in full.
-#. 
+
 ----
 
 The TiltPixels constructor
@@ -280,7 +280,7 @@ Filled
 .. py:method:: filled()
 
     | Returns True if all the hidden pixels have been visited, or False if not.
-    | It uses the issubset method to check if the tall the values in teh set pixels_to_get are in teh set pixels_filled.
+    | It uses the **issubset** method to check if the tall the values in the set pixels_to_get are in the set pixels_filled.
 
 .. code-block:: python
 

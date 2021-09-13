@@ -9,32 +9,32 @@ Game design
 | A class is used to run the game.
 
 #. Set up the game object
-    a. Assign values to the TIMELIMIT dictionary.
+    a. Assign values to the LEVEL_SPEED dictionary.
     b. Assign values to the LEVELUP tuple.
     c. Set the score to 0.
-    d. Set the level to 1
+    d. Set the level to 1.
 #. Run the game:
     a. Show 'A' or 'B'.
     b. If the correct button is pressed within the time limit then:
-        #. Display a tick (Image.YES)
-        #. Add one to the score
+        #. Display a tick (Image.YES).
+        #. Add one to the score.
         #. Level up if the next level has been reached.
     b. If the wrong button is pressed or no button is pressed within the time limit then:
-        #. Display an X (Image.NO)
-        #. Scroll the score
+        #. Display an X (Image.NO).
+        #. Scroll the score.
 
 ----
 
-The PressItGame class
+The PressIt class
 ------------------------
 
 | Use a class for the game object.
 
-.. py:class:: PressItGame()
+.. py:class:: PressIt()
 
-    | Set up the game object to control the game, including the TIMELIMIT dictionary, the LEVELUP tuple, the initial level and score.
+    | Set up the game object to control the game, including the LEVEL_SPEED dictionary, the LEVELUP tuple, the initial level and score.
 
-| The code below imports the random module and creates the game object by creating an instance of the PressItGame class.
+| The code below imports the random module and creates the game object by creating an instance of the PressIt class.
 
 .. code-block:: python
 
@@ -42,8 +42,27 @@ The PressItGame class
     import random
 
 
-    game = PressItGame()
+    game = PressIt()
 
+----
+
+The PressIt class methods
+-------------------------------
+
+| The PressIt class methods are described below.
+
+#. ``.pixels_to_get()`` creates a set of tuples of (x, y) coordinates for 2 to 10 hidden pixels.
+#. ``.acc_x_change()`` returns -1 to move to the left, 0 for no change and 1 to move to the right.
+#. ``.acc_y_change()`` returns -1 to move to the top, 0 for no change and 1 to move to the bottom.
+#. ``.tilt()`` will move a bright pixel in the direction of tilt.
+#. ``.prepare_move()`` updates the new pixel and adds it to the pixels_filled set.
+#. ``.show()`` sets the brightness of the new pixel to bright, then dim.
+#. ``.filled()`` will check if all the hidden pixels have been visited by tilting.
+#. ``.answer()`` will display the hidden pixels brightly and the visited pixels dimly.
+#. ``.score()`` will calculate the score.
+#. ``.run_game()`` runs the game in full.
+
+----
 ----
 
 Game code
@@ -59,9 +78,9 @@ Game code
     import random
 
 
-    class PressItGame():
+    class PressIt():
         
-        TIMELIMIT = {1: 1200, 2: 1000, 3: 800, 4: 700, 5: 600, 6: 550, 7: 500, 8: 450, 9: 400}
+        LEVEL_SPEED = {1: 1200, 2: 1000, 3: 800, 4: 700, 5: 600, 6: 550, 7: 500, 8: 450, 9: 400}
         LEVELUP = (3, 6, 9, 12, 15, 18, 21, 24)
         
         def __init__(self):
@@ -97,7 +116,7 @@ Game code
             b_pressed = False
             start_time= running_time()
             now = running_time()
-            while now - start_time < self.TIMELIMIT[self.level]:
+            while now - start_time < self.LEVEL_SPEED[self.level]:
                 if button_a.is_pressed():
                     a_pressed = True
                 if button_b.is_pressed():
@@ -130,13 +149,13 @@ Game code
                     self.show_no()
                     display.scroll('score ' + str(self.score), delay=60)
 
-    game = PressItGame()
+    game = PressIt()
     game.run_game()
     if button_a.was_pressed() and button_b.was_pressed():
         sleep(100)
     while True:
         if button_a.was_pressed() and button_b.was_pressed():
-            game = PressItGame()
+            game = PressIt()
             game.run_game()
         else:
             sleep(2000)
