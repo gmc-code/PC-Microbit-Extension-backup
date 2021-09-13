@@ -86,6 +86,7 @@ The TiltPixels class methods
 #. ``.filled()`` will check if all the hidden pixels have been visited by tilting.
 #. ``.answer()`` will display the hidden pixels brightly and the visited pixels dimly.
 #. ``.score()`` will calculate the score.
+#. ``.show_score()`` will scroll the score.
 #. ``.run_game()`` runs the game in full.
 
 ----
@@ -306,6 +307,11 @@ Answer and score
     | Return the game score by finding the difference between the number of pixels visited and the number of hidden pixels.
     | The lower the number the better. The best score is 0 and the worst score possible is 23 if all pixels were visited and there were only 2 hidden.
 
+.. py:method:: show_score()
+
+    | Scrolls the score.
+
+
 .. code-block:: python
 
     class TiltPixels:
@@ -319,7 +325,11 @@ Answer and score
         
         def score(self):
             return len(self.pixels_filled) - len(self.pixels_to_get)
-    
+
+        def show_score(self):
+            scores = ('score = ' + str(self.score())
+            display.scroll(scores, delay=80)
+
 ----
 
 Run game
@@ -346,7 +356,7 @@ Run game
             if self.filled():
                 game_over = True
                 self.answer()
-                display.scroll(self.score())
+                self.show_score()
     
 ----
 
@@ -394,6 +404,10 @@ Game code
         def score(self):
             return len(self.pixels_filled) - len(self.pixels_to_get)
         
+        def show_score(self):
+            scores = ('score = ' + str(self.score())
+            display.scroll(scores, delay=80)
+
         def prepare_move(self, x_delta, y_delta):
             self.x_position = min(4, max(0, self.x_position + x_delta))
             self.y_position = min(4, max(0, self.y_position + y_delta))
@@ -438,7 +452,7 @@ Game code
                 if self.filled():
                     game_over = True
                     self.answer()
-                    display.scroll(self.score())
+                    self.show_score()
 
     game = TiltPixels()
     game.run_game()
@@ -458,5 +472,5 @@ Game code
     #. Write code to store all the game scores and display the average score with a button press.
     #. Write code to use the A and B buttons to adjust the game speed in steps of about 100.
     #. Add a default parameter to the __init__ method for the game speed and use a for loop to increment the game speed from 200 to 500 in steps of 100 so that only 4 games are played.
-
+    #. Modify the code so that the A and B buttons move the pixel left to right instead of tilting left to right. Keep the tilting in the y-direction.
 

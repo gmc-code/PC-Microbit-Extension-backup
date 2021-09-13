@@ -19,7 +19,7 @@ Game design
         #. Display a tick (Image.YES).
         #. Add one to the score.
         #. Level up if the next level has been reached.
-    b. If the wrong button is pressed or no button is pressed within the time limit then:
+    c. If the wrong button is pressed or no button is pressed within the time limit then:
         #. Display an X (Image.NO).
         #. Scroll the score.
 
@@ -51,18 +51,55 @@ The PressIt class methods
 
 | The PressIt class methods are described below.
 
-#. ``.pixels_to_get()`` creates a set of tuples of (x, y) coordinates for 2 to 10 hidden pixels.
-#. ``.acc_x_change()`` returns -1 to move to the left, 0 for no change and 1 to move to the right.
-#. ``.acc_y_change()`` returns -1 to move to the top, 0 for no change and 1 to move to the bottom.
-#. ``.tilt()`` will move a bright pixel in the direction of tilt.
-#. ``.prepare_move()`` updates the new pixel and adds it to the pixels_filled set.
-#. ``.show()`` sets the brightness of the new pixel to bright, then dim.
-#. ``.filled()`` will check if all the hidden pixels have been visited by tilting.
-#. ``.answer()`` will display the hidden pixels brightly and the visited pixels dimly.
-#. ``.score()`` will calculate the score.
-#. ``.run_game()`` runs the game in full.
+#. ``.show_a()`` shows 'A'.
+#. ``.show_b()`` shows 'B'.
+#. ``.show_yes()`` shows a tick, Image.YES.
+#. ``.show_no()`` shows a cross, Image.NO.
+#. ``.show_start`` shows 'A or B' and the level.
+#. ``.show_levelup()`` shows an up arrow, Image.ARROW_N, and scrolls the level.
+#. ``.show_score`` shows the score.
+#. ``.is_correct_button()`` picks A or B to show then waits according to the duration for the level, and returns True if the correct button has been pressed, otherwise False.
+#. ``.continue_game()`` calls show_yes() and updates the score and level.
+#. ``.end_game()`` calls show_no() and show_score() methods
+#. ``.run_game()`` calls several methods as it checks the correct button is pressed within the time limit and either continues or ends the game.
 
 ----
+
+The PressIt constructor
+---------------------------------
+
+.. py:method:: __init__()
+
+    | The __init__() method is the constructor called when the game object is created.
+    | ``score`` is set to 0.
+    | ``level`` is set to 1.
+
+| The __init__ method is given below.
+
+.. code-block:: python
+
+    class TiltPixels:
+
+        def __init__(self):
+            self.score = 0
+            self.level = 1
+
+----
+
+The PressIt class constants
+---------------------------------
+
+| The class constants are in capitals: LEVEL_SPEED and LEVELUP.
+| LEVEL_SPEED is a dictionary with the level number as the key and the duration in milliseconds. The duration specifies the time the player has to press a button. e.g for ``1: 1200``, the key is 1 and the duration is 1200.
+| LEVELUP is a tuple of numbers for when the level is increased. e.g. after 3 correct button presses the level goes up 1. There are only 8 numbers even though there are 9 levels, since there can only be 8 level ups from level 1 to level 9.
+
+.. code-block:: python
+
+    class TiltPixels:
+
+        LEVEL_SPEED = {1: 1200, 2: 1000, 3: 800, 4: 700, 5: 600, 6: 550, 7: 500, 8: 450, 9: 400}
+        LEVELUP = (3, 6, 9, 12, 15, 18, 21, 24)
+
 ----
 
 Game code
@@ -133,21 +170,26 @@ Game code
                 else:
                     return False
 
+        def continue_game(self):
+            self.show_yes()
+            self.score += 1
+            if self.score in self.LEVELUP:
+                self.level += 1
+                self.show_levelup()
+                
+        def end_game(self):
+            self.show_no()
+            self.show_score()
+                
         def run_game(self):
-            display.scroll("A or B")
-            display.scroll('level ' + str(self.level), delay=60)
+            self.show_start()
             game_over = False
             while game_over is False:
                 if self.is_correct_button():
-                    self.show_yes()
-                    self.score += 1
-                    if self.score in self.LEVELUP:
-                        self.level += 1
-                        self.show_levelup()
+                    self.continue_game()
                 else:
                     game_over = True
-                    self.show_no()
-                    display.scroll('score ' + str(self.score), delay=60)
+                    self.end_game()
 
     game = PressIt()
     game.run_game()
@@ -161,18 +203,15 @@ Game code
             sleep(2000)
 
 
-
-
-
-
-
 ----
 
 .. admonition:: Tasks
 
     #. Modify the code to display left and right arrows instead of 'A' and 'B'.
-    #. Add an animation of 3 to 6 built in image shapes when the level reaches level 5.
+    #. Add a rapid animation of 3 to 6 built in image shapes to be shown when the level reaches level 5.
     #. Replace the level scrolled text with an animation in which the number of images in the animation is equal to the level number.
     #. Add code to store all the game scores and display the average score after each game.
     #. Add code to store the best game score after each game and display the best score after exiting by pressing both buttons.
+
+
 
