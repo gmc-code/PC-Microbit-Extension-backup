@@ -474,5 +474,4 @@ Game code
     #. Modify the code so that the A and B buttons move the pixel left to right instead of tilting left to right. Keep the tilting in the y-direction.
     #. Write code to use the A and B buttons to adjust the game speed in steps of 100 with a minimum of 100 and a maximum of 800.
     #. Add a default parameter to the __init__ method for the game speed and use a for-loop to increment the game speed down from 1000 to 200 in steps of 200 so that 5 games are played that get faster each game.
-    #. Write code to store all the game scores and display the average score with a button press.
 
