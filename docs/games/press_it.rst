@@ -23,6 +23,27 @@ Game design
         #. Display an X (Image.NO).
         #. Scroll the score.
 
+| The code uses the class, ``PressIt()``, for the game object.
+| Only the ``run_game`` method is used outside the class itself.
+
+| The code below omits the PressIt class for simplicity, but shows the rest of the game code.
+| The while True loop repeats the game if both buttons have been pressed.
+
+.. code-block:: python
+
+    from microbit import *
+    import random
+
+    game = PressIt()
+    game.run_game()
+    while True:
+        if button_a.was_pressed() and button_b.was_pressed():
+            game = PressIt()
+            game.run_game()
+        else:
+            sleep(2000)
+
+
 ----
 
 The PressIt class
@@ -51,17 +72,17 @@ The PressIt class methods
 
 | The PressIt class methods are described below.
 
-#. ``.show_a()`` shows 'A'.
-#. ``.show_b()`` shows 'B'.
-#. ``.show_yes()`` shows a tick, Image.YES.
-#. ``.show_no()`` shows a cross, Image.NO.
-#. ``.show_start`` shows 'A or B' and the level.
-#. ``.show_levelup()`` shows an up arrow, Image.ARROW_N, and scrolls the level.
-#. ``.show_score`` shows the score.
-#. ``.is_correct_button()`` picks A or B to show then waits according to the duration for the level, and returns True if the correct button has been pressed, otherwise False.
-#. ``.continue_game()`` calls show_yes() and updates the score and level.
-#. ``.end_game()`` calls show_no() and show_score() methods
-#. ``.run_game()`` calls several methods as it checks the correct button is pressed within the time limit and either continues or ends the game.
+#. ``show_a()`` shows 'A'.
+#. ``show_b()`` shows 'B'.
+#. ``show_yes()`` shows a tick, Image.YES.
+#. ``show_no()`` shows a cross, Image.NO.
+#. ``show_start`` shows 'A or B' and the level.
+#. ``show_levelup()`` shows an up arrow, Image.ARROW_N, and scrolls the level.
+#. ``show_score`` shows the score.
+#. ``is_correct_button()`` picks A or B to show then waits according to the duration for the level, and returns True if the correct button has been pressed, otherwise False.
+#. ``continue_game()`` calls show_yes() and updates the score and level.
+#. ``end_game()`` calls show_no() and show_score() methods
+#. ``run_game()`` calls several methods as it checks the correct button is pressed within the time limit and either continues or ends the game.
 
 ----
 
@@ -151,7 +172,7 @@ Game code
                 self.show_b()
             a_pressed = False
             b_pressed = False
-            start_time= running_time()
+            start_time = running_time()
             now = running_time()
             while now - start_time < self.LEVEL_SPEED[self.level]:
                 if button_a.is_pressed():
@@ -193,8 +214,6 @@ Game code
 
     game = PressIt()
     game.run_game()
-    if button_a.was_pressed() and button_b.was_pressed():
-        sleep(100)
     while True:
         if button_a.was_pressed() and button_b.was_pressed():
             game = PressIt()

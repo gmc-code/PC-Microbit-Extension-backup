@@ -17,14 +17,14 @@ Game design
 
 
 #. Set up the game object (initialize an instance of the class)
-    a. Set between 2 and 10 random pixels to be found.
+    a. Set between 2 and 4 random pixels to be found.
     b. Start from a random pixel and display it brightly then faintly.
 #. Repeat the following steps:
     a. Use the accelerometer to detect a tilt and move the pixel.
     b. If all the pixels have been found then:
         #. Display the location of the hidden pixels as when as the visited pixels.
         #. Scroll the score.
-        #. Set up the game object again and play again.
+        #. Set up the game object again and play again if both buttons are pressed.
 
 | The code uses the class, ``TiltPixels()``, for the game object.
 | Only the ``run_game`` method is used outside the class itself.
@@ -77,17 +77,17 @@ The TiltPixels class methods
 
 | The TiltPixels class methods are described below.
 
-#. ``.pixels_to_get()`` creates a set of tuples of (x, y) coordinates for 2 to 10 hidden pixels.
-#. ``.acc_x_change()`` returns -1 to move to the left, 0 for no change and 1 to move to the right.
-#. ``.acc_y_change()`` returns -1 to move to the top, 0 for no change and 1 to move to the bottom.
-#. ``.tilt()`` will move a bright pixel in the direction of tilt.
-#. ``.prepare_move()`` updates the new pixel and adds it to the pixels_filled set.
-#. ``.show()`` sets the brightness of the new pixel to bright, then dim.
-#. ``.filled()`` will check if all the hidden pixels have been visited by tilting.
-#. ``.answer()`` will display the hidden pixels brightly and the visited pixels dimly.
-#. ``.score()`` will calculate the score.
-#. ``.show_score()`` will scroll the score.
-#. ``.run_game()`` runs the game in full.
+#. ``pixels_to_get()`` creates a set of tuples of (x, y) coordinates for 2 to 4 hidden pixels.
+#. ``acc_x_change()`` returns -1 to move to the left, 0 for no change and 1 to move to the right.
+#. ``acc_y_change()`` returns -1 to move to the top, 0 for no change and 1 to move to the bottom.
+#. ``tilt()`` moves a bright pixel in the direction of tilt.
+#. ``prepare_move()`` updates the new pixel and adds it to the pixels_filled set.
+#. ``show()`` sets the brightness of the new pixel to bright, then dim.
+#. ``filled()`` checks if all the hidden pixels have been visited by tilting.
+#. ``answer()`` displays the hidden pixels brightly and the visited pixels dimly.
+#. ``score()`` calculates the score.
+#. ``show_score()`` scrolls the score.
+#. ``run_game()`` runs the game in full.
 
 ----
 
@@ -119,7 +119,7 @@ The TiltPixels constructor
             self.y_position = y_position
             self.tilt_sensitivity = 100
             self.game_speed = 400
-            self.pixels_filled = set((x_position, y_position))
+            self.pixels_filled = {(x_position, y_position)}
             self.pixels_to_get = self.pixels_to_get()
             self.show()
 
@@ -130,13 +130,13 @@ The hidden pixels
 
 .. py:method:: pixels_to_get()
 
-    | Create a set of tuples of (x, y) coordinates for 2 to 10 hidden pixels.
+    | Create a set of tuples of (x, y) coordinates for 2 to 4 hidden pixels.
     | e.g with 5 pixels: {(2, 1), (4, 1), (3, 4), (2, 0), (1, 1)}
 
 | The decorator ``@staticmethod``, makes the function a static method. This utility function doesn't access any properties of the class. No reference to ``self`` is passed to it.
 | ``pixels = set()`` creates an empty set.
 | ``pixels.add((x, y))`` adds a tuple of x and y values to the set. These are the coordinates of each hidden pixel to find.
-| ``for _ in range(random.randint(2, 10))`` controls the number of pixels to find. There will be a random number of pixels, from 2 to 10 pixels, to find. 
+| ``for _ in range(random.randint(2, 4))`` controls the number of pixels to find. There will be a random number of pixels, from 2 to 4 pixels, to find. 
 | ``_`` is used by convention when the iterator variable is not needed in the for-loop body.
 
 .. code-block:: python
@@ -147,7 +147,7 @@ The hidden pixels
         @staticmethod
         def pixels_to_get():
             pixels = set()
-            for _ in range(random.randint(2, 10)):
+            for _ in range(random.randint(2, 4)):
                 x = random.randint(0, 4)
                 y = random.randint(0, 4)
                 pixels.add((x, y))
@@ -281,7 +281,7 @@ Filled
 .. py:method:: filled()
 
     | Returns True if all the hidden pixels have been visited, or False if not.
-    | It uses the **issubset** method to check if the tall the values in the set pixels_to_get are in the set pixels_filled.
+    | It uses the **issubset** method to check if all the values in the set pixels_to_get are in the set pixels_filled.
 
 .. code-block:: python
 
@@ -379,14 +379,14 @@ Game code
             self.y_position = y_position
             self.tilt_sensitivity = 100
             self.game_speed = 400
-            self.pixels_filled = set((x_position, y_position))
+            self.pixels_filled = {(x_position, y_position)}
             self.pixels_to_get = self.pixels_to_get()
             self.show()
 
         @staticmethod
         def pixels_to_get():
             pixels = set()
-            for _ in range(random.randint(2, 10)):
+            for _ in range(random.randint(2, 4)):
                 x = random.randint(0, 4)
                 y = random.randint(0, 4)
                 pixels.add((x, y))
@@ -468,9 +468,11 @@ Game code
 
 .. admonition:: Tasks
 
+    Use subclasses to complete the following:
+
     #. Modify the code to use a button press to peek at the answer for half a second while still playing the game.
-    #. Write code to store all the game scores and display the average score with a button press.
-    #. Write code to use the A and B buttons to adjust the game speed in steps of about 100.
-    #. Add a default parameter to the __init__ method for the game speed and use a for loop to increment the game speed from 200 to 500 in steps of 100 so that only 4 games are played.
     #. Modify the code so that the A and B buttons move the pixel left to right instead of tilting left to right. Keep the tilting in the y-direction.
+    #. Write code to use the A and B buttons to adjust the game speed in steps of 100 with a minimum of 100 and a maximum of 800.
+    #. Add a default parameter to the __init__ method for the game speed and use a for-loop to increment the game speed down from 1000 to 200 in steps of 200 so that 5 games are played that get faster each game.
+    #. Write code to store all the game scores and display the average score with a button press.
 

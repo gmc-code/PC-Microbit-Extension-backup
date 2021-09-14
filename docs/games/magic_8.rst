@@ -347,7 +347,7 @@ Modify the __init__ and run_game methods in a new class
     import random
 
 
-    class Magic8PosNegButtons:
+    class Magic8PosNeg:
         def __init__(self, magic_text=8):
             self.magic_text = magic_text
             self.responses_pos = ["For sure", "Yes"]
@@ -368,12 +368,12 @@ Modify the __init__ and run_game methods in a new class
 
 
     while True:
-        game = Magic8PosNegButtons()
+        game = Magic8PosNeg()
         game.run_game()
 
 ----
 
 .. admonition:: Tasks
 
-    #. Use a subclass of ``Magic8PosNegButtons`` to display a positive response when the microbit is tilted to the left and a negative response when the microbit is tilted to the right.
-
+    #. Use a subclass of ``Magic8PosNeg`` to display a positive response when the microbit is tilted to the left and a negative response when the microbit is tilted to the right.
+    #. Use a subclass of ``Magic8PosNeg`` to display a positive response when pin0 of the microbit is touched and a negative response when pin0 of the microbit is touched.
