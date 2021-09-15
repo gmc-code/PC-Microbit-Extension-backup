@@ -6,7 +6,7 @@ Game design
 --------------------
 
 | The user asks a yes–no question then shakes the microbit to receive an answer.
-| The standard responses are in a list named **responses**.
+| The standard responses are in the list **responses**.
 | A random choice from the list is obtained using ``random.choice(responses)``.
 
 Specific Syntax
@@ -16,7 +16,7 @@ Specific Syntax
 
     Return a random element from a sequence such as a list.
 
-| e.g. Randomly choose from the list, responses, and scroll the choice.
+| e.g. Randomly choose from the list **responses** and scroll the choice.
 | ``display.scroll(random.choice(responses), delay=120)``
 
 .. py:function::  accelerometer.was_gesture(gesture)
@@ -28,10 +28,10 @@ Specific Syntax
 
 ----
 
-Simple Game code
+Game code without classes
 ---------------------------------
 
-| The first version of the game code is below.
+| The version of the game code, without classes, is below.
 
 .. code-block:: python
 
@@ -89,7 +89,7 @@ Converting to using a class
 
 | The class version of the game code is below.
 | ``game = Magic8()`` instantiates the class by creating a copy of the class which inherits all the class attributes and methods.
-| The ``__init__`` method has the **responses** list as well as an attribute for the text to display between responses, **magic_text**.
+| The ``__init__`` method has the **responses** list as well as an attribute for the text, **magic_text**, to display between responses.
 | The ``run_game`` method has the game code that was previously within the body of the while loop.
 | ``game.run_game()`` calls the ``run_game`` method on the game object to run the game.
 
@@ -138,6 +138,10 @@ Converting to using a class
         game = Magic8()
         game.run_game()
 
+.. admonition:: Tip
+    
+    In the code ``game = Magic8()``, the class is ``Magic8`` and the instantiated object is ``game``.
+    The __init__ method is used to initialize (assign values) to the data variables of the class when the class object is created. It also can contain statements (i.e. instructions) that are executed at time of object creation. The __init__ method is run as soon as the class object is instantiated. 
 
 ----
 
