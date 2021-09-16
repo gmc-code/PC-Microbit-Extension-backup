@@ -7,40 +7,35 @@ Classes
 Objects
 ----------------------
 
-| Almost everything in Python is an object, with its own attributes and methods.
+| Almost everything in Python is an object, with its own data attributes and methods.
 | Every object has:
 * a type
 * data
-* a set of procedures for interaction with the object
+* procedures
 
-| an object is an instance of a type
-    • 1234 is an instance of an int
-    • "hello"is an instance of a string
-    • 
-objects are a data abstractionthat captures…
-(1) an internal representation
-•through data attributes
-(2) an interfacefor interacting with object
-•through methods (aka procedures/functions)
-•defines behaviors but hides implementation
+| e.g  the object 'hello'
+* type is str
+* data is 'hello'
+* procedures include the standard string methods such a ``.title()`` and ``.lower()``.
+
+| The defining of the standard string methods while hiding how they are done is called **abstraction**.
+| Custom cClasses are a means of abstraction.
 
 Classes and Objects
 ----------------------
-| Objects are an **encapsulation** of variables and functions. 
-| Objects get their attributes (properties) from class variables.
-| Objects get their methods from class functions.
 
-| A Class is like an object constructor, or a "blueprint" for creating objects.
-| A class is created by the keyword class.
+| A Class is an object constructor, or a "blueprint" for creating objects.
+| A class is created by the keyword **class**. e.g ``class MicrobitGame:``
 | The name of the class is in camel case. e.g. **MicrobitGame**. Each word is capitalized and there are no underscores. 
 
-| The code below is a simple class.
-| The class statement creates a new class definition. The keyword **class** is followed by the name of the class then a colon. e.g. ``class MicrobitGame:``
+| The code below creates a simple class.
+| The class statement creates a new class definition. 
+| The keyword **class** is followed by the name of the class then a colon. e.g. ``class MicrobitGame:``
+
 | The __init__() function assigns values to object properties when the object is created. 
 | e.g. ``self.level = level``
-| ``self.level`` is a class variable.
-| ``increase_level(self)`` is a class function.
-
+| ``self.level`` is a class variable. Note that to access the class attribute use the self keyword.
+| ``def increase_level(self):`` defines a class function. Note that the first argument is self
 
 .. code-block:: python
 
@@ -54,21 +49,42 @@ Classes and Objects
             self.level += 1
 
 
-
 Object instantiation
 ----------------------
 
-| The code below carries out object instantiation.
+| Objects are an **encapsulation** of variables and functions. 
+| Objects get their data attributes (properties) from class variables.
+| Objects get their procedural attributes (methods) from class functions.
+
+| The code below carries out object **instantiation** (making an instance).
+| Objects are **instances** of classes.
 | The object ``game`` is an the instance of the class ``MicrobitGame``. 
-| The ``game`` instance is created below by calling the class and assigning the class to a variable.
+| The ``game`` instance is created below by calling the class and assigning the class to the variable ``game``.
 
 .. code-block:: python
 
-    game = MicrobitGame():
+    game = MicrobitGame()
 
 
+Object Methods
+----------------------
 
 | Methods in objects use the self parameter to reference the current instance of the class.
- and to access variables that belong to the class.
+| The dot . operator is then used to access the object variable.
 
-You will then be able to access the attributes that are present inside the class using the dot . operator. 
+.. code-block:: python
+
+    from microbit import *
+
+    class MicrobitGame:
+        def __init__(self, level):
+            self.level = level
+
+        def increase_level(self):
+            self.level += 1
+
+    game = MicrobitGame(level = 1)
+
+| The self parameter is used to access variables that belong to the class.
+
+
