@@ -19,7 +19,7 @@ Objects
 * methods are the standard string methods such a ``.title()`` and ``.lower()``.
 
 | The defining of the standard string methods, while hiding how they are done, is called **abstraction**.
-| Custom classes are a means of abstraction. They give the user ways to use data without they having to worry about how the code works.
+| Custom classes are a means of abstraction. They give the user ways to use data without having to worry about how the code works.
 
 ----
 
@@ -32,10 +32,10 @@ Classes and Objects
 | The code below creates a class, ``MicrobitGame``.
 | The keyword **class** is followed by the name of the class then a colon. e.g. ``class MicrobitGame:``
 
-| The class has a class variable, ``self.level``, and a class function, ``increase_level()``.
+| The class has a class variable, ``self.level``, and a class function, ``level_up()``.
 | The __init__() function assigns values to object properties when the object is created. e.g. ``self.level = level``
 | ``self.level`` is a class variable. Note that to access the class variable use the self keyword.
-| ``def increase_level(self):`` defines a class function. Note that the first argument is self.
+| ``def level_up(self):`` defines a class function. Note that the first parameter is self.
 
 .. code-block:: python
 
@@ -45,7 +45,7 @@ Classes and Objects
         def __init__(self, level):
             self.level = level
 
-        def increase_level(self):
+        def level_up(self):
             self.level += 1
 
 ----
@@ -63,7 +63,7 @@ Object instantiation
 | Objects are **instances** of classes.
 | The object ``game`` is an the instance of the class ``MicrobitGame``. 
 | The ``game`` instance is created below by calling the class and assigning the class to the variable ``game``.
-| Now the variable "game" holds an object of the class "MicrobitGame" that contains the variable, level,  and the function, increase_level,  defined within the class called "MicrobitGame".
+| Now the variable "game" holds an object of the class "MicrobitGame" that contains the variable, level,  and the function, level_up,  defined within the class called "MicrobitGame".
 
 .. code-block:: python
 
@@ -80,6 +80,7 @@ The __init__() function
 | Other parameters can follow self.
 | These other parameters are passed in as arguments when the class is called.
 | e.g. ``game = MicrobitGame(level = 1)`` passes in ``level = 1`` to the __init__() function.
+|  ``game = MicrobitGame(1)`` and ``game = MicrobitGame(level = 1)`` do the same thing.
 
 .. code-block:: python
 
@@ -89,7 +90,7 @@ The __init__() function
         def __init__(self, level):
             self.level = level
 
-        def increase_level(self):
+        def level_up(self):
             self.level += 1
 
     game = MicrobitGame(level = 1)
@@ -99,7 +100,7 @@ The __init__() function
 Self in variables
 ----------------------
 
-| In the ``increase_level`` function, ``self.level += 1`` has ``self.`` before the variable ``level``.
+| In the ``level_up`` function, ``self.level += 1`` has ``self.`` before the variable ``level``.
 | The **self** parameter is used to access variables that belong to the class.
 | The dot . operator is then used to access the object variable.
 
@@ -108,7 +109,7 @@ Self in variables
 Self in methods
 ----------------------
 
-| In the ``increase_level`` function, ``def increase_level(self):`` has self passed in as the current instance of the class.
+| In the ``level_up`` function, ``def level_up(self):`` has self passed in as the current instance of the class.
 | The **self** parameter is a reference to the current instance of the class.
 | Methods in objects use the **self** parameter to reference the current instance of the class.
 
@@ -119,8 +120,9 @@ Self in methods
 Object Methods
 ----------------------
 
-| In the code below, ``game.increase_level()`` calls the method ``increase_level`` to add one to teh variable ``self.level`` 
+| In the code below, ``game.level_up()`` calls the method ``level_up`` to add one to the variable ``self.level`` 
 | When calling the method on the game object, self is not written in the parentheses as it is automatically passed.
+| The print statements output 1 then 2.
 
 .. code-block:: python
 
@@ -128,16 +130,37 @@ Object Methods
         def __init__(self, level):
             self.level = level
 
-        def increase_level(self):
+        def level_up(self):
             self.level += 1
 
     game = MicrobitGame(level = 1)
     print(game.level)
-    game.increase_level()
+    game.level_up()
     print(game.level)
 
 ----
 
-| The 
+Object Methods with parameters
+---------------------------------
+
+| In the code below, ``game.set_speed(5)`` calls the method ``set_speed`` to set the variable ``self.speed`` to 5.
+| The print statements output 1 then 5.
+
+.. code-block:: python
+
+    class SpeedGame:
+        def __init__(self, speed):
+            self.speed = speed
+
+        def set_speed(self, speed):
+            self.speed = speed
+
+    game = SpeedGame(1)
+    print(game.speed)
+    game.set_speed(5)
+    print(game.speed)
+
+----
+
 
 
