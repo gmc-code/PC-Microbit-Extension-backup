@@ -13,7 +13,7 @@ Objects
 * data
 * methods
 
-| e.g  the object 'hello'
+| e.g  the string object 'hello'
 * type is str
 * data is 'hello'
 * methods are the standard string methods such a ``.title()`` and ``.lower()``.
@@ -27,6 +27,7 @@ Classes and Objects
 ----------------------
 
 | A Class is an object constructor, or a blueprint for creating objects.
+
 | The name of the class is in camel case. e.g. **MicrobitGame**. Each word is capitalized and there are no underscores. 
 
 | The code below creates a class, ``MicrobitGame``.
@@ -60,25 +61,26 @@ Object instantiation
 | Objects get their procedural attributes (methods) from class functions.
 
 | The code below carries out object **instantiation** (making an instance).
-| Objects are **instances** of classes.
-| The object ``game`` is an the instance of the class ``MicrobitGame``. 
-| The ``game`` instance is created below by calling the class and assigning the class to the variable ``game``.
-| Now the variable "game" holds an object of the class "MicrobitGame" that contains the variable, level,  and the function, level_up,  defined within the class called "MicrobitGame".
 
 .. code-block:: python
 
     game = MicrobitGame()
+
+| Objects are **instances** of classes.
+| The object ``game`` is an the instance of the class ``MicrobitGame``. 
+| The ``game`` instance is created below by calling the class and assigning the class to the variable ``game``.
+| Now the variable "game" holds an object of the class "MicrobitGame" that contains the variable, ``level``,  and the function, ``level_up``,  that were defined within the class called "MicrobitGame".
 
 ----
 
 The __init__() function
 --------------------------
 
-| The __init__() function is used to assign values to object properties, or to do other operations that are necessary to do when the object is created.
-| The __init__() function is called automatically every time the class is called to create a new object.
+| The __init__() function is a built in function that is used to assign values to object properties, or to do other operations that are necessary to do when the object is created.
+| The __init__() function is called automatically every time the class is called when creating a new object.
 | The first parameter in the __init__() function is self, referring to the object itself.
-| Other parameters can follow self.
-| These other parameters are passed in as arguments when the class is called.
+| Other parameters can follow self. e.g ``__init__(self, level)``
+| These other parameters, such as ``level``, are passed in as arguments when the class is called.
 | e.g. ``game = MicrobitGame(level = 1)`` passes in ``level = 1`` to the __init__() function.
 |  ``game = MicrobitGame(1)`` and ``game = MicrobitGame(level = 1)`` do the same thing.
 
@@ -110,7 +112,6 @@ Self in methods
 ----------------------
 
 | In the ``level_up`` function, ``def level_up(self):`` has self passed in as the current instance of the class.
-| The **self** parameter is a reference to the current instance of the class.
 | Methods in objects use the **self** parameter to reference the current instance of the class.
 
 | It does not have to be named **self**, but it makes it easier for others if it is used, since that is what is expected.
@@ -120,9 +121,9 @@ Self in methods
 Object Methods
 ----------------------
 
-| In the code below, ``game.level_up()`` calls the method ``level_up`` to add one to the variable ``self.level`` 
+| In the code below, ``game.level_up()`` calls the method ``level_up``.
 | When calling the method on the game object, self is not written in the parentheses as it is automatically passed.
-| The print statements output 1 then 2.
+| The print statements output 1, since it is instantiated with a level of 1, then the second print statement outputs 2 after the ``level_up()`` method has been called.
 
 .. code-block:: python
 
@@ -144,7 +145,10 @@ Object Methods with parameters
 ---------------------------------
 
 | In the code below, ``game.set_speed(5)`` calls the method ``set_speed`` to set the variable ``self.speed`` to 5.
-| The print statements output 1 then 5.
+| ``game = SpeedGame(1)`` sets the game speed to 1.
+| The print statement outputs 1.
+| ``game.set_speed(5)`` sets the game speed to 5.
+| The print statement outputs 5.
 
 .. code-block:: python
 
@@ -162,5 +166,5 @@ Object Methods with parameters
 
 ----
 
-
+   gmc
 
