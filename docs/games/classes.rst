@@ -53,6 +53,8 @@ Classes and Objects
 Object instantiation
 ----------------------
 
+| If classes are the blueprint for an object, then an object is what is made from the blueprint.
+
 | Objects are an **encapsulation** of variables and functions. 
 | Objects get their data attributes (properties) from class variables.
 | Objects get their procedural attributes (methods) from class functions.
@@ -61,6 +63,7 @@ Object instantiation
 | Objects are **instances** of classes.
 | The object ``game`` is an the instance of the class ``MicrobitGame``. 
 | The ``game`` instance is created below by calling the class and assigning the class to the variable ``game``.
+| Now the variable "game" holds an object of the class "MicrobitGame" that contains the variable, level,  and the function, increase_level,  defined within the class called "MicrobitGame".
 
 .. code-block:: python
 
@@ -68,14 +71,14 @@ Object instantiation
 
 ----
 
-The __init__() Function
+The __init__() function
 --------------------------
 
 | The __init__() function is used to assign values to object properties, or to do other operations that are necessary to do when the object is created.
 | The __init__() function is called automatically every time the class is called to create a new object.
 | The first parameter in the __init__() function is self, referring to the object itself.
 | Other parameters can follow self.
-| These are passed in as arguments when the class is called.
+| These other parameters are passed in as arguments when the class is called.
 | e.g. ``game = MicrobitGame(level = 1)`` passes in ``level = 1`` to the __init__() function.
 
 .. code-block:: python
@@ -93,43 +96,33 @@ The __init__() Function
 
 ----
 
-Self
+Self in variables
 ----------------------
 
-| The **self** parameter is a reference to the current instance of the class, and is used to access variables that belongs to the class.
-
-| It does not have to be named **self**, but it makes it easier for others if it is used, sicne that is what is expected.
-
-Example
-
-| Methods in objects use the **self** parameter to reference the current instance of the class.
-| e.g. ``increase_level(self)`` has self passed in as the current instance of the class.
-
+| In the ``increase_level`` function, ``self.level += 1`` has ``self.`` before the variable ``level``.
 | The **self** parameter is used to access variables that belong to the class.
 | The dot . operator is then used to access the object variable.
-| e.g. ``self.level += 1`` has ``self.`` before the variable ``level``.
+
+----
+
+Self in methods
+----------------------
+
+| In the ``increase_level`` function, ``def increase_level(self):`` has self passed in as the current instance of the class.
+| The **self** parameter is a reference to the current instance of the class.
+| Methods in objects use the **self** parameter to reference the current instance of the class.
+
+| It does not have to be named **self**, but it makes it easier for others if it is used, since that is what is expected.
 
 ----
 
 Object Methods
 ----------------------
 
-| Objects can contain methods. 
-| Methods in objects are functions that belong to the object.
-
-| Methods in objects use the **self** parameter to reference the current instance of the class.
-| e.g. ``increase_level(self)`` has self passed in as the current instance of the class.
-
-| The **self** parameter is used to access variables that belong to the class.
-| The dot . operator is then used to access the object variable.
-| e.g. ``self.level += 1`` has ``self.`` before the variable ``level``.
-
+| In the code below, ``game.increase_level()`` calls the method ``increase_level`` to add one to teh variable ``self.level`` 
 | When calling the method on the game object, self is not written in the parentheses as it is automatically passed.
-| e.g. ``game.increase_level()`` calls the method ``increase_level`` to add one to ``self.level`` 
 
 .. code-block:: python
-
-    from microbit import *
 
     class MicrobitGame:
         def __init__(self, level):
@@ -139,7 +132,9 @@ Object Methods
             self.level += 1
 
     game = MicrobitGame(level = 1)
+    print(game.level)
     game.increase_level()
+    print(game.level)
 
 ----
 
