@@ -31,11 +31,18 @@ Key references:
 
 .. toctree::
     :maxdepth: 2
+    :caption: Classes
+    :numbered:
+
+    introduction/classes.rst
+
+
+.. toctree::
+    :maxdepth: 2
     :caption: Class Games
     :numbered:
 
     games/introduction.rst
-    games/classes.rst
     games/magic_8.rst
     games/tilt_pixels.rst
     games/press_it.rst
