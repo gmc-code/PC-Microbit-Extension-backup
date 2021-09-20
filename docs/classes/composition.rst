@@ -2,6 +2,8 @@
 Composition
 ====================================================
 
+| The examples given are for use in python3 mode in Mu editor and are not microbit specific.
+
 Composition
 -----------------
 
