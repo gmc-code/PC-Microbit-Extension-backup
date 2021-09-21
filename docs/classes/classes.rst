@@ -47,10 +47,10 @@ Creating a Class
 Object instantiation
 ----------------------
 
-| If classes are the blueprint for an object, then an object is what is made from the blueprint.
+| An object is what is made from the class blueprint.
 | Objects are **instances** of classes.
 | The code below carries out object **instantiation** (making an instance).
-| The ``game`` instance is created by calling the class and assigning the class to the variable ``game``.
+| The ``game`` instance is created by calling the class, ``LevelGame()``, and assigning that to the variable ``game``.
 | The object ``game`` is an instance of the class ``LevelGame``. 
 
 .. code-block:: python
@@ -67,7 +67,7 @@ Class variables common to instances
 
 | A class variable is shared by all instances of a class.
 | ``game_level`` is a class variables.
-| Both print 1 below since the class variable was the same for both.
+| In the code below, both instances variables, ``game1.game_level`` and ``game2.game_level`` have the same value.
 
 .. code-block:: python
 
@@ -80,6 +80,11 @@ Class variables common to instances
     game2 = LevelGame()
     print(game2.game_level)
     
+.. admonition:: Tasks
+
+    #. Check that print output is the same for each statement above.
+    #. Modify the code so that the class definition has a game_level of 2, then check its value for both instances.
+
 ----
 
 Changing Class variables for all instances
@@ -87,7 +92,7 @@ Changing Class variables for all instances
 
 | A class variable can be altered in the class.
 | In the code below, ``LevelGame.game_level = 3``, the class variable is changed to 3.
-| The change in the class variable results in a change in the instance value for ``game1.game_level`` and ``game2.game_level``.
+| The change in the class variable results in the same change for ``game1.game_level`` and ``game2.game_level``.
 
 .. code-block:: python
 
@@ -100,6 +105,11 @@ Changing Class variables for all instances
     LevelGame.game_level = 3
     print(game1.game_level)
     print(game2.game_level)
+
+.. admonition:: Tasks
+
+    #. Check that print output is the same for each statement above.
+    #. Modify the code so that the LevelGame.game_level is set to 5, then check its value for both instances.
 
 ----
 
@@ -120,6 +130,11 @@ Changing Class variables in an instance
     game.game_level = 2
     print(game.game_level)
     print(LevelGame.game_level)
+
+.. admonition:: Tasks
+
+    #. Check that print output is the same for each statement above.
+    #. Modify the code so that the LevelGame.game_level is set to 5, then check its value for both instances.
 
 ----
 
@@ -150,6 +165,11 @@ Instance variables
 
     game = LevelGame(1)
     print(game.level)
+
+.. admonition:: Tasks
+
+    #. Check that print output is the same for each statement above.
+    #. Modify the code so that the LevelGame.game_level is set to 5, then check its value for both instances.
 
 ----
 
@@ -199,6 +219,11 @@ The __init__() function
 
     game = LevelGame(level = 1)
 
+.. admonition:: Tasks
+
+    #. Check that print output is the same for each statement above.
+    #. Modify the code so that the LevelGame.game_level is set to 5, then check its value for both instances.
+
 ----
 
 Self in variables
@@ -244,6 +269,11 @@ Object Methods
     game.level_up()
     print(game.level)
 
+.. admonition:: Tasks
+
+    #. Check that print output is the same for each statement above.
+    #. Modify the code so that the LevelGame.game_level is set to 5, then check its value for both instances.
+
 ----
 
 Object Methods with parameters
@@ -268,6 +298,11 @@ Object Methods with parameters
     print(game.speed)
     game.set_speed(5)
     print(game.speed)
+
+.. admonition:: Tasks
+
+    #. Check that print output is the same for each statement above.
+    #. Modify the code so that the LevelGame.game_level is set to 5, then check its value for both instances.
 
 ----
 
@@ -297,4 +332,9 @@ Class variables
     print(game2.level, game2.game_number)
 
 
+.. admonition:: Tasks
 
+    #. Check that print output is the same for each statement above.
+    #. Modify the code so that the LevelGame.game_level is set to 5, then check its value for both instances.
+
+----
