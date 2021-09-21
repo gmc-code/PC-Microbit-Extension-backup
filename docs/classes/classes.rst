@@ -19,17 +19,19 @@ Objects
 * data is 'hello'
 * methods are the standard string methods such a ``.title()`` and ``.lower()``.
 
-| The defining of the standard string methods, while hiding how they are done, is called **abstraction**.
-| Custom classes are a means of abstraction. They give the user ways to use data without having to worry about how the code works.
-
 ----
 
 Classes and Objects
 ----------------------
 
-| A Class is a code template, an object constructor, or a blueprint for creating objects.
+| A Class is a code template, an object constructor, a blueprint for creating objects.
 
 | The name of the class is in camel case. e.g. **LevelGame**. Each word is capitalized and there are no underscores. 
+
+----
+
+Creating a Class
+----------------------
 
 | The code below creates a class, ``LevelGame``.
 | The keyword **class** is followed by the name of the class then a colon. e.g. ``class LevelGame:``
@@ -60,21 +62,64 @@ Object instantiation
 
 ----
 
-Classes variables
-----------------------
+Class variables common to instances
+------------------------------------------
 
 | A class variable is shared by all instances of a class.
-| ``game_name`` and ``game_level`` are class variables.
+| ``game_level`` is a class variables.
+| Both print 1 below since the class variable was the same for both.
 
 .. code-block:: python
 
     class LevelGame:
-        game_name = 'levels'
+        game_level = 1
+
+    game1 = LevelGame()
+    print(game1.game_level)
+
+    game2 = LevelGame()
+    print(game2.game_level)
+    
+----
+
+Changing Class variables for all instances
+----------------------------------------------
+
+| A class variable can be altered in the class.
+| In the code below, ``LevelGame.game_level = 3``, the class variable is changed to 3.
+| The change in the class variable results in a change in the instance value for ``game1.game_level`` and ``game2.game_level``.
+
+.. code-block:: python
+
+    class LevelGame:
+        game_level = 1
+
+    game1 = LevelGame()
+    game2 = LevelGame()
+
+    LevelGame.game_level = 3
+    print(game1.game_level)
+    print(game2.game_level)
+
+----
+
+Changing Class variables in an instance
+----------------------------------------------
+
+| A class variable can be altered for a particular instance.
+| ``game.game_level = 2`` changes the value of the variable within the instance.
+| The print output is 2, showing that the variable was changed within the instance.
+| ``LevelGame.game_level`` is not altered, and remains at 1
+
+.. code-block:: python
+
+    class LevelGame:
         game_level = 1
 
     game = LevelGame()
-    print(game.game_name)
+    game.game_level = 2
     print(game.game_level)
+    print(LevelGame.game_level)
 
 ----
 
