@@ -62,6 +62,16 @@ Object instantiation
 
 ----
 
+Object data and methods
+-----------------------------
+
+| Variables and defintions can be gathered together in a class.
+| Objects are an **encapsulation** of variables and functions. 
+| Objects get their data attributes (properties) from class variables.
+| Objects get their procedural attributes (methods) from class functions.
+
+----
+
 Class variables common to instances
 ------------------------------------------
 
@@ -79,7 +89,7 @@ Class variables common to instances
 
     game2 = LevelGame()
     print(game2.game_level)
-    
+
 .. admonition:: Tasks
 
     #. Check that print output is the same for each statement above.
@@ -118,8 +128,7 @@ Changing Class variables in an instance
 
 | A class variable can be altered for a particular instance.
 | ``game.game_level = 2`` changes the value of the variable within the instance.
-| The print output is 2, showing that the variable was changed within the instance.
-| ``LevelGame.game_level`` is not altered, and remains at 1
+| ``LevelGame.game_level`` is not altered.
 
 .. code-block:: python
 
@@ -133,103 +142,85 @@ Changing Class variables in an instance
 
 .. admonition:: Tasks
 
-    #. Check that print output is the same for each statement above.
-    #. Modify the code so that the LevelGame.game_level is set to 5, then check its value for both instances.
+    #. Check the print output to verify that the instance has a different value to the class.
+    #. Add code after the instance value is changed so that the ``LevelGame.game_level`` is set to 5, then check the value for the instance to see if it is affected.
 
 ----
 
 Instance variables
 ----------------------
 
-| The __init__() function assigns values to instance variables when the object is created. e.g. ``self.level = 1``
-| ``self.level`` is an instance variable. It is referrenced using the self keyword.
+| Instance variables are variables, created in a class, that are unique to the instance.
+| The __init__() function assigns values to instance variables when the object is created. e.g. ``self.game_level = 1``
+| ``self.game_level`` is an instance variable. It is referrenced using the self keyword.
 
 .. code-block:: python
 
     class LevelGame:
         def __init__(self):
-            self.level = 1
+            self.game_level = 1
 
     game = LevelGame()
-    print(game.level)
+    print(game.game_level)
 
 
-
-| ``self.level`` is an instance variable. It is referrenced using the self keyword.
+| Parameters can be used in the __init__ definition so that arguments can be passed when the object is instantiated.
+| e.g the ``game_level`` parameter has been used in ``__init__(self, game_level)``.
+| Is it customary to use the same name for the parameters as it is for the instance variables.
+| e.g ``self.game_level = game_level``
+| When game is instantiated using ``game = LevelGame(1)``, a value of 1 is passed in as the argument, so that game_level = 1.
 
 .. code-block:: python
 
     class LevelGame:
-        def __init__(self, level):
-            self.level = level
+        def __init__(self, game_level):
+            self.game_level = game_level
 
     game = LevelGame(1)
-    print(game.level)
+    print(game.game_level)
 
 .. admonition:: Tasks
 
-    #. Check that print output is the same for each statement above.
-    #. Modify the code so that the LevelGame.game_level is set to 5, then check its value for both instances.
-
-----
-
-Object instantiation
-----------------------
-
-| If classes are the blueprint for an object, then an object is what is made from the blueprint.
-
-| Objects are an **encapsulation** of variables and functions. 
-| Objects get their data attributes (properties) from class variables.
-| Objects get their procedural attributes (methods) from class functions.
-
-| The code below carries out object **instantiation** (making an instance).
-
-.. code-block:: python
-
-    game = LevelGame()
-
-| Objects are **instances** of classes.
-| The object ``game`` is an the instance of the class ``LevelGame``. 
-| The ``game`` instance is created below by calling the class and assigning the class to the variable ``game``.
-| Now the variable "game" holds an object of the class "LevelGame" that contains the variable, ``level``,  and the function, ``level_up``,  that were defined within the class called "LevelGame".
+    #. Run the code above and check the print output is 1.
+    #. Use ``game = LevelGame(2)`` and check the print output.
 
 ----
 
 The __init__() function
 --------------------------
 
-| The __init__() function is a built in function that is used to assign values to object properties, or to do other operations that are necessary to do when the object is created.
+| The __init__() function is a built-in-function that is used to assign values to object properties, and to do other operations that are necessary to do when the object is created.
 | The __init__() function is called automatically every time the class is called when creating a new object.
 | The first parameter in the __init__() function is self, referring to the object itself.
-| Other parameters can follow self. e.g ``__init__(self, level)``
+| Other parameters can follow self. e.g ``__init__(self, game_level)``
 | These other parameters, such as ``level``, are passed in as arguments when the class is called.
-| e.g. ``game = LevelGame(level = 1)`` passes in ``level = 1`` to the __init__() function.
-|  ``game = LevelGame(1)`` and ``game = LevelGame(level = 1)`` do the same thing.
+| e.g. ``game = LevelGame(game_level = 1)`` passes in ``game_level = 1`` to the __init__() function.
+|  ``game = LevelGame(1)`` and ``game = LevelGame(game_level = 1)`` do the same thing.
+
+| In the sample code, 2 instance variables are created.
 
 .. code-block:: python
 
     from microbit import *
 
     class LevelGame:
-        def __init__(self, level):
-            self.level = level
+        def __init__(self, game_level, player_lives):
+            self.game_level = game_level
+            self.player_lives = player_lives
 
-        def level_up(self):
-            self.level += 1
+    game = LevelGame(game_level=1, player_lives=3)
 
-    game = LevelGame(level = 1)
 
 .. admonition:: Tasks
 
-    #. Check that print output is the same for each statement above.
-    #. Modify the code so that the LevelGame.game_level is set to 5, then check its value for both instances.
+    #. Modify the code so that the game level starts at 0 with 5 lives.
+    #. Modify the code by adding a third instance variable called level_score and initialize it to 0.
 
 ----
 
 Self in variables
 ----------------------
 
-| In the ``level_up`` function, ``self.level += 1`` has ``self.`` before the variable ``level``.
 | The **self** parameter is used to access variables that belong to the class.
 | The dot . operator is then used to access the object variable.
 
@@ -238,9 +229,7 @@ Self in variables
 Self in methods
 ----------------------
 
-| In the ``level_up`` function, ``def level_up(self):`` has self passed in as the current instance of the class.
-| Methods in objects use the **self** parameter to reference the current instance of the class.
-
+| Class functions use the **self** parameter (first parameter) to reference the current instance of the class.
 | It does not have to be named **self**, but it makes it easier for others if it is used, since that is what is expected.
 
 ----
@@ -248,7 +237,7 @@ Self in methods
 Object Methods
 ----------------------
 
-| In the code below, ``game.level_up()`` calls the method ``level_up``.
+| In the code below, ``game.game_level_up()`` calls the method ``level_up``.
 | When calling the method on the game object, self is not written in the parentheses as it is automatically passed.
 | The first print statement outputs 1, since it is instantiated with a level of 1.
 | Then the second print statement outputs 2 after the ``level_up()`` method has been called.
@@ -258,16 +247,16 @@ Object Methods
 .. code-block:: python
 
     class LevelGame:
-        def __init__(self, level):
-            self.level = level
+        def __init__(self, game_level):
+            self.game_level = game_level
 
         def level_up(self):
-            self.level += 1
+            self.game_level += 1
 
-    game = LevelGame(level = 1)
-    print(game.level)
-    game.level_up()
-    print(game.level)
+    game = LevelGame(game_level = 1)
+    print(game.game_level)
+    game.game_level_up()
+    print(game.game_level)
 
 .. admonition:: Tasks
 
@@ -320,16 +309,16 @@ Class variables
         game_number = 0
         
         def __init__(self, level):
-            self.level = level
+            self.game_level = level
             LevelGame.game_number += 1
             
         def increase_level(self):
-            self.level += 1
+            self.game_level += 1
 
     game = LevelGame(1)
-    print(game.level, game.game_number)
+    print(game.game_level, game.game_number)
     game2 = LevelGame(2)
-    print(game2.level, game2.game_number)
+    print(game2.game_level, game2.game_number)
 
 
 .. admonition:: Tasks
