@@ -234,7 +234,7 @@ Self in methods
 
 ----
 
-Object Methods
+Regular Methods
 ----------------------
 
 | In the code below, ``game.game_level_up()`` calls the method ``level_up``.
@@ -258,15 +258,18 @@ Object Methods
     game.game_level_up()
     print(game.game_level)
 
+
 .. admonition:: Tasks
 
-    #. Check that print output is the same for each statement above.
-    #. Modify the code so that the LevelGame.game_level is set to 5, then check its value for both instances.
+    #. Check that print output above is 1 then 2.
+    #. Modify the level_up function in the previous example so that the level can't go above 10. Hint: use the max function.
+    #. Modify the code so that the LevelGame.game_level starts at 10 then goes down by 1 when a level_down function is called.
+    #. Modify the level_down function in the previous example so that the level can't go below 0.Hint: use the min function.
 
 ----
 
-Object Methods with parameters
----------------------------------
+Regular Methods with parameters
+-------------------------------------
 
 | In the code below, ``game.set_speed(5)`` calls the method ``set_speed`` to set the variable ``self.speed`` to 5.
 | ``game = SpeedGame(1)`` sets the game speed to 1.
@@ -288,18 +291,19 @@ Object Methods with parameters
     game.set_speed(5)
     print(game.speed)
 
+
 .. admonition:: Tasks
 
-    #. Check that print output is the same for each statement above.
-    #. Modify the code so that the LevelGame.game_level is set to 5, then check its value for both instances.
+    #. Modify the set_speed function so that any speed values passed in are limited to a maximum speed of 10. Hint: use the max function.
+    #. Modify the set_speed function so the speed must be between 0 and 10. Hint: use the min and max functions.
 
 ----
 
-Class variables
----------------------------------
+Modifying Class variables during instantiation
+-------------------------------------------------
 
 | In the code below, ``game_number`` is a class variable.
-| ``LevelGame.game_number += 1`` is used to increment the game number by 1 each time a the LevelGame is instantiated.
+| ``LevelGame.game_number += 1`` is used to increment the game number by 1 each time a new LevelGame is instantiated.
 | Since ``game_number`` is a class variable, it is accessed within the class functions via ``LevelGame.game_number``. The **class name**,  ``LevelGame`` is used instead of **self**.
 
 
@@ -319,6 +323,37 @@ Class variables
     print(game.game_level, game.game_number)
     game2 = LevelGame(2)
     print(game2.game_level, game2.game_number)
+
+
+.. admonition:: Tasks
+
+    #. Check that print output is the same for each statement above.
+    #. Modify the code so that the LevelGame.game_level is set to 5, then check its value for both instances.
+
+----
+
+
+Class methods
+-------------------------------------------------
+
+| Class methods use the **cls** parameter (first parameter) to reference the class.
+| In the code below, ``game_number`` is a class variable.
+| The **cls** .
+
+
+.. code-block:: python
+
+    class LevelGame:
+        game_number = 0
+        
+        def __init__(self, level):
+            self.game_level = level
+            LevelGame.game_number += 1
+            
+        def set_game_number(cls, game_number):
+            cls.game_number = game_number
+
+    game = LevelGame(1)
 
 
 .. admonition:: Tasks
