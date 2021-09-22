@@ -34,7 +34,8 @@ Key references:
     :caption: Classes
     :numbered:
 
-    introduction/classes.rst
+    classes/classes.rst
+    classes/inheritance.rst
 
 
 .. toctree::
