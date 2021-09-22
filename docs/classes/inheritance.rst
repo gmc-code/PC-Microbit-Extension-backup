@@ -18,11 +18,11 @@ Class Inheritance
 
 | Inheritance models an is-a relationship. 
 | e.g A dog **is an** animal. The dog is a specialized version of an animal.
-| Use Inheritance when the Derived classes have common features (attributes and methods) with the base class.
+| Use Inheritance when the Derived classes have common features (variables/attributes and functions/methods) with the base class.
 | The derived class inherits from the base class.
-| The derived class can change (override) some features or add (extend) some features.
+| The derived class can change (override) some features or add (extend) features without affecting the parent class.
 
-| Create a child class by deriving it from a preexisting parent class by listing the parent class in parentheses after the child class name.
+| Create a child class from a parent class by listing the parent class in parentheses after the child class name. e.g ChildGame(ParentGame)
 
 
 ----
