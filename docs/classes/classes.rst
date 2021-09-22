@@ -337,13 +337,13 @@ Modifying Class variables during instantiation
 Class methods
 -------------------------------------------------
 
-| Class methods use the **cls** parameter (first parameter) to reference the class.
+| Class methods use the **cls** parameter (first parameter) for passing the class.
 | In the code below, ``game_number`` is a class variable.
-| The ``set_game_number`` function takes **cls** as the first parameter, and has ``number`` as a second parameter.
-| The class variable, ``cls.game_number``, is set to the value of ``number``.
+| The ``set_game_number`` function takes **cls** as the first parameter, and has ``game_number`` as a second parameter.
+| The class variable, ``cls.game_number``, is set to the value of ``game_number``.
 | The function is preceded by the decorator, ``@classmethod  ``, which is required to make the function work as a class method, so it acts on the class rather than an instance of the class.
 | The class method is called on the class using ``LevelGame.set_game_number(1)`` which sets the class variable, ``game_number``, to 1. 
-| The class method can be called on an instance such as, ``game.set_game_number(1)``. The results will be the same, but it makes more sense to call it on the class itself.
+| The class method, ``set_game_number``,  can be called on an instance, ``game``,  such as, ``game.set_game_number(1)``. This works like calling on the class, but it makes more sense to call it on the class itself.
 
 
 .. code-block:: python
@@ -435,5 +435,55 @@ Class methods as alternative constructors
 
     #. Modify the code so create a game at level 10 with 2 lives.
 
+----
 
+Static methods
+-------------------------------------------------
+
+| Static methods do not pass anything automatically.
+| Compare this to regular methods which pass self automatically.
+| Compare this to class methods which pass the class automatically.
+| Static methods behave like regular functions and are included in the class since they have some logical connection with it.
+| Choose to use static methods when there are no references to instance or class variables within it.
+| Static methods, much like class methods, are methods that are bound to a class.
+
+| Static methods do not require a class instance creation. So, they are not dependent on the state of the object.
+| The simplified code below illustrates this:
+
+.. code-block:: python
+
+    class LevelGame:
+        
+        @staticmethod        
+        def get_required_level_score(game_level):
+            return game_level * 10
+
+    score = LevelGame.get_required_level_score(game_level = 3)
+    print(score)
+
+
+| In the code below, when the game is instantiated at a particular game level, ``game = LevelGame(game_level = 1)``, it will use the static method, get_required_level_score, and then print the a value for it. 
+
+| ``def get_required_level_score(level):`` does not pass in self to the function. 
+| The decorator, ``@staticmethod``, is need to make the function not require self to be passed in.
+
+.. code-block:: python
+
+    class LevelGame:
+        game_lives = 5
+        
+        def __init__(self, game_level):
+            self.game_level = game_level
+            print(self.get_required_level_score(self.game_level))
+            
+        @staticmethod        
+        def get_required_level_score(level):
+            return level * 10
+
+    game = LevelGame(game_level = 1)
+
+
+.. admonition:: Tasks
+
+    #. Write a static method that calculates a level bonus score using the formula: bonus = level * 5. Test out the static method and show that it is working for 2 different game levels.
 
