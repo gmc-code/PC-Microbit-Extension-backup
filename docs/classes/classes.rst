@@ -315,30 +315,30 @@ Modifying Class variables during instantiation
         def __init__(self, level):
             self.game_level = level
             LevelGame.game_number += 1
-            
-        def increase_level(self):
-            self.game_level += 1
 
     game = LevelGame(1)
-    print(game.game_level, game.game_number)
     game2 = LevelGame(2)
-    print(game2.game_level, game2.game_number)
+    print(game.game_number)
+    print(game2.game_number)
 
 
 .. admonition:: Tasks
 
-    #. Check that print output is the same for each statement above.
-    #. Modify the code so that the LevelGame.game_level is set to 5, then check its value for both instances.
+    #. Check that print output shows that the class variable is the same for both instances.
+    #. Add a third instance, game3, then check the class variable value for all three instances.
 
 ----
-
 
 Class methods
 -------------------------------------------------
 
 | Class methods use the **cls** parameter (first parameter) to reference the class.
 | In the code below, ``game_number`` is a class variable.
-| The **cls** .
+| The ``set_game_number`` function takes **cls** as the first parameter, and has ``number`` as a second parameter.
+| The class variable, ``cls.game_number``, is set to the value of ``number``.
+| The function is preceded by the decorator, ``@classmethod  ``, which is required to make the function work as a class method, so it acts on the class rather than an instance of the class.
+| The class method is called on the class using ``LevelGame.set_game_number(1)`` which sets the class variable, ``game_number``, to 1. 
+| The class method can be called on an instance such as, ``game.set_game_number(1)``. The results will be the same, but it makes more sense to call it on the class itself.
 
 
 .. code-block:: python
@@ -348,17 +348,48 @@ Class methods
         
         def __init__(self, level):
             self.game_level = level
-            LevelGame.game_number += 1
             
-        def set_game_number(cls, game_number):
-            cls.game_number = game_number
+        @classmethod        
+        def set_game_number(cls, number):
+            cls.game_number = number
 
     game = LevelGame(1)
-
+    LevelGame.set_game_number(1)
+    print(game.game_number)
 
 .. admonition:: Tasks
 
-    #. Check that print output is the same for each statement above.
-    #. Modify the code so that the LevelGame.game_level is set to 5, then check its value for both instances.
+    #. Modify the code so that the ``game_number`` is set to 5, then check its value for the instance, ``game``.
 
 ----
+
+Using a Class method in the __init__ function
+-------------------------------------------------
+
+| The class method ``increase_game_number`` is called by the __init__ function.
+| It increases the class variable, ``game_number``,  by 1.
+
+.. code-block:: python
+
+    class LevelGame:
+        game_number = 0
+        
+        def __init__(self, level):
+            self.game_level = level
+            self.increase_game_number()
+            
+        @classmethod        
+        def increase_game_number(cls):
+            cls.game_number += 1
+            
+    game1 = LevelGame(1)
+    game2 = LevelGame(2)
+    game3 = LevelGame(3)
+    print(game1.game_number)
+    print(game2.game_number)
+    print(game3.game_number)
+
+.. admonition:: Tasks
+
+    #. Check that print output shows that the class variable is the same for all three instances after all three games have been instantiated.
+    #. Modify the code so that the ``game_number`` increases by 10 each time the class method, ``increase_game_number``, is called.
