@@ -65,7 +65,7 @@ Object instantiation
 Object data and methods
 -----------------------------
 
-| Variables and defintions can be gathered together in a class.
+| Variables and definitions can be gathered together in a class.
 | Objects are an **encapsulation** of variables and functions. 
 | Objects get their data attributes (properties) from class variables.
 | Objects get their procedural attributes (methods) from class functions.
@@ -165,16 +165,17 @@ Instance variables
 
 
 | Parameters can be used in the __init__ definition so that arguments can be passed when the object is instantiated.
-| e.g the ``game_level`` parameter has been used in ``__init__(self, game_level)``.
+| e.g the ``level`` parameter has been used in ``__init__(self, level)``.
+} A different variable name, ``level``, has been used instead of ``game_level`` to help see what is happening with the variables.
 | Is it customary to use the same name for the parameters as it is for the instance variables.
 | e.g ``self.game_level = game_level``
-| When game is instantiated using ``game = LevelGame(1)``, a value of 1 is passed in as the argument, so that game_level = 1.
+| When game is instantiated using ``game = LevelGame(1)``, a value of 1 is passed in as the argument, so that ``level`` = 1.
 
 .. code-block:: python
 
     class LevelGame:
-        def __init__(self, game_level):
-            self.game_level = game_level
+        def __init__(self, level):
+            self.game_level = level
 
     game = LevelGame(1)
     print(game.game_level)
@@ -192,10 +193,11 @@ The __init__() function
 | The __init__() function is a built-in-function that is used to assign values to object properties, and to do other operations that are necessary to do when the object is created.
 | The __init__() function is called automatically every time the class is called when creating a new object.
 | The first parameter in the __init__() function is self, referring to the object itself.
-| Other parameters can follow self. e.g ``__init__(self, game_level)``
+| Other parameters can follow self. e.g ``__init__(self, level)``
 | These other parameters, such as ``level``, are passed in as arguments when the class is called.
-| e.g. ``game = LevelGame(game_level = 1)`` passes in ``game_level = 1`` to the __init__() function.
-|  ``game = LevelGame(1)`` and ``game = LevelGame(game_level = 1)`` do the same thing.
+| e.g. ``game = LevelGame(level = 1)`` passes in ``level = 1`` to the __init__() function.
+|  ``game = LevelGame(1)`` and ``game = LevelGame(level = 1)`` do the same thing.
+| e.g. ``game = LevelGame(level=1, lives=3)`` passes in ``level = 1`` and ``lives=3`` to the __init__() function.
 
 | In the sample code, 2 instance variables are created.
 
@@ -204,11 +206,11 @@ The __init__() function
     from microbit import *
 
     class LevelGame:
-        def __init__(self, game_level, player_lives):
-            self.game_level = game_level
-            self.player_lives = player_lives
+        def __init__(self, level, lives):
+            self.game_level = level
+            self.player_lives = lives
 
-    game = LevelGame(game_level=1, player_lives=3)
+    game = LevelGame(level=1, lives=3)
 
 
 .. admonition:: Tasks
@@ -255,6 +257,7 @@ Regular Methods
 
     game = LevelGame(game_level = 1)
     print(game.game_level)
+
     game.game_level_up()
     print(game.game_level)
 
@@ -271,7 +274,7 @@ Regular Methods
 Regular Methods with parameters
 -------------------------------------
 
-| In the code below, ``game.set_speed(5)`` calls the method ``set_speed`` to set the variable ``self.speed`` to 5.
+| In the code below, ``game.set_speed(5)`` calls the method ``set_speed`` to set the variable ``self.game_speed`` to 5.
 | ``game = SpeedGame(1)`` sets the game speed to 1.
 | The print statement outputs 1.
 | ``game.set_speed(5)`` sets the game speed to 5.
@@ -280,16 +283,17 @@ Regular Methods with parameters
 .. code-block:: python
 
     class SpeedGame:
-        def __init__(self, speed):
-            self.speed = speed
+        def __init__(self, game_speed):
+            self.game_speed = game_speed
 
-        def set_speed(self, speed):
-            self.speed = speed
+        def set_speed(self, game_speed):
+            self.game_speed = game_speed
 
     game = SpeedGame(1)
-    print(game.speed)
+    print(game.game_speed)
+
     game.set_speed(5)
-    print(game.speed)
+    print(game.game_speed)
 
 
 .. admonition:: Tasks
@@ -312,12 +316,13 @@ Modifying Class variables during instantiation
     class LevelGame:
         game_number = 0
         
-        def __init__(self, level):
-            self.game_level = level
+        def __init__(self, game_level):
+            self.game_level = game_level
             LevelGame.game_number += 1
 
     game = LevelGame(1)
     game2 = LevelGame(2)
+
     print(game.game_number)
     print(game2.game_number)
 
@@ -346,12 +351,12 @@ Class methods
     class LevelGame:
         game_number = 0
         
-        def __init__(self, level):
-            self.game_level = level
+        def __init__(self, game_level):
+            self.game_level = game_level
             
         @classmethod        
-        def set_game_number(cls, number):
-            cls.game_number = number
+        def set_game_number(cls, game_number):
+            cls.game_number = game_number
 
     game = LevelGame(1)
     LevelGame.set_game_number(1)
@@ -366,30 +371,69 @@ Class methods
 Using a Class method in the __init__ function
 -------------------------------------------------
 
-| The class method ``increase_game_number`` is called by the __init__ function.
-| It increases the class variable, ``game_number``,  by 1.
+| The class method ``increase_lives`` is called by the __init__ function.
+| It increases the class variable, ``lives```,  by 1.
 
 .. code-block:: python
 
     class LevelGame:
-        game_number = 0
+        lives = 3
         
-        def __init__(self, level):
-            self.game_level = level
-            self.increase_game_number()
+        def __init__(self, game_level):
+            self.game_level = game_level
+            self.increase_lives()
             
         @classmethod        
-        def increase_game_number(cls):
-            cls.game_number += 1
+        def increase_lives(cls):
+            cls.lives += 1
             
     game1 = LevelGame(1)
+    print(game1.lives)
+
     game2 = LevelGame(2)
-    game3 = LevelGame(3)
-    print(game1.game_number)
-    print(game2.game_number)
-    print(game3.game_number)
+    print(game2.lives)
 
 .. admonition:: Tasks
 
-    #. Check that print output shows that the class variable is the same for all three instances after all three games have been instantiated.
-    #. Modify the code so that the ``game_number`` increases by 10 each time the class method, ``increase_game_number``, is called.
+    #. Modify the code so that the ``lives`` starts at 1 for the first time that ``LevelGame`` is called, then ``increase_lives`` increases lives by 2 each time it is called.
+
+----
+
+Class methods as alternative constructors
+-------------------------------------------------
+
+| In the code below, the class method ``constructor`` provides an alternate constructor to that of just calling the class to create a new instance.
+| ``game1 = LevelGame(game_level = 1)`` result in game_level = 1 and game_lives = 5
+| ``game2 = LevelGame.constructor(game_level = 1, game_lives = 3)`` result in game_level = 1 and game_lives = 3
+| The last line of code, ``return cls(game_level)``, calls the __init__ function to create teh new instance.
+
+.. code-block:: python
+
+    class LevelGame:
+        game_lives = 5
+        
+        def __init__(self, game_level):
+            self.game_level = game_level
+            
+        @classmethod        
+        def set_game_lives(cls, game_lives):
+            cls.game_lives = game_lives
+            
+        @classmethod
+        def constructor(cls, game_level, game_lives):
+            cls.set_game_lives(game_lives)
+            return cls(game_level)
+            
+            
+    game1 = LevelGame(game_level = 1)   
+    print(game1.game_level, game2.game_lives)
+
+    game2 = LevelGame.constructor(game_level = 1, game_lives = 3)
+    print(game2.game_level, game2.game_lives)
+
+.. admonition:: Tasks
+
+    #. Modify the code so create a game at level 10 with 2 lives.
+
+
+
