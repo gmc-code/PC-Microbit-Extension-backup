@@ -84,7 +84,7 @@ Game code without classes
     #. Modify the code to require a tilt to the left or right instead of a shake.
     #. Modify the code to require a button press instead of a shake.
     #. Divide up the responses into positive responses and negative responses. Display a positive response when the A button is pressed and a negative response when the B button is pressed.
-    #. Divide up the responses into positive responses and negative responses. Display a positive response when the microbit is tilted to the left and a negative response when the microbit is tilted to the right.
+    #. Divide up the responses into positive responses and negative responses. Display a negative response when the microbit is tilted to the left and a positive response when the microbit is tilted to the right.
 
 ----
 
@@ -92,7 +92,7 @@ Converting to using a class
 ---------------------------------
 
 | The class version of the game code is below.
-| ``game = Magic8()`` instantiates the class by creating a copy of the class which inherits all the class attributes and methods.
+| ``game = Magic8()`` instantiates the class by creating a copy of the class, called an instance, which inherits all the class attributes and methods.
 | The ``__init__`` method has the **responses** list as well as an attribute for the text, **magic_text**, to display between responses.
 | The ``run_game`` method has the game code that was previously within the body of the while loop.
 | ``game.run_game()`` calls the ``run_game`` method on the game object to run the game.
