@@ -145,7 +145,7 @@ Converting to using a class
 .. admonition:: Tip
     
     In the code ``game = Magic8()``, the class is ``Magic8`` and the instantiated object is ``game``.
-    The __init__ method is used to initialize (assign values) to the data variables of the class when the class object is created. It also can contain statements (i.e. instructions) that are executed at time of object creation. The __init__ method is run as soon as the class object is instantiated. 
+    The ``__init__`` method is used to initialize (assign values) to the data variables of the class when the class object is created. It also can contain statements (i.e. instructions) that are executed at time of object creation. The ``__init__`` method is run as soon as the class object is instantiated. 
 
 ----
 
@@ -166,7 +166,8 @@ Pass arguments to the class
     #. Use '?' as an argument for ``Magic8()`` to show '?' instead of '8'.
 
 | When no argument is passed when instantiating the game object, **magic_text** defaults to 8.
-| ``game = Magic8('?')`` replaces the default value of 8 with '?'.
+| ``game = Magic8('?')`` replaces the default value of 8 with '?'. ``'?'`` is passed to the __init__ method in place of the ``magic_text`` parameter.
+| ``self`` is automatically passed to the instance methods.
 
 .. code-block:: python
 
