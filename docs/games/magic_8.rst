@@ -12,6 +12,10 @@ Game design
 Specific Syntax
 --------------------
 
+.. py:function::  import random
+
+    Import the random number module.
+
 .. py:function::  random.choice(sequence)
 
     Return a random element from a sequence such as a list.
@@ -31,7 +35,7 @@ Specific Syntax
 Game code without classes
 ---------------------------------
 
-| The version of the game code, without classes, is below.
+| The version of the game code, using functions, without classes, is below.
 
 .. code-block:: python
 
