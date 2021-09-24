@@ -246,7 +246,7 @@ Use tilting in the run_game method in a child class
 
 | The Magic8 class can be used as the parent class.
 | A child class, ``Magic8tilt``, can inherit from the ``Magic8`` class by passing it as an argument when declaring it, as in: ``class Magic8tilt(Magic8):``
-| Use ``super().__init__(magic_text=8)`` to inherit attributes from the ``__init__`` in the ``Magic8`` class.
+| Use ``super().__init__(magic_text=8)`` to inherit attributes from the ``__init__`` method in the ``Magic8`` class.
 | Modify the ``run_game`` method in the child class, ``Magic8tilt``, to use tilting.
 
 .. code-block:: python
@@ -296,7 +296,7 @@ Use button pressing in the run_game method in a child class
 
 | The Magic8 class can be used as the parent class.
 | A child class, ``Magic8button``, can inherit from the ``Magic8`` class by passing it as an argument when declaring it, as in: ``class Magic8button(Magic8):``
-| Use ``super().__init__(magic_text=8)`` to inherit attributes from the ``__init__`` in the ``Magic8`` class.
+| Use ``super().__init__(magic_text=8)`` to inherit attributes from the ``__init__`` method in the ``Magic8`` class.
 | Modify the ``run_game`` method in the child class, ``Magic8button``, to use button pressing.
 
 
@@ -344,11 +344,11 @@ Modify the __init__ and run_game methods in a new class
 
 .. admonition:: Tasks
 
-    #. Divide up the responses into positive responses and negative responses. Display a positive response when the A button is pressed and a negative response when the B button is pressed.
+    #. Divide up the responses into positive responses and negative responses. Display a negative response when the A button is pressed and a positive response when the B button is pressed.
 
 | Rewrite the Magic8 class since both methods need changing.
-| In the __init__ method, use **responses_pos** and **responses_neg** instead of just **responses**
-| In the ``run_game`` method, use button pressing to set the **responses_choice** to pick from for display.
+| In the ``__init__`` method, use **responses_neg** and **responses_pos** instead of just **responses**.
+| In the ``run_game`` method, use button pressing to set the **responses_choice** which is then picked from for display.
 
 .. code-block:: python
 
@@ -365,9 +365,9 @@ Modify the __init__ and run_game methods in a new class
         def run_game(self):
             display.show(self.magic_text)
             if button_a.is_pressed():
-                responses_choice = self.responses_pos
-            elif button_b.is_pressed():
                 responses_choice = self.responses_neg
+            elif button_b.is_pressed():
+                responses_choice = self.responses_pos
             else:    
                 responses_choice = ""
             if responses_choice != "":
@@ -384,5 +384,5 @@ Modify the __init__ and run_game methods in a new class
 
 .. admonition:: Tasks
 
-    #. Use a subclass of ``Magic8PosNeg`` to display a positive response when the microbit is tilted to the left and a negative response when the microbit is tilted to the right.
-    #. Use a subclass of ``Magic8PosNeg`` to display a positive response when pin0 of the microbit is touched and a negative response when pin0 of the microbit is touched.
+    #. Use a subclass of ``Magic8PosNeg`` to display a negative response when the microbit is tilted to the left and a positive response when the microbit is tilted to the right.
+    #. Use a subclass of ``Magic8PosNeg`` to display a negative response when pin0 of the microbit is touched and a positive response when pin2 of the microbit is touched.

@@ -24,6 +24,13 @@ Class Inheritance
 
 | Create a child class from a parent class by listing the parent class in parentheses after the child class name. e.g ChildGame(ParentGame)
 
+----
+
+super
+-----------
+
+See https://realpython.com/python-super/
+
 
 ----
 
