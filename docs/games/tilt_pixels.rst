@@ -8,6 +8,7 @@ Game design
 | TiltPixels is a game to find hidden pixels on the display by titling the microbit.
 | A class is used to run the game.
 | A set will be used to keep track of the pixels visited by tilting.
+| e.g. {(0, 0), (1, 0)} is the set of the two pixels in the top left.
 | The (x,y) coordinates of each pixel are in the diagram below.
 
 .. image:: images/microbit_coords.png
@@ -17,11 +18,11 @@ Game design
 
 
 #. Set up the game object (initialize an instance of the class)
-    a. Set between 2 and 4 random pixels to be found.
-    b. Start from a random pixel and display it brightly then faintly.
+    #. Set between 2 and 4 random pixels to be found.
+    #. Start from a random pixel and display it brightly then faintly.
 #. Repeat the following steps:
-    a. Use the accelerometer to detect a tilt and move the pixel.
-    b. If all the pixels have been found then:
+    #. Use the accelerometer to detect a tilt and move the pixel.
+    #. If all the pixels have been found then:
         #. Display the location of the hidden pixels as well as the visited pixels.
         #. Scroll the score.
         #. Play again if both buttons are pressed.
