@@ -133,13 +133,14 @@ Converting to using a class
             
         def run_game(self):
             display.show(self.magic_text)
+            sleep(1000)
             if accelerometer.was_gesture("shake"):
                 display.clear()
-                sleep(1000)
+                sleep(100)
                 display.scroll(random.choice(self.responses), delay=120)
 
+    game = Magic8()
     while True:
-        game = Magic8()
         game.run_game()
 
 .. admonition:: Tip
@@ -152,7 +153,7 @@ Converting to using a class
 Modifying classes
 ---------------------------------
 
-| Below are some examples of how some challenge tasks can be achieved by modifying the use of classes.
+| Below are some examples of how game variations can be achieved by modifying the classes.
 | To keep the code shorter, the standard game responses are replaced with the 4 below:
 | ``responses = ["For sure", "Yes", "No", "No way"]``
 
@@ -182,13 +183,14 @@ Pass arguments to the class
 
         def run_game(self):
             display.show(self.magic_text)
+            sleep(1000)
             if accelerometer.was_gesture("shake"):
                 display.clear()
-            sleep(1000)
-            display.scroll(random.choice(self.responses), delay=120)
+                sleep(100)
+                display.scroll(random.choice(self.responses), delay=120)
 
+    game = Magic8('?')
     while True:
-        game = Magic8('?')
         game.run_game()
     
 ----
@@ -219,9 +221,10 @@ Modify the __init__ method in a child class
 
         def run_game(self):
             display.show(self.magic_text)
+            sleep(1000)
             if accelerometer.was_gesture("shake"):
                 display.clear()
-                sleep(1000)
+                sleep(100)
                 display.scroll(random.choice(self.responses), delay=120)
 
 
@@ -231,9 +234,9 @@ Modify the __init__ method in a child class
             super().__init__(magic_text=8)
             self.responses = ["It is certain", "Yes"]
 
+    game = Magic8pos(Magic8)
     while True:
-        game = Magic8pos(Magic8)
-        game.run_game()    
+        game.run_game()
 
 ----
 
@@ -262,9 +265,10 @@ Use tilting in the run_game method in a child class
 
         def run_game(self):
             display.show(self.magic_text)
+            sleep(1000)
             if accelerometer.was_gesture("shake"):
                 display.clear()
-                sleep(1000)
+                sleep(100)
                 display.scroll(random.choice(self.responses), delay=120)
 
 
@@ -275,14 +279,15 @@ Use tilting in the run_game method in a child class
                 
         def run_game(self):
             display.show(self.magic_text)
+            sleep(1000)
             if accelerometer.was_gesture("left") or accelerometer.was_gesture("right"):
                 display.clear()
-                sleep(1000)
+                sleep(100)
                 display.scroll(random.choice(self.responses), delay=120)
 
                     
+    game = Magic8tilt()
     while True:
-        game = Magic8tilt()
         game.run_game()
 
 ----
@@ -313,9 +318,10 @@ Use button pressing in the run_game method in a child class
 
         def run_game(self):
             display.show(self.magic_text)
+            sleep(1000)
             if accelerometer.was_gesture("shake"):
                 display.clear()
-                sleep(1000)
+                sleep(100)
                 display.scroll(random.choice(self.responses), delay=120)
 
 
@@ -326,14 +332,14 @@ Use button pressing in the run_game method in a child class
                 
         def run_game(self):
             display.show(self.magic_text)
+            sleep(1000)
             if button_a.is_pressed() or button_b.is_pressed():
                 display.clear()
-                sleep(1000)
+                sleep(100)
                 display.scroll(random.choice(self.responses), delay=120)
 
-                    
+    game = Magic8button()
     while True:
-        game = Magic8button()
         game.run_game()
 
 
@@ -356,7 +362,7 @@ Modify the __init__ and run_game methods in a new class
     import random
 
 
-    class Magic8PosNeg:
+    class Magic8NegPos:
         def __init__(self, magic_text=8):
             self.magic_text = magic_text
             self.responses_pos = ["For sure", "Yes"]
@@ -364,6 +370,7 @@ Modify the __init__ and run_game methods in a new class
 
         def run_game(self):
             display.show(self.magic_text)
+            sleep(1000)
             if button_a.is_pressed():
                 responses_choice = self.responses_neg
             elif button_b.is_pressed():
@@ -372,17 +379,16 @@ Modify the __init__ and run_game methods in a new class
                 responses_choice = ""
             if responses_choice != "":
                 display.clear()
-                sleep(1000)
+                sleep(100)
                 display.scroll(random.choice(responses_choice), delay=120)
 
-
+    game = Magic8NegPos()
     while True:
-        game = Magic8PosNeg()
         game.run_game()
 
 ----
 
 .. admonition:: Tasks
 
-    #. Use a subclass of ``Magic8PosNeg`` to display a negative response when the microbit is tilted to the left and a positive response when the microbit is tilted to the right.
-    #. Use a subclass of ``Magic8PosNeg`` to display a negative response when pin0 of the microbit is touched and a positive response when pin2 of the microbit is touched.
+    #. Use a subclass of ``Magic8NegPos`` to display a negative response when the microbit is tilted to the left and a positive response when the microbit is tilted to the right.
+    #. Use a subclass of ``Magic8NegPos`` to display a negative response when pin0 of the microbit is touched and a positive response when pin2 of the microbit is touched.
