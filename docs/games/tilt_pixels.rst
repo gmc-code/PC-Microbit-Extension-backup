@@ -70,45 +70,92 @@ The TiltPixels class
 
 ----
 
-The TiltPixels class methods
+The TiltPixels outline
 -------------------------------
 
-| The TiltPixels class methods are described below.
+.. code-block:: python
 
-#. ``set_pixels_to_find()`` creates a set of tuples of (x, y) coordinates for 2 to 4 hidden pixels.
-#. ``acc_x_change()`` returns -1 to move to the left, 0 for no change and 1 to move to the right.
-#. ``acc_y_change()`` returns -1 to move to the top, 0 for no change and 1 to move to the bottom.
-#. ``tilt()`` moves a bright pixel in the direction of tilt.
-#. ``prepare_move()`` updates the new pixel and adds it to the pixels_filled set.
-#. ``show()`` sets the brightness of the new pixel to bright, then dim.
-#. ``filled()`` checks if all the hidden pixels have been visited by tilting.
-#. ``answer()`` displays the hidden pixels brightly and the visited pixels dimly.
-#. ``score()`` calculates the score.
-#. ``show_score()`` scrolls the score.
-#. ``run_game()`` runs the game in full.
-#. ``set_game()`` sets or resets the game and starts it.
+    from microbit import *
+    import random
+
+
+    class TiltPixels:
+        """TiltPixels game: tilt to find the hidden pixels"""
+
+        def __init__(self, x_pos=random.randint(0, 4), y_pos=random.randint(0, 4)):
+            # call set_game
+
+        def set_game(self, x_pos=random.randint(0, 4), y_pos=random.randint(0, 4)):
+            # sets or resets the game and starts it.
+
+        def set_pixels_to_find():
+            # creates a set of tuples of (x, y) coordinates for 2 to 4 hidden pixels.
+
+        def acc_x_change(self):
+            # returns -1 to move to the left, 0 for no change and 1 to move to the right.
+
+        def acc_y_change(self):
+            # returns -1 to move to the top, 0 for no change and 1 to move to the bottom.
+
+        def tilt(self):
+            # moves a bright pixel in the direction of tilt.
+
+        def prepare_move(self, x_delta, y_delta):
+            # updates the new pixel and adds it to the pixels_filled set.
+
+        def show(self):
+            # sets the brightness of the new pixel to bright, then dim.
+
+        def are_all_found(self):
+            # checks if all the hidden pixels have been visited by tilting.
+
+        def answer(self):
+            # displays the hidden pixels brightly and the visited pixels dimly.
+
+        def score(self):
+            # calculates the score.
+
+        def show_score(self):
+            # scrolls the score.
+
+        def run_game(self):
+            # runs the game.
+
+    game = TiltPixels()
+    while True:
+        if button_a.was_pressed() and button_b.was_pressed():
+            game.set_game()
+        else:
+            sleep(2000)
 
 ----
 
 The TiltPixels constructor
 ---------------------------------
 
-.. py:method:: __init__(x_position=random.randint(0, 4), y_position=random.randint(0, 4))
+.. py:method:: __init__(x_pos=random.randint(0, 4), y_pos=random.randint(0, 4))
 
     | The __init__() method is the constructor called when the game object is created.
-    | The starting pixel is at the coordinates: ``(x_position, y_position)``.
-    | ``x_position`` is the starting x value which by default will be a random integer from 0 to 4.
-    | ``y_position`` is the starting y value which by default will be a random integer from 0 to 4.
+    | It calls ``self.set_game(x_pos, y_pos)``.
+    | The starting pixel is at the coordinates: ``(x_pos, y_pos)``.
+    | ``x_pos`` is the starting x value which by default will be a random integer from 0 to 4.
+    | ``y_pos`` is the starting y value which by default will be a random integer from 0 to 4.
 
-| ``self.x_position`` keeps track of the x position of the current pixel.
-| ``self.y_position`` keeps track of the y position of the current pixel.
-| ``self.tilt_sensitivity`` sets the amount of tilt needed to move the pixel.
-| ``self.game_speed`` sets the sleep time between pixel moves.
-| ``self.pixels_filled`` is initialized as a set with the starting pixel tuple: ``(x_position, y_position)``. A set is used to make it easy to keep track of the visited pixels. A set is used instead of a list because sets don't allow duplicate values to be stored. When the microbit is tilted, each pixel will be added to the set. 
-| ``self.pixels_to_get`` stores the set of hidden pixels created using ``set_pixels_to_find``. 
-| ``self.show()`` displays the pixel at (x_position, y_position).
+.. py:method:: def set_game(self, x_pos=random.randint(0, 4), y_pos=random.randint(0, 4))
 
-| The __init__ method is given below.
+    | Sets the following variables:
+    | ``self.x_pos`` keeps track of the x position of the current pixel.
+    | ``self.y_pos`` keeps track of the y position of the current pixel.
+    | ``self.tilt_sensitivity`` sets the amount of tilt needed to move the pixel.
+    | ``self.game_speed`` sets the sleep time between pixel moves.
+    | ``self.pixels_filled`` is initialized as a set with the starting pixel tuple: ``(x_pos, y_pos)``. A set is used to make it easy to keep track of the visited pixels. A set is used instead of a list because sets don't allow duplicate values to be stored. When the microbit is tilted, each pixel will be added to the set. 
+    | ``self.pixels_to_get`` stores the set of hidden pixels created using ``set_pixels_to_find``. 
+
+    | Calls the following methods:
+    | ``self.show()`` displays the pixel at (x_pos, y_pos).
+    | ``self.run_game()`` runs the game.
+
+| The set up code is below:
 
 .. code-block:: python
 
@@ -136,7 +183,7 @@ The hidden pixels
 .. py:method:: set_pixels_to_find()
 
     | Create a set of tuples of (x, y) coordinates for 2 to 4 hidden pixels.
-    | e.g with 5 pixels: {(2, 1), (4, 1), (3, 4), (2, 0), (1, 1)}
+    | e.g with 4 pixels: {(2, 1), (4, 1), (3, 4), (2, 0)}
 
 | The decorator ``@staticmethod``, makes the function a static method. This utility function doesn't access any properties of the class. No reference to ``self`` is passed to it.
 | ``pixels = set()`` creates an empty set.
@@ -239,12 +286,12 @@ Prepare move
 
 .. py:method:: prepare_move(x_delta, y_delta)
 
-    | Updates the x_position and y_position values for the new pixel and adds it to the pixels_filled set.
+    | Updates the x_pos and y_pos values for the new pixel and adds it to the pixels_filled set.
     | x_delta is the integer returned from ``acc_x_change()``.
     | y_delta is the integer returned from ``acc_y_change()``.
 
 | The min and max functions are used to restrict the new x and y values to 0 to 4.
-| ``pixels_filled.add((self.x_position, self.y_position)`` adds the new tuple (x, y) to the set ``pixels_filled``. Because sets can't include duplicate values, any previously visited pixels are only stored once.
+| ``pixels_filled.add((self.x_pos, self.y_pos)`` adds the new tuple (x, y) to the set ``pixels_filled``. Because sets can't include duplicate values, any previously visited pixels are only stored once.
 
 .. code-block:: python
 
@@ -252,9 +299,9 @@ Prepare move
         ...
 
         def prepare_move(self, x_delta, y_delta):
-            self.x_position = min(4, max(0, self.x_position + x_delta))
-            self.y_position = min(4, max(0, self.y_position + y_delta))
-            self.pixels_filled.add((self.x_position, self.y_position))
+            self.x_pos = min(4, max(0, self.x_pos + x_delta))
+            self.y_pos = min(4, max(0, self.y_pos + y_delta))
+            self.pixels_filled.add((self.x_pos, self.y_pos))
 
 ----
 
@@ -271,19 +318,19 @@ Show
         ...
 
         def show(self):
-            display.set_pixel(self.x_position, self.y_position, 9)
+            display.set_pixel(self.x_pos, self.y_pos, 9)
             sleep(50)
-            display.set_pixel(self.x_position, self.y_position, 2)
+            display.set_pixel(self.x_pos, self.y_pos, 2)
 
 ----
 
-Filled
+are_all_found
 ---------------------------------
 
 | After moving to a new pixel, check to see if all the hidden pixels have been found.
 
 
-.. py:method:: filled()
+.. py:method:: are_all_found()
 
     | Returns True if all the hidden pixels have been visited, or False if not.
     | It uses the **issubset** method to check if all the values in the set pixels_to_get are in the set pixels_filled.
@@ -293,7 +340,7 @@ Filled
     class TiltPixels:
         ...
 
-        def filled(self):
+        def are_all_found(self):
             return self.pixels_to_get.issubset(self.pixels_filled)
     
 ----
@@ -358,7 +405,7 @@ Run game
         while game_over is False:
             self.tilt()
             sleep(self.game_speed)
-            if self.filled():
+            if self.are_all_found():
                 game_over = True
                 self.answer()
                 self.show_score()
@@ -407,7 +454,7 @@ Game code
                 display.set_pixel(i[0], i[1], 9)
             sleep(2000)
 
-        def filled(self):
+        def are_all_found(self):
             return self.pixels_to_get.issubset(self.pixels_filled)
         
         def score(self):
@@ -418,14 +465,14 @@ Game code
             display.scroll(scores, delay=80)
 
         def prepare_move(self, x_delta, y_delta):
-            self.x_position = min(4, max(0, self.x_position + x_delta))
-            self.y_position = min(4, max(0, self.y_position + y_delta))
-            self.pixels_filled.add((self.x_position, self.y_position))
+            self.x_pos = min(4, max(0, self.x_pos + x_delta))
+            self.y_pos = min(4, max(0, self.y_pos + y_delta))
+            self.pixels_filled.add((self.x_pos, self.y_pos))
 
         def show(self):
-            display.set_pixel(self.x_position, self.y_position, 9)
+            display.set_pixel(self.x_pos, self.y_pos, 9)
             sleep(50)
-            display.set_pixel(self.x_position, self.y_position, 2)
+            display.set_pixel(self.x_pos, self.y_pos, 2)
 
         def acc_x_change(self):
             sensitivity = self.tilt_sensitivity
@@ -458,7 +505,7 @@ Game code
             while game_over is False:
                 self.tilt()
                 sleep(self.game_speed)
-                if self.filled():
+                if self.are_all_found():
                     game_over = True
                     self.answer()
                     self.show_score()
@@ -469,7 +516,6 @@ Game code
             game.set_game()
         else:
             sleep(2000)
-
 
 ----
 
