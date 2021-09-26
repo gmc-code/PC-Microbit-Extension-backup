@@ -73,6 +73,13 @@ The TiltPixels class
 The TiltPixels outline
 -------------------------------
 
+
+
+.. admonition:: Tasks
+
+    #. Here is the outline to the TiltPixels class. See if you can write code for each method to get the game working.
+
+
 .. code-block:: python
 
     from microbit import *
