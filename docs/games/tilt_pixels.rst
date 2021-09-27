@@ -38,9 +38,11 @@ Game design
     from microbit import *
 
     game = TiltPixels()
-    while True:
+    game.run_game()
+            while True:
         if button_a.was_pressed() and button_b.was_pressed():
             game.set_game()
+            game.run_game()
         else:
             sleep(2000)
 
@@ -73,8 +75,6 @@ The TiltPixels class
 The TiltPixels outline
 -------------------------------
 
-
-
 .. admonition:: Tasks
 
     #. Here is the outline to the TiltPixels class. See if you can write code for each method to get the game working.
@@ -93,7 +93,7 @@ The TiltPixels outline
             # call set_game
 
         def set_game(self, x_pos=random.randint(0, 4), y_pos=random.randint(0, 4)):
-            # sets or resets the game and starts it.
+            # sets or resets the game variables.
 
         def set_pixels_to_find():
             # creates a set of tuples of (x, y) coordinates for 2 to 4 hidden pixels.
@@ -119,7 +119,7 @@ The TiltPixels outline
         def answer(self):
             # displays the hidden pixels brightly and the visited pixels dimly.
 
-        def score(self):
+        def set_score(self, time):
             # calculates the score.
 
         def show_score(self):
@@ -129,9 +129,11 @@ The TiltPixels outline
             # runs the game.
 
     game = TiltPixels()
+    game.run_game()
     while True:
         if button_a.was_pressed() and button_b.was_pressed():
             game.set_game()
+            game.run_game()
         else:
             sleep(2000)
 
@@ -151,16 +153,16 @@ The TiltPixels constructor
 .. py:method:: def set_game(self, x_pos=random.randint(0, 4), y_pos=random.randint(0, 4))
 
     | Sets the following variables:
-    | ``self.x_pos`` keeps track of the x position of the current pixel.
-    | ``self.y_pos`` keeps track of the y position of the current pixel.
-    | ``self.tilt_sensitivity`` sets the amount of tilt needed to move the pixel.
-    | ``self.game_speed`` sets the sleep time between pixel moves.
+    | ``self.x_pos`` is the x position of the current pixel.
+    | ``self.y_pos`` is the y position of the current pixel.
+    | ``self.tilt_sensitivity`` is the amount of tilt needed to move the pixel.
+    | ``self.game_speed`` is the sleep time between pixel moves.
+    | ``self.score``is set to 0.
     | ``self.pixels_filled`` is initialized as a set with the starting pixel tuple: ``(x_pos, y_pos)``. A set is used to make it easy to keep track of the visited pixels. A set is used instead of a list because sets don't allow duplicate values to be stored. When the microbit is tilted, each pixel will be added to the set. 
     | ``self.pixels_to_get`` stores the set of hidden pixels created using ``set_pixels_to_find``. 
 
     | Calls the following methods:
     | ``self.show()`` displays the pixel at (x_pos, y_pos).
-    | ``self.run_game()`` runs the game.
 
 | The set up code is below:
 
@@ -177,10 +179,10 @@ The TiltPixels constructor
             self.y_pos = y_pos
             self.tilt_sensitivity = 100
             self.game_speed = 200
+            self.score = 0
             self.pixels_filled = {(x_pos, y_pos)}
             self.pixels_to_get = self.set_pixels_to_find()
             self.show()
-            self.run_game()
 
 ----
 
@@ -361,10 +363,10 @@ Answer and score
 
     | Loop through the set of hidden pixels and set their brightness to 9.
 
-.. py:method:: score()
+.. py:method:: set_score()
 
-    | Return the game score by finding the difference between the number of pixels visited and the number of hidden pixels.
-    | The lower the number the better. The best score is 0 and the worst score possible is 23 if all pixels were visited and there were only 2 hidden.
+    | Calculate the game score by finding the difference between the number of pixels visited and the number of hidden pixels, subtracting that from 100 and subtracting the time taken.
+    | The higher the number the better. Scores above 90 are very difficult to achieve.
 
 .. py:method:: show_score()
 
@@ -382,13 +384,13 @@ Answer and score
                 display.set_pixel(i[0], i[1], 9)
             sleep(2000)
         
-        def score(self):
-            return len(self.pixels_filled) - len(self.pixels_to_get)
+        def set_score(self, time):
+            self.score = (100 - (len(self.pixels_filled) - 
+                            len(self.pixels_to_get)) - int(time / 1000))
 
         def show_score(self):
-            scores = ('score = ' + str(self.score())
+            scores = "score = " + str(self.score)
             display.scroll(scores, delay=80)
-
 ----
 
 Run game
@@ -408,13 +410,16 @@ Run game
         ...
 
     def run_game(self):
+        start_time = running_time()
         game_over = False
         while game_over is False:
             self.tilt()
             sleep(self.game_speed)
             if self.are_all_found():
+                now = running_time()
                 game_over = True
                 self.answer()
+                self.set_score(now - start_time)
                 self.show_score()
     
 ----
@@ -441,10 +446,10 @@ Game code
             self.y_pos = y_pos
             self.tilt_sensitivity = 100
             self.game_speed = 200
+            self.score = 0
             self.pixels_filled = {(x_pos, y_pos)}
             self.pixels_to_get = self.set_pixels_to_find()
             self.show()
-            self.run_game()
 
         @staticmethod
         def set_pixels_to_find():
@@ -464,11 +469,12 @@ Game code
         def are_all_found(self):
             return self.pixels_to_get.issubset(self.pixels_filled)
         
-        def score(self):
-            return len(self.pixels_filled) - len(self.pixels_to_get)
-        
+        def set_score(self, time):
+            self.score = (100 - (len(self.pixels_filled) - 
+                            len(self.pixels_to_get)) - int(time / 1000))
+
         def show_score(self):
-            scores = ('score = ' + str(self.score())
+            scores = "score = " + str(self.score)
             display.scroll(scores, delay=80)
 
         def prepare_move(self, x_delta, y_delta):
@@ -508,19 +514,24 @@ Game code
             self.show()
 
         def run_game(self):
+            start_time = running_time()
             game_over = False
             while game_over is False:
                 self.tilt()
                 sleep(self.game_speed)
                 if self.are_all_found():
+                    now = running_time()
                     game_over = True
                     self.answer()
+                    self.set_score(now - start_time)
                     self.show_score()
 
     game = TiltPixels()
+    game.run_game()
     while True:
         if button_a.was_pressed() and button_b.was_pressed():
             game.set_game()
+            game.run_game()
         else:
             sleep(2000)
 
@@ -533,5 +544,5 @@ Game code
     #. Modify the code to use a button press to peek at the answer for half a second while still playing the game.
     #. Modify the code so that the A and B buttons move the pixel left to right instead of tilting left to right. Keep the tilting in the y-direction.
     #. Write code to use the A and B buttons to adjust the game speed in steps of 100 with a minimum of 100 and a maximum of 800.
-    #. Add a default parameter for the game speed to the __init__ method and set_game method  to enable setting of the game speed. Run the first game with a game speed of 1000. Use a for-loop to decrement (lower) the game speed down to 200 in steps of 200 so that 5 games are played.
+    #. Add a default parameter for the game speed to the __init__ method and set_game method to enable setting of the game speed. Run the first game with a game speed of 1000. Use a for-loop to decrement (lower) the game speed down to 200 in steps of 200 so that 5 games are played.
 
