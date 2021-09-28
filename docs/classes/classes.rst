@@ -225,8 +225,9 @@ The __init__() function
 Self in variables
 ----------------------
 
-| The **self** parameter is used to access variables that belong to the class.
+| The **self** parameter is used to access variables that belong to the class as instance variables.
 | The dot . operator is then used to access the object variable.
+| e.g ``self.game_level``
 
 ----
 
