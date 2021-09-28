@@ -242,9 +242,10 @@ Self in methods
 Regular Methods
 ----------------------
 
-| In the code below, ``game.game_level_up()`` calls the method ``level_up``.
-| When calling the method on the game object, self is not written in the parentheses as it is automatically passed.
-| The first print statement outputs 1, since it is instantiated with a level of 1.
+| In the code below, ``game.level_up()`` calls the method ``level_up``.
+| ``self.game_level += 1`` adds 1 to ``self.game_level``.
+| When calling the method on the game object, self is not written in the parentheses since it is automatically passed.
+| The first print statement outputs 1, since the game object is instantiated with a game_level of 1.
 | Then the second print statement outputs 2 after the ``level_up()`` method has been called.
 
 | In the code below
@@ -261,7 +262,7 @@ Regular Methods
     game = LevelGame(game_level = 1)
     print(game.game_level)
 
-    game.game_level_up()
+    game.level_up()
     print(game.game_level)
 
 
