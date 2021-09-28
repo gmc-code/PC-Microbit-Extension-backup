@@ -8,21 +8,22 @@ Inheritance
 Class Inheritance
 --------------------
 
-| Inheritance is a way of reusing code by inheriting the structure from the base class. 
-| The base class is called the parent class. 
-| The derived class is called the child class or subclass.
+| Inheritance is a way of reusing code by inheriting the structure from the parent class. 
+| The parent class is also called the base class or super class. 
+| The child class is also called the derived class or subclass.
 
 .. image:: images/inheritance.png
     :scale: 100 %
     :align: center
+    :alt: Inheritance
 
 | Inheritance models an is-a relationship. 
 | e.g A dog **is an** animal. The dog is a specialized version of an animal.
-| Use Inheritance when the Derived classes have common features (variables/attributes and functions/methods) with the base class.
-| The derived class inherits from the base class.
-| The derived class can change (override) some features or add (extend) features without affecting the parent class.
+| Use Inheritance when the child classes have common features (variables/attributes and functions/methods) with the parent class.
+| The child class inherits from the parent class.
+| The child class can change (override) some features or add (extend) features without affecting the parent class.
 
-| Create a child class from a parent class by listing the parent class in parentheses after the child class name. e.g ChildGame(ParentGame)
+| To create a child class from a parent class, place the name of the parent class in parentheses after the child class name. e.g ChildGame(ParentGame)
 
 ----
 
@@ -36,6 +37,9 @@ See https://realpython.com/python-super/
 
 Multiple Class Inheritance
 -----------------------------
+
+| The code below shows an example multiple inheritance.
+| The LevelSpeedGame class inherits from both classes: (LevelGame, SpeedGame.
 
 .. code-block:: python
 
