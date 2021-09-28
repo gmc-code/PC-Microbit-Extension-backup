@@ -92,7 +92,7 @@ Class variables common to instances
 
 .. admonition:: Tasks
 
-    #. Check that print output is the same for each statement above.
+    #. Check that the print output is the same for each print statement above.
     #. Modify the code so that the class definition has a game_level of 2, then check its value for both instances.
 
 ----
@@ -102,7 +102,7 @@ Changing Class variables for all instances
 
 | A class variable can be altered in the class.
 | In the code below, ``LevelGame.game_level = 3``, the class variable is changed to 3.
-| The change in the class variable results in the same change for ``game1.game_level`` and ``game2.game_level``.
+| The change in the class variable results in the same change for the instance values of ``game1.game_level`` and ``game2.game_level``.
 
 .. code-block:: python
 
@@ -152,7 +152,7 @@ Instance variables
 
 | Instance variables are variables, created in a class, that are unique to the instance.
 | The __init__() function assigns values to instance variables when the object is created. e.g. ``self.game_level = 1``
-| ``self.game_level`` is an instance variable. It is referrenced using the self keyword.
+| ``self.game_level`` is an instance variable. It is referenced using the self keyword.
 
 .. code-block:: python
 
@@ -164,9 +164,9 @@ Instance variables
     print(game.game_level)
 
 
-| Parameters can be used in the __init__ definition so that arguments can be passed when the object is instantiated.
+| Parameters can be used in the ``__init__`` definition so that arguments can be passed when the object is instantiated.
 | e.g the ``level`` parameter has been used in ``__init__(self, level)``.
-} A different variable name, ``level``, has been used instead of ``game_level`` to help see what is happening with the variables.
+| A different variable name, ``level``, has been used instead of ``game_level`` to help see what is happening with the variables.
 | Is it customary to use the same name for the parameters as it is for the instance variables.
 | e.g ``self.game_level = game_level``
 | When game is instantiated using ``game = LevelGame(1)``, a value of 1 is passed in as the argument, so that ``level`` = 1.
