@@ -312,7 +312,7 @@ Modifying Class variables during instantiation
 
 | In the code below, ``game_number`` is a class variable.
 | ``LevelGame.game_number += 1`` is used to increment the game number by 1 each time a new LevelGame is instantiated.
-| Since ``game_number`` is a class variable, it is accessed within the class functions via ``LevelGame.game_number``. The **class name**,  ``LevelGame`` is used instead of **self**.
+| Since ``game_number`` is a class variable, it is accessed via ``LevelGame.game_number`` within the __init__ function. The **class name**,  ``LevelGame`` is used instead of **self**.
 
 
 .. code-block:: python
@@ -341,11 +341,11 @@ Modifying Class variables during instantiation
 Class methods
 -------------------------------------------------
 
-| Class methods use the **cls** parameter (first parameter) for passing the class.
+| Class methods use the **cls** parameter as the first parameter for passing the class.
 | In the code below, ``game_number`` is a class variable.
 | The ``set_game_number`` function takes **cls** as the first parameter, and has ``game_number`` as a second parameter.
 | The class variable, ``cls.game_number``, is set to the value of ``game_number``.
-| The function is preceded by the decorator, ``@classmethod  ``, which is required to make the function work as a class method, so it acts on the class rather than an instance of the class.
+| The function is preceded by the decorator, ``@classmethod``, which is required to make the function work as a class method, so it acts on the class rather than an instance of the class.
 | The class method is called on the class using ``LevelGame.set_game_number(1)`` which sets the class variable, ``game_number``, to 1. 
 | The class method, ``set_game_number``,  can be called on an instance, ``game``,  such as, ``game.set_game_number(1)``. This works like calling on the class, but it makes more sense to call it on the class itself.
 
