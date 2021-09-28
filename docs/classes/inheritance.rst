@@ -17,22 +17,6 @@ Class Inheritance
     :align: center
     :alt: Inheritance
 
-------------------------------
-
-.. image:: images/inheritance1.png
-    :scale: 100 %
-    :align: center
-    :alt: Inheritance
-
----------------------------------
-
-.. image:: images/inheritance2.png
-    :scale: 100 %
-    :align: center
-    :alt: Inheritance
-
-
-
 | Inheritance models an is-a relationship. 
 | e.g A dog **is an** animal. The dog is a specialized version of an animal.
 | Use Inheritance when the child classes have common features (variables/attributes and functions/methods) with the parent class.
