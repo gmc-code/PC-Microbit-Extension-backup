@@ -217,7 +217,8 @@ The __init__() function
 .. admonition:: Tasks
 
     #. Modify the code so that the game level starts at 0 with 5 lives.
-    #. Modify the code by adding a third instance variable called level_score and initialize it to 0.
+    #. Modify the code so the parameters and the instance variables have matching names.
+    #. Modify the code by adding a third instance variable using a parameter called level_score and initialize it to 0.
 
 ----
 
