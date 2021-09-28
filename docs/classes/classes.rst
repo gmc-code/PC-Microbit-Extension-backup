@@ -246,7 +246,7 @@ Regular Methods
 | ``self.game_level += 1`` adds 1 to ``self.game_level``.
 | When calling the method on the game object, self is not written in the parentheses since it is automatically passed.
 | The first print statement outputs 1, since the game object is instantiated with a game_level of 1.
-| Then the second print statement outputs 2 after the ``level_up()`` method has been called.
+| Then, after the ``level_up()`` method has been called, the second print statement outputs 2.
 
 | In the code below
 
@@ -268,10 +268,10 @@ Regular Methods
 
 .. admonition:: Tasks
 
-    #. Check that print output above is 1 then 2.
+    #. Check that print output above is 1, then 2.
     #. Modify the level_up function in the previous example so that the level can't go above 10. Hint: use the max function.
     #. Modify the code so that the LevelGame.game_level starts at 10 then goes down by 1 when a level_down function is called.
-    #. Modify the level_down function in the previous example so that the level can't go below 0.Hint: use the min function.
+    #. Modify the level_down function in the previous example so that the level can't go below 0. Hint: use the min function.
 
 ----
 
