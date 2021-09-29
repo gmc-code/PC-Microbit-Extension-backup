@@ -9,8 +9,8 @@ Class Inheritance
 --------------------
 
 | Inheritance is a way of reusing code by inheriting the structure from the parent class. 
-| The parent class is also called the base class or super class. 
-| The child class is also called the derived class or subclass.
+| The **parent class** is also called the **base class** or **super class**. 
+| The **child class** is also called the **derived class** or **subclass**.
 
 .. image:: images/inheritance.png
     :scale: 100 %
@@ -30,7 +30,8 @@ Class Inheritance
 super
 -----------
 
-| The super() function is used to give access to methods and properties of a parent or sibling class.
+| The super() function is used to give access to attributes and methods of a parent class to extend their functionality.
+| The super() function is used to extend their functionality with minimal code changes. 
 | The super() function returns an object that represents the parent class.
 
 | In the code below, the Square class uses the super() function to modify the __init__ method that would be inherited from the Rectangle class.
@@ -44,7 +45,6 @@ super
 
         def area(self):
             return self.length * self.width
-
 
     class Square(Rectangle):
         def __init__(self, length):
@@ -65,13 +65,33 @@ super
                 self.length = length
                 self.width = length
 
+| In the code below, the ColouredRectangle class has its own ``__init__`` method that uses the super() function to reuse the ``__init__`` method from the Rectangle class and to allow other attributes to be set separately.
+
+.. code-block:: python
+
+        class Rectangle:
+        def __init__(self, length, width):
+            self.length = length
+            self.width = width
+
+        def area(self):
+            return self.length * self.width
+
+    class ColouredRectangle(Rectangle):
+        def __init__(self, length, width, colour):
+            super().__init__(length, width)
+            self.colour = colour
+
+    col_rect = ColouredRectangle(2, 3, 'red')
+    print(col_rect.length, col_rect.width, col_rect.colour)
+
 ----
 
 Multiple Class Inheritance
 -----------------------------
 
 | The code below shows an example multiple inheritance.
-| The LevelSpeedGame class inherits from both classes: (LevelGame, SpeedGame.
+| The LevelSpeedGame class inherits from both classes: LevelGame, SpeedGame.
 
 .. code-block:: python
 
