@@ -30,8 +30,40 @@ Class Inheritance
 super
 -----------
 
-See https://realpython.com/python-super/
+| The super() function is used to give access to methods and properties of a parent or sibling class.
+| The super() function returns an object that represents the parent class.
 
+| In the code below, the Square class uses the super() function to modify the __init__ method that would be inherited from the Rectangle class.
+
+.. code-block:: python
+
+    class Rectangle:
+        def __init__(self, length, width):
+            self.length = length
+            self.width = width
+
+        def area(self):
+            return self.length * self.width
+
+
+    class Square(Rectangle):
+        def __init__(self, length):
+            super().__init__(length, length)
+            
+    square = Square(3)
+    print(square.area())
+
+
+.. admonition:: Tip
+
+    #. The Square ``__init__`` method could also be written like that below to achieve the same result.
+
+    .. code-block:: python
+
+        class Square(Rectangle):
+            def __init__(self, length):
+                self.length = length
+                self.width = length
 
 ----
 
