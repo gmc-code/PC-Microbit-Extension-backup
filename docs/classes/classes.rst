@@ -65,6 +65,11 @@ Object instantiation
 Object data and methods
 -----------------------------
 
+.. image:: images/encapsulation.png
+    :scale: 50 %
+    :align: center
+    :alt: encapsulation
+
 | Variables and definitions can be gathered together in a class.
 | Objects are an **encapsulation** of variables and functions. 
 | Objects get their data attributes (properties) from class variables.
