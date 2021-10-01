@@ -1,7 +1,7 @@
 .. PC-microbit-extension master file
 
 =================================================
-Welcome to PC-microbit-extension's documentation
+PC-microbit-extension
 =================================================
 
 Home pages:
