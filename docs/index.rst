@@ -48,6 +48,15 @@ Key references:
     games/tilt_pixels.rst
     games/press_it.rst
 
+
+.. toctree::
+    :maxdepth: 2
+    :caption: Data Logging
+    :numbered:
+
+    data_logging/data_logging.rst
+
+
 .. toctree::
     :maxdepth: 2
     :caption: Bots/Track_templates
