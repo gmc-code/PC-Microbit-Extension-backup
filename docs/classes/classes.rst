@@ -108,6 +108,7 @@ Changing Class variables for all instances
 | A class variable can be altered in the class.
 | In the code below, ``LevelGame.game_level = 3``, the class variable is changed to 3.
 | The change in the class variable results in the same change for the instance values of ``game1.game_level`` and ``game2.game_level``.
+| This change in the instance values only occurs if the instance variable has not been separately set.
 
 .. code-block:: python
 
@@ -149,6 +150,12 @@ Changing Class variables in an instance
 
     #. Check the print output to verify that the instance has a different value to the class.
     #. Add code after the instance value is changed so that the ``LevelGame.game_level`` is set to 5, then check the value for the instance to see if it is affected.
+
+
+.. admonition:: Tip
+
+    #. Use Class variables when the same value is needed in all instances. 
+    #. Use Instance variables when different values are needed in various instances.
 
 ----
 
