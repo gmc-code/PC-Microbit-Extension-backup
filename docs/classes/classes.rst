@@ -420,8 +420,8 @@ Class methods as alternative constructors
 -------------------------------------------------
 
 | In the code below, the class method ``make_game`` provides an alternate constructor to that of just calling the class to create a new instance.
-| ``game1 = LevelGame(game_level = 1)`` result in game_level = 1 and game_lives = 5
-| ``game2 = LevelGame.make_game(game_level = 1, game_lives = 3)`` results in game_level = 1 and game_lives = 3
+| ``game1 = LevelGame(game_level=1)`` result in game_level = 1 and game_lives = 5
+| ``game2 = LevelGame.make_game(game_level=1, game_lives=3)`` results in game_level = 1 and game_lives = 3
 | The last line of code, ``return cls(game_level)``, calls the __init__ function to create the new instance.
 
 .. code-block:: python
@@ -478,7 +478,7 @@ Static methods
     print(score)
 
 
-| In the code below, when the game is instantiated at a particular game level, ``game = LevelGame(game_level = 1)``, it will use the static method, ``get_required_level_score``, and then print the a value for it. 
+| In the code below, when the game is instantiated at a particular game level, ``game = LevelGame(game_level=1)``, it will use the static method, ``get_required_level_score``, and then print the a value for it. 
 
 | ``def get_required_level_score(level):`` does not pass in **self** to the function. 
 | The decorator, ``@staticmethod``, is needed to make the function not require self to be passed in.
