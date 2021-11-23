@@ -229,7 +229,7 @@ The __init__() function
 
 .. admonition:: Tasks
 
-    #. Modify the code so that the game level starts at 0 with 5 lives.
+    #. Modify the code so that the game level starts at level 0 with 5 lives.
     #. Modify the code so the parameters and the instance variables have matching names.
     #. Modify the code by adding a third instance variable using a parameter called level_score and initialize it to 0.
 
@@ -239,7 +239,7 @@ Self in variables
 ----------------------
 
 | The **self** parameter is used to access variables that belong to the class as instance variables.
-| The dot . operator is then used to access the object variable.
+| The dot, '.', operator is then used to access the object variable.
 | e.g. ``self.game_level``
 
 ----
@@ -248,7 +248,7 @@ Self in methods
 ----------------------
 
 | Class functions use the **self** parameter (first parameter) to reference the current instance of the class.
-| It does not have to be named **self**, but it makes it easier for others if it is used, since that is what is expected.
+| It does not have to be named **self**, but it makes it easier for others if it is used, since that is common practice.
 
 ----
 
@@ -272,7 +272,7 @@ Regular Methods
         def level_up(self):
             self.game_level += 1
 
-    game = LevelGame(game_level = 1)
+    game = LevelGame(game_level=1)
     print(game.game_level)
 
     game.level_up()
@@ -292,7 +292,7 @@ Regular Methods with parameters
 -------------------------------------
 
 | In the code below, ``game.set_speed(5)`` calls the method ``set_speed`` to set the variable ``self.game_speed`` to 5.
-| ``game = SpeedGame(1)`` sets the game speed to 1.
+| ``game = SpeedGame(1)`` initializes the game speed to 1.
 | The print statement outputs 1.
 | ``game.set_speed(5)`` sets the game speed to 5.
 | The print statement outputs 5.
@@ -442,10 +442,10 @@ Class methods as alternative constructors
             return cls(game_level)
             
             
-    game1 = LevelGame(game_level = 1)   
+    game1 = LevelGame(game_level=1)   
     print(game1.game_level, game2.game_lives)
 
-    game2 = LevelGame.make_game(game_level = 1, game_lives = 3)
+    game2 = LevelGame.make_game(game_level=1, game_lives=3)
     print(game2.game_level, game2.game_lives)
 
 .. admonition:: Tasks
@@ -474,7 +474,7 @@ Static methods
         def get_required_level_score(game_level):
             return game_level * 10
 
-    score = LevelGame.get_required_level_score(game_level = 3)
+    score = LevelGame.get_required_level_score(game_level=3)
     print(score)
 
 
@@ -496,10 +496,12 @@ Static methods
         def get_required_level_score(level):
             return level * 10
 
-    game = LevelGame(game_level = 1)
+    game = LevelGame(game_level=1)
 
 
 .. admonition:: Tasks
 
-    #. Write a static method that calculates a level bonus score using the formula: bonus = level * 5. Test out the static method and show that it is working for 2 different game levels.
+    #. Write a static method that calculates a level bonus score using the formula:
+     bonus = level * 5. 
+    #. Test out the static method and show that it is working for 2 different game levels.
 
