@@ -14,7 +14,7 @@ Objects
 * data
 * methods
 
-| e.g  the string object 'hello'
+| e.g.  the string object 'hello'
 * type is str
 * data is 'hello'
 * methods are the standard string methods such a ``.title()`` and ``.lower()``.
@@ -155,6 +155,7 @@ Changing Class variables in an instance
 .. admonition:: Tip
 
     #. Use Class variables when the same value is needed in all instances. 
+    #. Avoid changing class variables in instances since it can lead to confusion.
     #. Use Instance variables when different values are needed in various instances.
 
 ----
@@ -177,7 +178,7 @@ Instance variables
 
 
 | Parameters can be used in the ``__init__`` definition so that arguments can be passed when the object is instantiated.
-| e.g the ``level`` parameter has been used in ``__init__(self, level)``.
+| e.g. the ``level`` parameter has been used in ``__init__(self, level)``.
 | When game is instantiated using ``game = LevelGame(1)``, a value of 1 is passed in as the argument, so that ``level`` = 1.
 
 .. code-block:: python
@@ -190,7 +191,7 @@ Instance variables
     print(game.game_level)
 
 | Is it customary to use the same name for the parameters as it is for the instance variables.
-| e.g ``self.game_level = game_level``
+| e.g. ``self.game_level = game_level``
 | In the code above, a different variable name, ``level``, has been used instead of ``game_level`` to help see what is happening with the variables.
 
 .. admonition:: Tasks
@@ -206,7 +207,7 @@ The __init__() function
 | The ``__init__()`` function is a built-in-function that is used to assign values to object properties, and to do other operations that are necessary to do when the object is created.
 | The ``__init__()`` function is called automatically every time the class is called when creating a new object.
 | The first parameter in the ``__init__()`` function is self, referring to the object itself.
-| Other parameters can follow self. e.g ``__init__(self, level)``
+| Other parameters can follow self. e.g. ``__init__(self, level)``
 | These other parameters, such as ``level``, are passed in as arguments when the class is called.
 | e.g. ``game = LevelGame(level = 1)`` passes in ``level = 1`` to the ``__init__()`` function.
 |  ``game = LevelGame(1)`` and ``game = LevelGame(level = 1)`` do the same thing.
@@ -239,7 +240,7 @@ Self in variables
 
 | The **self** parameter is used to access variables that belong to the class as instance variables.
 | The dot . operator is then used to access the object variable.
-| e.g ``self.game_level``
+| e.g. ``self.game_level``
 
 ----
 
