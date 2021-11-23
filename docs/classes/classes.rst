@@ -197,21 +197,21 @@ Instance variables
 .. admonition:: Tasks
 
     #. Run the code above and check the print output is 1.
-    #. Use ``game = LevelGame(2)`` and check the print output.
+    #. Modify the code to use ``game = LevelGame(2)`` and check the print output.
 
 ----
 
 The __init__() function
 --------------------------
 
-| The ``__init__()`` function is a built-in-function that is used to assign values to object properties, and to do other operations that are necessary to do when the object is created.
+| The ``__init__()`` function is a built-in-function that is used to assign values to object properties, and to do other operations that are necessary when the object is created.
 | The ``__init__()`` function is called automatically every time the class is called when creating a new object.
 | The first parameter in the ``__init__()`` function is self, referring to the object itself.
 | Other parameters can follow self. e.g. ``__init__(self, level)``
 | These other parameters, such as ``level``, are passed in as arguments when the class is called.
-| e.g. ``game = LevelGame(level = 1)`` passes in ``level = 1`` to the ``__init__()`` function.
-|  ``game = LevelGame(1)`` and ``game = LevelGame(level = 1)`` do the same thing.
-| e.g. ``game = LevelGame(level=1, lives=3)`` passes in ``level = 1`` and ``lives=3`` to the ``__init__()`` function.
+| e.g. ``game = LevelGame(level=1)`` passes in ``level=1`` to the ``__init__()`` function.
+|  ``game = LevelGame(1)`` and ``game = LevelGame(level=1)`` do the same thing.
+| e.g. ``game = LevelGame(level=1, lives=3)`` passes in ``level=1`` and ``lives=3`` to the ``__init__()`` function.
 
 | In the sample code, 2 instance variables are created.
 
