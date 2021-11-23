@@ -82,7 +82,7 @@ Class variables common to instances
 
 | A class variable is shared by all instances of a class.
 | ``game_level`` is a class variable.
-| In the code below, both instances variables, ``game1.game_level`` and ``game2.game_level`` have the same value.
+| In the code below, both instance variables, ``game1.game_level`` and ``game2.game_level`` have the same value.
 
 .. code-block:: python
 

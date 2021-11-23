@@ -54,7 +54,7 @@ Key references:
     :caption: Data Logging
     :numbered:
 
-    data_logging/data_logging.rst
+    data_logging/Excel_Data_Logging
 
 
 .. toctree::
