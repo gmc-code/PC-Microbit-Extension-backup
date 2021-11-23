@@ -106,7 +106,6 @@ Multiple Class Inheritance
             self.level += 1
             
     class SpeedGame:
-        """game of speed"""
         def __init__(self, speed):
             self.speed = speed
 
