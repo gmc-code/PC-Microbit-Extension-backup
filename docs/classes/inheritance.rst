@@ -90,7 +90,7 @@ super
 Multiple Class Inheritance
 -----------------------------
 
-| The code below shows an example multiple inheritance.
+| The code below shows an example of multiple inheritance.
 | The LevelSpeedGame class inherits from both classes: LevelGame, SpeedGame.
 
 .. code-block:: python
