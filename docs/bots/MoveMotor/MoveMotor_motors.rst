@@ -92,7 +92,7 @@ right_motor
 
 .. py:method:: right_motor(speed=1, duration=None)
 
-    | Make the left motor run. 
+    | Make the right motor run. 
     | ``speed`` values are integers or floats (decimals) from -10 to 10.
     | Default ``speed`` is 1.
     | If speed < 0 the motor turns the wheel backward.
