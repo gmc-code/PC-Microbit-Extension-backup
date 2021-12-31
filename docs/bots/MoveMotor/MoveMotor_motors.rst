@@ -425,7 +425,7 @@ Spinning
     | Spin the buggy on the spot.
     | ``speed`` values are integers or floats (decimals) from 0 to 10.
     | Default ``speed`` is 1.
-    | ``direction`` values are ``left`` or ``right``, while any other values will spin the buggy left. 
+    | ``direction`` values are ``'left'`` or ``'right'``, while any other values will spin the buggy left. 
     | Default ``direction`` is 'left'.
     | ``duration`` values are integers above 0.
     | Default ``duration`` is None.
