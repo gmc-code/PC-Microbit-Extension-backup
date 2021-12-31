@@ -204,7 +204,7 @@ Spin test
 
     #. Modify the code to just spin left.
     #. Modify the code to just spin right.
-    #. Modify the code to spin left then right at each speed as the speed of turning is increased.
+    #. Modify the code to spin left then right at each speed as the speed of spinning is increased.
 
 ----
 
@@ -246,7 +246,7 @@ Turn test
 
     #. Modify the code to just turn left.
     #. Modify the code to just turn right.
-    #. Modify the code to turn left then right at each speed.
+    #. Modify the code to turn left then right at each speed as the speed of turning is increased..
 
 ----
 
