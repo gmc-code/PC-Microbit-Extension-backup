@@ -309,7 +309,8 @@ backward
 
 .. admonition:: Tasks
 
-    #. Write code to drive the buggy as close as possible to a straight line by experimenting with the ``decrease_left`` and ``decrease_right`` values.
+    #. Write code to drive the buggy forward, as close as possible to a straight line, by experimenting with the ``decrease_left`` and ``decrease_right`` values.
+    #. Write code to drive the buggy forward and backwards, as close as possible to a straight line, by experimenting with the ``decrease_left`` and ``decrease_right`` values.
 
 ----
 
