@@ -82,7 +82,7 @@ Straight line test
 .. py:method:: forward(speed=1, duration=None, decrease_left=0, decrease_right=0)
 .. py:method:: backward(speed=1, duration=None, decrease_left=0, decrease_right=0)
 
-| Start at speed 2, increase to speed 5 then go to speed 9.
+| Start at speed 2, increase to speed 5 then go to speed 9, then slow down in short steps.
 | Test with a ``decrease_left`` of 5 (delta) and vary this manually until a straight line is achieved.
 
 .. code-block:: python
@@ -161,8 +161,8 @@ Individual motors test
 
     #. Modify the code to just use the left motor.
     #. Modify the code to just use the right motor.
-    #. Modify the for-loop to just go forward with each motor.
-    #. Modify the for-loop to just go backward with each motor.
+    #. Modify the for-loops for each motor to just go forward at varying speeds.
+    #. Modify the for-loop for each motor to just go backward at varying speeds.
     #. Modify the for-loop to change the speed in steps of 1 for 100ms each.
     #. Modify the for-loop to change the speed in steps of 5 for 400ms each.
 
