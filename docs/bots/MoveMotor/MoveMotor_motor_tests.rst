@@ -253,7 +253,7 @@ Turn test
 Zig Zag test
 ----------------------------------------
 
-| Zigzag left then right by set different left and right motor speeds.
+| Zigzag left then right by setting different left and right motor speeds.
 
 .. code-block:: python
 
