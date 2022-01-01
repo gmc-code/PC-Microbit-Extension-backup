@@ -38,13 +38,25 @@ MaqueenNeoPixels
     | ``indicator=(35, 25, 0)`` sets a low level yellow light.
     | ``rear=(20, 0, 0)`` sets a low level red light
 
+
+| When setting up the LEDS, the default LED colours can be set to different values.
+
+.. code-block:: python
+
+    from microbit import *
+    import maqueen
+
+
+    leds = maqueen.MaqueenNeoPixels(front=(0, 20, 0), indicator=(35, 25, 0), rear=(50, 0, 0))
+    leds.front_lights()
+
 ----
 
 Buggy lights and indicators
 ----------------------------------------
 
 | There are four convenient methods that use the default LED settings.
-| They all set use the default red colour for the rear lights.
+| They all use the default red colour for the rear lights.
 | They are named based on their effect on the front LEDs.
 
 .. py:method:: front_lights()
