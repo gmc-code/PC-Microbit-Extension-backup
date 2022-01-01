@@ -18,9 +18,9 @@ Adding obstacle detection: set up the distance sensor
 Add obstacle detection: spin function
 ----------------------------------------
 
-| If the distance sensor detects an object with 10 cm the buggy needs to spin around on the track.
+| If the distance sensor detects an object within 10 cm of the sensor, the buggy needs to spin around on the track.
 | Define ``spin_from_obstacle(spin_time=800)`` so that the buggy spins on the spot. As the left motor goes forward, the right motor reverses.
-| Use a default parameter, ``spin_time=800``, which will set the sleep so that the buggy turns about 180 degrees (when the motor speed is the default of 1).
+| Use a default parameter, ``spin_time=800``, which will set the sleep time so that the buggy turns about 180 degrees (when the motor speed is the default of 1).
 
 
 .. code-block:: python
@@ -118,7 +118,7 @@ Version 2 Code for thin line following with obstacle detection
 .. admonition:: Tasks
 
     #. Try adding some obstacles on the track or just to the side of the track to see how well the buggy detects them. 
-    #. Try adjusting the SPINTIME constant to see if a better outcomes can be obtained when turning the the buggy away from obstacles. Use the A button to increase SPINTIME by 100 and the B button to decrease SPINTIME by 50.
+    #. Try adjusting the SPINTIME constant to see if better outcomes can be obtained when turning the the buggy away from obstacles. Use the A button to increase SPINTIME by 100 and the B button to decrease SPINTIME by 50.
 
 
 
