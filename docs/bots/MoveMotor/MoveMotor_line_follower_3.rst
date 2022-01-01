@@ -6,12 +6,13 @@ Adding lights and sound: import modules
 -------------------------------------------------------
 
 | Use the LEDs and buzzer.
-
 | Import the music module to use the buzzer.
 | Import the neopixel module so it can be referred to simply as ``leds``.
-| See: https://www.w3schools.com/python/ref_keyword_import.asp
-| See: https://www.w3schools.com/python/ref_keyword_as.asp
-| See: https://www.w3schools.com/python/ref_keyword_from.asp
+
+| For different forms of module importing see:
+| • https://www.w3schools.com/python/ref_keyword_import.asp
+| • https://www.w3schools.com/python/ref_keyword_as.asp
+| • https://www.w3schools.com/python/ref_keyword_from.asp
 
 .. code-block:: python
 
