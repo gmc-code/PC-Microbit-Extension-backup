@@ -254,6 +254,7 @@ Zig Zag test
 ----------------------------------------
 
 | Zigzag left then right by setting different left and right motor speeds.
+| Zigzag forward then backward using two separate for loops.
 
 .. code-block:: python
 
@@ -351,8 +352,8 @@ Spiral test
 
 .. admonition:: Tasks
 
-    #. Edit the with radii values in the list to create different spirals.
-    #. Edit the with radii values in the list to spiral inwards.
+    #. Edit the radii values in the list to create different spirals.
+    #. Edit the radii values in the list to spiral inwards.
 
 
 ----
@@ -397,7 +398,8 @@ Oval test
 Loops test
 ----------------------------------------
 
-| The shape is an epitrochoid.
+| The shape below is an epitrochoid, from the Greek epi "over" and trokhos "wheel".
+| See http://www.malinc.se/math/trigonometry/spirographen.php
 
 .. image:: images/epitrochoid.png
     :scale: 50 %
