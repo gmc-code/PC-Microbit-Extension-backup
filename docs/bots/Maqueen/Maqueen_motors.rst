@@ -52,7 +52,7 @@ left_motor
     | Make the left motor run. 
     | ``speed`` values are **integers** from -5 to 5.
     | Default ``speed`` is 1.
-    | If speed < 0 the motor turns the wheel forward.
+    | If speed < 0 the motor turns the wheel backward.
     | ``duration`` values are **integers** above 0.
     | Default ``duration`` is None.
     | The motor will stop after a given duration in milliseconds.
@@ -97,7 +97,7 @@ right_motor
     | Make the left motor run. 
     | ``speed`` values are **integers** from -5 to 5.
     | Default ``speed`` is 1.
-    | If speed < 0 the motor turns the wheel forward.
+    | If speed < 0 the motor turns the wheel backward.
     | ``duration`` values are **integers** above 0.
     | Default ``duration`` is None.
     | The motor will stop after a given duration in milliseconds.
@@ -106,7 +106,7 @@ right_motor
 | ``right_motor()`` and ``right_motor(1)`` and ``right_motor(speed=1)`` all set the speed to 1.
 | ``right_motor(2, 4000)`` and ``right_motor(2, duration=4000)`` and ``right_motor(speed=2, duration=4000)`` all run the right motor at speed 2 for 4sec.
 
-| The code below, using ``right_motor(4, 3000)``, runs the right motor at speed 4 for 3 sec.
+| The code below, using ``right_motor(speed=4, duration=3000)``, runs the right motor at speed 4 for 3 sec.
 
 .. code-block:: python
 
@@ -119,7 +119,7 @@ right_motor
 
     buggy.right_motor(speed=4, duration=3000)
 
-| The code below, using ``right_motor(-5)``, runs the right motor forward at full speed.
+| The code below, using ``right_motor(-5)``, runs the right motor backward at full speed.
 
 .. code-block:: python
 
@@ -143,7 +143,7 @@ stop_left
     | Stop the left motor.
 
 
-| The code below runs the left motor continuously during the sleep of 2 sec then is stopped.
+| The code below runs the left motor continuously during the sleep of 2 sec then stops it.
 
 .. code-block:: python
 
@@ -169,7 +169,7 @@ stop_right
     | Stop the right motor.
 
 
-| The code below runs the right motor continuously during the sleep then is stopped.
+| The code below runs the right motor continuously during the sleep then stops it.
 
 .. code-block:: python
 
@@ -265,7 +265,7 @@ backward
 
 .. py:method:: backward(speed=1, duration=None)
 
-    | Drive the buggy forward.
+    | Drive the buggy backward.
     | ``speed`` values are integers from 0 to 5.
     | Default ``speed`` is 1.
     | ``duration`` values are integers above 0.
@@ -273,7 +273,7 @@ backward
     | The motor will stop after a given duration in milliseconds.
     | If the duration is None, the motor runs without stopping.
 
-| The code below drives the buggy forward at speed 5 for 3 secs.
+| The code below drives the buggy backward at speed 5 for 3 secs.
 
 .. code-block:: python
 
