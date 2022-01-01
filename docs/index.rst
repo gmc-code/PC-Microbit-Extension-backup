@@ -54,7 +54,7 @@ Key references:
     :caption: Data Logging
     :numbered:
 
-    data_logging/Excel_Data_Logging
+    data_logging/Excel_data_logging.rst
 
 
 .. toctree::
@@ -62,7 +62,7 @@ Key references:
     :caption: Bots/Track_templates
     :numbered:
 
-    bots/Track_templates/Track_templates.rst
+    bots/Track_templates/track_templates.rst
 
 
 .. toctree::
