@@ -66,8 +66,8 @@ Define follow_thin_line
 | Set ``black_right`` to True if the right sensor is over part of the black line.
 | ``black_right``, which is equal to ``right_sensor + CHANGETHRESHOLD < right_sensorStart``, will be True if the right sensor reading has dropped by more than 40 (CHANGETHRESHOLD) compared to the original reading when the microbit started.
 | When both line sensors are over white (``not(black_left) and not(black_right)``), the buggy goes forward.
-| When the left sensor is over black (``black_left and not(black_right)``), the buggy turns to the left to try to get the left line sensor back over white.
-| When the right sensor is over black (``black_right and not(black_left)``), the buggy turns to the right to try to get the right line sensor back over white.
+| When the left sensor is over black (``black_left and not(black_right)``), the buggy turns to the left to tries to get the left line sensor back over white.
+| When the right sensor is over black (``black_right and not(black_left)``), the buggy turns to the right to tries to get the right line sensor back over white.
 | When both line sensors are over black (``black_left and black_right``), the buggy spins to try to make just one sensor over black.
 
 
