@@ -27,7 +27,7 @@ Adding lights and sound: set up lights
 | Set up the Neopixels on pin8 with a length of 4 pixels using the neopixel syntax.
 | The constants, LED_PIN and NUM_PIXELS, are used to help remember the neopixel syntax. 
 | It would be just as easy to use ``buggy_lights = leds(pin8, 4)``.
-| Add constants for the LED colours to use. These have the RGB values for the colours. The ones chosen are subtle. They avoid using the full brightness values up to 255.
+| Add constants for the LED colours to use. These have the RGB values for the colours. The ones chosen are subtle. They avoid using the full brightness values that can go as high 255.
 
 .. code-block:: python
 
