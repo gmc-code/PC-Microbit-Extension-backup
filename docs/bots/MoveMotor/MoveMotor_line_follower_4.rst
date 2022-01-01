@@ -12,7 +12,7 @@ Add thick line following: follow_thick_line function
 | When both line sensors are over white (``not(black_left) and not(black_right)``), the buggy spins to try to make just one sensor over black.
 | When the left sensor is over black but the right is over white (``black_left and not(black_right)``), the buggy turns to the left to try to get the right line sensor back over black.
 | When the right sensor is over black but the left is over white (``black_right and not(black_left)``), the buggy turns to the right to try to get the left line sensor back over black.
-| When both line sensors are over black (``black_left and black_right``), the buggy the buggy goes forward.
+| When both line sensors are over black (``black_left and black_right``), the buggy goes forward.
 
 .. code-block:: python
 
@@ -45,7 +45,7 @@ Add thick line following: follow_thick_line function
 
 ----
 
-Add thick line following: modify while True
+Thick or thin line following flag
 ------------------------------------------------------
 
 | Add to the section of code where the constants are set, to include a boolean variable, ``thin_line_follow_flag``, which is True if the buggy follows a thin line or False if the buggy follows a thick line.
@@ -58,13 +58,13 @@ Add thick line following: modify while True
 
 ----
 
-Add thick line following: modify the while True loop
+Set thick or thin line following flag using buttons
 ------------------------------------------------------
 
 | Add button pressing to change the line following mode.
 | Use the A button to set the buggy to follow a thin line by setting ``thin_line_follow_flag`` to True.
 | Use the B button to set the buggy to follow a thick line by setting ``thin_line_follow_flag`` to False.
-| Add the if-else block to set the line following mode based on ``thin_line_follow_flag``.
+| Add the if-else block to set the line following mode based on the value of the ``thin_line_follow_flag``.
 
 .. code-block:: python
 
