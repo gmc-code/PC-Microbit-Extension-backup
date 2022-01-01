@@ -81,6 +81,7 @@ Key references:
     bots/MoveMotor/MoveMotor_line_follower_2.rst
     bots/MoveMotor/MoveMotor_line_follower_3.rst
     bots/MoveMotor/MoveMotor_line_follower_4.rst
+    bots/MoveMotor/MoveMotor_summary.rst
 
 
 .. toctree::
