@@ -435,7 +435,7 @@ Loops test
 
 .. admonition:: Tasks
 
-    #. Experiment with the radii or durations to vary the epitrochoid shape.
+    #. Experiment with the radii or durations to vary the epitrochoid's shape.
 
 
 
