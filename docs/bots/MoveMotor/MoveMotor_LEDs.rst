@@ -5,8 +5,8 @@ MoveMotor LEDs
 
 | The MOVEMotor uses 4 ZIP LEDs (WS2812) on pin8.
 | The neopixel module is used to drive these RGB LEDs.
-| IN RGB, R stands for red, G stands for green, and B stands for blue.
-| Each RGB LED can produce a full spectrum of colours independent to all of the other RGB LEDs. 
+| Each RGB LED can produce a full spectrum of colours independent to all of the other RGB LEDs.
+| In RGB, R stands for red, G stands for green, and B stands for blue.
 | Each ZIP LED has a Red, Green and Blue element within the LED, and each of these can have brightness set from 0 to 255.
 
 NeoPixel module
@@ -27,11 +27,11 @@ Set up LEDs
 
 .. py:method:: neopixel.NeoPixel(pin, n)
 
-    | Initialise a strip of RGB LEDs 
+    | Initialise a strip of RGB LEDs.
     | ``pin`` is the pin that they are connected by.
-    | ``n`` is the number of LEDs
+    | ``n`` is the number of LEDs.
 
-| The code below sets up 4 LEDs connected to pin8 via: ``np = neopixel.NeoPixel(pin8, 4)``.
+| The code below sets up the 4 LEDs connected to pin8 via: ``np = neopixel.NeoPixel(pin8, 4)``.
 | The variable, np, is the neopixel object that is used to control the LEDs.
 
 .. code-block:: python
@@ -52,10 +52,10 @@ Set LED colour and brightness
     Set the red, green and blue brightness from 0 to 255 for a RGB LED at position n.
 
 | Each LED is set by indexing it (like with a Python list, starting from 0). 
-| e.g the LED in position 0 is ``np[0]``. 
+| e.g. the LED in position 0 is ``np[0]``. 
 | Neopixels are given RGB (red, green, blue) values between 0-255 as a tuple.
 | A value of 0 is off, while 255 is full brightness. 
-| When red, green and blue are all full brightness, ``(255, 255, 255)``, the colour is white.
+| When red, green and blue are all full brightness, i.e. ``(255, 255, 255)``, the colour is white.
 
 
 | The code below sets the RGB values to (255, 255, 255) for the LED in position 0.
@@ -68,8 +68,9 @@ Set LED colour and brightness
 
     np = neopixel.NeoPixel(pin8, 4)
     np[0] = (255, 255, 255)
+    np.show()
 
-| The code below sets the colours of the 4 LEDs: np[0] is white, np[1] is red, np[2] is green and np[3] is blue, with all at full brightness.
+| The code below sets different colours for the 4 LEDs: np[0] is white (255, 255, 255), np[1] is red (255, 0, 0), np[2] is green (0, 255, 0) and np[3] is blue (0, 0, 255), with all at full brightness.
 
 .. code-block:: python
 
@@ -82,6 +83,7 @@ Set LED colour and brightness
     np[1] = (255, 0, 0)
     np[2] = (0, 255, 0)    
     np[3] = (0, 0, 255)
+    np.show()
 
 ----
 
