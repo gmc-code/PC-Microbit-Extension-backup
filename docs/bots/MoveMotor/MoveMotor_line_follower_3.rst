@@ -108,7 +108,7 @@ Adding lights and sound: start_buggy function
 -------------------------------------------------------
 
 | Define the ``start_buggy()`` function below to be used before the while True loop.
-| Get the line line sensor readings and display them to make sure that the buggy was over a consistent white surface to start off.
+| Get the line sensor readings and display them to make sure that the buggy was over a consistent white surface to start off.
 | Turn on front and rear lights using ``head_lights()``.
 | Play the police siren.
 | Turn on both front indicators as warning lights to place the buggy on a thin line track.
@@ -129,7 +129,7 @@ Adding lights and sound: start_buggy function
 Adding lights and sound: add lights to line following and spin
 -----------------------------------------------------------------
 
-| Add lights to line following and spin functions.
+| Add lights to the line following and spin functions.
 | For ``follow_thin_line``, display arrows to indicate the direction the buggy will go and adjust the front lights depending on whether the buggy will go forward, turn or spin.
 | For ``spin_from_obstacle``, clear the display and show both front indicators.
 
