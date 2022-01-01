@@ -42,6 +42,18 @@ Set speed constants
 
 ----
 
+Take initial line sensor readings
+----------------------------------------
+
+| ``left_sensorStart`` and ``right_sensorStart`` store the initial line sensor reading when the microbit is started.
+
+.. code-block:: python
+
+    left_sensorStart = line_sensor.line_sensor_read('left')
+    right_sensorStart = line_sensor.line_sensor_read('right')
+
+----
+
 Define follow_thin_line
 ----------------------------------------
 
