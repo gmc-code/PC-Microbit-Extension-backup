@@ -406,8 +406,8 @@ Loops test
     :align: center
 
 | Move the buggy in the circular shape with small loops.
-| Use the zip function on a list of radii and a list of durations so that both lists can be used in a for-loop.
-| Use ``for r, d in zip(radii, durations)`` to create an iterator that produces tuples of the form ``(r, d)`` from the two lists, radii and durations. 
+| Use the zip function on a list of radii and a list of durations so that both lists can be used together at the same time in one for-loop.
+| Use ``for r, d in zip(radii, durations)`` to create an iterator that produces tuples of the form ``(r, d)`` from the two lists: radii and durations. 
 | ``radii`` has values in order for each expected radius for the turn.
 | ``durations`` has values in order for each expected duration for the turn.
 
