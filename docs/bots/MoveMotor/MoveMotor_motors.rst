@@ -36,7 +36,7 @@ Duration parameter
 Independent motor control
 ----------------------------------------
 
-| The left and right motors can be run independently using the four methods below:
+| The left and right motors can be controlled independently using the four methods below:
 | ``left_motor(speed=1, duration=None)`` runs the left motor.
 | ``right_motor(speed=1, duration=None)`` runs the right motor.
 | ``stop_left()`` stops the left motor.
