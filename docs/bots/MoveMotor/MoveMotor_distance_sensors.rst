@@ -10,7 +10,7 @@ HC-SR04 Distance sensor
     :scale: 30 %
 
 | The HC-SR04 Distance sensor measures distances to objects in the range 2cm to 400cm with a ranging accuracy of 3mm. The angle to objects can be up to 15 degrees.
-| It may return values as high as 10000 cm but the accuracy is not guaranteed.
+| It may return values as high as 10000 cm but the accuracy is not guaranteed at such distances.
 
 ----
 
@@ -87,4 +87,4 @@ Distance to an object
 .. admonition:: Tasks
 
     #. Write code to drive the buggy forward until it measures an object 50cm in front and then stops.
-    #. Write code to drive the buggy forward until it measures an object 20cm in front and then it stops for 500ms, goes forward for 500ms, then spins, goes forward and repeats.
+    #. Write code to drive the buggy forward until it measures an object 20cm in front and then it stops for 500ms, then spins, then, if there are no objects closer that 20cm, goes forward and repeats.
