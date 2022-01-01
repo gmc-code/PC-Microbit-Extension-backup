@@ -45,8 +45,8 @@ Adding lights and sound: lights functions
 -------------------------------------------------------
 
 | Define ``rear_lights()`` so that it sets the rear lights (index 2 and 3) to red.
-| Define ``front_lights(left, right)`` so that it keeps the reuses the rear lights and sets the front left and right lights (index 0 and 1) to the colours passed in place of the ``left`` and ``right`` parameters.
-    def left_indicator(): 
+| Define ``front_lights(left, right)`` so that it keeps reuses the rear lights and sets the front left and front right lights (index 0 and 1) to the colours passed in place of the ``left`` and ``right`` parameters.
+
 | Define ``head_lights()``, ``left_indicator()``, ``right_indicator()``, ``both_indicators()``, so that they use ``front_lights(left, right)`` and specify the front lights to use for each.
 
 .. code-block:: python
@@ -79,7 +79,7 @@ Adding lights and sound: police siren function
 -------------------------------------------------------
 
 | Set up the ``police_siren()`` function so that it makes a siren for a short time.
-| Use the ``music.pitch`` method playing the siren sounds.
+| Use the ``music.pitch`` method forplaying the siren sounds.
 
 .. py:method::  music.pitch(frequency, duration=-1, pin=microbit.pin0, wait=True)
 
