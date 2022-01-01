@@ -184,7 +184,7 @@ Colour lists
 -------------------
 
 | A list of colours can be used to create a colourful display.
-| 2 for loops are used, one nested inside the other.
+| Two for-loops are used, one nested inside the other.
 | ``for colour in colour_list:`` loops through the colours.
 | ``for led_num in range(4):`` loops through each LED to set its colour.
 
@@ -207,7 +207,7 @@ Colour lists
 
     for colour in colour_list:
         for led_num in range(4):
-            buggy_lights[led_num]=colour
+            buggy_lights[led_num] = colour
         buggy_lights.show()
         sleep(200)
 
