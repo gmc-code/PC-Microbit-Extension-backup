@@ -59,7 +59,7 @@ left_motor
     | If the duration is None, the motor runs without stopping.
 
 | ``left_motor()`` and ``left_motor(1)`` and ``left_motor(speed=1)`` all set the speed to 1.
-| ``left_motor(2, 3000)`` and ``left_motor(2, duration=3000)`` and ``left_motor(speed=2, duration=3000)`` all run the left motor at speed to 2 for 3 sec.
+| ``left_motor(2, 3000)`` and ``left_motor(2, duration=3000)`` and ``left_motor(speed=2, duration=3000)`` all run the left motor at speed 2 for 3 sec.
 
 | The code below, using ``left_motor(5)``,  runs the left motor at full speed.
 
