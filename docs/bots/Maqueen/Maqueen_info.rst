@@ -9,7 +9,7 @@ Maqueen info
 
 
 | For product info:
-| See: https://wiki.dfrobot.com/micro_Maqueen_for_micro_bit_SKU_ROB0148-E
+| See: https://wiki.dfrobot.com/micro_Maqueen_for_micro_bit_SKU_ROB0148-EN
 | See: https://edu.dfrobot.com/makelog-308323.html
 
 | The DFRobot micro: Maqueen has 2 independent motors, 2 infrared line sensors for line tracking, distance sensors for obstacle avoidance, 4 ZIP LEDs and a buzzer, all powered by 3 AAA batteries. 
