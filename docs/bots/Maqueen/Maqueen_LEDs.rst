@@ -29,7 +29,7 @@ Set up  LEDs
 MaqueenNeoPixels
 ----------------------------------------
 
-| The module makes it easy to use the front LEDs, the rear LEDS and to the front LEDs as indicators such as when turning.
+| The module makes it easy to use the front LEDs, the rear LEDS, and the front LEDs as indicators such as when turning.
 | When setting up the LEDs, the front, indicator and rear colour settings are set to the default values below.
 
 .. py:class:: MaqueenNeoPixels(front=(20, 20, 20), indicator=(35, 25, 0), rear=(20, 0, 0))
