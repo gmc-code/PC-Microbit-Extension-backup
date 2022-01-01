@@ -62,9 +62,9 @@ Define follow_thin_line
 | Use a default parameter, ``drive_time=20``, which controls the sleep time during which the motors keep running.
 | Get the line sensor readings.
 | Set ``black_left`` to True if the left sensor is over part of the black line.
-| ``black_left``, which is equal to ``left_sensor + CHANGETHRESHOLD < left_sensorStart``, will be True if the left sensor reading has dropped by more than 40 compared to the original reading when the microbit started.
+| ``black_left``, which is equal to ``left_sensor + CHANGETHRESHOLD < left_sensorStart``, will be True if the left sensor reading has dropped by more than 40 (CHANGETHRESHOLD) compared to the original reading when the microbit started.
 | Set ``black_right`` to True if the right sensor is over part of the black line.
-| ``black_right``, which is equal to ``right_sensor + CHANGETHRESHOLD < right_sensorStart``, will be True if the right sensor reading has dropped by more than 40 compared to the original reading when the microbit started.
+| ``black_right``, which is equal to ``right_sensor + CHANGETHRESHOLD < right_sensorStart``, will be True if the right sensor reading has dropped by more than 40 (CHANGETHRESHOLD) compared to the original reading when the microbit started.
 | When both line sensors are over white (``not(black_left) and not(black_right)``), the buggy goes forward.
 | When the left sensor is over black (``black_left and not(black_right)``), the buggy turns to the left to try to get the left line sensor back over white.
 | When the right sensor is over black (``black_right and not(black_left)``), the buggy turns to the right to try to get the right line sensor back over white.
