@@ -248,7 +248,7 @@ set_led
 
     leds = maqueen.MaqueenNeoPixels()
 
-    leds.set_led(rgb=(0, 0, 255))
+    leds.set_led(3, rgb=(0, 0, 255))
 
 ----
 

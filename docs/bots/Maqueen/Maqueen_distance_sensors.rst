@@ -128,6 +128,7 @@ A technical look: MaqueenDistanceSensors
 
 
 | ``pin2.set_pull(pin2.NO_PULL)``
+| ``ECHO_PIN.set_pull(ECHO_PIN.NO_PULL)``
 | This prepares the echo pin, pin2, to receive the reflected pulse.
 
 | ``utime.sleep_us(10)``
