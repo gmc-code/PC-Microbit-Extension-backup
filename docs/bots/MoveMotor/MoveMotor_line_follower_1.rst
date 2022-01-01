@@ -46,6 +46,7 @@ Take initial line sensor readings
 ----------------------------------------
 
 | ``left_sensorStart`` and ``right_sensorStart`` store the initial line sensor reading when the microbit is started.
+| Make sure that the buggy is initially over a white surface so that the initial readings will be different to those obtained when the sensor is over a black line.
 
 .. code-block:: python
 
