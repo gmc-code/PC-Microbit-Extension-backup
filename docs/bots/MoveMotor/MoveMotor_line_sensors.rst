@@ -1,5 +1,5 @@
 ====================================================
-MoveMotor line sensors
+MOVEMotor line sensors
 ====================================================
 
 Use MOVEMotor library

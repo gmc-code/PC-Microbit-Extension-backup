@@ -1,5 +1,5 @@
 ====================================================
-MoveMotor motor tests
+MOVEMotor motor tests
 ====================================================
 
 | Run a series of tests on the motors.

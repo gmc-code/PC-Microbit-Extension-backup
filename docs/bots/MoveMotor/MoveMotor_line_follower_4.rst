@@ -1,5 +1,5 @@
 ====================================================
-MoveMotor line follower 4
+MOVEMotor line follower 4
 ====================================================
 
 Add thick line following: follow_thick_line function

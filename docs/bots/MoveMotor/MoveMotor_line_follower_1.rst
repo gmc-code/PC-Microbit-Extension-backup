@@ -1,5 +1,5 @@
 ====================================================
-MoveMotor line follower 1
+MOVEMotor line follower 1
 ====================================================
 
 Set up buggy and sensors

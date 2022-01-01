@@ -1,5 +1,5 @@
 ====================================================
-MoveMotor line follower 3
+MOVEMotor line follower 3
 ====================================================
 
 Adding lights and sound: import modules

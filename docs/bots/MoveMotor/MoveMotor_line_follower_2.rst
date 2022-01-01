@@ -1,5 +1,5 @@
 ====================================================
-MoveMotor line follower 2
+MOVEMotor line follower 2
 ====================================================
 
 Adding obstacle detection: set up the distance sensor
