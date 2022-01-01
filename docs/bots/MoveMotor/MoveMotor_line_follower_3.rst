@@ -79,14 +79,14 @@ Adding lights and sound: police siren function
 -------------------------------------------------------
 
 | Set up the ``police_siren()`` function so that it makes a siren for a short time.
-| Use the ``music.pitch`` method forplaying the siren sounds.
+| Use the ``music.pitch`` method for playing the siren sounds.
 
 .. py:method::  music.pitch(frequency, duration=-1, pin=microbit.pin0, wait=True)
 
     | Plays a pitch at the integer frequency given for the specified number of milliseconds.
     | If the frequency is set to 440 and the duration to 1000 then a standard concert A note is played for one second.
     | Note that only one pitch can be played on one pin at any one time.
-    | If wait is set to True, this function is blocking.
+    | If wait is set to True, this function is blocking and must be completed before going on to the rest of the code.
     | If duration is negative the pitch is played continuously until either the blocking call is interrupted or, in the case of a background call, a new frequency is set or stop is called (see below).
 
 | Use the ``music.pitch`` method in a for-loop in which pith frequency goes up in steps before going down in a second for-loop and then repeated.
