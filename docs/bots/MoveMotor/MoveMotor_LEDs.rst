@@ -124,7 +124,7 @@ Clear LEDs
 
         Clear all the LEDs so that they have no colours set and turns off the LEDs.
 
-| The code below uses the variable ``buggy_lights`` for the neopixel settings.
+| The code below uses the variable ``buggy_lights`` for the neopixel object.
 | The front lights are at position 0 and 1. They are set to dull blue.
 | The rear lights are at position 2 and 3. They are set to dull red.
 | The lights are turned on for 2 seconds then turned off using ``clear()``.
@@ -164,7 +164,8 @@ To read the colour of a specific RGB LED use its index position.
 
     Return the red, green and blue value for the RGB LED at position n.
 
-| The code below sets the LED to red. The ``for`` loop displays each value in the tuple ``(255, 0, 0)``.
+| The code below sets the LED, at position 0, to red using the tuple ``(255, 0, 0)``. 
+| The ``for`` loop displays each colour value of the LED at position 0.
 
 .. code-block:: python
 
