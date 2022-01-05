@@ -91,7 +91,7 @@ Key references:
 
     bots/Maqueen/Maqueen_info.rst
     bots/Maqueen/Maqueen_module.rst
-    bots/Maqueen/Maqueen_motors.rst
+    bots/Maqueen/Maqueen_motorsmotors.rst
     bots/Maqueen/Maqueen_headlights.rst
     bots/Maqueen/Maqueen_LEDs.rst
     bots/Maqueen/Maqueen_distance_sensors.rst
@@ -105,3 +105,6 @@ Key references:
     :numbered:
 
     bots/BitBotXL/BitBotXL_info.rst
+    bots/BitBotXL/BitBotXL_motors.rst
+    bots/BitBotXL/BitBotXL_LEDs.rst
+
