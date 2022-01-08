@@ -444,7 +444,7 @@ Spinning
     | The motor will stop after a given duration in milliseconds.
     | If the duration is None, the motor runs without stopping, until another command is sent to the motor.
 
-| The code below, ``spin(2, 4000)``, spins the buggy to the right at speed 2 for 4 secs.
+| The code below, ``spin_right(2, 4000)``, spins the buggy to the right at speed 2 for 4 secs.
 
 .. code-block:: python
 
@@ -455,7 +455,7 @@ Spinning
     # setup buggy
     buggy = MOVEMotor.MOVEMotorMotors()
 
-    buggy.spin(2, 'right', 4000)
+    buggy.spin_right(2, 4000)
 
 ----
 
