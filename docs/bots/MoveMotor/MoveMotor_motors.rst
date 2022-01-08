@@ -431,8 +431,8 @@ Spinning
     | The motor will stop after a given duration in milliseconds.
     | If the duration is None, the motor runs without stopping, until another command is sent to the motor.
 
-| ``spin()`` and ``spin(1)`` and ``spin(speed=1)`` all spin the buggy to the left at speed 1.
-| ``spin(3, 2000)`` and ``spin(3, duration=2000)`` and ``spin(speed=3, duration=2000)`` all spin the buggy to the left at speed 3 for 2 secs.
+| ``spin_left()`` and ``spin_left(1)`` and ``spin_left(speed=1)`` all spin the buggy to the left at speed 1.
+| ``spin_left(3, 2000)`` and ``spin_left(3, duration=2000)`` and ``spin_left(speed=3, duration=2000)`` all spin the buggy to the left at speed 3 for 2 secs.
 
 .. py:method:: spin_right(speed=1, duration=None)
 
