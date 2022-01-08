@@ -63,7 +63,7 @@ def spin_from_obstacle(spin_time=530):
     display.show(' ')
     leds.both_indicators()
     headlights.set_headlights(left=1, right=1)
-    buggy.spin(speed=5, direction='left', duration=spin_time)
+    buggy.spin_left(speed=5, duration=spin_time)
 
 def start_buggy():
     headlights.set_headlight(headlight='left', on=1)

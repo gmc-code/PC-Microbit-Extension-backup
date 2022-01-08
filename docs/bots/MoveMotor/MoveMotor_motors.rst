@@ -415,27 +415,36 @@ Spinning
 ----------------------------------------
 
 | Spin the buggy to the left or right at the chosen speed using:
-| ``spin(speed=1, direction='left', duration=None)``
+| ``spin_left(speed=1, duration=None)``
+| ``spin_right(speed=1, duration=None)``
 | When spining left, the left wheel goes backward while the right wheel goes forward.
 | When spining right, the right wheel goes backward while the left wheel goes forward.
 
 
-.. py:method:: spin(speed=1, direction='left', duration=None)
+.. py:method:: spin_left(speed=1, duration=None)
 
-    | Spin the buggy on the spot.
+    | Spin the buggy on the spot, to the left.
     | ``speed`` values are integers or floats (decimals) from 0 to 10.
     | Default ``speed`` is 1.
-    | ``direction`` values are ``'left'`` or ``'right'``, while any other values will spin the buggy left. 
-    | Default ``direction`` is 'left'.
     | ``duration`` values are integers above 0.
     | Default ``duration`` is None.
     | The motor will stop after a given duration in milliseconds.
     | If the duration is None, the motor runs without stopping, until another command is sent to the motor.
 
-| ``spin()`` and ``spin(1, 'left')`` and ``spin(speed=1, direction='left')`` all spin the buggy to the left at speed 1.
-| ``spin(3, 'left', 2000)`` and ``spin(3, direction='left', duration=2000)`` and ``spin(speed=3, direction='left', duration=2000)`` all spin the buggy to the left at speed 3 for 2 secs.
+| ``spin()`` and ``spin(1)`` and ``spin(speed=1)`` all spin the buggy to the left at speed 1.
+| ``spin(3, 2000)`` and ``spin(3, duration=2000)`` and ``spin(speed=3, duration=2000)`` all spin the buggy to the left at speed 3 for 2 secs.
 
-| The code below, ``spin(2, 'right', 4000)``, spins the buggy to the right at speed 2 for 4 secs.
+.. py:method:: spin_right(speed=1, duration=None)
+
+    | Spin the buggy on the spot, to the right.
+    | ``speed`` values are integers or floats (decimals) from 0 to 10.
+    | Default ``speed`` is 1.
+    | ``duration`` values are integers above 0.
+    | Default ``duration`` is None.
+    | The motor will stop after a given duration in milliseconds.
+    | If the duration is None, the motor runs without stopping, until another command is sent to the motor.
+
+| The code below, ``spin(2, 4000)``, spins the buggy to the right at speed 2 for 4 secs.
 
 .. code-block:: python
 

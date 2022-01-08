@@ -173,7 +173,7 @@ Spin test
 
 | Test the use of:
 
-.. py:method:: spin(speed=1, direction='left', duration=None)
+.. py:method:: spin(speed=1, duration=None)
 
 | Use a for-loop to increase the speed progressively as it spins to the left then to the right.
 
@@ -187,12 +187,12 @@ Spin test
     buggy = MOVEMotor.MOVEMotorMotors()
 
     def spin_test():
-        # spin(speed=1, direction='left', duration=None)
+        # spin(speed=1, duration=None)
         for i in range(2, 11, 2):
-            buggy.spin(i, 'left', 500)
+            buggy.spin_left(i, 500)
         buggy.stop()
         for i in range(2, 11, 2):
-            buggy.spin(i, 'right', 500)
+            buggy.spin_right(i, 500)
         buggy.stop()
         sleep(2000)
     

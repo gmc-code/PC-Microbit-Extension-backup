@@ -21,8 +21,8 @@ MOVEMotor summary
     buggy.backward(speed=4, duration=5000, decrease_left=0, decrease_right=3)
     buggy.left(speed=3, radius=20, duration=4000)
     buggy.right(speed=2, radius=40, duration=3000)
-    buggy.spin(speed=1, direction='left', duration=2000)
-    buggy.spin(speed=2, direction='right', duration=1000)
+    buggy.spin_left(speed=1, duration=2000)
+    buggy.spin_right(speed=2, duration=1000)
     buggy.stop()
 
     distance_sensor = MOVEMotor.MOVEMotorDistanceSensors()

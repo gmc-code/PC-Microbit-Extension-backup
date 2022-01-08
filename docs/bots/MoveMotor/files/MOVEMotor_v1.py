@@ -2,7 +2,7 @@
 # requires microbit v2
 # GMC-code; 2021
 # The MIT License (MIT)
-# motor uses i2c
+
 # A microbit v2 micropython module for the Kitronik :MOVE Motor buggy
 # see Kitronic MakeCode module: https://github.com/KitronikLtd/pxt-kitronik-motor-driver
 # for quick lookups of hex values
@@ -203,29 +203,26 @@ class MOVEMotorMotors:
             utime.sleep_ms(duration)
             self.stop()
 
-    def spin_left(self, speed=1, duration=None):
+    def spin(self, speed=1, direction='left', duration=None):
         analog_speed = abs(self._analog_speed(speed))
         motor_buffer = bytearray(5)
         motor_buffer[0] = ALL_MOTOR
         # [1 to 4] is RIGHT_MOTOR_REV; RIGHT_MOTOR; LEFT_MOTOR; LEFT_MOTOR_REV
-        motor_buffer[1] = 0
-        motor_buffer[2] = analog_speed
-        motor_buffer[3] = 0
-        motor_buffer[4] = analog_speed
-        i2c.write(CHIP_ADDR, motor_buffer, False)
-        if duration is not None:
-            utime.sleep_ms(duration)
-            self.stop()
-
-    def spin_right(self, speed=1, duration=None):
-        analog_speed = abs(self._analog_speed(speed))
-        motor_buffer = bytearray(5)
-        motor_buffer[0] = ALL_MOTOR
-        # [1 to 4] is RIGHT_MOTOR_REV; RIGHT_MOTOR; LEFT_MOTOR; LEFT_MOTOR_REV
-        motor_buffer[1] = analog_speed
-        motor_buffer[2] = 0
-        motor_buffer[3] = analog_speed
-        motor_buffer[4] = 0
+        if direction == 'right':
+            motor_buffer[1] = analog_speed
+            motor_buffer[2] = 0
+            motor_buffer[3] = analog_speed
+            motor_buffer[4] = 0
+        elif direction == 'left':
+            motor_buffer[1] = 0
+            motor_buffer[2] = analog_speed
+            motor_buffer[3] = 0
+            motor_buffer[4] = analog_speed
+        else:  # left
+            motor_buffer[1] = 0
+            motor_buffer[2] = analog_speed
+            motor_buffer[3] = 0
+            motor_buffer[4] = analog_speed
         i2c.write(CHIP_ADDR, motor_buffer, False)
         if duration is not None:
             utime.sleep_ms(duration)

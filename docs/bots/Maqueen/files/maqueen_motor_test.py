@@ -26,12 +26,12 @@ def individual_motors_test():
 def spin_test():
     # speed=1, direction='left', duration=None)
     display.scroll('spin')
-    buggy.spin(duration=1000)
-    buggy.spin(duration=1000, direction='left')
-    buggy.spin(5, duration=1000)
-    buggy.spin(2, duration=1000)
-    buggy.spin(2, 'right', duration=1000)
-    buggy.spin(5, 'right', 1000)
+    buggy.spin_left(duration=1000)
+    buggy.spin_left(duration=1000)
+    buggy.spin_left(5, duration=1000)
+    buggy.spin_left(2, duration=1000)
+    buggy.spin_right(2, duration=1000)
+    buggy.spin_right(5, 1000)
     buggy.stop()
     sleep(2000)
 
@@ -97,7 +97,7 @@ def polygon_test():
     display.scroll('polygon')
     for i in range(13):
         buggy.forward(5, 800)
-        buggy.spin(5, 'left', 280)
+        buggy.spin_left(5, 280)
     buggy.stop()
     sleep(2000)
 

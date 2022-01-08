@@ -51,12 +51,12 @@ def individual_motors_test():
     sleep(2000)
 
 def spin_test():
-    # spin(speed=1, direction='left', duration=None)
+    # spin(speed=1, duration=None)
     for i in range(2, 11, 2):
-        buggy.spin(i, 'left', 500)
+        buggy.spin_left(i, 500)
     buggy.stop()
     for i in range(2, 11, 2):
-        buggy.spin(i, 'right', 500)
+        buggy.spin_right(i, 500)
     buggy.stop()
     sleep(2000)
 
@@ -92,7 +92,7 @@ def zigzag_test(slow_speed=2, fast_speed=4, zigzag_count=5, zigzag_time=1000):
 def polygon_test(spin_duration=240, sides=20):
     for i in range(sides):
         buggy.forward(3, 800)
-        buggy.spin(1, 'left', spin_duration)
+        buggy.spin_left(1, spin_duration)
     buggy.stop()
     sleep(2000)
 

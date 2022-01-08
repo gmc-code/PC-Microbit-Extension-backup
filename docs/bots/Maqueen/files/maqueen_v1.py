@@ -1,8 +1,8 @@
 # maqueen module for motors, line following and distance sensing
 # requires microbit v2
-# GMC-code; 2022
+# GMC-code; 2021
 # The MIT License (MIT)
-# motor uses i2c
+
 # motor speeds from 0,1,2,3,4,5
 # turn tightness from 5,4,3,2,1
 # 5 being tightest without spinning by reversing other wheel
@@ -165,32 +165,36 @@ class MaqueenMotors:
             utime.sleep_ms(duration)
             self.stop()
 
-    def spin_left(self, speed=1, duration=None):
+    def spin(self, speed=1, direction='left', duration=None):
         analog_speed = abs(self._analog_speed(self, speed))
         buffer = bytearray(3)
-        buffer[0] = LEFT_MOTOR
-        buffer[1] = BACKWARD
-        buffer[2] = analog_speed
-        i2c.write(CHIP_ADDR, buffer, False)
-        buffer[0] = RIGHT_MOTOR
-        buffer[1] = FORWARD
-        buffer[2] = analog_speed
-        i2c.write(CHIP_ADDR, buffer, False)
-        if duration is not None:
-            utime.sleep_ms(duration)
-            self.stop()
-
-    def spin_right(self, speed=1, duration=None):
-        analog_speed = abs(self._analog_speed(self, speed))
-        buffer = bytearray(3)
-        buffer[0] = LEFT_MOTOR
-        buffer[1] = FORWARD
-        buffer[2] = analog_speed
-        i2c.write(CHIP_ADDR, buffer, False)
-        buffer[0] = RIGHT_MOTOR
-        buffer[1] = BACKWARD
-        buffer[2] = analog_speed
-        i2c.write(CHIP_ADDR, buffer, False)
+        if direction == 'right':
+            buffer[0] = LEFT_MOTOR
+            buffer[1] = FORWARD
+            buffer[2] = analog_speed
+            i2c.write(CHIP_ADDR, buffer, False)
+            buffer[0] = RIGHT_MOTOR
+            buffer[1] = BACKWARD
+            buffer[2] = analog_speed
+            i2c.write(CHIP_ADDR, buffer, False)
+        elif direction == 'left':
+            buffer[0] = LEFT_MOTOR
+            buffer[1] = BACKWARD
+            buffer[2] = analog_speed
+            i2c.write(CHIP_ADDR, buffer, False)
+            buffer[0] = RIGHT_MOTOR
+            buffer[1] = FORWARD
+            buffer[2] = analog_speed
+            i2c.write(CHIP_ADDR, buffer, False)
+        else:  # left
+            buffer[0] = LEFT_MOTOR
+            buffer[1] = BACKWARD
+            buffer[2] = analog_speed
+            i2c.write(CHIP_ADDR, buffer, False)
+            buffer[0] = RIGHT_MOTOR
+            buffer[1] = FORWARD
+            buffer[2] = analog_speed
+            i2c.write(CHIP_ADDR, buffer, False)
         if duration is not None:
             utime.sleep_ms(duration)
             self.stop()
