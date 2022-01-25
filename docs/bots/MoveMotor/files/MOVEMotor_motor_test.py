@@ -114,7 +114,7 @@ def oval_test():
 def loops_test():
     radii = [10, 30, 80, 30]
     durations = [2000, 400, 1200, 400]
-    for i in range(6):
+    for i in range(4:
         for r, d in zip(radii, durations):
             buggy.left(3, r, d)
     buggy.stop()

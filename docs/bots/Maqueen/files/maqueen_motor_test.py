@@ -105,7 +105,7 @@ def oval_test():
     display.scroll('oval')
     dist = [3, 2, 1, 2]
     tdist = [50, 100, 4000, 100]
-    for i in range(6):
+    for i in range(4):
         for d, t in zip(dist, tdist):
             buggy.left(d, t)
     buggy.stop()
@@ -115,7 +115,7 @@ def loops_test():
     display.scroll('loops')
     dist = [4, 3, 1, 3]
     tdist = [3000, 400, 1200, 400]
-    for i in range(6):
+    for i in range(4):
         for d, t in zip(dist, tdist):
             buggy.left(d, t)
     buggy.stop()

@@ -6,7 +6,6 @@
 # motor speeds from 0,1,2,3,4,5
 # turn tightness from 5,4,3,2,1
 # 5 being tightest without spinning by reversing other wheel
-# spin directions from left,right
 
 from microbit import *
 import machine
@@ -37,18 +36,18 @@ MPC = len(MOTOR_SPEEDS) - 1  # Motor speed count used for tightness of turns
 class MaqueenMotors:
 
     def stop_left(self):
-        stop_buffer = bytearray(3)
-        stop_buffer[0] = LEFT_MOTOR
-        stop_buffer[1] = FORWARD
-        stop_buffer[2] = 0
-        i2c.write(CHIP_ADDR, stop_buffer, False)
+        buffer = bytearray(3)
+        buffer[0] = LEFT_MOTOR
+        buffer[1] = FORWARD
+        buffer[2] = 0
+        i2c.write(CHIP_ADDR, buffer, False)
 
     def stop_right(self):
-        stop_buffer = bytearray(3)
-        stop_buffer[0] = RIGHT_MOTOR
-        stop_buffer[1] = FORWARD
-        stop_buffer[2] = 0
-        i2c.write(CHIP_ADDR, stop_buffer, False)
+        buffer = bytearray(3)
+        buffer[0] = RIGHT_MOTOR
+        buffer[1] = FORWARD
+        buffer[2] = 0
+        i2c.write(CHIP_ADDR, buffer, False)
 
     def stop(self):
         self.stop_left()
@@ -56,7 +55,7 @@ class MaqueenMotors:
 
     @staticmethod
     def _analog_speed(self, speed):
-        if speed <  -MPC:
+        if speed < -MPC:
             return -MOTOR_SPEEDS[MPC]
         elif speed < 0 and speed >= -MPC:
             return -MOTOR_SPEEDS[abs(int(speed))]
@@ -132,17 +131,17 @@ class MaqueenMotors:
     def left(self, tightness=MPC, duration=None):
         # right motor faster than left
         inner_turn_speed = self._inner_turn_speed(self, tightness)
-        left_buffer = bytearray(3)
-        left_buffer[0] = LEFT_MOTOR
-        left_buffer[1] = FORWARD
-        left_buffer[2] = inner_turn_speed
-        i2c.write(CHIP_ADDR, left_buffer, False)
+        buffer = bytearray(3)
+        buffer[0] = LEFT_MOTOR
+        buffer[1] = FORWARD
+        buffer[2] = inner_turn_speed
+        i2c.write(CHIP_ADDR, buffer, False)
         utime.sleep_ms(2)
-        right_buffer = bytearray(3)
-        right_buffer[0] = RIGHT_MOTOR
-        right_buffer[1] = FORWARD
-        right_buffer[2] = 255
-        i2c.write(CHIP_ADDR, right_buffer, False)
+        buffer = bytearray(3)
+        buffer[0] = RIGHT_MOTOR
+        buffer[1] = FORWARD
+        buffer[2] = 255
+        i2c.write(CHIP_ADDR, buffer, False)
         if duration is not None:
             utime.sleep_ms(duration)
             self.stop()
