@@ -105,7 +105,7 @@ Key references:
     :numbered:
 
     bots/BitBotXL/BitBotXL_info.rst
-    bots/BitBotXL/BitBotXL_module.rst
+    bots/BitBotXL/BitBotXL_module_design.rst
     bots/BitBotXL/BitBotXL_motors.rst
     bots/BitBotXL/BitBotXL_distance_sensor.rst
     bots/BitBotXL/BitBotXL_LEDs.rst

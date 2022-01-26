@@ -1,5 +1,5 @@
 ====================================================
-BitBotXL module
+BitBotXL module design
 ====================================================
 
 This is a tutorial in which a module for the BitBotXL will be written.
@@ -12,24 +12,35 @@ This is a tutorial in which a module for the BitBotXL will be written.
 * a class for **line sensors** using I2C
 * a class for the **LEDS** using pin13
 * a class for the **buzzer** using pin0
+
+Not used here:
+
 * a class for **light sensors** using pin1 and pin2
 
-=======  ===========================
- Pin     Purpose
-=======  ===========================
- pin0    Buzzer
- pin1    Right Light Sensor
- pin2    Left Light Sensor
- pin8    Left Motor Backward
- pin12   Right Motor Backward
- pin13   12x LEDs
- pin14   Right Motor
- pin15   Ultrasonic
- pin16   Left Motor
-=======  ===========================
+----
 
-| I2C address 0x1c  (28)
-| Left Line Sensor bit 0
-| Right Line Sensor bit 1
+| The module will be named ``BitBotXL.py``.
+| Code using the module will typically begin with:
+
+.. code-block:: python
+
+    from microbit import *
+    import BitBotXL
+
+| Each class will be named systematically, using **BitBotXL** in their names.
+| Objects for each class will be created when setting up the BitBotXL.
+
+.. code-block:: python
+
+    from microbit import *
+    import BitBotXL
+    
+
+    buggy = BitBotXL.BitBotXLMotors()
+    distance_sensor = BitBotXL.BitBotXLDistanceSensor()
+    line_sensor = BitBotXL.BitBotXLLineSensor()
+    leds = BitBotXL.BitBotXLNeoPixels()
+    buzzer = BitBotXL.BitBotXLBuzzer()
+
 
 
