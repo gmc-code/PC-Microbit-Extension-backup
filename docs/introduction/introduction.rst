@@ -31,8 +31,8 @@ Home pages:
 Key references:
 ---------------------
 
-| python: https://www.w3schools.com/python/
 | microbit: https://microbit-micropython.readthedocs.io/en/v2-docs/index.html
+| python: https://www.w3schools.com/python/
 
 ----
 
