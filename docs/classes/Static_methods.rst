@@ -46,7 +46,7 @@ Static methods
 
 .. admonition:: Tasks
 
-    #. Write a static method that calculates a level bonus score using the formula:
-     bonus = level * 5. 
     #. Test out the static method and show that it is working for 2 different game levels.
+    #. Write a static method that calculates a level bonus score using the formula: ``bonus = level * 5.`` 
+
 
