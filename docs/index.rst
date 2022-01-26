@@ -75,6 +75,19 @@ Key references:
 
 .. toctree::
     :maxdepth: 2
+    :caption: Bots/BitBotXL
+    :numbered:
+
+    bots/BitBotXL/BitBotXL_info.rst
+    bots/BitBotXL/BitBotXL_module_design.rst
+    bots/BitBotXL/BitBotXL_buzzer.rst
+    bots/BitBotXL/BitBotXL_motors.rst
+    bots/BitBotXL/BitBotXL_distance_sensor.rst
+    bots/BitBotXL/BitBotXL_LEDs.rst
+
+
+.. toctree::
+    :maxdepth: 2
     :caption: Bots/MoveMotor
     :numbered:
 
@@ -107,16 +120,7 @@ Key references:
     bots/Maqueen/Maqueen_line_follower.rst
 
 
-.. toctree::
-    :maxdepth: 2
-    :caption: Bots/BitBotXL
-    :numbered:
 
-    bots/BitBotXL/BitBotXL_info.rst
-    bots/BitBotXL/BitBotXL_module_design.rst
-    bots/BitBotXL/BitBotXL_motors.rst
-    bots/BitBotXL/BitBotXL_distance_sensor.rst
-    bots/BitBotXL/BitBotXL_LEDs.rst
 
 
 

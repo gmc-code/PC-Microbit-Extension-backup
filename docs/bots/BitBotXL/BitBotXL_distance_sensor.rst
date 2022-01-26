@@ -55,12 +55,16 @@ Ultrasound timing
 Trigger pulse
 --------------
 
-An HC-SR04 sensor requires a short 10us (microseconds) pulse to trigger the sensor to start the ranging program (8 ultrasound bursts at 40 kHz). To create the trigger pulse, the trigger pin is set high, ``write_digital(1)``, for 10us, then it is set low, ``write_digital(0)``. The utime module is used to sleep for 10 microseconds: ``utime.sleep_us(10)``.
+| An HC-SR04 sensor requires a short 10us (microseconds) pulse to trigger the sensor to start the ranging program (8 ultrasound bursts at 40 kHz). 
+| To create the trigger pulse, the trigger pin is set high, ``write_digital(1)``, for 10us, then it is set low, ``write_digital(0)``. 
+| The utime module is used to sleep for 10 microseconds: ``utime.sleep_us(10)``. 
+| A module constant, ``DISTANCE_SENSOR_PIN = pin15``, in CAPITALS, can be used to set the pin to be used by the sensor.
 
 .. code-block:: python
 
     import utime
 
+    DISTANCE_SENSOR_PIN = pin15
 
     DISTANCE_SENSOR_PIN.write_digital(1)
     utime.sleep_us(10)
@@ -103,12 +107,17 @@ Since the distance to the object is half of the distance travelled by the pulse 
 class BitBotXLDistanceSensor
 ------------------------------
 
-The class, ``class BitBotXLDistanceSensor()``, is used for the code related to the ultrasound sensor.
-The code is placed in a function, ``def distance(self)`` which returns the distance in cm.
+| The class, ``class BitBotXLDistanceSensor()``, is used for the code related to the ultrasound sensor.
+| The code is placed in a function, ``def distance(self)`` which returns the distance in cm.
 
 The complete code is:
 
 .. code-block:: python
+
+    from microbit import *
+    import utime
+
+    DISTANCE_SENSOR_PIN = pin15
 
     class BitBotXLDistanceSensor():
 
@@ -136,7 +145,7 @@ Set up the distance sensors
     | Set up the buggy's distance sensors for use.
     | Use ``distance_sensor = BitBotXL.BitBotXLDistanceSensor()`` to use the buggy's distance sensors.
 
-| The code below imports the maqueen module and sets up the distance sensors.
+| The code below imports the BitBotXL module and sets up the distance sensors.
 
 .. code-block:: python
 
@@ -175,7 +184,7 @@ Distance to an object
 
 ----
 
-| The code below, using ``distance_sensor.distance() < 50``,  measures the distance to objects and if the distance is less than 50cm it spins the buggy to the left for 1 second. The code for the buggy motor functions is not included below.
+| The code below, using ``distance_sensor.distance() < 50``,  measures the distance to objects and if the distance is less than 50cm it spins the buggy to the left for 1 second. The code for the buggy motor functions (move_forward and spin_from_obstacle) is not included below. 
 
 .. code-block:: python
 
