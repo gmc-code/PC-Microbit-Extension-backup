@@ -8,7 +8,7 @@ A more recent version v1.2 has drive straight calibration using a downloadable h
 .. Warning::
 
     | v2 microbits are required for the module used here. 
-    | v1 microbits lack the memory space for the maqueen module.
+    | v1 microbits lack the memory space required.
 
 
 | For product info:
