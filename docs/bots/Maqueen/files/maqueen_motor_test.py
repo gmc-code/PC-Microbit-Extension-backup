@@ -11,7 +11,7 @@ sleep(500)
 
 
 def individual_motors_test():
-    # individal motors
+    # individual motors
     for spd in range(-5, 5, 1):
         display.scroll(spd)
         buggy.left_motor(spd, 1000)

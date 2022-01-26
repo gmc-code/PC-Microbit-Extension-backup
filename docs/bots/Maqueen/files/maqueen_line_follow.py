@@ -7,7 +7,7 @@ import maqueen
 buggy = maqueen.MaqueenMotors()
 buggy.stop()
 line_sensor = maqueen.MaqueenLineSensors()
-distance_sensor = maqueen.MaqueenDistanceSensors()
+distance_sensor = maqueen.MaqueenDistanceSensor()
 headlights = maqueen.MaqueenHeadLights()
 leds = maqueen.MaqueenNeoPixels()
 

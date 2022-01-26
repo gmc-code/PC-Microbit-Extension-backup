@@ -1,14 +1,14 @@
 ====================================================
-Maqueen distance sensors
+Maqueen distance sensor
 ====================================================
 
-Set up the distance sensors
+Set up the distance sensor
 ----------------------------------------
 
-.. py:class:: MaqueenDistanceSensors() 
+.. py:class:: MaqueenDistanceSensor() 
 
     | Set up the buggy's distance sensors for use.
-    | Use ``headlights = maqueen.MaqueenDistanceSensors()`` to use the buggy's distance sensors.
+    | Use ``distance_sensor = maqueen.MaqueenDistanceSensor()`` to use the buggy's distance sensors.
 
 | The code below imports the maqueen module and sets up the distance sensors.
 
@@ -19,7 +19,7 @@ Set up the distance sensors
 
 
     # setup distance_sensor
-    distance_sensor = maqueen.MaqueenDistanceSensors()
+    distance_sensor = maqueen.MaqueenDistanceSensor()
 
 ----
 
@@ -39,7 +39,7 @@ Distance to an object
     import maqueen
 
 
-    distance_sensor = maqueen.MaqueenDistanceSensors()
+    distance_sensor = maqueen.MaqueenDistanceSensor()
 
     while True:
         dist = distance_sensor.distance()
@@ -60,7 +60,7 @@ Distance to an object
     buggy = maqueen.MaqueenMotors()
     
     # setup distance_sensor
-    distance_sensor = maqueen.MaqueenDistanceSensors()
+    distance_sensor = maqueen.MaqueenDistanceSensor()
     
     while True:
         buggy.forward()
@@ -88,7 +88,7 @@ HC-SR04 Distance sensor
 
 ----
 
-A technical look: MaqueenDistanceSensors
+A technical look: MaqueenDistanceSensor
 --------------------------------------------
 
 | Using Echo location, the HC-SR04 uses the Trigger pin13 to send a signal and the Echo pin14 to listen for it to be 'bounced back'.
@@ -103,7 +103,7 @@ A technical look: MaqueenDistanceSensors
     TRIGGER_PIN = pin1
     ECHO_PIN = pin2
 
-    class MaqueenDistanceSensors:
+    class MaqueenDistanceSensor:
 
         def distance(self):
             ECHO_PIN.set_pull(ECHO_PIN.NO_PULL)

@@ -2,8 +2,8 @@
 BitBotXL
 ====================================================
 
-This is for BitBot XL v1.1, 2020
-A more recent version v1.2 has drive straight calibration using a downloadable hex file. See: https://4tronix.co.uk/blog/?p=2479. See the makecode github for its code. https://github.com/4tronix/BitBot/blob/master/bitbot.ts
+This is for BitBot XL v1.1, 2020.
+A more recent version, v1.2, has drive straight calibration using a downloadable hex file. See: https://4tronix.co.uk/blog/?p=2479. For the makecode github of its code see: https://github.com/4tronix/BitBot/blob/master/bitbot.ts
 
 .. Warning::
 

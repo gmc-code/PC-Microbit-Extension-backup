@@ -126,3 +126,91 @@ The complete code is:
             distance = int(0.01715 * pulse_duration)
             return distance
 
+----
+
+Set up the distance sensors
+----------------------------------------
+
+.. py:class:: BitBotXLDistanceSensor() 
+
+    | Set up the buggy's distance sensors for use.
+    | Use ``distance_sensor = maqueen.BitBotXLDistanceSensor()`` to use the buggy's distance sensors.
+
+| The code below imports the maqueen module and sets up the distance sensors.
+
+.. code-block:: python
+
+    from microbit import *
+    import BitBotXL
+
+
+    # setup distance_sensor
+    distance_sensor = BitBotXL.BitBotXLDistanceSensor()
+
+----
+
+Distance to an object
+----------------------------------------
+
+.. py:method:: distance()
+
+    Returns the distance, in cm, to an object.
+
+
+| The code below, uses ``distance_sensor.distance()`` to measure the distance to objects.
+
+.. code-block:: python
+
+    from microbit import *
+    import maqueen
+
+
+    distance_sensor = maqueen.MaqueenDistanceSensors()
+
+    while True:
+        dist = distance_sensor.distance()
+        display.scroll(dist, delay=100)
+        sleep(500)
+
+
+from microbit import *
+import BitBotXL
+
+
+# setup distance_sensor
+distance_sensor = BitBotXL.BitBotXLDistanceSensor()
+
+while True:
+    d = distance_sensor.distance()
+    display.scroll(d, delay=60)
+    
+----
+
+| The code below, using ``distance_sensor.distance() < 10``,  measures the distance to objects and if the distance is less than 10cm it spins the buggy to the left for 1 second.
+
+.. code-block:: python
+
+    from microbit import *
+    import maqueen
+
+
+    # setup buggy
+    buggy = maqueen.MaqueenMotors()
+    
+    # setup distance_sensor
+    distance_sensor = maqueen.MaqueenDistanceSensors()
+    
+    while True:
+        buggy.forward()
+        if distance_sensor.distance() < 10:
+            buggy.spin(speed=1, direction='left', duration=1000)
+        sleep(200)
+
+----
+
+.. admonition:: Tasks
+
+    #. Write code to drive the buggy forward until it measures an object 50cm in front and then stops.
+    #. Write code to drive the buggy forward until it measures an object 20cm in front and then it stops for 500ms, goes backwards for 500ms, then spins, goes forwards and repeats.
+
+----

@@ -218,7 +218,7 @@ class MaqueenLineSensors:
             return RIGHT_LINE_SENSOR_PIN.read_digital()
 
 
-class MaqueenDistanceSensors:
+class MaqueenDistanceSensor:
 
     def distance(self):
         ECHO_PIN.set_pull(ECHO_PIN.NO_PULL)
