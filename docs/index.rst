@@ -34,9 +34,17 @@ Key references:
     :caption: Classes
     :numbered:
 
-    classes/classes.rst
+    classes/Classes_as_objects.rst
+    classes/Creating_a_Class.rst
+    classes/Class_variables.rst
+    classes/Instance_variables.rst
+    classes/The_init_function.rst
+    classes/Self.rst
+    classes/Regular_Methods.rst
+    classes/Class methods.rst
+    classes/Static_methods.rst
     classes/inheritance.rst
-
+    classes/composition.rst
 
 .. toctree::
     :maxdepth: 2
