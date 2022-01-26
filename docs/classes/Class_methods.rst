@@ -2,7 +2,7 @@
 Class methods
 ====================================================
 
-Class methods
+@classmethod and cls parameter
 -------------------------------------------------
 
 | Class methods use the **cls** parameter as the first parameter for passing the class.
