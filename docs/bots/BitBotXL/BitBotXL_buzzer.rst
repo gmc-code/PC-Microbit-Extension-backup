@@ -9,7 +9,7 @@ Using the buzzer
 | It can be turned on using: ``pin0.write_digital(1)``.
 | It can be turned off using: ``pin0.write_digital(0)``.
 
-To turn on the buzzer for a specific time, put in a sleep between turning it on and turning it off. The code below has a sleep for 1000ms, so that the buzzer is on for 1 sec.
+To turn on the buzzer for a specific time, put in a sleep between turning it on and turning it off. The code below has a sleep of 1000ms, so that the buzzer is on for 1 sec.
 
 .. code-block:: python
 
@@ -28,16 +28,18 @@ To turn on the buzzer for a specific time, put in a sleep between turning it on 
 
 ----   
 
-Packaging into a class
+Refactoring into a class
 ------------------------------
 
-| The class, ``class BitBotXLBuzzer()``, is used for the code related to the buzzer.
+| The class, ``class BitBotXLBuzzer()``, is used to group the code related to the buzzer.
 | The code to drive the buzzer is placed in a function, ``buzz``.
 | The function will have a parameter, ``duration``,  which sets the duration of the buzzer.
+| This should also simplify the buzzer use. e.g. ``buzz(1000)``.
 
 | Firstly, the code above is placed inside a function.
-| The sleep value is replaced with the ``duration`` parameter.
-| The ``self`` parameter must be included for a regular method in the class.
+| The sleep value is replaced with the ``duration`` variable.
+| The ``duration`` parameter is added to the definition line: ``def buzz(duration):``.
+| The ``self`` parameter must be included first for a regular method in a class.
 | Instead of ``def buzz(duration):``, ``def buzz(self, duration):`` is required.
 
 .. code-block:: python
@@ -75,12 +77,12 @@ Using the class
 
 ----
 
-Using the buzzer method
+Using the buzz method
 ----------------------------------------
 
 .. py:method:: buzz(duration)
 
-    Activates teh buzzer for teh specified duration in milliseconds.
+    Activates the buzzer for the specified duration in milliseconds.
 
 
 | The code below, uses ``buzzer.buzz(duration)`` to make a buzz.
