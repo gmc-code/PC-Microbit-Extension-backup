@@ -41,7 +41,7 @@ Key references:
     classes/The_init_function.rst
     classes/Self.rst
     classes/Regular_Methods.rst
-    classes/Class methods.rst
+    classes/Class_methods.rst
     classes/Static_methods.rst
     classes/inheritance.rst
     classes/composition.rst
