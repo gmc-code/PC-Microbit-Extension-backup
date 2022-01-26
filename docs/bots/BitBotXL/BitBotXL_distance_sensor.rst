@@ -5,26 +5,26 @@ BitBotXL distance sensor
 HC_SR04P
 --------------
 
-For general info on the HC_SR04P distance sensor, see: https://shop.4tronix.co.uk/products/hc-sr04p-low-voltage-ultrasonic-distance-sensor
+| For general info on the HC_SR04P distance sensor, 
+| see: https://shop.4tronix.co.uk/products/hc-sr04p-low-voltage-ultrasonic-distance-sensor
+| Also see: https://shop.4tronix.co.uk/collections/robobit/products/ultrasonic-breakout
 
 .. image:: images/ultrasonic-sensor-for-bitbot-xl.png
     :scale: 50 %
     :align: center
     :alt: HC_SR04P
 
-See: https://shop.4tronix.co.uk/collections/robobit/products/ultrasonic-breakout
-
-
-
-| There are two "eyes" on the sensors. The left eye is the Trigger/transmitter which sends the pulse of ultrasound forwards. When the ultrasound hits an obstacle it may bounce back and be received by the Echo/Receiver eye.
+| There are two "eyes" on the sensors. The left eye is the Trigger/Transmitter which sends the pulse of ultrasound forwards. When the ultrasound hits an obstacle it may bounce back and be received by the Echo/Receiver eye.
 | The sensor is connected via a single pin, 3.3V. So the Trigger and the Echo are on the same pin.
 | Sensor angle: 15 degrees
 | Range: 2cm - 450cm
-| Resolution: 0.3cm
-| Output a 10us (us = microsecond) HIGH signal to Trigger input to start the detection
-| Measure the length of pulse received on Echo output to determine distance
-| Distance is pulse time * speed of sound / 2
-| The speed of sound is about 343m/s or 34300cm/s or 0.0343 cm/µs (centimeter per microsecond).
+| Resolution/Accuracy: 0.3cm
+| Operation: 
+
+* Output a 10us (us = microsecond) High signal to Trigger input to start the detection.
+* Measure the length of pulse received on Echo output to determine distance
+* Distance is pulse time * speed of sound / 2
+* The speed of sound is about 343m/s or 34300cm/s or 0.0343 cm/µs (centimeter per microsecond).
 
 .. Note::
     
@@ -69,7 +69,7 @@ An HC-SR04 sensor requires a short 10us (microseconds) pulse to trigger the sens
 
 Once the wave is returned, after being reflected by an object, the Echo pin goes high for a particular amount of time which will be equal to the time taken for the wave to return back to the sensor.
 
-The first step is to record the last low timestamp for Echo (``pulse_start``) e.g. just before the return signal is received and the pin goes high. A while loop is used to repetitively update the pulse_start time, while ``read_digital() == 0``, until the read_digital() value is no longer 0. This gives the pulse_start time for when ``read_digital() == 1``.
+The first step is to record the last low timestamp for Echo (``pulse_start``) e.g. just before the return signal is received and the pin goes high. A while loop is used to repetitively update the pulse_start time, while ``read_digital() == 0``, until the read_digital() value is no longer 0. This gives the pulse_start time for when read_digital() changes to 1.
 
 .. code-block:: python
 
@@ -79,7 +79,7 @@ The first step is to record the last low timestamp for Echo (``pulse_start``) e.
 
 Once a signal is received, the value changes from low (0) to high (1), and the signal will remain high for the duration of the Echo pulse. Then it will go low again.
 
-The second step is to record the last high timestamp for Echo (pulse_end). e.g. just before the return signal is received and the pin goes low. A while loop is used to repetitively update the pulse_end time, while ``read_digital() == 1``, until the read_digital() value is no longer 1. This gives the pulse_end time for when ``read_digital() == 0``.
+The second step is to record the last high timestamp for Echo (pulse_end). e.g. just before the return signal is received and the pin goes low. A while loop is used to repetitively update the pulse_end time, while ``read_digital() == 1``, until the read_digital() value is no longer 1. This gives the pulse_end time for when read_digital() changes to 0.
 
 .. code-block:: python
 
@@ -103,7 +103,7 @@ Since the distance to the object is half of the distance travelled by the pulse 
 class BitBotXLDistanceSensor
 ------------------------------
 
-A class, ``class BitBotXLDistanceSensor()``, is used for the code related to the ultrasound sensor.
+The class, ``class BitBotXLDistanceSensor()``, is used for the code related to the ultrasound sensor.
 The code is placed in a function, ``def distance(self)`` which returns the distance in cm.
 
 The complete code is:
@@ -134,7 +134,7 @@ Set up the distance sensors
 .. py:class:: BitBotXLDistanceSensor() 
 
     | Set up the buggy's distance sensors for use.
-    | Use ``distance_sensor = maqueen.BitBotXLDistanceSensor()`` to use the buggy's distance sensors.
+    | Use ``distance_sensor = BitBotXL.BitBotXLDistanceSensor()`` to use the buggy's distance sensors.
 
 | The code below imports the maqueen module and sets up the distance sensors.
 
@@ -147,6 +147,8 @@ Set up the distance sensors
     # setup distance_sensor
     distance_sensor = BitBotXL.BitBotXLDistanceSensor()
 
+Note that in ``BitBotXL.BitBotXLDistanceSensor()``, ``BitBotXL`` is the module and ``BitBotXLDistanceSensor`` is the class within it.
+
 ----
 
 Distance to an object
@@ -157,60 +159,47 @@ Distance to an object
     Returns the distance, in cm, to an object.
 
 
-| The code below, uses ``distance_sensor.distance()`` to measure the distance to objects.
+| The code below, uses ``distance_sensor.distance()`` to display the distance to objects.
 
 .. code-block:: python
 
     from microbit import *
-    import maqueen
+    import BitBotXL
 
 
-    distance_sensor = maqueen.MaqueenDistanceSensors()
+    distance_sensor = BitBotXL.BitBotXLDistanceSensor()
 
     while True:
-        dist = distance_sensor.distance()
-        display.scroll(dist, delay=100)
-        sleep(500)
+        d = distance_sensor.distance()
+        display.scroll(d, delay=60)
 
-
-from microbit import *
-import BitBotXL
-
-
-# setup distance_sensor
-distance_sensor = BitBotXL.BitBotXLDistanceSensor()
-
-while True:
-    d = distance_sensor.distance()
-    display.scroll(d, delay=60)
-    
 ----
 
-| The code below, using ``distance_sensor.distance() < 10``,  measures the distance to objects and if the distance is less than 10cm it spins the buggy to the left for 1 second.
+| The code below, using ``distance_sensor.distance() < 50``,  measures the distance to objects and if the distance is less than 50cm it spins the buggy to the left for 1 second. The code for the buggy motor functions is not included below.
 
 .. code-block:: python
 
     from microbit import *
-    import maqueen
+    import BitBotXL
 
 
     # setup buggy
-    buggy = maqueen.MaqueenMotors()
+    buggy = BitBotXL.BitBotXLMotors()
     
-    # setup distance_sensor
-    distance_sensor = maqueen.MaqueenDistanceSensors()
+    distance_sensor = BitBotXL.BitBotXLDistanceSensor()
     
     while True:
-        buggy.forward()
-        if distance_sensor.distance() < 10:
-            buggy.spin(speed=1, direction='left', duration=1000)
-        sleep(200)
+        move_forward(drive_time=200)
+        # check for obstacle and spin
+        d = distance_sensor.distance()
+        if d < 50:
+            while d < 50:
+                spin_from_obstacle(spin_time=1000)
+                d = distance_sensor.distance()
 
 ----
 
 .. admonition:: Tasks
 
-    #. Write code to drive the buggy forward until it measures an object 50cm in front and then stops.
+    #. Write code to drive the buggy forward until it measures an object 30cm in front and then stops.
     #. Write code to drive the buggy forward until it measures an object 20cm in front and then it stops for 500ms, goes backwards for 500ms, then spins, goes forwards and repeats.
-
-----
