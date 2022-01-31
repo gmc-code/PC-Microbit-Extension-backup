@@ -18,8 +18,8 @@ A more recent version, v1.2, has drive straight calibration using a downloadable
 | See: https://4tronix.co.uk/blog/?p=2317
 
 
-| The 4tronix BitBOt XL has 2 independent motors, 2 digital line following sensors for line tracking, optional distance sensor for obstacle avoidance, 12 LEDs and a buzzer, all powered by 3 AAA batteries. 
-| The servo outputs and 2 analog light sensors are not used here.
+| The 4tronix BitBOt XL has 2 independent motors, 2 digital line following sensors for line tracking, optional distance sensor for obstacle avoidance, 12 LEDs, 2 analog light sensors and a buzzer, all powered by 3 AAA batteries. 
+| The servo outputs and  are not used here.
 
 .. image:: images/bitbotxl.png
     :scale: 50 %

@@ -12,10 +12,8 @@ This is a tutorial in which a module for the BitBotXL will be written.
 * a class for **line sensors** using I2C
 * a class for the **LEDS** using pin13
 * a class for the **buzzer** using pin0
-
-Not used here:
-
 * a class for **light sensors** using pin1 and pin2
+
 
 ----
 
@@ -41,6 +39,6 @@ Not used here:
     line_sensor = BitBotXL.BitBotXLLineSensor()
     leds = BitBotXL.BitBotXLNeoPixels()
     buzzer = BitBotXL.BitBotXLBuzzer()
-
+    light_sensors = BitBotXL.BitBotXLLightSensors()
 
 
