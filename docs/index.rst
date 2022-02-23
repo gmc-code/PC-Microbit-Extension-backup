@@ -56,6 +56,15 @@ Key references:
     games/tilt_pixels.rst
     games/press_it.rst
 
+.. toctree::
+    :maxdepth: 2
+    :caption: Game progressions
+    :numbered:
+
+    game_progressions/RPS_introduction.rst
+    game_progressions/RPS_selection.rst
+    game_progressions/RPS_dictionary.rst
+    game_progressions/RPS_classes.rst
 
 .. toctree::
     :maxdepth: 2
