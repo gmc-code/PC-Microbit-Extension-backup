@@ -18,8 +18,6 @@ The __init__() function
 
 .. code-block:: python
 
-    from microbit import *
-
     class LevelGame:
         def __init__(self, level, lives):
             self.game_level = level
