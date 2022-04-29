@@ -34,6 +34,8 @@ Key references:
     :caption: Classes
     :numbered:
 
+
+    classes/classes_for_the_microbit.rst
     classes/Classes_as_objects.rst
     classes/Creating_a_Class.rst
     classes/Class_variables.rst
