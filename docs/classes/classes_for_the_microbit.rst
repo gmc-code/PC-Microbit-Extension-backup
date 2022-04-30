@@ -9,52 +9,10 @@ Classes for the microbit
 Classes
 ------------
 | Almost everything in Python is an object, with its own properties and methods.
-| A Class is like an object constructor, or a "blueprint" for creating objects.
-| The __init__() function assigns values to object properties when the object is created.
+| A Class is a "blueprint" for creating objects.
+| The ``__init__()`` function assigns values to object properties when the object is created.
+
 | The Objects created by calling classes can also contain methods. Methods in objects are functions that belong to the object. These functions use the self parameter to reference the current instance of the class, and to access variables that belong to the class.
-
-
-Potentiometer Classes
-----------------------------
-
-| Create a class for the Potentiometer that makes it easy to gets its analog reading, keep track of the last reading, be able to tell if it has changed and to converted the reading to a particular range like 0 to 10.
-| The code below first checks to see if the value of the potentiometer has changed, and then if it has, displays the value as a scaled value in the range 0 to 10.
-| ``Potentiometer()`` will use the default pin: pin0. This is coded via: ``def __init__(self, io_pin=pin0)``
-
-
-.. code-block:: python
-
-    # potentiometer using class
-    from microbit import *
-
-    class Potentiometer:
-        def __init__(self, io_pin=pin0):
-            self.io_pin = io_pin
-            self.last_val = -1
-
-        def get_val(self):
-            return self.io_pin.read_analog()
-
-        def was_changed(self):
-            curr_val = self.get_val()
-            if self.last_val != curr_val:
-                self.last_val = curr_val
-                return True
-            else:
-                return False
-
-        def get_range(self, rng):
-            analog_read = self.get_val()
-            scaled = rng * (analog_read / 1023)
-            return int(scaled)
-
-    # this defaults to pin0
-    # to use pinl1 instead use pot = Potentiometer(pin1)
-    pot = Potentiometer()
-    while True:
-        if pot.was_changed():
-            display.show(pot.get_range(10))
-
 
 ----
 
@@ -179,3 +137,49 @@ Pixel animation using classes
             sleep(60)
             ledxy.off()
             sleep(40)
+
+----
+
+Potentiometer Classes
+----------------------------
+
+| A potentiometer can be connected to a microbit using a breadboard.
+| Create a class for the Potentiometer to make it easy to get its analog reading, keep track of the last reading, be able to tell if it has changed and to convert the reading to a particular range like 0 to 10.
+| The code below first checks to see if the value of the potentiometer has changed, and then if it has, displays the value as a scaled value in the range 0 to 10.
+| The ``Potentiometer()`` class will use the default pin: ``pin0``.
+| This is coded via: ``def __init__(self, io_pin=pin0)``
+
+
+.. code-block:: python
+
+    # potentiometer using class
+    from microbit import *
+
+    class Potentiometer:
+        def __init__(self, io_pin=pin0):
+            self.io_pin = io_pin
+            self.last_val = -1
+
+        def get_val(self):
+            return self.io_pin.read_analog()
+
+        def was_changed(self):
+            curr_val = self.get_val()
+            if self.last_val != curr_val:
+                self.last_val = curr_val
+                return True
+            else:
+                return False
+
+        def get_range(self, rng):
+            analog_read = self.get_val()
+            scaled = rng * (analog_read / 1023)
+            return int(scaled)
+
+    # this defaults to pin0
+    # to use pinl1 instead use pot = Potentiometer(pin1)
+    pot = Potentiometer()
+    while True:
+        if pot.was_changed():
+            display.show(pot.get_range(10))
+
