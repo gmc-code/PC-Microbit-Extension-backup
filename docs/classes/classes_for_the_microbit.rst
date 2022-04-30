@@ -19,17 +19,17 @@ Classes
 Pixel Classes
 -------------------
 
-| The code below draws a pixel on the display. The Pixel class keeps track of the pixel position. 
+| The code below blinks a pixel on the display which moves as teh microbit is tilted.
 | The ``acc_x_change()`` and ``acc_y_change()`` functions return the change in x and y as the microbit is tilted.
-| These are passed to the ``move`` method of the Pixel object as in ``mypix.move(acc_x_change(),acc_y_change())``
+| These are passed to the ``move`` method of the BlinkPixel object as in ``mypix.move(acc_x_change(), acc_y_change())``
 | The ``move`` method uses ``min`` amd ``max`` to prevent the x or y values going outside the range 0 to 4, as seen in ``self.x_position = min(4, max(0, self.x_position + x_delta))``
 
 .. code-block:: python
 
-    # pixel class with accelerometer
+    # BlinkPixel class with accelerometer
     from microbit import *
 
-    class Pixel:
+    class BlinkPixel:
         def __init__(self, x_position=2, y_position=2):
             self.x_position = x_position
             self.y_position = y_position
@@ -38,8 +38,8 @@ Pixel Classes
             self.x_position = min(4, max(0, self.x_position + x_delta))
             self.y_position = min(4, max(0, self.y_position + y_delta))
 
-        def show(self):
-            display.set_pixel(self.x_position, self.y_position, 9)
+        def blink(self):
+            display.set_pixel(self.x_position, self.y_position, 5)
             sleep(50)
             display.set_pixel(self.x_position, self.y_position, 2)
 
@@ -65,14 +65,21 @@ Pixel Classes
             yd = 0
         return yd
 
-    # Create an instance of a pixel object
-    mypix = Pixel()
+    # Create an instance of a BlinkPixel object
+    mypix = BlinkPixel()
 
-    mypix.show()
+    mypix.blink()
     while True:
-        mypix.move(acc_x_change(),acc_y_change())
-        mypix.show()
-        sleep(500)
+        mypix.move(acc_x_change(), acc_y_change())
+        mypix.blink()
+        sleep(200)
+
+----
+
+.. admonition:: Tasks
+
+    #. Modify the code above to allow a button press to clear the display.
+    #. Modify the code above to just show the current pixel position and leave a trail.
 
 ----
 
@@ -86,15 +93,15 @@ Pixel animation using classes
 
     # pixel class
     from microbit import *
-    import random
+
 
     class LED():
         def __init__(self, x=2, y=2):
             self.x = x
             self.y = y
 
-        def intensity(self, varbrightness=9):
-            display.set_pixel(self.x, self.y, varbrightness)
+        def intensity(self, brightness=9):
+            display.set_pixel(self.x, self.y, brightness)
 
         def on(self, brightness=9):
             display.set_pixel(self.x, self.y, brightness)
@@ -102,24 +109,23 @@ Pixel animation using classes
         def off(self):
             display.set_pixel(self.x, self.y, 0)
 
-    led02 = LED(0, 2)
-    led12 = LED(1, 2)
-    led22 = LED(2, 2)
-    led32 = LED(3, 2)
-    led42 = LED(4, 2)
+    led0 = LED(0, 2)
+    led1 = LED(1, 2)
+    led2 = LED(2, 2)
+    led3 = LED(3, 2)
+    led4 = LED(4, 2)
 
-    led22.on()
+    led2.on()
     sleep(500)
-    led22.off()
+    led2.off()
     sleep(500)
 
-
-    led_list = [led02, led12, led22, led32, led42]
+    led_list = [led0, led1, led2, led3, led4]
     led_list_rev = led_list.copy()
     led_list_rev.reverse()
 
     while True:
-        for i in range(1,9):
+        for i in range(1, 10, 2):
             for ledxy in led_list:
                 ledxy.intensity(i)
                 sleep(40)
@@ -130,13 +136,14 @@ Pixel animation using classes
                 sleep(40)
                 ledxy.off()
                 sleep(10)
-        for i in range(50):
-            ledxy = random.choice(led_list)
-            intensity_level = random.randrange(1,9)
-            ledxy.intensity(intensity_level)
-            sleep(60)
-            ledxy.off()
-            sleep(40)
+
+
+----
+
+.. admonition:: Tasks
+
+    #. Modify the code so that after the brightness increases form 1 to 9, it decreases smoothly back down to 1 before repeating.
+    #. Modify the code to use the middle column instead of the middle row.
 
 ----
 
@@ -144,8 +151,10 @@ Potentiometer Classes
 ----------------------------
 
 | A potentiometer can be connected to a microbit using a breadboard.
-| Create a class for the Potentiometer to make it easy to get its analog reading, keep track of the last reading, be able to tell if it has changed and to convert the reading to a particular range like 0 to 10.
-| The code below first checks to see if the value of the potentiometer has changed, and then if it has, displays the value as a scaled value in the range 0 to 10.
+| Create a class for the Potentiometer to make it easy to get its analog reading, 
+keep track of the last reading, be able to tell if it has changed and to convert the reading to a particular range like 0 to 10.
+| The code below first checks to see if the value of the potentiometer has changed, 
+and then if it has, displays the value as a scaled value in the range 0 to 10.
 | The ``Potentiometer()`` class will use the default pin: ``pin0``.
 | This is coded via: ``def __init__(self, io_pin=pin0)``
 
@@ -182,4 +191,12 @@ Potentiometer Classes
     while True:
         if pot.was_changed():
             display.show(pot.get_range(10))
+
+
+----
+
+.. admonition:: Tasks
+
+    #. Modify the code so there is a short sleep between potentiometer readings.
+    #. Modify the code so that the potentiometer only displays values from 0 to 5.
 
