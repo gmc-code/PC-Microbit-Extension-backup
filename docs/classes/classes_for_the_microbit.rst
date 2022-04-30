@@ -29,6 +29,7 @@ Pixel Classes
     # BlinkPixel class with accelerometer
     from microbit import *
 
+
     class BlinkPixel:
         def __init__(self, x_position=2, y_position=2):
             self.x_position = x_position
@@ -91,11 +92,11 @@ Pixel animation using classes
 
 .. code-block:: python
 
-    # pixel class
+    # Pixel class with animation
     from microbit import *
 
 
-    class LED():
+    class Pixel():
         def __init__(self, x=2, y=2):
             self.x = x
             self.y = y
@@ -109,40 +110,50 @@ Pixel animation using classes
         def off(self):
             display.set_pixel(self.x, self.y, 0)
 
-    led0 = LED(0, 2)
-    led1 = LED(1, 2)
-    led2 = LED(2, 2)
-    led3 = LED(3, 2)
-    led4 = LED(4, 2)
+    pixel0 = Pixel(0, 2)
+    pixel1 = Pixel(1, 2)
+    pixel2 = Pixel(2, 2)
+    pixel3 = Pixel(3, 2)
+    pixel4 = Pixel(4, 2)
 
-    led2.on()
+    pixel2.on()
     sleep(500)
-    led2.off()
+    pixel2.off()
     sleep(500)
 
-    led_list = [led0, led1, led2, led3, led4]
-    led_list_rev = led_list.copy()
-    led_list_rev.reverse()
+    pixel_list = [pixel0, pixel1, pixel2, pixel3, pixel4]
+    pixel_list_rev = pixel_list.copy()
+    pixel_list_rev.reverse()
 
     while True:
         for i in range(1, 10, 2):
-            for ledxy in led_list:
-                ledxy.intensity(i)
+            for pixelxy in pixel_list:
+                pixelxy.intensity(i)
                 sleep(40)
-                ledxy.off()
+                pixelxy.off()
                 sleep(10)
-            for ledxy in led_list_rev:
-                ledxy.intensity(i)
+            for pixelxy in pixel_list_rev:
+                pixelxy.intensity(i)
                 sleep(40)
-                ledxy.off()
+                pixelxy.off()
                 sleep(10)
-
+        for i in range(7, 0, -2):
+            for pixelxy in pixel_list:
+                pixelxy.intensity(i)
+                sleep(40)
+                pixelxy.off()
+                sleep(10)
+            for pixelxy in pixel_list_rev:
+                pixelxy.intensity(i)
+                sleep(40)
+                pixelxy.off()
+                sleep(10)
 
 ----
 
 .. admonition:: Tasks
 
-    #. Modify the code so that after the brightness increases form 1 to 9, it decreases smoothly back down to 1 before repeating.
+    #. Modify the code so that after the brightness increases from 1 to 9, it decreases smoothly back down to 1 before repeating.
     #. Modify the code to use the middle column instead of the middle row.
 
 ----
@@ -163,6 +174,7 @@ and then if it has, displays the value as a scaled value in the range 0 to 10.
 
     # potentiometer using class
     from microbit import *
+
 
     class Potentiometer:
         def __init__(self, io_pin=pin0):
