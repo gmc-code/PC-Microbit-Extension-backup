@@ -6,9 +6,9 @@ Python Game design
 --------------------
 
 | This version of the game code uses a dictionary for the results.
-| Each item in the dictionary has a 
+| Each item in the dictionary has a key.
 | Each key in the dictionary is a 2-tuple with the user choice first followed by the computer choice.
-| There is a key for all nine possible combinations. 
+| There is a key for all nine possible combinations.
 | Each item has a value indicating the winner or a tie.
 | To look up the results dictionary use: ``winner = results.get(combo, 'invalid entry')``. This is able to handle the use of a key that does not exist.
 | This is better than ``winner = results[combo]`` since if the user entry is not a proper choice, an error results.
@@ -101,10 +101,10 @@ Microbit version
                 break
 
         display.scroll(human_move + ' v ' + microbit_move, delay=60)
-        
+
         results_key = (human_move, microbit_move)
         winner = results.get(results_key, 'invalid entry')
-        
+
         if winner == 'invalid entry':
             display.show(Image.MEH)
         if winner == 'tie': 
@@ -125,4 +125,4 @@ Microbit version
     #. Add counters so that the total wins, losses and ties is scrolled after each game. e.g. 'W3 L2 T4'
     #. Use if-else after each game to ask to continue playing by pressing the A button or to exit by pressing the B button.
     #. Modify the display of the R, P or S to use custom images instead.
-   
+

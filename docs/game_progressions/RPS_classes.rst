@@ -12,8 +12,8 @@ Python Game design
 Player class
 --------------------
 
-| Each player will be set up using the Player class. 
-e.g.  ``computer = Player('Computer')``.
+| Each player will be set up using the Player class.
+| e.g.  ``computer = Player('Computer')``.
 | The Player class will take the name of the player as the argument.
 | The ``__init__`` method has the name parameter.
 
@@ -23,11 +23,11 @@ e.g.  ``computer = Player('Computer')``.
         def __init__(self, name):
             self.name = name
 
-| The name of the player can be obtained using an instance property. 
-e.g. ``computer.name``
+| The name of the player can be obtained using an instance property.
+| e.g. ``computer.name``
 
-| The Player class has a ``set_move`` method to set the player move. 
-e.g. ``computer.set_move(random.choice(['scissors', 'paper', 'rock']))``
+| The Player class has a ``set_move`` method to set the player move.
+| e.g. ``computer.set_move(random.choice(['scissors', 'paper', 'rock']))``
 
 .. code-block:: python
 
@@ -60,7 +60,7 @@ before it is set to one of the possible moves.
 .. code-block:: python
 
     import random
-    
+
 
     class Player:
         def __init__(self, name):
@@ -173,7 +173,7 @@ Full code
     #. Modify the python code to use R, P or S instead of rock, paper or scissors throughout the code.
     #. Add counters so that the total wins, losses and draws is printed after each game in python.
     #. Modify the code to ask for a valid move from the use by placing the human move in a while loop and test to see if the move is a list or tuple of valid moves.
-    
+
 ----
 
 Microbit version
@@ -230,11 +230,11 @@ Microbit version
             elif button_b.is_pressed():
                 human.set_move('P')
                 break
-                
+
         display.scroll(human.move + ' v ' + microbit.move, delay=60)
         game = Game(human, microbit)
         winner = game.get_match_winner()
-        
+
         if winner == None:
             display.show('=')
         elif winner == 'human':
