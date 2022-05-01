@@ -179,7 +179,7 @@ Full code
 Microbit version
 ---------------------------------
 
-| The Microbit version of the game code, using a dictionary for the results, is below.
+| The Microbit version of the game code, using classes, is below.
 
 
 .. code-block:: python
@@ -188,56 +188,68 @@ Microbit version
     import random
 
 
-    results = {
-        ('R', 'R'): 'tie',
-        ('R', 'P'): 'computer',
-        ('R', 'S'): 'human',
-        ('P', 'R'): 'human',
-        ('P', 'P'): 'tie',
-        ('P', 'S'): 'computer',
-        ('S', 'R'): 'computer',
-        ('S', 'P'): 'human',
-        ('S', 'S'): 'tie',
-    }
+    class Player:
+        def __init__(self, name):
+            self.name = name
+            # self.move = None
 
+        def set_move(self, move):
+            self.move = move
+
+
+    class Game:
+        win_moves = {'P': 'R', 'S': 'P', 'R': 'S'}
+
+        def __init__(self, player1, player2):
+            self.player1 = player1
+            self.player2 = player2
+
+        def get_match_winner(self):
+            if self.player1.move == self.player2.move:
+                return None
+            if Game.win_moves[self.player1.move] == self.player2.move:
+                return self.player1.name
+            else:
+                return self.player2.name
+
+    human = Player('human')
+    microbit = Player('microbit')
+
+    display.scroll('A for R, B for S, AB for P', delay=80)
     while True:
-        microbit_move = random.choice(['R', 'P', 'S'])
-        display.scroll('A for R, B for S, A&B for P', delay=80)
+        microbit.set_move(random.choice(['R', 'P', 'S']))
         while True:
             # short pause to allow time to hold down 2 buttons
             sleep(300)
             if button_a.is_pressed() and button_b.is_pressed():
-                human_move = 'R'
+                human.set_move('R')
                 break
             elif button_a.is_pressed():
-                human_move = 'S'
+                human.set_move('S')
                 break
             elif button_b.is_pressed():
-                human_move = 'P'
+                human.set_move('P')
                 break
-
-        display.scroll(human_move, delay=60)
-        display.scroll('v ' + microbit_move, delay=60)
+                
+        display.scroll(human.move + ' v ' + microbit.move, delay=60)
+        game = Game(human, microbit)
+        winner = game.get_match_winner()
         
-        results_key = (human_move, microbit_move)
-        winner = results.get(results_key, 'invalid entry')
-        
-        if winner == 'invalid entry':
-            display.show(Image.MEH)
-        if winner == 'tie': 
-            display.scroll('=')
+        if winner == None:
+            display.show('=')
         elif winner == 'human':
             display.show(Image.YES)
-        elif winner == 'computer':
+        elif winner == 'microbit':
             display.show(Image.NO)
-       
+        sleep(500)
+        display.clear()
+
 
 ----
 
 .. admonition:: Tasks
 
-    #. Modify the microbit code to scroll the instructions before the first game but not again.
-    #. Modify the microbit code to scroll the instructions before the first game then to show arrows to the A button and B button to prompt to play another game.
+    #. Modify the microbit code so that after the first game, arrows to the A button and B button are shown to prompt the user to play another game.
     #. Add counters so that the total wins, losses and ties is scrolled after each game. e.g. 'W3 L2 T4'
     #. Use if-else after each game to ask to continue playing by pressing the A button or to exit by pressing the B button.
     #. Modify the display of the R, P or S to use custom images instead.

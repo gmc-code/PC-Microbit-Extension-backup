@@ -83,9 +83,10 @@ Microbit version
         ('S', 'S'): 'tie',
     }
 
+    display.scroll('A for R   B for S   A&B for P', delay=80)
+
     while True:
         microbit_move = random.choice(['R', 'P', 'S'])
-        display.scroll('A for R, B for S, A&B for P', delay=80)
         while True:
             # short pause to allow time to hold down 2 buttons
             sleep(300)
@@ -99,8 +100,7 @@ Microbit version
                 human_move = 'P'
                 break
 
-        display.scroll(human_move, delay=60)
-        display.scroll('v ' + microbit_move, delay=60)
+        display.scroll(human_move + ' v ' + microbit_move, delay=60)
         
         results_key = (human_move, microbit_move)
         winner = results.get(results_key, 'invalid entry')
@@ -108,19 +108,20 @@ Microbit version
         if winner == 'invalid entry':
             display.show(Image.MEH)
         if winner == 'tie': 
-            display.scroll('=')
+            display.show('=')
         elif winner == 'human':
             display.show(Image.YES)
         elif winner == 'computer':
             display.show(Image.NO)
-       
+
+        sleep(500)
+        display.clear()
 
 ----
 
 .. admonition:: Tasks
 
-    #. Modify the microbit code to scroll the instructions before the first game but not again.
-    #. Modify the microbit code to scroll the instructions before the first game then to show arrows to the A button and B button to prompt to play another game.
+    #. Modify the microbit code so that after the first game, arrows to the A button and B button are shown to prompt the user to play another game.
     #. Add counters so that the total wins, losses and ties is scrolled after each game. e.g. 'W3 L2 T4'
     #. Use if-else after each game to ask to continue playing by pressing the A button or to exit by pressing the B button.
     #. Modify the display of the R, P or S to use custom images instead.
