@@ -12,7 +12,7 @@ BitBotXL module
 | Files in the mu_code folder are listed on the right.
 | Click and drag the BitBotXL.py file from the right window to the left window to copy it to the microbit.
 
-| THe images below are for the MOVEmotor, but illustrate the idea.
+| The images below are for the MOVEmotor, but illustrate the idea.
 | Before copying:
 
 .. image:: images/Mu_files.png
