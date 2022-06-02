@@ -3,7 +3,7 @@ BitBotXL LEDs
 ====================================================
 
 
-| The MOVEBitBotXLMotor uses 12x LEDs on pin13.
+| The BitBotXLMotor uses 12x LEDs on pin13.
 | The neopixel module is used to drive these RGB LEDs.
 | Each RGB LED can produce a full spectrum of colours independent to all of the other RGB LEDs.
 | In RGB, R stands for red, G stands for green, and B stands for blue.
@@ -88,13 +88,15 @@ Set LED colour and brightness
     np[3] = (0, 0, 255)
     np.show()
 
+
 ----
 
 .. admonition:: Tasks
 
     | For quick RGB values for common colours, see https://www.rapidtables.com/web/color/RGB_Color.html
 
-    #. Write code to set the last LEDS at position 1, 2 and 3 to yellow, cyan and magenta.
+    #. Write code to set the LEDS at position 1, 2 and 3 to yellow, cyan and magenta.
+    #. Write code to set all the LEDS to yellow for 1 sec, then cyan for 1 sec, then magenta for 1 sec.
 
 ----
 
@@ -213,6 +215,19 @@ Colour lists
             buggy_lights[led_num] = colour
         buggy_lights.show()
         sleep(200)
+
+
+For less bright lights use:
+
+.. code-block:: python
+    
+    white = (20, 20, 20)
+    red = (20, 0, 0)
+    yellow = (20, 20, 0)
+    green = (0, 128, 0)
+    cyan = (0, 20, 20)
+    blue = (0, 0, 20)
+    magenta = (20, 0, 20)
 
 ----
 
