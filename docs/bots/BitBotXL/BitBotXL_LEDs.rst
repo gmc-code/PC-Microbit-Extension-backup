@@ -220,7 +220,7 @@ Colour lists
 For less bright lights use:
 
 .. code-block:: python
-    
+
     white = (20, 20, 20)
     red = (20, 0, 0)
     yellow = (20, 20, 0)
@@ -249,3 +249,4 @@ Primary and secondary colours
 
     #. Modify the code to use a shorter list of colours, with just the primary colours.
     #. Modify the code to use a shorter list of colours, with just the secondary colours.
+
