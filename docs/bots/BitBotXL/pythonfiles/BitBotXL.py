@@ -5,7 +5,7 @@ import utime
 
 DISTANCE_SENSOR_PIN = pin15
 
-class bitBotXL:
+class BitBotXLMotors:
     def __init__(self):
         pass
 
