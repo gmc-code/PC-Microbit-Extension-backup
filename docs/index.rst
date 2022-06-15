@@ -79,9 +79,11 @@ Key references:
     games/slalom.rst
     games/snake.rst
     games/space_invaders.rst
+    games/vertical_scroller.rst
     games/tetris.rst
     games/shut_the_matrix.rst
     games/lights_out.rst
+    games/maze.rst
 
 
 .. toctree::
