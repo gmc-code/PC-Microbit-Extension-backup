@@ -81,7 +81,7 @@ Key references:
     games/snake.rst
     games/space_invaders.rst
     games/vertical_scroller.rst
-    games/tetris.rst
+    games/falling_blocks.rst
     games/shut_the_matrix.rst
     games/reflexes.rst
     games/clock_reflexes.rst

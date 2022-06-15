@@ -1,9 +1,9 @@
 ====================================================
-Tetris
+Falling blocks
 ====================================================
 
 
-| Tetris based on https://www.101computing.net/bbc-microbit-tetris-game/
+| Falling blocks based on https://www.101computing.net/bbc-microbit-tetris-game/
 | For V2 microbit
 | Move left and right with A and B buttons
 | Rotate with A and B together
@@ -13,7 +13,7 @@ Tetris
 
 .. code-block:: python
 
-    # Tetris based on https://www.101computing.net/bbc-microbit-tetris-game/
+    # Falling blocks based on https://www.101computing.net/bbc-microbit-tetris-game/
     # for V2 microbit
     # move left and right with A and B buttons
     # rotate with A and B together
