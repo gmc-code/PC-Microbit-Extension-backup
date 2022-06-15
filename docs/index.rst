@@ -75,6 +75,7 @@ Key references:
     :numbered:
 
     games/introduction.rst
+    games/words.rst
     games/asteroids.rst
     games/slalom.rst
     games/snake.rst
@@ -82,8 +83,12 @@ Key references:
     games/vertical_scroller.rst
     games/tetris.rst
     games/shut_the_matrix.rst
+    games/reflexes.rst
+    games/clock_reflexes.rst
     games/lights_out.rst
     games/maze.rst
+    games/french_numbers.rst
+    games/french_numbers_quiz.rst
 
 
 .. toctree::
