@@ -10,7 +10,7 @@ Asteroids
 
 .. code-block:: python
 
-   # Asteroids; based on http://www.multiwingspan.co.uk/micro.php?page=charlie2
+    # Asteroids; based on http://www.multiwingspan.co.uk/micro.php?page=charlie2
 
     from microbit import *
     import random
