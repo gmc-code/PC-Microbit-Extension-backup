@@ -53,10 +53,10 @@ Key references:
     :caption: Class Games
     :numbered:
 
-    games/introduction.rst
-    games/magic_8.rst
-    games/tilt_pixels.rst
-    games/press_it.rst
+    class_games/introduction.rst
+    class_games/magic_8.rst
+    class_games/tilt_pixels.rst
+    class_games/press_it.rst
 
 .. toctree::
     :maxdepth: 2
@@ -67,6 +67,16 @@ Key references:
     game_progressions/RPS_selection.rst
     game_progressions/RPS_dictionary.rst
     game_progressions/RPS_classes.rst
+
+
+.. toctree::
+    :maxdepth: 2
+    :caption: Games
+    :numbered:
+
+    games/introduction.rst
+    games/asteroids.rst
+
 
 .. toctree::
     :maxdepth: 2
