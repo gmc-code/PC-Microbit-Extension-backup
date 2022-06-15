@@ -36,9 +36,9 @@ Asteroids
 
     def DrawGame(ship, asteroid1, asteroid2, t):
         img = Image("00000:" * 5)
-        img.set_pixel(ship.x, ship.y, 9)  # (t % 2)*9)
-        img.set_pixel(asteroid1.x, asteroid1.y, 9)
-        img.set_pixel(asteroid2.x, asteroid2.y, 9)
+        img.set_pixel(ship.x, ship.y, 9)
+        img.set_pixel(asteroid1.x, asteroid1.y, 5)
+        img.set_pixel(asteroid2.x, asteroid2.y, 5)
         return img
 
 

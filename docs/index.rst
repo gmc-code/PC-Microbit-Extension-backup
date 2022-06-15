@@ -76,6 +76,12 @@ Key references:
 
     games/introduction.rst
     games/asteroids.rst
+    games/slalom.rst
+    games/snake.rst
+    games/space_invaders.rst
+    games/tetris.rst
+    games/shut_the_matrix.rst
+    games/lights_out.rst
 
 
 .. toctree::
