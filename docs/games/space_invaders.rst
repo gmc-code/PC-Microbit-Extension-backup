@@ -60,7 +60,7 @@ Space Invaders
         Game class holds the current game state.
         """
 
-        def reset(self):
+        def game_reset(self):
             # Initial values
             self.x = 2  # Player x coordinate start (middle).
             self.xf = 2.0  # x coordinate float, allows us to use tilt for move speed.
@@ -193,7 +193,7 @@ Space Invaders
         display.show(Image.TARGET)
         wait_for_button()
 
-        game.reset()  # Reset the game state.
+        game.game_reset()  # Reset the game state.
         game.add_aliens()
 
         # Main loop
