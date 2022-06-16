@@ -6,6 +6,30 @@ Games introduction
 
 ----
 
+All time records
+----------------
+
+.. list-table::
+    :widths: 60 20 60
+    :header-rows: 1
+
+    *   - **Game** 
+        - **Hogh score**  
+        - **Player**
+    *   - Asteroids
+        - 1976    
+        - Kevin
+    *   - Falling Blocks
+        - 154    
+        - Sai
+    *   - Space Invaders    
+        - 100    
+        - GMC
+
+
+
+
+------
 Game loop
 ---------------
 
