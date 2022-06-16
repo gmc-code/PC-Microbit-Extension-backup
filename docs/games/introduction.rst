@@ -23,7 +23,10 @@ All time records
         - 154    
         - Sai
     *   - Space Invaders    
-        - 100    
+        - 365    
+        - Snehath
+    *   - Snake    
+        - 11 
         - GMC
 
 
