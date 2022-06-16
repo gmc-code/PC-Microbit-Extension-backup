@@ -14,7 +14,7 @@ All time records
     :header-rows: 1
 
     *   - **Game** 
-        - **Hogh score**  
+        - **High score**  
         - **Player**
     *   - Asteroids
         - 1976    
