@@ -32,7 +32,8 @@ All time records
 
 
 
-------
+----
+
 Game loop
 ---------------
 
