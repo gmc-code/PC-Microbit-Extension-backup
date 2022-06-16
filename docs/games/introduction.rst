@@ -17,8 +17,8 @@ All time records
         - **High score**  
         - **Player**
     *   - Asteroids
-        - 1976    
-        - Kevin
+        - 4207    
+        - Lachlan
     *   - Falling Blocks
         - 154    
         - Sai
