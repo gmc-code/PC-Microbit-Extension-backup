@@ -27,15 +27,35 @@ All time records
         - Snehath
     *   - Snake    
         - 110 
-        - GMC
-
-
+        - Jaskirat
 
 
 ----
 
-Game loop
----------------
+Modifying the game code for official records
+----------------------------------------------
+
+| All records have to be witnessed.
+| One way to enable this is to add a for-loop to display the final game score many times so it can be sighted by a witness.
+
+.. code-block:: python
+        
+    display.scroll(str(score))
+
+
+While keeping the original indenting level, the code above can be changed to:
+
+.. code-block:: python
+        
+    for i in range(10):
+        display.scroll(str(score))
+
+The ``display`` line is indented as part of the for-loop.
+
+----
+
+Game loop for replays
+-----------------------
 
 | There are convenient ways to show to the user that the game can be played and played again.
 | In the code below, an arrow pointing to the A button suggests to the user that they should press the A button.
