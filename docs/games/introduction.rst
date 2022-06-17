@@ -26,7 +26,7 @@ All time records
         - 365    
         - Snehath
     *   - Snake    
-        - 110 
+        - 140 
         - Jaskirat
 
 
