@@ -96,7 +96,7 @@ Key references:
     :caption: Data Logging
     :numbered:
 
-    ..data_logging/Excel_data_logging.rst
+    data_logging/Excel_data_logging.rst
 
 
 .. toctree::
@@ -157,7 +157,7 @@ Key references:
 
 .. toctree::
     :maxdepth: 2
-    :caption: Radio/
+    :caption: Radio
     :numbered:
 
     radio/radio.rst
