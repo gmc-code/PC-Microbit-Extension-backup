@@ -26,7 +26,7 @@ The radio module works like this:
 Radio Module
 --------------
 
-.. py:module:: import radio
+.. py:attribute:: import radio
     
     Import the radio module
 
