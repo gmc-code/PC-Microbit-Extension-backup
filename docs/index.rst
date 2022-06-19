@@ -96,7 +96,7 @@ Key references:
     :caption: Data Logging
     :numbered:
 
-    data_logging/Excel_data_logging.rst
+    ..data_logging/Excel_data_logging.rst
 
 
 .. toctree::
@@ -155,6 +155,12 @@ Key references:
     bots/Maqueen/Maqueen_line_follower.rst
 
 
+.. toctree::
+    :maxdepth: 2
+    :caption: Radio/
+    :numbered:
+
+    radio/radio.rst
 
 
 

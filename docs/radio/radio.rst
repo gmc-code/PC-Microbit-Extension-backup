@@ -23,17 +23,19 @@ The radio module works like this:
 
 ---
 
-MOdule
+Radio Module
 --------------
 
 .. py:module:: import radio
     
-    To access this module you need to::
+    Import the radio module
 
 .. code-block:: python
 
     import microbit
     import radio
+
+----
 
 We assume you have done this for the examples below.
 
