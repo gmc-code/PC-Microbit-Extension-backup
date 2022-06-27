@@ -155,12 +155,7 @@ Key references:
     bots/Maqueen/Maqueen_line_follower.rst
 
 
-.. toctree::
-    :maxdepth: 2
-    :caption: Radio
-    :numbered:
 
-    radio/radio.rst
 
 
 
