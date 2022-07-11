@@ -2,9 +2,9 @@
 LEDs
 ====================================================
 
-| The MOVEMotor uses 4 ZIP LEDs (WS2812) on pin8.
+| THe examples below assume a device has 4 RGB LEDs (WS2812) on pin8.
 | The neopixel module is used to drive these RGB LEDs.
-| IN RGB, R stands for red, G stands for green, and B stands for blue.
+| In RGB, R stands for red, G stands for green, and B stands for blue.
 | Each RGB LED can produce a full spectrum of colours independent to all of the other RGB LEDs. 
 | Each ZIP LED has a Red, Green and Blue element within the LED, and each of these can have brightness set from 0 to 255.
 
