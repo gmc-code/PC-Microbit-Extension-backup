@@ -188,6 +188,10 @@ To read the colour of a specific RGB LED use its index position.
 Colour lists
 -------------------
 
+.. image:: images/rgb_colours.png
+    :scale: 50 %
+    :align: left
+
 | A list of colours can be used to create a colourful display.
 | Two for-loops are used, one nested inside the other.
 | ``for colour in colour_list:`` loops through the colours.
