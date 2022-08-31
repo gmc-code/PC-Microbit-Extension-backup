@@ -119,6 +119,7 @@ Key references:
     bots/BitBotXL/BitBotXL_motors.rst
     bots/BitBotXL/BitBotXL_distance_sensor.rst
     bots/BitBotXL/BitBotXL_LEDs.rst
+    bots/BitBotXL/BitBotXL_radio.rst
 
 
 .. toctree::
