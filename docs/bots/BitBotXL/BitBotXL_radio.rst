@@ -81,9 +81,11 @@ Radio for microbit on bot
                 buggy.stop()
             elif incoming_message == "R":
                 display.scroll("R")
+                buggy.stop_left()
                 buggy.right_motor(5)
             elif incoming_message == "L":
                 display.scroll("L")
+                buggy.stop_right()
                 buggy.left_motor(5)
             elif incoming_message == "-":
                 display.scroll("-")
