@@ -28,8 +28,8 @@ Key references:
 
     bots/BitBotXL/Mu_editor.rst
     bots/BitBotXL/BitBotXL_calibration.rst
-     bots/BitBotXL/BitBotXL_module.rst
-     bots/BitBotXL/BitBotXL_motors.rst
+    bots/BitBotXL/BitBotXL_module.rst
+    bots/BitBotXL/BitBotXL_motors.rst
     bots/BitBotXL/BitBotXL_radio.rst
     bots/BitBotXL/BitBotXL_LEDs.rst
     bots/BitBotXL/BitBotXL_buzzer.rst
