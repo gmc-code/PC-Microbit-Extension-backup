@@ -27,6 +27,7 @@ Key references:
     :numbered:
 
     bots/BitBotXL/Mu_editor.rst
+    bots/BitBotXL/BitBotXL_calibration.rst
     bots/BitBotXL/BitBotXL_info.rst
     bots/BitBotXL/BitBotXL_module_design.rst
     bots/BitBotXL/BitBotXL_module.rst
