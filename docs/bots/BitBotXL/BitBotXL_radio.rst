@@ -3,6 +3,16 @@ BitBotXL radio
 ====================================================
 
 
+Unique groups
+----------------------
+
+| Use ``radio.config(group=8)`` to set unique groups in the room.
+| Make sure all microbits using a bot have the same group number (0-255).
+| Edit the code below to set the group.
+| The buggy speeds can also be edited for different responses.
+
+----
+
 Radio for controller
 ----------------------
 
@@ -23,26 +33,27 @@ Radio for controller
         if button_a.was_pressed():
             y_reading = accelerometer.get_y()
             if y_reading > 200:
-                display.scroll("B")
                 radio.send("B")
+                display.scroll("B")
             elif y_reading < -200:
-                display.scroll("F")
                 radio.send("F")
+                display.scroll("F")
             else:
-                display.scroll("X")
                 radio.send("X")
+                display.scroll("X")
         elif button_b.was_pressed():
             x_reading = accelerometer.get_x()
             if x_reading > 200:
-                display.scroll("R")
                 radio.send("R")
+                display.scroll("R")
             elif x_reading < -200:
-                display.scroll("L")
                 radio.send("L")
+                display.scroll("L")
             else:
-                display.scroll("-")
                 radio.send("-")
+                display.scroll("-")
 
+----
 
 Radio for microbit on bot
 ----------------------------
@@ -71,24 +82,23 @@ Radio for microbit on bot
         if incoming_message is not None:
             display.scroll(incoming_message)
             if incoming_message == "B":
-                display.scroll("B")
                 buggy.backward(5)
+                display.scroll("B")
             elif incoming_message == "F":
-                display.scroll("F")
                 buggy.forward(5)
+                display.scroll("F")
             elif incoming_message == "X":
-                display.scroll("X")
                 buggy.stop()
+                display.scroll("X")
             elif incoming_message == "R":
-                display.scroll("R")
                 buggy.stop_left()
                 buggy.right_motor(5)
+                display.scroll("R")
             elif incoming_message == "L":
-                display.scroll("L")
                 buggy.stop_right()
                 buggy.left_motor(5)
+                display.scroll("L")
             elif incoming_message == "-":
-                display.scroll("-")
                 for i in range(6):
                     buggyLights[i] = dull_blue
                 for i in range(6, 12):
@@ -96,3 +106,4 @@ Radio for microbit on bot
                 buggyLights.show()
                 sleep(2000)
                 buggyLights.clear()
+                display.scroll("-")
