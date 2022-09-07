@@ -28,14 +28,18 @@ Key references:
 
     bots/BitBotXL/Mu_editor.rst
     bots/BitBotXL/BitBotXL_calibration.rst
+     bots/BitBotXL/BitBotXL_module.rst
+     bots/BitBotXL/BitBotXL_motors.rst
+    bots/BitBotXL/BitBotXL_radio.rst
+    bots/BitBotXL/BitBotXL_LEDs.rst
+    bots/BitBotXL/BitBotXL_buzzer.rst
     bots/BitBotXL/BitBotXL_info.rst
     bots/BitBotXL/BitBotXL_module_design.rst
-    bots/BitBotXL/BitBotXL_module.rst
-    bots/BitBotXL/BitBotXL_buzzer.rst
-    bots/BitBotXL/BitBotXL_motors.rst
-    bots/BitBotXL/BitBotXL_distance_sensor.rst
-    bots/BitBotXL/BitBotXL_LEDs.rst
-    bots/BitBotXL/BitBotXL_radio.rst
+   
+    
+    
+    
+    
     
 .. toctree::
     :maxdepth: 2
