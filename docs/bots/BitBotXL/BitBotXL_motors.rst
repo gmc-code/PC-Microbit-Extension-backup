@@ -329,34 +329,34 @@ backward
 Turning
 ----------------------------------------
 
-| The left and right motors are adjusted to turn the buggy with a given radius:
-| ``left(speed=1, radius=25, duration=None)``
-| ``right(speed=1, radius=25, duration=None)``
-| When turning left, the left wheel is slowed based on the radius value.
-| When turning right, the right wheel is slowed based on the radius value.
-| The turning radius is approximate only, and is automatically calculated using 8.5 cm as the distance between the 2 wheels.
+| The left and right motors are adjusted to turn the buggy with a given tightness:
+| ``left(speed=1, tightness=2, duration=None)``
+| ``right(speed=1, tightness=2, duration=None)``
+| When turning left, the left wheel is slowed based on the tightness value.
+| When turning right, the right wheel is slowed based on the tightness value.
+| The turning tightness is a ratio of the motor speed on one side compared to the other.
 
 left
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. py:method:: left(speed=1, radius=25, duration=None)
+.. py:method:: left(speed=1, tightness=2, duration=None)
 
     | Drive the buggy to the left.
     | ``speed`` values are integers or floats (decimals) from -10 to 10.
     | ``speed`` values above 0 drive the buggy forward to the left.
     | ``speed`` values below 0 drive the buggy backward to the left.
     | Default ``speed`` is 1.
-    | ``radius`` values are 4 to 800 (in cm)
-    | Default ``radius`` is 25 (in cm).
+    | ``tightness`` values are best between 1 and 10.
+    | Default ``tightness`` is 2 (speed ratio).
     | ``duration`` values are integers above 0.
     | Default ``duration`` is None.
     | The motor will stop after a given duration in milliseconds.
     | If the duration is None, the motor runs without stopping, until another command is sent to the motor.
 
-| ``left()`` and ``left(1, 25)`` and ``left(speed=1, radius=25)`` all set the speed to 1 with a left turn of radius 25cm.
-| ``left(2, 50, 1000)`` and ``left(2, radius=50, duration=1000)`` and ``left(speed=2, radius=50, duration=1000)`` all set the speed to 2 with a left turn of radius 50cm for 1sec.
+| ``left()`` and ``left(1, 2)`` and ``left(speed=1, tightness=2)`` all set the speed to 1 with a left turn of tightness 2.
+| ``left(2, 4, 1000)`` and ``left(2, tightness=4, duration=1000)`` and ``left(speed=2, tightness=4, duration=1000)`` all set the speed to 2 with a left turn of tightness 4 for 1sec.
 
-| The code below, ``left(speed=3, radius=20, duration=4000)``, drives the buggy forward at speed 3 while it turns left in a circular path of approximate radius 20 cm for 4 secs.
+| The code below, ``left(speed=3, tightness=4, duration=4000)``, drives the buggy forward at speed 3 while it turns left in a curved path of approximate tightness 4 for 4 secs.
 
 .. code-block:: python
 
@@ -367,40 +367,40 @@ left
     # setup buggy
     buggy = BitBotXL.BitBotXLMotors()
 
-    buggy.left(speed=3, radius=20, duration=4000)
+    buggy.left(speed=3, tightness=4, duration=4000)
 
 
 ----
 
 .. admonition:: Tasks
 
-    #. Write code to drive the buggy to the left at speed 2 in small circles of 10 cm radius.
-    #. Write code to drive the buggy to the left at speed 5 in medium circles of 50 cm radius.
-    #. Write code to drive the buggy to the left at speed 8 in circles of 20, 40 and 60 cm radius for 5 seconds each. Use a for loop and a list of the radii.
+    #. Write code to drive the buggy to the left at speed 2 in small circles.
+    #. Write code to drive the buggy to the left at speed 5 in medium circles.
+    #. Write code to drive the buggy to the left at speed 8 in inreasing circles for 5 seconds each. Use a for loop and a list of tightness values.
 
 ----
 
 right
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. py:method:: right(speed=1, radius=25, duration=None)
+.. py:method:: right(speed=1, tightness=2, duration=None)
 
     | Drive the buggy to the right.
     | ``speed`` values are integers or floats (decimals) from -10 to 10.
     | ``speed`` values above 0 drive the buggy forward to the right.
     | ``speed`` values below 0 drive the buggy backward to the right.
     | Default ``speed`` is 1.
-    | ``radius`` values are 4 to 800 (in cm)
-    | Default ``radius`` is 25 (in cm).
+    | ``tightness`` values are best between 1 and 10.
+    | Default ``tightness`` is 2.
     | ``duration`` values are integers above 0.
     | Default ``duration`` is None.
     | The motor will stop after a given duration in milliseconds.
     | If the duration is None, the motor runs without stopping, until another command is sent to the motor.
 
-| ``right()`` and ``right(1, 25)`` and ``right(speed=1, radius=25)`` all set the speed to 1 with radius 25cm.
-| ``right(2, 50, 1000)`` and ``right(2, radius=50, duration=1000)`` and ``right(speed=2, radius=50, duration=1000)`` all set the speed to 2 with a right turn of radius 50cm for 1sec.
+| ``right()`` and ``right(1, 2)`` and ``right(speed=1, tightness=2)`` all set the speed to 1 with tightness 2.
+| ``right(2, 4, 1000)`` and ``right(2, tightness=4, duration=1000)`` and ``right(speed=2, tightness=4, duration=1000)`` all set the speed to 2 with a right turn of tightness 4 for 1sec.
 
-| The code below, ``right(speed=2, radius=40, duration=3000)``, drives the buggy forward at speed 2 while it turns right in a circular path of approximate radius 40 cm for 3 secs.
+| The code below, ``right(speed=2, tightness=4, duration=3000)``, drives the buggy forward at speed 2 while it turns right in a circular path of tightness 4 for 3 secs.
 
 .. code-block:: python
 
@@ -411,15 +411,15 @@ right
     # setup buggy
     buggy = BitBotXL.BitBotXLMotors()
 
-    buggy.right(speed=2, radius=40, duration=3000)
+    buggy.right(speed=2, tightness=4, duration=3000)
 
 ----
 
 .. admonition:: Tasks
 
-    #. Write code to drive the buggy to the right at speed 4 in small circles of 5 cm radius.
-    #. Write code to drive the buggy to the right at speed 7 in medium circles of 80 cm radius.
-    #. Write code to drive the buggy to the right at speed 10 in circles of increasing size. Use a range function to increase the radius every 4 seconds from 10 to 100 in steps of 10.
+    #. Write code to drive the buggy to the right at speed 4 in small circles.
+    #. Write code to drive the buggy to the right at speed 7 in medium circles.
+    #. Write code to drive the buggy to the right at speed 10 in circles of increasing size. Use a range function to decrease the tightness every 4 seconds from 10 to 1 in steps of 2.
 
 ----
 

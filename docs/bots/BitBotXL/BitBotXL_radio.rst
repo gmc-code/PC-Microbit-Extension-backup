@@ -63,6 +63,7 @@ Radio for microbit on bot
 
 .. code-block:: python
 
+
     from microbit import *
     import radio
     import BitBotXL
@@ -82,21 +83,19 @@ Radio for microbit on bot
         if incoming_message is not None:
             display.scroll(incoming_message)
             if incoming_message == "B":
-                buggy.backward(5)
+                buggy.backward(5, duration=1000)
                 display.scroll("B")
             elif incoming_message == "F":
-                buggy.forward(5)
+                buggy.forward(5, duration=1000)
                 display.scroll("F")
             elif incoming_message == "X":
                 buggy.stop()
                 display.scroll("X")
             elif incoming_message == "R":
-                buggy.stop_left()
-                buggy.right_motor(5)
+                buggy.right(speed=3, tightness=2, duration=1000)
                 display.scroll("R")
             elif incoming_message == "L":
-                buggy.stop_right()
-                buggy.left_motor(5)
+                buggy.left(speed=3, tightness=2, duration=1000)
                 display.scroll("L")
             elif incoming_message == "-":
                 for i in range(6):
