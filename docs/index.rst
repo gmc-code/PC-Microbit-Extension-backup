@@ -23,30 +23,11 @@ Key references:
 
 .. toctree::
     :maxdepth: 2
-    :caption: Bots/BitBotXL PD
-    :numbered:
-
-    bots/BitBotXL/Mu_editor.rst
-    bots/BitBotXL/BitBotXL_calibration.rst
-    bots/BitBotXL/BitBotXL_module.rst
-    bots/BitBotXL/BitBotXL_motors.rst
-    bots/BitBotXL/BitBotXL_radio.rst
-    bots/BitBotXL/BitBotXL_LEDs.rst
-    bots/BitBotXL/BitBotXL_buzzer.rst
-    bots/BitBotXL/BitBotXL_info.rst
-    bots/BitBotXL/BitBotXL_module_design.rst
-   
-    
-    
-    
-    
-    
-.. toctree::
-    :maxdepth: 2
     :caption: Introduction
     :numbered:
 
     introduction/introduction.rst
+    introduction/Mu_editor.rst
 
 
 .. toctree::
@@ -133,6 +114,7 @@ Key references:
     :numbered:
 
     bots/BitBotXL/BitBotXL_info.rst
+    bots/BitBotXL/BitBotXL_calibration.rst
     bots/BitBotXL/BitBotXL_module_design.rst
     bots/BitBotXL/BitBotXL_module.rst
     bots/BitBotXL/BitBotXL_buzzer.rst
