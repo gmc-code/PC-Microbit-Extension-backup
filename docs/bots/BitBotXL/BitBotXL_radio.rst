@@ -213,3 +213,15 @@ Radio for microbit on bot
             elif incoming_message == "-":
                 light_display()
                 # display.scroll("-")
+
+----
+
+Radio Racing
+----------------------------
+
+.. admonition:: Tasks
+
+    #. Create an obstacle course and race another bot using radio controls
+    #. Add a distance sensor with automatic reversal from objects within a small distance.
+
+
