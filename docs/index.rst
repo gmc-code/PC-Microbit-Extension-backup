@@ -4,23 +4,6 @@
 PC-microbit-extension
 =================================================
 
-Home pages:
----------------------
-
-| https://pc-microbit-micropython.readthedocs.io/en/latest/index.html
-| https://pc-microbit-extension.readthedocs.io/en/latest/index.html
-| https://pc-python.readthedocs.io/en/latest/index.html
-
-----
-
-Key references:
----------------------
-
-| https://www.w3schools.com/python/
-| https://microbit-micropython.readthedocs.io/en/v2-docs/index.html
-
-----
-
 .. toctree::
     :maxdepth: 2
     :caption: Introduction
