@@ -108,12 +108,15 @@ Python references:
 
 For an introduction to python see:
 
-* https://www.w3schools.com/python/default.asp
-* https://www.programiz.com/python-programming
-* https://www.pythontutorial.net/
 * https://docs.python.org/3.9/tutorial/introduction.html
 * https://docs.python.org/3.10/tutorial/index.html
-* 
+* https://www.w3schools.com/python/default.asp
+* https://www.programiz.com/python-programming
+* https://www.geeksforgeeks.org/python-programming-language/?ref=shm
+* https://www.pythontutorial.net/
+* https://www.tutorialsteacher.com/python
+* https://realpython.com/tutorials/python/
+
 
 ----
 
