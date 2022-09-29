@@ -14,12 +14,15 @@ Words
 Chr Syntax
 --------------
 
+| The quickest way to get the alphabet in a list is to use ASCII numbers for the letters.
+| The chr function converts an ASCII number to its a character.
+| e.g chr(65) gives 'A'
+
 .. py:function:: chr(number)
 
     | The chr() function returns the character that represents the specified unicode.
     | Standard ASCII values can be used as well.
-    | e.g chr(65) gives 'A'
-
+   
 ----
 
 Producing character lists via code
@@ -31,6 +34,7 @@ Producing character lists via code
 | The list comprehension, ``chars = [chr(i) for i in char_nos]``, takes that list of numbers and use the **chr** function to get the corresponding character for that ASCII number. 
 
 .. code-block:: python
+    
     from microbit import *
 
     char_nos = [i for i in range(65, 91)]  # upper case letters
