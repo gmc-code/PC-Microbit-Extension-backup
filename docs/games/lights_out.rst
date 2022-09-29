@@ -84,11 +84,11 @@ Repeat the chase the lights process again with the lights that are now on. By th
 
     # set the board up for a game
     RandomGrid()
-    tilt_sensitivity = 200
+    tilt_sensitivity = 300
     tilt_delay = 500
     while True:
         tick += 1
-        if tick == 2:
+        if tick == 4:
             tick = 0
         # check for movement
         dx = accelerometer.get_x()
@@ -127,4 +127,4 @@ Repeat the chase the lights process again with the lights that are now on. By th
             x = 2
             y = 2
             i = DrawGame(tick)
-        sleep(100)
+        sleep(400)
