@@ -27,8 +27,6 @@ Repeat the chase the lights process again with the lights that are now on. By th
 
 .. code-block:: python
 
-    # Lights Out Game http://www.multiwingspan.co.uk/micro.php?page=lights
-
     from microbit import *
     import random
 
@@ -37,56 +35,60 @@ Repeat the chase the lights process again with the lights that are now on. By th
     tick = -1
 
     grid = [
-        [0,0,0,0,0],
-        [0,0,0,0,0],
-        [0,0,0,0,0],
-        [0,0,0,0,0],
-        [0,0,0,0,0]
-        ]
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+        [0, 0, 0, 0, 0],
+    ]
 
     # A 'move' in Lights Out
     def Toggle(tx, ty):
         grid[tx][ty] ^= 1
-        if tx>0:
-            grid[tx-1][ty] ^= 1
-        if tx<4:
-            grid[tx+1][ty] ^= 1
-        if ty>0:
-            grid[tx][ty-1] ^= 1
-        if ty<4:
-            grid[tx][ty+1] ^= 1
+        if tx > 0:
+            grid[tx - 1][ty] ^= 1
+        if tx < 4:
+            grid[tx + 1][ty] ^= 1
+        if ty > 0:
+            grid[tx][ty - 1] ^= 1
+        if ty < 4:
+            grid[tx][ty + 1] ^= 1
+
 
     def RandomGrid():
-        for r in range(0,50):
-            cx = random.randint(0,4)
-            cy = random.randint(0,4)
+        for r in range(0, 50):
+            cx = random.randint(0, 4)
+            cy = random.randint(0, 4)
             Toggle(cx, cy)
 
+
     def DrawGame(t):
-        img = Image('00000:'*5)
-        for cy in range(0,5):
-            for cx in range(0,5):
-                img.set_pixel(cx, cy, grid[cx][cy]*5)
-        img.set_pixel(x, y, (t % 2)*9)
+        img = Image("00000:" * 5)
+        for cy in range(0, 5):
+            for cx in range(0, 5):
+                img.set_pixel(cx, cy, grid[cx][cy] * 5)
+        img.set_pixel(x, y, (t % 2) * 9)
         return img
+
 
     def CheckWin():
         tot = 0
-        for cy in range(0,5):
-            for cx in range(0,5):
-            tot += grid[cx][cy]
+        for cy in range(0, 5):
+            for cx in range(0, 5):
+                tot += grid[cx][cy]
         if tot == 0:
-        return True
+            return True
         else:
-        return False
+            return False
+
 
     # set the board up for a game
     RandomGrid()
     tilt_sensitivity = 200
     tilt_delay = 500
     while True:
-        tick +=1
-        if tick==2:
+        tick += 1
+        if tick == 2:
             tick = 0
         # check for movement
         dx = accelerometer.get_x()
@@ -116,7 +118,7 @@ Repeat the chase the lights process again with the lights that are now on. By th
         display.show(i)
         if CheckWin():
             sleep(1000)
-            for w in range(0,6):
+            for w in range(0, 6):
                 display.show(Image.HAPPY)
                 sleep(500)
                 display.clear()
@@ -126,4 +128,3 @@ Repeat the chase the lights process again with the lights that are now on. By th
             y = 2
             i = DrawGame(tick)
         sleep(100)
-
