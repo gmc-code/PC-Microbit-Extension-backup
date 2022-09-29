@@ -5,8 +5,8 @@ Words
 
 | Words based on based on http://www.multiwingspan.co.uk/micro.php?page=acctext
 | Press A to start
-| Tilt left or right to change letter.
-| Press A to add the letter.
+| Tilt left or right to change the character.
+| Press A to add the character.
 | Press B to finish the word and scroll it.
 
 ----
@@ -107,10 +107,10 @@ Code design
 
 | Show an arrow to the A button, suggesting to press the A button to start.
 | The special use of ``a = button_a.was_pressed()`` clears the A button pressses so it can be checked again in the other functions.
-| ``get_string()`` calls ``get_char()`` to add letters to the word string as long as the B button hasn't been pressed, otherwise it returns the word string, **usertext**.
-| get_char() starts at the letter M which is the 13th letter of the alphabet, at index 12 in **chars**.
-| get_char() loops until the A button is pressed, and when it is, it returns the current letter.
-| Tilting left or right changes the letter available to be chosen. Press the A button to add it to the word.
+| ``get_string()`` calls ``get_char()`` to add characters to the word string as long as the B button hasn't been pressed, otherwise it returns the word string, **usertext**.
+| get_char() starts at letter M which is the 13th letter of the alphabet, at index 12 in **chars**.
+| get_char() loops until the A button is pressed, and when it is, it returns the current character.
+| Tilting left or right changes the character available to be chosen. Press the A button to add it to the word.
 
 | The code below has some helpful comments.
 
@@ -129,7 +129,7 @@ Code design
         display.show(chars[current])
         # the while loops runs until button A is pressed
         while button_a.was_pressed() is False:
-            # pressing B doesn't add a letter but returns back to 
+            # pressing B doesn't add a character but returns back to get_string
             if button_b.is_pressed():
                 return ""
             if accelerometer.get_x() > 300:
@@ -139,13 +139,13 @@ Code design
             current = max(0, min(current, max_char_index))
             display.show(chars[current])
             sleep(500)
-        # button A was pressed so return chosen letter
+        # button A was pressed so return chosen character
         return chars[current]
 
 
     def get_string():
         usertext = ""
-        # continue adding letters if B button has not been pressed
+        # continue adding characters if B button has not been pressed
         while button_b.was_pressed() is False:
             usertext += get_char()
         # B button was presed, return final word so it can be scrolled
