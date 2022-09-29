@@ -59,7 +59,6 @@ PC-microbit-extension
     :numbered:
 
     games/introduction.rst
-    games/words.rst
     games/asteroids.rst
     games/slalom.rst
     games/snake.rst
