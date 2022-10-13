@@ -1,12 +1,13 @@
 ====================================================
-Shut the matrix
+Fill the grid
 ====================================================
 
 
-| Shut the matrix see: http://www.multiwingspan.co.uk/micro.php?page=shut
+| See: http://www.multiwingspan.co.uk/micro.php?page=shut
 | Press A to start.
 | Press B to roll dice.
-| Get 25 to fill screen and win game.
+| The aim is to get to 25 to fill screen and win game.
+| Overthrows at the end end lead to bounce backs. e.g. If a 2 is needed but a 6 is thrown, it bounces back 4 to 21 with the last 4 pixels off.
 
 
 .. code-block:: python

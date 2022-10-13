@@ -3,7 +3,7 @@ French numbers
 ====================================================
 
 
-| Words based on based on http://www.multiwingspan.co.uk/micro.php?page=french
+| Based on http://www.multiwingspan.co.uk/micro.php?page=french
 | Press A to change the number (dots).
 | Press B to show the matching french number.
 
