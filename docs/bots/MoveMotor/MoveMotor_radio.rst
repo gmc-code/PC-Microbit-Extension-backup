@@ -70,13 +70,27 @@ Radio for microbit on bot
     import MOVEMotor
     import neopixel
 
-
-    np = neopixel.NeoPixel(pin8, 4)
-    buggy = MOVEMotor.MOVEMotorMotors()
-    
-
     radio.config(group=8)  # 0-255
     radio.on()
+
+    buggy = MOVEMotor.MOVEMotorMotors()
+    buggyLights = neopixel.NeoPixel(pin8, 4)
+    
+    dull_blue = [20, 20, 25]
+    dull_red = [25, 0, 0]
+
+    def light_display():
+        #even lights 0 to 2
+        for i in range(0, 4, 2):
+            buggyLights[i] = dull_blue
+        # odd lights 1 to 3
+        for i in range(1, 4, 2):
+            buggyLights[i] = dull_red
+        buggyLights.show()
+        sleep(2000)
+        buggyLights.clear()
+            
+
 
     while True:
         incoming_message = radio.receive()
@@ -98,6 +112,7 @@ Radio for microbit on bot
                 buggy.left(speed=3, tightness=2, duration=1000)
                 display.scroll("L")
             elif incoming_message == "-":
+                light_display()
                 display.scroll("-")
 
 ----
@@ -157,15 +172,30 @@ Radio for microbit on bot
     from microbit import *
     import radio
     import MOVEMotor
+    import neopixel
 
-
+      
+    radio.config(group=8)  # 0-255
+    radio.on()
+    
     # setup buggy
     buggy = MOVEMotor.MOVEMotorMotors()
-    
+    buggyLights = neopixel.NeoPixel(pin8, 4)
 
+    dull_blue = [20, 20, 25]
+    dull_red = [25, 0, 0]
+
+    def light_display():
+        #even lights 0 to 2
+        for i in range(0, 4, 2):
+            buggyLights[i] = dull_blue
+        # odd lights 1 to 3
+        for i in range(1, 4, 2):
+            buggyLights[i] = dull_red
+        buggyLights.show()
+        sleep(2000)
+        buggyLights.clear()
             
-    radio.config(group=10)  # 0-255
-    radio.on()
 
     while True:
         incoming_message = radio.receive()
@@ -187,7 +217,7 @@ Radio for microbit on bot
                 buggy.left(speed= 10, tightness=2, duration=1000)
                 # display.scroll("L")
             elif incoming_message == "-":
-
+                light_display()
                 # display.scroll("-")
 
 ----
