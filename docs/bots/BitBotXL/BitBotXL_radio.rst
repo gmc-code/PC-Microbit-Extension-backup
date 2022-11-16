@@ -70,6 +70,10 @@ Radio for microbit on bot
     import BitBotXL
     import neopixel
 
+
+    radio.config(group=8)  # 0-255
+    radio.on()
+    
     buggy = BitBotXL.BitBotXLMotors()
     
     buggyLights = neopixel.NeoPixel(pin13, 12)
@@ -87,8 +91,6 @@ Radio for microbit on bot
         sleep(2000)
         buggyLights.clear()
 
-    radio.config(group=8)  # 0-255
-    radio.on()
 
     while True:
         incoming_message = radio.receive()
@@ -172,6 +174,9 @@ Radio for microbit on bot
     import BitBotXL
     import neopixel
 
+    radio.config(group=8)  # 0-255
+    radio.on()
+
     buggy = BitBotXL.BitBotXLMotors()
     buggyLights = neopixel.NeoPixel(pin13, 12)
     dull_blue = [20, 20, 25]
@@ -188,8 +193,6 @@ Radio for microbit on bot
         sleep(2000)
         buggyLights.clear()
             
-    radio.config(group=10)  # 0-255
-    radio.on()
 
     while True:
         incoming_message = radio.receive()
