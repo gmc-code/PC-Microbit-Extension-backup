@@ -106,10 +106,10 @@ Radio for microbit on bot
                 buggy.stop()
                 display.scroll("X")
             elif incoming_message == "R":
-                buggy.right(speed=3, tightness=2, duration=1000)
+                buggy.right(speed=10, radius=25, duration=1000)
                 display.scroll("R")
             elif incoming_message == "L":
-                buggy.left(speed=3, tightness=2, duration=1000)
+                buggy.left(speed=10, radius=25, duration=1000)
                 display.scroll("L")
             elif incoming_message == "-":
                 light_display()
@@ -211,10 +211,10 @@ Radio for microbit on bot
                 buggy.stop()
                 # display.scroll("X")
             elif incoming_message == "R":
-                buggy.right(speed=10, tightness=2, duration=1000)
+                buggy.right(speed=10, radius=25, duration=1000)
                 # display.scroll("R")
             elif incoming_message == "L":
-                buggy.left(speed= 10, tightness=2, duration=1000)
+                buggy.left(speed=10, radius=25, duration=1000)
                 # display.scroll("L")
             elif incoming_message == "-":
                 light_display()
