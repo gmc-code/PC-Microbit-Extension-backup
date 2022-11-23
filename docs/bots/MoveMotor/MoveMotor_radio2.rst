@@ -17,13 +17,25 @@ Using tilting for variable speeds
 Radio for controller
 ----------------------
 
-| For increasing speed forward send: F, G, H
-| For increasing speed backward send: B, C, D
-| For increasing speed left send: F, G, H
-| For increasing speed forward send: F, G, H
 
 | The code below requires A button pressing for motor control.
 | No durations are set, so the motors will continue running with the last instruction they receive.
+
+| To stop, send X.
+
+| For increasing speed forward, send: F, G, H. 
+| Tilt forward a bit, F is sent, and a slow speed results.
+| Tilt forward a bit more, G is sent, and a medium speed results.
+| Tilt forward a lot, H is sent, and a fast speed results.
+
+| For increasing speed backward, send: B, C, D
+| Tilt backward.
+
+| For increasing speed left, send: L, M, N
+| Tilt left.
+
+| For increasing speed right, send: R, S, T
+| Tilt right.
 
 
 .. code-block:: python
@@ -100,17 +112,17 @@ Radio for microbit on bot
         incoming_message = radio.receive()
         if incoming_message is not None:
             if incoming_message == "B":
-                buggy.backward(2)
+                buggy.backward(speed=2)
             elif incoming_message == "C":
-                buggy.forward(5)
+                buggy.forward(speed=5)
             elif incoming_message == "D":
-                buggy.forward(10)
+                buggy.forward(speed=10)
             elif incoming_message == "F":
-                buggy.forward(2)
+                buggy.forward(speed=2)
             elif incoming_message == "G":
-                buggy.forward(5)
+                buggy.forward(speed=5)
             elif incoming_message == "H":
-                buggy.forward(10)
+                buggy.forward(speed=10)
             elif incoming_message == "X":
                 buggy.stop()
             elif incoming_message == "L":
