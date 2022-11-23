@@ -18,7 +18,7 @@ Radio for controller
 
 | The code below gives 3 messages for the A button based on forward and back tilting.
 | The code below gives 3 messages for the B button based on sideways tilting.
-| The code dispalys the message on the microbit for testing purposes.
+| The code displays the message on the microbit for testing purposes.
 
 
 .. code-block:: python
@@ -35,24 +35,24 @@ Radio for controller
             y_reading = accelerometer.get_y()
             if y_reading > 200:
                 radio.send("B")
-                display.scroll("B")
+                display.show("B")
             elif y_reading < -200:
                 radio.send("F")
-                display.scroll("F")
+                display.show("F")
             else:
                 radio.send("X")
-                display.scroll("X")
+                display.show("X")
         elif button_b.was_pressed():
             x_reading = accelerometer.get_x()
             if x_reading > 200:
                 radio.send("R")
-                display.scroll("R")
+                display.show("R")
             elif x_reading < -200:
                 radio.send("L")
-                display.scroll("L")
+                display.show("L")
             else:
                 radio.send("-")
-                display.scroll("-")
+                display.show("-")
 
 ----
 
@@ -95,25 +95,25 @@ Radio for microbit on bot
     while True:
         incoming_message = radio.receive()
         if incoming_message is not None:
-            display.scroll(incoming_message)
+            display.show(incoming_message)
             if incoming_message == "B":
                 buggy.backward(5, duration=1000)
-                display.scroll("B")
+                display.show("B")
             elif incoming_message == "F":
                 buggy.forward(5, duration=1000)
-                display.scroll("F")
+                display.show("F")
             elif incoming_message == "X":
                 buggy.stop()
-                display.scroll("X")
+                display.show("X")
             elif incoming_message == "R":
                 buggy.right(speed=3, tightness=2, duration=1000)
-                display.scroll("R")
+                display.show("R")
             elif incoming_message == "L":
                 buggy.left(speed=3, tightness=2, duration=1000)
-                display.scroll("L")
+                display.show("L")
             elif incoming_message == "-":
                 light_display()
-                display.scroll("-")
+                display.show("-")
 
 ----
 
@@ -140,24 +140,24 @@ Radio for controller
             y_reading = accelerometer.get_y()
             if y_reading > 200:
                 radio.send("B")
-                # display.scroll("B")
+                # display.show("B")
             elif y_reading < -200:
                 radio.send("F")
-                # display.scroll("F")
+                # display.show("F")
             else:
                 radio.send("X")
-                # display.scroll("X")
+                # display.show("X")
         elif button_b.was_pressed():
             x_reading = accelerometer.get_x()
             if x_reading > 200:
                 radio.send("R")
-                # display.scroll("R")
+                # display.show("R")
             elif x_reading < -200:
                 radio.send("L")
-                # display.scroll("L")
+                # display.show("L")
             else:
                 radio.send("-")
-                # display.scroll("-")
+                # display.show("-")
 
 
 ----
@@ -197,25 +197,25 @@ Radio for microbit on bot
     while True:
         incoming_message = radio.receive()
         if incoming_message is not None:
-            # display.scroll(incoming_message)
+            # display.show(incoming_message)
             if incoming_message == "B":
                 buggy.backward(10, duration=1000)
-                # display.scroll("B")
+                # display.show("B")
             elif incoming_message == "F":
                 buggy.forward(10, duration=1000)
-                # display.scroll("F")
+                # display.show("F")
             elif incoming_message == "X":
                 buggy.stop()
-                # display.scroll("X")
+                # display.show("X")
             elif incoming_message == "R":
                 buggy.right(speed=10, tightness=2, duration=1000)
-                # display.scroll("R")
+                # display.show("R")
             elif incoming_message == "L":
                 buggy.left(speed= 10, tightness=2, duration=1000)
-                # display.scroll("L")
+                # display.show("L")
             elif incoming_message == "-":
                 light_display()
-                # display.scroll("-")
+                # display.show("-")
 
 ----
 

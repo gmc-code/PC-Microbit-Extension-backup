@@ -46,7 +46,8 @@ PC-microbit-extension
     bots/MoveMotor/MoveMotor_line_follower_3.rst
     bots/MoveMotor/MoveMotor_line_follower_4.rst
     bots/MoveMotor/MoveMotor_summary.rst
-    bots/MoveMotor/MoveMotor_radio.rst
+    bots/MoveMotor/MoveMotor_radio1.rst
+    bots/MoveMotor/MoveMotor_radio2.rst
 
 
 .. toctree::

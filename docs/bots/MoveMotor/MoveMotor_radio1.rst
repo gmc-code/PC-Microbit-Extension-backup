@@ -1,5 +1,5 @@
 ====================================================
-MoveMotor radio
+MoveMotor radio 1
 ====================================================
 
 
@@ -18,7 +18,7 @@ Radio for controller
 
 | The code below gives 3 messages for the A button based on forward and back tilting.
 | The code below gives 3 messages for the B button based on sideways tilting.
-| The code dispalys the message on the microbit for testing purposes.
+| The code displays the message on the microbit for testing purposes.
 
 
 .. code-block:: python
@@ -35,24 +35,24 @@ Radio for controller
             y_reading = accelerometer.get_y()
             if y_reading > 200:
                 radio.send("B")
-                display.scroll("B")
+                display.show("B")
             elif y_reading < -200:
                 radio.send("F")
-                display.scroll("F")
+                display.show("F")
             else:
                 radio.send("X")
-                display.scroll("X")
+                display.show("X")
         elif button_b.was_pressed():
             x_reading = accelerometer.get_x()
             if x_reading > 200:
                 radio.send("R")
-                display.scroll("R")
+                display.show("R")
             elif x_reading < -200:
                 radio.send("L")
-                display.scroll("L")
+                display.show("L")
             else:
                 radio.send("-")
-                display.scroll("-")
+                display.show("-")
 
 ----
 
@@ -95,30 +95,30 @@ Radio for microbit on bot
     while True:
         incoming_message = radio.receive()
         if incoming_message is not None:
-            display.scroll(incoming_message)
+            display.show(incoming_message)
             if incoming_message == "B":
                 buggy.backward(5, duration=1000)
-                display.scroll("B")
+                display.show("B")
             elif incoming_message == "F":
                 buggy.forward(5, duration=1000)
-                display.scroll("F")
+                display.show("F")
             elif incoming_message == "X":
                 buggy.stop()
-                display.scroll("X")
+                display.show("X")
             elif incoming_message == "R":
                 buggy.right(speed=10, radius=25, duration=1000)
-                display.scroll("R")
+                display.show("R")
             elif incoming_message == "L":
                 buggy.left(speed=10, radius=25, duration=1000)
-                display.scroll("L")
+                display.show("L")
             elif incoming_message == "-":
                 light_display()
-                display.scroll("-")
+                display.show("-")
 
 ----
 
 Reducing delays by commenting out displays
---------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 | Comment out the display calls so reduce delays in response.
 
@@ -140,24 +140,24 @@ Radio for controller
             y_reading = accelerometer.get_y()
             if y_reading > 200:
                 radio.send("B")
-                # display.scroll("B")
+                # display.show("B")
             elif y_reading < -200:
                 radio.send("F")
-                # display.scroll("F")
+                # display.show("F")
             else:
                 radio.send("X")
-                # display.scroll("X")
+                # display.show("X")
         elif button_b.was_pressed():
             x_reading = accelerometer.get_x()
             if x_reading > 200:
                 radio.send("R")
-                # display.scroll("R")
+                # display.show("R")
             elif x_reading < -200:
                 radio.send("L")
-                # display.scroll("L")
+                # display.show("L")
             else:
                 radio.send("-")
-                # display.scroll("-")
+                # display.show("-")
 
 
 ----
@@ -200,25 +200,25 @@ Radio for microbit on bot
     while True:
         incoming_message = radio.receive()
         if incoming_message is not None:
-            # display.scroll(incoming_message)
+            # display.show(incoming_message)
             if incoming_message == "B":
                 buggy.backward(10, duration=1000)
-                # display.scroll("B")
+                # display.show("B")
             elif incoming_message == "F":
                 buggy.forward(10, duration=1000)
-                # display.scroll("F")
+                # display.show("F")
             elif incoming_message == "X":
                 buggy.stop()
-                # display.scroll("X")
+                # display.show("X")
             elif incoming_message == "R":
                 buggy.right(speed=10, radius=25, duration=1000)
-                # display.scroll("R")
+                # display.show("R")
             elif incoming_message == "L":
                 buggy.left(speed=10, radius=25, duration=1000)
-                # display.scroll("L")
+                # display.show("L")
             elif incoming_message == "-":
                 light_display()
-                # display.scroll("-")
+                # display.show("-")
 
 ----
 
@@ -229,5 +229,114 @@ Radio Racing
 
     #. Create an obstacle course and race another bot using radio controls
     #. Add a distance sensor with automatic reversal from objects within a small distance.
+
+----
+
+Redesign to use tilting for speeds
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Radio for controller
+----------------------
+
+| For increasing speed forward send: F, G, H
+| For increasing speed backward send: B, C, D
+| For increasing speed left send: F, G, H
+| For increasing speed forward send: F, G, H
+
+.. code-block:: python
+
+    from microbit import *
+    import radio
+
+    radio.config(group=8)  # 0-255
+    radio.on()
+
+
+    while True:
+        # if button_a.was_pressed():
+        sleep(100)
+        y_reading = accelerometer.get_y()
+        x_reading = accelerometer.get_x()
+        if -300 < y_reading < 300 and -300 < x_reading < 300:
+            display.show("X")
+        elif -200 < x_reading < 200:
+            if y_reading > 700:
+                display.show("D")
+            elif y_reading > 500:
+                display.show("C")
+            elif y_reading > 300:
+                display.show("B")
+            elif y_reading < -700:
+                display.show("H")
+            elif y_reading < -500:
+                display.show("G")
+            elif y_reading < -300:
+                display.show("F")
+        else:     
+            if x_reading > 700:
+                display.show("T")
+            elif x_reading > 500:
+                display.show("S")
+            elif x_reading > 300:
+                display.show("R")
+            elif x_reading < -700:
+                display.show("N")
+            elif x_reading < -500:
+                display.show("M")
+            elif x_reading < -300:
+                display.show("L")
+
+
+----
+
+Radio for microbit on bot
+----------------------------
+
+| Increase the speed to maximum.
+
+.. code-block:: python
+
+    from microbit import *
+    import radio
+    import MOVEMotor
+
+
+    
+    radio.config(group=8)  # 0-255
+    radio.on()
+
+    # setup buggy
+    buggy = MOVEMotor.MOVEMotorMotors()
+
+            
+    while True:
+        incoming_message = radio.receive()
+        if incoming_message is not None:
+            if incoming_message == "B":
+                buggy.backward(2, duration=1000)
+            elif incoming_message == "C":
+                buggy.forward(5, duration=1000)
+            elif incoming_message == "D":
+                buggy.forward(10, duration=1000)
+            elif incoming_message == "F":
+                buggy.forward(2, duration=1000)
+            elif incoming_message == "G":
+                buggy.forward(5, duration=1000)
+            elif incoming_message == "H":
+                buggy.forward(10, duration=1000)
+            elif incoming_message == "X":
+                buggy.stop()
+            elif incoming_message == "L":
+                buggy.left(speed=2, radius=5, duration=1000)
+            elif incoming_message == "M":
+                buggy.left(speed=5, radius=10, duration=1000)
+            elif incoming_message == "N":
+                buggy.left(speed=10, radius=25, duration=1000)
+            elif incoming_message == "R":
+                buggy.right(speed=2, radius=5, duration=1000)
+            elif incoming_message == "S":
+                buggy.right(speed=5, radius=10, duration=1000)
+            elif incoming_message == "T":
+                buggy.right(speed=10, radius=25, duration=1000)
 
 
