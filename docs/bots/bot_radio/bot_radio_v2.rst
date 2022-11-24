@@ -77,6 +77,7 @@ Radio for microbit on BitBotXL
 
 | The code below moves the BitBotXL at maximum speed, since its top speed is relatively slow.
 | The tightness of 5 gives a tight turn.
+| High turning speed settings are used belwo for bset contorl based on testing.
 
 .. code-block:: python
 
@@ -131,6 +132,7 @@ Radio for microbit on MOVEMotor
 
 | The code below moves the MOVEMotor at medium speed, since its top speed is relatively fast.
 | The radius of 5 gives a tight turn.
+| Low urning speed settings are used below for best control based on testing.
 
 
 .. code-block:: python
@@ -165,17 +167,17 @@ Radio for microbit on MOVEMotor
             elif msg == "X":
                 buggy.stop()
             elif msg == "L":
-                buggy.left(speed=5, radius=5)
+                buggy.left(speed=2, radius=5)
             elif msg == "M":
-                buggy.left(speed=8, radius=15)
+                buggy.left(speed=3, radius=15)
             elif msg == "N":
-                buggy.left(speed=10, radius=25)
+                buggy.left(speed=4, radius=25)
             elif msg == "R":
-                buggy.right(speed=5, radius=5)
+                buggy.right(speed=2, radius=5)
             elif msg == "S":
-                buggy.right(speed=8, radius=15)
+                buggy.right(speed=3, radius=15)
             elif msg == "T":
-                buggy.right(speed=10, radius=25)
+                buggy.right(speed=4, radius=25)
             
 
 

@@ -130,9 +130,9 @@ Radio for microbit on MOVEMotor
             elif msg == "F":
                 buggy.forward(speed=5)
             elif msg == "R":
-                buggy.right(speed=5, radius=5)
+                buggy.right(speed=2, radius=5)
             elif msg == "L":
-                buggy.left(speed=5, radius=5)
+                buggy.left(speed=2, radius=5)
 
 ----
 
