@@ -50,7 +50,7 @@ Radio for controller
                 msg = "X"
         else:
             # sideways tilting
-            elif x_reading > 200:
+            if x_reading > 200:
                 msg = "R"
             elif x_reading < -200:
                 msg = "L"
