@@ -48,7 +48,6 @@ PC-microbit-extension
     bots/MoveMotor/MoveMotor_summary.rst
 
 
-
 .. toctree::
     :maxdepth: 2
     :caption: Bots/Radio
@@ -56,9 +55,7 @@ PC-microbit-extension
 
     bots/bot_radio/bot_radio_v1.rst
     bots/bot_radio/bot_radio_v2.rst
-    bots/bot_radio/MoveMotor_radio1.rst
-    bots/bot_radio/MoveMotor_radio2.rst
-    bots/bot_radio/MoveMotor_radio3.rst
+    bots/bot_radio/bot_radio_v3_game_controller.rst
 
 
 .. toctree::

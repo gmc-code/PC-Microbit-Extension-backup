@@ -1,5 +1,5 @@
 ====================================================
-MoveMotor radio 3 - KitronikGameController
+Bot radio v3 - KitronikGameController
 ====================================================
 
 Unique groups
@@ -109,10 +109,10 @@ Radio for controller
 
 ----
 
-Radio for microbit on bot
-----------------------------
+Radio for microbit on MOVEMotor
+---------------------------------
 
-| There are 3 speed settings, 2, 5, and 10.
+| There are 3 speed settings.
 | When turning, the slowest speed has a tighter turn; the fastest speed has a less tight turnning circle.
 
 
@@ -123,7 +123,6 @@ Radio for microbit on bot
     import MOVEMotor
 
 
-    
     radio.config(group=8)  # 0-255
     radio.on()
 
@@ -151,15 +150,15 @@ Radio for microbit on bot
             elif msg == "L":
                 buggy.left(speed=2, radius=5)
             elif msg == "M":
-                buggy.left(speed=5, radius=10)
+                buggy.left(speed=3, radius=15)
             elif msg == "N":
-                buggy.left(speed=10, radius=25)
+                buggy.left(speed=4, radius=25)
             elif msg == "R":
                 buggy.right(speed=2, radius=5)
             elif msg == "S":
-                buggy.right(speed=5, radius=10)
+                buggy.right(speed=3, radius=15)
             elif msg == "T":
-                buggy.right(speed=10, radius=25)
+                buggy.right(speed=4, radius=25)
 
 
 ----

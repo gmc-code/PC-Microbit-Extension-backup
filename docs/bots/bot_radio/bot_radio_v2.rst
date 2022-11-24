@@ -23,7 +23,23 @@ Radio for controller
 | The code below gives messages based on forward - backward tilting and sideways tilting.
 | The code displays the message on the microbit for testing purposes.
 | For the forward and backward tilting, make sure not to tilt the microbit sideways.
-| If the microbit is level, send an "X", with the possibility of using it to stop.
+
+| If the microbit is level, ``-200 <= y_reading <= 200 and -200 <= x_reading <= 200``, send an "X", to stop.
+
+| For increasing speed forward, send: F, G, H. 
+| Tilt forward a bit, F is sent, and a slow speed results.
+| Tilt forward a bit more, G is sent, and a medium speed results.
+| Tilt forward a lot, H is sent, and a fast speed results.
+
+| For increasing speed backward, send: B, C, D
+| Tilt backward more and more.
+
+| For increasing speed left, send: L, M, N
+| Tilt left more and more.
+
+| For increasing speed right, send: R, S, T
+| Tilt right more and more.
+
 
 .. code-block:: python
 
@@ -38,9 +54,10 @@ Radio for controller
         sleep(50)
         y_reading = accelerometer.get_y()
         x_reading = accelerometer.get_x()
+        # level sideways only
         if -200 <= y_reading <= 200 and -200 <= x_reading <= 200:
             msg = "X"
-        # level sideways
+        # level sideways only
         elif -200 <= x_reading <= 200:
             if y_reading > 700:
                 msg = "D"
@@ -190,6 +207,7 @@ Radio Racing
 
     #. Create an obstacle course and race another bot using radio controls.
     #. Modify the speed settings to suit the obstacle course.
+    #. Add a variable to keep track of the last msg sent and only send a new msg if it is different to the last msg.
 
 
 
