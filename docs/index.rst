@@ -26,7 +26,7 @@ PC-microbit-extension
     bots/BitBotXL/BitBotXL_motors.rst
     bots/BitBotXL/BitBotXL_distance_sensor.rst
     bots/BitBotXL/BitBotXL_LEDs.rst
-    bots/BitBotXL/BitBotXL_radio.rst
+
 
 
 .. toctree::
@@ -46,9 +46,20 @@ PC-microbit-extension
     bots/MoveMotor/MoveMotor_line_follower_3.rst
     bots/MoveMotor/MoveMotor_line_follower_4.rst
     bots/MoveMotor/MoveMotor_summary.rst
-    bots/MoveMotor/MoveMotor_radio1.rst
-    bots/MoveMotor/MoveMotor_radio2.rst
-    bots/MoveMotor/MoveMotor_radio3.rst
+
+
+
+.. toctree::
+    :maxdepth: 2
+    :caption: Bots/Radio
+    :numbered:
+
+    bots/bot_radio/bot_radio_v1.rst
+    bots/bot_radio/bot_radio_v2.rst
+    bots/bot_radio/MoveMotor_radio1.rst
+    bots/bot_radio/MoveMotor_radio2.rst
+    bots/bot_radio/MoveMotor_radio3.rst
+
 
 .. toctree::
     :maxdepth: 2
@@ -62,7 +73,15 @@ PC-microbit-extension
     bots/Maqueen/Maqueen_LEDs.rst
     bots/Maqueen/Maqueen_distance_sensors.rst
     bots/Maqueen/Maqueen_line_sensors.rst
-    bots/Maqueen/Maqueen_line_follower.rst
+    bots/Maqueen/
+    
+
+.. toctree::
+    :maxdepth: 2
+    :caption: Bots/Track_templates
+    :numbered:
+
+    bots/Track_templates/track_templates.rst
 
 
 .. toctree::
@@ -134,12 +153,6 @@ PC-microbit-extension
     data_logging/Excel_data_logging.rst
 
 
-.. toctree::
-    :maxdepth: 2
-    :caption: Bots/Track_templates
-    :numbered:
-
-    bots/Track_templates/track_templates.rst
 
 
 

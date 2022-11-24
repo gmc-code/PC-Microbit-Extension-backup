@@ -132,33 +132,33 @@ Radio for microbit on bot
 
             
     while True:
-        incoming_message = radio.receive()
-        if incoming_message is not None:
-            if incoming_message == "B":
+        msg = radio.receive()
+        if msg is not None:
+            if msg == "B":
                 buggy.backward(speed=2)
-            elif incoming_message == "C":
+            elif msg == "C":
                 buggy.forward(speed=5)
-            elif incoming_message == "D":
+            elif msg == "D":
                 buggy.forward(speed=10)
-            elif incoming_message == "F":
+            elif msg == "F":
                 buggy.forward(speed=2)
-            elif incoming_message == "G":
+            elif msg == "G":
                 buggy.forward(speed=5)
-            elif incoming_message == "H":
+            elif msg == "H":
                 buggy.forward(speed=10)
-            elif incoming_message == "X":
+            elif msg == "X":
                 buggy.stop()
-            elif incoming_message == "L":
+            elif msg == "L":
                 buggy.left(speed=2, radius=5)
-            elif incoming_message == "M":
+            elif msg == "M":
                 buggy.left(speed=5, radius=10)
-            elif incoming_message == "N":
+            elif msg == "N":
                 buggy.left(speed=10, radius=25)
-            elif incoming_message == "R":
+            elif msg == "R":
                 buggy.right(speed=2, radius=5)
-            elif incoming_message == "S":
+            elif msg == "S":
                 buggy.right(speed=5, radius=10)
-            elif incoming_message == "T":
+            elif msg == "T":
                 buggy.right(speed=10, radius=25)
 
 
