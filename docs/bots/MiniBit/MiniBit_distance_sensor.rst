@@ -8,6 +8,7 @@ HC_SR04P
 | For general info on the HC_SR04P distance sensor, 
 | see: https://shop.4tronix.co.uk/products/hc-sr04p-low-voltage-ultrasonic-distance-sensor
 | Also see: https://shop.4tronix.co.uk/collections/robobit/products/ultrasonic-breakout
+| Note: the distance sensor does not use the example code in hte above link, but uses code based on the BitBoxXL sample code.
 
 .. image:: images/ultrasonic-sensor-for-bitbot-xl.png
     :scale: 50 %
@@ -123,48 +124,89 @@ Distance to an object
     DSP = pin15
 
     def distance():
-        DSP.write_digital(1)
+        DSP.write_digital(1) # Send 10us Ping pulse
         utime.sleep_us(10)
         DSP.write_digital(0)
         
-        while DSP.read_digital() == 0:
+        while DSP.read_digital() == 0: # ensure Ping pulse has cleared
+            pass
+        pulse_start = utime.ticks_us()
+        while DSP.read_digital() == 1: # wait for Echo pulse to return
+            pass
+        pulse_end = utime.ticks_us()
+        
+        pulse_duration = pulse_end - pulse_start
+        distance = int(0.01715 * pulse_duration)
+        return distance
+        
+
+    while True:
+        d = distance()
+        display.scroll(d, delay=60)
+        sleep(1000)
+
+
+----
+
+| The code below, using ``distance() < 50``,  measures the distance to objects and if the distance is less than 50cm it spins the buggy to the left for 1 second.
+
+.. code-block:: python
+
+    from microbit import *
+    import utime
+
+    LMF = pin12
+    LMB = pin8
+    RMF = pin16
+    RMB = pin14
+    DSP = pin15
+
+    def distance():
+        DSP.write_digital(1) # Send 10us Ping pulse
+        utime.sleep_us(10)
+        DSP.write_digital(0)
+        
+        while DSP.read_digital() == 0: # ensure Ping pulse has cleared
             pulse_start = utime.ticks_us()
-        while DSP.read_digital() == 1:
+        while DSP.read_digital() == 1: # wait for Echo pulse to return
             pulse_end = utime.ticks_us()
         
         pulse_duration = pulse_end - pulse_start
         distance = int(0.01715 * pulse_duration)
         return distance
+        
+    def forwards(speed=200):
+        LMF.write_analog(speed)    # left forward
+        LMB.write_digital(0)    # left backward
+        RMF.write_analog(speed)    # right forward
+        RMB.write_digital(0)    # right backward
+
+    def spinright(speed=200):
+        LMF.write_analog(speed)    # left forward
+        LMB.write_digital(0)    # left backward
+        RMF.write_digital(0)     # right forward
+        RMB.write_analog(speed)    # right backward
+
+    def spinleft(speed=200):
+        LMF.write_digital(0)    # left forward
+        LMB.write_analog(speed)    # left backward
+        RMF.write_analog(speed)     # right forward
+        RMB.write_digital(0)    # right backward
 
 
     while True:
         d = distance()
         display.scroll(d, delay=60)
-        sleep(100)
-
-----
-
-| The code below, using ``distance_sensor.distance() < 50``,  measures the distance to objects and if the distance is less than 50cm it spins the buggy to the left for 1 second. The code for the buggy motor functions (move_forward and spin_from_obstacle) is not included below. 
-
-.. code-block:: python
-
-    from microbit import *
-    import BitBotXL
-
-
-    # setup buggy
-    buggy = BitBotXL.BitBotXLMotors()
-    
-    distance_sensor = BitBotXL.BitBotXLDistanceSensor()
+        sleep(1000)
     
     while True:
-        move_forward(drive_time=200)
+        forwards(speed=200)
         # check for obstacle and spin
-        d = distance_sensor.distance()
+        d = distance()
         if d < 50:
             while d < 50:
-                spin_from_obstacle(spin_time=1000)
-                d = distance_sensor.distance()
+                spinleft(speed=200)
+                d = distance()
 
 ----
 

@@ -14,7 +14,8 @@ This is for MiniBit v1.1, 2019.
 | 4 LEDs, 
 | all powered by 3 AAA batteries. 
 
-The attached microbit requires its own power via USB or battery pack.
+| The microbit faces backwards.
+| The attached microbit requires its own power via USB or battery pack.
 
 .. image:: images/MiniBit.jpg
     :scale: 50 %
