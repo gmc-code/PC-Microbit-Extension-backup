@@ -51,7 +51,7 @@ Motor pin constants
 Stop
 ----------------------------------------
 
-| Use ``write_digital(0)`` to stop the motor controlled by each pin.
+| Use ``write_digital(0)`` to stop the motors controlled by each pin.
 
 .. admonition:: Tasks
 
@@ -81,47 +81,57 @@ Stop
                         RMF.write_digital(0)
                         RMB.write_digital(0)
 
+                    stop()
 
 ----
 
 Drive forwards
 ----------------------------------------
 
-| Set constants for the 4 motor pins to make the code more readable.
-| e.g. left motor forward ``LMF = pin12``
-| Use a default parameter for speed at a low settings: ``def forwards(speed=200)``.
+| Drive the buggy forwards.
 | Use ``write_analog(speed)`` to drive the motor where speed is from 0 to 1023.
 | Use ``write_digital(0)`` to stop the other motors.
 | If the motor drive forwards, the backward pin should be send ``write_digital(0)`` to turn it off.
 
 
-.. code-block:: python
+.. admonition:: Tasks
 
-    from microbit import *
+    #. Write code to stop all motors in a def block: ``def stop()``.
 
-    LMF = pin12
-    LMB = pin8
-    RMF = pin16
-    RMB = pin14
+    .. dropdown::
+        :icon: codescan
+        :color: primary
+        :class-container: sd-dropdown-container
 
-    def forwards(speed=200):
-        LMF.write_analog(speed)
-        LMB.write_digital(0)
-        RMF.write_analog(speed)
-        RMB.write_digital(0)
+        .. tab-set::
 
-    forwards(200)
+            .. tab-item:: Q1
+
+                .. code-block:: python
+
+                    from microbit import *
+
+                    LMF = pin12
+                    LMB = pin8
+                    RMF = pin16
+                    RMB = pin14
+
+                    def forwards(speed=200):
+                        LMF.write_analog(speed)
+                        LMB.write_digital(0)
+                        RMF.write_analog(speed)
+                        RMB.write_digital(0)
+
+                    forwards(200)
 
 ----
 
-Drive forwards
+Drive backwards
 ----------------------------------------
 
-| Set constants for the 4 motor pins to make the code more readable.
-| e.g. left motor forward ``LMF = pin12``
-| Use a default parameter for speed at a low settings: ``def mb_forwards(mb_speed=200)``.
+| Use a default parameter for speed at a low settings: ``def backwards(speed=200)``.
 | Use ``write_analog(speed)`` to drive the motor where speed is from 0 to 1023.
-| Use ``write_digital(0)write_digital(0)`` to stop the motor.
+| Use ``write_digital(0)`` to stop the motor.
 | If the motor drive forwards, the backward pin should be send ``write_digital(0)`` to turn it off.
 
 
@@ -141,3 +151,4 @@ Drive forwards
         RMB.write_digital(0)    # right backward
 
     forwards(200)
+
