@@ -34,9 +34,7 @@ Motor pin constants
 
             .. tab-set::
 
-                .. tab-item:: Q1
-
-                    Set 4 constants for teh 4 motor pins.
+                .. tab-item::
 
                     .. code-block:: python
 
