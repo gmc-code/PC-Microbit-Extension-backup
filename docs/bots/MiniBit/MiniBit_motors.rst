@@ -53,20 +53,33 @@ Stop
 
 | Use ``write_digital(0)`` to stop the motor controlled by each pin.
 
-.. code-block:: python
+.. admonition:: Tasks
 
-    from microbit import *
+    #. Write code to stop all motors in a def block: ``def stop()``.
 
-    LMF = pin12
-    LMB = pin8
-    RMF = pin16
-    RMB = pin14
+    .. dropdown::
+        :icon: codescan
+        :color: primary
+        :class-container: sd-dropdown-container
 
-    def stop():
-        LMF.write_digital(0)
-        LMB.write_digital(0)
-        RMF.write_digital(0)
-        RMB.write_digital(0)
+        .. tab-set::
+
+            .. tab-item:: Q1
+
+                .. code-block:: python
+
+                    from microbit import *
+
+                    LMF = pin12
+                    LMB = pin8
+                    RMF = pin16
+                    RMB = pin14
+
+                    def stop():
+                        LMF.write_digital(0)
+                        LMB.write_digital(0)
+                        RMF.write_digital(0)
+                        RMB.write_digital(0)
 
 
 ----
