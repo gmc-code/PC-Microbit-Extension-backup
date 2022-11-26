@@ -28,22 +28,22 @@ Motor pin constants
     #. Set constants for the 4 motor pins.
 
     .. dropdown::
-            :icon: codescan
-            :color: primary
-            :class-container: sd-dropdown-container
+        :icon: codescan
+        :color: primary
+        :class-container: sd-dropdown-container
 
-            .. tab-set::
+        .. tab-set::
 
-                .. tab-item:: Q1
+            .. tab-item::
 
-                    .. code-block:: python
+                .. code-block:: python
 
-                        from microbit import *
+                    from microbit import *
 
-                        LMF = pin12
-                        LMB = pin8
-                        RMF = pin16
-                        RMB = pin14
+                    LMF = pin12
+                    LMB = pin8
+                    RMF = pin16
+                    RMB = pin14
                         
 
 ----
