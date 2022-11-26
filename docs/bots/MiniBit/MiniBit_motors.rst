@@ -89,14 +89,15 @@ Drive forwards
 ----------------------------------------
 
 | Drive the buggy forwards.
+| Use a default speed as in ``def forwards(speed=200)``.
 | Use ``write_analog(speed)`` to drive the motor where speed is from 0 to 1023.
 | Use ``write_digital(0)`` to stop the other motors.
-| If the motor drive forwards, the backward pin should be send ``write_digital(0)`` to turn it off.
+| If the motor drives forwards, the backwards pin should be sent ``write_digital(0)`` to turn it off.
 
 
 .. admonition:: Tasks
 
-    #. Write code to stop all motors in a def block: ``def stop()``.
+    #. Write code to drive forwards using: ``def forwards(speed=200)``.
 
     .. dropdown::
         :icon: codescan
@@ -122,33 +123,47 @@ Drive forwards
                         RMF.write_analog(speed)
                         RMB.write_digital(0)
 
-                    forwards(200)
+                    forwards(speed=200)
 
 ----
 
 Drive backwards
 ----------------------------------------
 
-| Use a default parameter for speed at a low settings: ``def backwards(speed=200)``.
+| Drive the buggy backwards.
+| Use a default speed as in ``def backwards(speed=200)``.
 | Use ``write_analog(speed)`` to drive the motor where speed is from 0 to 1023.
-| Use ``write_digital(0)`` to stop the motor.
-| If the motor drive forwards, the backward pin should be send ``write_digital(0)`` to turn it off.
+| Use ``write_digital(0)`` to stop the other motors.
+| If the motor drives backwards, the forwards pin should be sent ``write_digital(0)`` to turn it off.
 
 
-.. code-block:: python
+.. admonition:: Tasks
 
-    from microbit import *
+    #. Write code to drive backwards using: ``def backwards(speed=200)``.
 
-    LMF = pin12
-    LMB = pin8
-    RMF = pin16
-    RMB = pin14
+    .. dropdown::
+        :icon: codescan
+        :color: primary
+        :class-container: sd-dropdown-container
 
-    def forwards(speed=200):
-        LMF.write_analog(speed)    # left forward
-        LMB.write_digital(0)    # left backward
-        RMF.write_analog(speed)    # right forward
-        RMB.write_digital(0)    # right backward
+        .. tab-set::
 
-    forwards(200)
+            .. tab-item:: Q1
+
+                .. code-block:: python
+
+                    from microbit import *
+
+                    LMF = pin12
+                    LMB = pin8
+                    RMF = pin16
+                    RMB = pin14
+
+                    def backwards(speed=200):
+                        LMF.write_digital(0)
+                        LMB.write_analog(speed)
+                        RMF.write_digital(0)
+                        RMB.write_analog(speed)
+
+                    backwards(speed=200)
 
