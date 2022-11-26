@@ -1,5 +1,5 @@
 ====================================================
-BitBotXL distance sensor
+MiniBit distance sensor
 ====================================================
 
 HC_SR04P
@@ -58,17 +58,17 @@ Trigger pulse
 | An HC-SR04 sensor requires a short 10µs (microseconds) pulse to trigger the sensor to start the ranging program (8 ultrasound bursts at 40 kHz). 
 | To create the trigger pulse, the trigger pin is set high, ``write_digital(1)``, for 10us, then it is set low, ``write_digital(0)``. 
 | The utime module is used to sleep for 10 microseconds: ``utime.sleep_us(10)``. 
-| A module constant, ``DISTANCE_SENSOR_PIN = pin15``, in CAPITALS, can be used to set the pin to be used by the sensor.
+| A module constant, DSP for DSP, ``DSP = pin15``, in CAPITALS, can be used to set the pin to be used by the sensor.
 
 .. code-block:: python
 
     import utime
 
-    DISTANCE_SENSOR_PIN = pin15
+    DSP = pin15
 
-    DISTANCE_SENSOR_PIN.write_digital(1)
+    DSP.write_digital(1)
     utime.sleep_us(10)
-    DISTANCE_SENSOR_PIN.write_digital(0)
+    DSP.write_digital(0)
 
 
 Once the wave is returned, after being reflected by an object, the Echo pin goes high for a particular amount of time which will be equal to the time taken for the wave to return back to the sensor.
@@ -77,7 +77,7 @@ The first step is to record the last low timestamp for Echo (``pulse_start``) e.
 
 .. code-block:: python
 
-    while DISTANCE_SENSOR_PIN.read_digital() == 0:
+    while DSP.read_digital() == 0:
         pulse_start = utime.ticks_us()
 
 
@@ -87,7 +87,7 @@ The second step is to record the last high timestamp for Echo (pulse_end). e.g. 
 
 .. code-block:: python
 
-    while DISTANCE_SENSOR_PIN.read_digital() == 1:
+    while DSP.read_digital() == 1:
         pulse_end = utime.ticks_us()
 
 
@@ -104,61 +104,6 @@ Since the distance to the object is half of the distance travelled by the pulse 
 
 ----
 
-class BitBotXLDistanceSensor
-------------------------------
-
-| The class, ``class BitBotXLDistanceSensor()``, is used for the code related to the ultrasound sensor.
-| The code is placed in a function, ``def distance(self)`` which returns the distance in cm.
-
-The complete code is:
-
-.. code-block:: python
-
-    from microbit import *
-    import utime
-
-    DISTANCE_SENSOR_PIN = pin15
-
-    class BitBotXLDistanceSensor():
-
-        def distance(self):
-            DISTANCE_SENSOR_PIN.write_digital(1)
-            utime.sleep_us(10)
-            DISTANCE_SENSOR_PIN.write_digital(0)
-            
-            while DISTANCE_SENSOR_PIN.read_digital() == 0:
-                pulse_start = utime.ticks_us()
-            while DISTANCE_SENSOR_PIN.read_digital() == 1:
-                pulse_end = utime.ticks_us()
-            
-            pulse_duration = pulse_end - pulse_start
-            distance = int(0.01715 * pulse_duration)
-            return distance
-
-----
-
-Set up the distance sensors
-----------------------------------------
-
-.. py:class:: BitBotXLDistanceSensor() 
-
-    | Set up the buggy's distance sensors for use.
-    | Use ``distance_sensor = BitBotXL.BitBotXLDistanceSensor()`` to use the buggy's distance sensors.
-
-| The code below imports the BitBotXL module and sets up the distance sensors.
-
-.. code-block:: python
-
-    from microbit import *
-    import BitBotXL
-
-
-    # setup distance_sensor
-    distance_sensor = BitBotXL.BitBotXLDistanceSensor()
-
-Note that in ``BitBotXL.BitBotXLDistanceSensor()``, ``BitBotXL`` is the module and ``BitBotXLDistanceSensor`` is the class within it.
-
-----
 
 Distance to an object
 ----------------------------------------
@@ -167,20 +112,35 @@ Distance to an object
 
     Returns the distance, in cm, to an object.
 
-
-| The code below, uses ``distance_sensor.distance()`` to display the distance to objects.
+| The function, ``distance``, returns the distance to an object, in cm.
+| Code to scroll the distanceis below.
 
 .. code-block:: python
 
     from microbit import *
-    import BitBotXL
+    import utime
 
+    DSP = pin15
 
-    distance_sensor = BitBotXL.BitBotXLDistanceSensor()
+    def distance():
+        DSP.write_digital(1)
+        utime.sleep_us(10)
+        DSP.write_digital(0)
+        
+        while DSP.read_digital() == 0:
+            pulse_start = utime.ticks_us()
+        while DSP.read_digital() == 1:
+            pulse_end = utime.ticks_us()
+        
+        pulse_duration = pulse_end - pulse_start
+        distance = int(0.01715 * pulse_duration)
+        return distance
+
 
     while True:
-        d = distance_sensor.distance()
+        d = distance()
         display.scroll(d, delay=60)
+        sleep(100)
 
 ----
 

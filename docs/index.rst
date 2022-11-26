@@ -72,6 +72,15 @@ PC-microbit-extension
     bots/Maqueen/Maqueen_line_sensors.rst
     bots/Maqueen/
     
+.. toctree::
+    :maxdepth: 2
+    :caption: Bots/MiniBit
+    :numbered:
+
+    bots/MiniBit/MiniBit_info.rst
+    bots/MiniBit/MiniBit_motors.rst
+    bots/MiniBit/MiniBit_distance_sensor.rst
+
 
 .. toctree::
     :maxdepth: 2

@@ -84,7 +84,7 @@ Authenticate the Google Service Account
 
 #. Firebase will allow access to Firebase server APIs from Google Service Accounts. 
 #. To authenticate the Google Service Account, a private key in JSON format is required.
-#. To generate the key, in the left sidebar, go to **Project Overview**, click **Project settings**, click **Service Accounts**, click **Generate new private key**, click **Generate key** to download the file, and move it from teh downloads folder to teh folder with the python files for using it.
+#. To generate the key, in the left sidebar, go to **Project Overview**, click **Project settings**, click **Service Accounts**, click **Generate new private key**, click **Generate key** to download the file, and move it from the downloads folder to the folder with the python files for using it.
 #. The path to this JSON file must be provided to create the credentials object. 
 
 
