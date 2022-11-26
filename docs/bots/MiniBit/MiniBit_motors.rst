@@ -34,7 +34,7 @@ Motor pin constants
 
             .. tab-set::
 
-                .. tab-item::
+                .. tab-item:: Q1
 
                     .. code-block:: python
 
