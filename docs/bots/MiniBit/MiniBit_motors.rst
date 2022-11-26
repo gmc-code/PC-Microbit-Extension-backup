@@ -19,13 +19,13 @@ Pins for the motors are below.
 Motor pin constants
 ----------------------------------------
 
-| Set constants for the 4 motor pins to make the code more readable.
+| Set constants for the 4 motor pins.
 | e.g. left motor forward ``LMF = pin12``
 
 
 .. admonition:: Tasks
 
-    #. Set 4 constants for teh 4 motor pins.
+    #. Set constants for the 4 motor pins.
 
     .. dropdown::
             :icon: codescan
