@@ -231,7 +231,7 @@ Turning calculation for differential motor speeds
         if tightness == 0:
             return 0
         else:
-            return speed / tightness
+            return int(speed / tightness)
 
 ----
 
@@ -273,7 +273,7 @@ Turn left
                         if tightness == 0:
                             return 0
                         else:
-                            return speed / tightness
+                            return int(speed / tightness)
 
                     def left(speed=2, tightness=2):
                         analog_speed = speed_scaled(speed)
