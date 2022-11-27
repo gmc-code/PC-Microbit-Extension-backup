@@ -127,6 +127,7 @@ Drive forwards
 
 | Drive the buggy forwards.
 | Use a default speed as in ``def forwards(speed=2)``.
+| Use ``speed_scaled(speed=2)`` to convert from a speed in the 0-10 reange to an analog_speed.
 | Use ``write_analog(analog_speed)`` to drive the motor where analog_speed is from 0 to 1023.
 | Use ``write_digital(0)`` to stop the other motors.
 | If the motor drives forwards, the backwards pin should be sent ``write_digital(0)`` to turn it off.
@@ -176,10 +177,6 @@ Drive backwards
 
 | Drive the buggy backwards.
 | Use a default speed as in ``def backwards(speed=2)``.
-| Use ``write_analog(analog_speed)`` to drive the motor where analog_speed is from 0 to 1023.
-| Use ``write_digital(0)`` to stop the other motors.
-| If the motor drives backwards, the forwards pin should be sent ``write_digital(0)`` to turn it off.
-
 
 .. admonition:: Tasks
 
@@ -220,14 +217,29 @@ Drive backwards
 
 ----
 
+Turning calculation for differential motor speeds
+---------------------------------------------------
+
+| Define ``inner_turn_speed(speed, tightness=2)`` that takes the motor speed of the outside wheel and calculates the speed of the inner wheel using a tightness factor.
+| Use a tightness of 0 to return a speed of 0, so that the inner wheel doesn't move forward.
+
+.. code-block:: python
+
+    from microbit import *
+    
+    def inner_turn_speed(speed, tightness=2):
+        if tightness == 0:
+            return 0
+        else:
+            return speed / tightness
+
+----
+
 Turn left
 ----------------------------------------
 
 | To turn left, stop the left motors and drive the right motors forwards or backwards.
 | Use a default speed as in ``def left(speed=2, tightness=2)``.
-| Use ``write_analog(analog_speed)`` to drive the motor where analog_speed is from 0 to 1023.
-| If the speed is nagative, drive left backwards.
-| Use ``write_digital(0)`` to stop the other motors.
 
 .. admonition:: Tasks
 
@@ -256,11 +268,20 @@ Turn left
 
                     def speed_scaled(speed=2):
                         return scale(speed, 0, 10, 0, 1023)
-                     
-                    def left(speed=2, tightness=2):
-                        LMF.write_digital(0)
-                        LMB.write_analog(speed)
-                        RMF.write_digital(0)
-                        RMB.write_analog(speed)
 
-                    backwards(speed=200)
+                    def inner_turn_speed(speed, tightness=2):
+                        if tightness == 0:
+                            return 0
+                        else:
+                            return speed / tightness
+
+                    def left(speed=2, tightness=2):
+                        analog_speed = speed_scaled(speed)
+                        inner_turn_speed = inner_turn_speed(analog_speed, tightness)
+                        LMF.write_analog(inner_turn_speed)
+                        LMB.write_digital(0)
+                        RMF.write_analog(analog_speed)
+                        RMB.write_digital(0)
+
+                    left(speed=2, tightness=2)
+
