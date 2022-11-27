@@ -88,7 +88,8 @@ Stop
 Scaling speeds
 ---------------
 
-| Rather than specifying analogue speed from 0 to 1023, it may be more convenient to use a speed scle from 0 to 10.
+| The miniBit motors take an analogue value of 0 to 1023 for their speed.
+| Rather than specifying analogue speed from 0 to 1023, it may be more convenient to use a speed scale from 0 to 10.
 
 .. image:: images/scale.png
     :scale: 50 %
