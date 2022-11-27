@@ -99,15 +99,15 @@ Scaling speeds
 
 .. py:function:: scale(from_value, from_min, from_max, to_min, to_max)
 
-    | Converts a value, from_value, from a range of (from_min, from_max), to a range of (to_min, to_max).
+    | Returns a value, from_value, from a range of (from_min, from_max), to an equivalent value in a range of (to_min, to_max).
 
 
 .. py:function:: speed_scaled(speed=2)
 
-    | Converts a value from a range of (0, 10), to (0, 1023)
+    | Converts a value from a range of (0, 10) to an equivalent value in the range (0, 1023).
 
 
-| The code below converts a speed from a range of (0, 10), to (0, 1023)
+| The code below converts a speed from a range of (0, 10) to an equivalent value in the range (0, 1023).
 
 .. code-block:: python
     
@@ -120,6 +120,7 @@ Scaling speeds
         return scale(speed, 0, 10, 0, 1023)
 
 
+----
 
 Drive forwards
 ----------------------------------------
