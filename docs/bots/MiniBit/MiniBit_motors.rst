@@ -276,11 +276,11 @@ Turn left
                             return int(speed / tightness)
 
                     def left(speed=2, tightness=2):
-                        analog_speed = speed_scaled(speed)
-                        inner_turn_speed = inner_turn_speed(analog_speed, tightness)
-                        LMF.write_analog(inner_turn_speed)
+                        outer_speed = speed_scaled(speed)
+                        inner_speed = inner_turn_speed(outer_speed, tightness)
+                        LMF.write_analog(inner_speed)
                         LMB.write_digital(0)
-                        RMF.write_analog(analog_speed)
+                        RMF.write_analog(outer_speed)
                         RMB.write_digital(0)
 
                     left(speed=2, tightness=2)
