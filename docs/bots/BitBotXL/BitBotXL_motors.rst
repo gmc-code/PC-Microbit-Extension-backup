@@ -245,6 +245,8 @@ Straight line control
 | ``decrease_right`` is used to reduce the motor speed on the right side in case the buggy drifts to the left due to the right motor being slightly faster than the left.
 | Any ``decrease_left`` and ``decrease_right`` values used to give a straight line are best found by experimentation.
 
+----
+
 forward
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

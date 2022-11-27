@@ -120,7 +120,6 @@ Scaling speeds
 
     def scale(from_value, from_min, from_max, to_min, to_max):
         return int(((from_value - from_min) / (from_max - from_min)) * (to_max - to_min) + to_min)
-
     def speed_scaled(speed=2):
         return scale(speed, 0, 10, 0, 1023)
 
@@ -131,7 +130,8 @@ Drive forwards
 ----------------------------------------
 
 | Drive the buggy forwards.
-| Use a default speed as in ``def forwards(speed=2)``.
+| Use a default speed as in ``def forwards(speed=2, duration=None)``.
+| If a duration, in milliseconds, is passed, stop() is used after that duration.
 | Use ``speed_scaled(speed=2)`` to convert from a speed in the 0-10 range to an analog_speed.
 | Use ``write_analog(analog_speed)`` to drive the motor where analog_speed is from 0 to 1023.
 | Use ``write_digital(0)`` to stop the other motors.
@@ -140,7 +140,7 @@ Drive forwards
 
 .. admonition:: Tasks
 
-    #. Write code to drive forwards using: ``def forwards(speed=2)``.
+    #. Write code to drive forwards at speed 4 for 2 seconds.
 
     .. dropdown::
         :icon: codescan
@@ -166,14 +166,17 @@ Drive forwards
                     def speed_scaled(speed=2):
                         return scale(speed, 0, 10, 0, 1023)
                         
-                    def forwards(speed=2):
+                    def forwards(speed=2, duration=None):
                         analog_speed = speed_scaled(speed)
                         LMF.write_analog(analog_speed)
                         LMB.write_digital(0)
                         RMF.write_analog(analog_speed)
                         RMB.write_digital(0)
+                        if duration is not None:
+                            utime.sleep_ms(duration)
+                            stop()
 
-                    forwards(speed=2)
+                    forwards(speed=4, duration=2000)
 
 ----
 
@@ -181,12 +184,13 @@ Drive backwards
 ----------------------------------------
 
 | Drive the buggy backwards.
-| Use a default speed as in ``def backwards(speed=2)``.
+| Use a default speed as in ``def backwards(speed=2, duration=None)``.
+| If a duration, in milliseconds, is passed, stop() is used after that duration.
 | Use positive values for speed, 0 <= speed <= 10.
 
 .. admonition:: Tasks
 
-    #. Write code to drive backwards using: ``def backwards(speed=2)``.
+    #. Write code to drive backwards at speed 3 for 4 seconds.
 
     .. dropdown::
         :icon: codescan
@@ -212,14 +216,17 @@ Drive backwards
                     def speed_scaled(speed=2):
                         return scale(speed, 0, 10, 0, 1023)
                      
-                    def backwards(speed=2):
+                    def backwards(speed=2, duration=None):
                         analog_speed = speed_scaled(speed)
                         LMF.write_digital(0)
                         LMB.write_analog(analog_speed)
                         RMF.write_digital(0)
                         RMB.write_analog(analog_speed)
+                        if duration is not None:
+                            utime.sleep_ms(duration)
+                            stop()
 
-                    backwards(speed=2)
+                    backwards(speed=3, duration=4000)
 
 ----
 
@@ -245,12 +252,13 @@ Turn left
 ----------------------------------------
 
 | To turn left, drive the right motors faster than the left.
-| Use a default speed, and tightness, as in ``def left(speed=2, tightness=2)``.
+| Use a default speed, and tightness, as in ``def left(speed=2, tightness=2, duration=None)``.
+| If a duration, in milliseconds, is passed, stop() is used after that duration.
 | Allow positive values for speed, 0 <= speed <= 10.
 
 .. admonition:: Tasks
 
-    #. Write code to turn left using: ``def left(speed=2, tightness=2)``.
+    #. Write code to turn left using a speed of 3, tightness of 2, for a duration of 3000ms.
 
     .. dropdown::
         :icon: codescan
@@ -282,15 +290,18 @@ Turn left
                         else:
                             return int(speed / tightness)
 
-                    def left(speed=2, tightness=2):
+                    def left(speed=2, tightness=2, duration=None):
                         outer_speed = speed_scaled(speed)
                         inner_speed = inner_turn_speed(outer_speed, tightness)
                         LMF.write_analog(inner_speed)
                         LMB.write_digital(0)
                         RMF.write_analog(outer_speed)
                         RMB.write_digital(0)
+                        if duration is not None:
+                            utime.sleep_ms(duration)
+                            stop()
 
-                    left(speed=2, tightness=2)
+                    left(speed=3, tightness=2, duration=3000)
 
 ----
 
@@ -302,7 +313,7 @@ Turn left forwards or backwards
 
 .. admonition:: Tasks
 
-    #. Write code to turn forwards and backwards to the left using: ``left(speed=3, tightness=4)`` and ``left(speed=-3, tightness=4)``, with a 1 sec sleep bewteen going forwards and backwards.
+    #. Write code to turn forwards and backwards to the left using: speed=3, tightness=4, duration=2000.
 
     .. dropdown::
         :icon: codescan
@@ -334,7 +345,7 @@ Turn left forwards or backwards
                         else:
                             return int(speed / tightness)
 
-                    def left(speed=2, tightness=2):
+                    def left(speed=2, tightness=2, duration=None):
                         outer_speed = speed_scaled(speed)
                         inner_speed = inner_turn_speed(outer_speed, tightness)
                         if speed > 0:
@@ -347,12 +358,14 @@ Turn left forwards or backwards
                             LMB.write_analog(-inner_speed)
                             RMF.write_digital(0)
                             RMB.write_analog(-outer_speed)
+                        if duration is not None:
+                            utime.sleep_ms(duration)
+                            stop()
 
                     while True:
-                        left(speed=3, tightness=4)
-                        sleep(1000)
-                        left(speed=-3, tightness=4)
-                        sleep(1000)
+                        left(speed=3, tightness=4, duration=2000)
+                        left(speed=-3, tightness=4, duration=2000)
+
 
 ----
 
@@ -360,12 +373,13 @@ Turn right forwards or backwards
 ----------------------------------------
 
 | To turn right, drive the left motors faster than the right.
-| Use a default speed, and tightness, as in ``def right(speed=2, tightness=2)``.
+| Use a default speed, and tightness, as in ``def right(speed=2, tightness=2, duration=None)``.
+| If a duration, in milliseconds, is passed, stop() is used after that duration.
 | Allow positive and negative values for speed, -10 <= speed <= 10.
 
 .. admonition:: Tasks
 
-    #. Write code to turn forwards and backwards to the right using: ``right(speed=3, tightness=4)`` and ``right(speed=-3, tightness=4)``, with a 1 sec sleep bewteen going forwards and backwards.
+    #. Write code to turn forwards and backwards to the right using: speed=4, tightness=3, duration=2000.
 
     .. dropdown::
         :icon: codescan
@@ -397,7 +411,7 @@ Turn right forwards or backwards
                         else:
                             return int(speed / tightness)
 
-                    def right(speed=2, tightness=2):
+                    def right(speed=2, tightness=2, duration=None):
                         outer_speed = speed_scaled(speed)
                         inner_speed = inner_turn_speed(outer_speed, tightness)
                         if speed > 0:
@@ -410,13 +424,14 @@ Turn right forwards or backwards
                             LMB.write_analog(-outer_speed)
                             RMF.write_digital(0)
                             RMB.write_analog(-inner_speed)
-
+                        if duration is not None:
+                            utime.sleep_ms(duration)
+                            stop()
 
                     while True:
-                        right(speed=3, tightness=4)
-                        sleep(1000)
-                        right(speed=-3, tightness=4)
-                        sleep(1000)
+                        right(speed=4, tightness=3, duration=2000)
+                        right(speed=-4, tightness=3, duration=2000)
+
 
 ----
 
@@ -424,12 +439,12 @@ Spin left
 ----------------------------------------
 
 | To spin left, drive the right motor forwards and the left motor backwards.
-| Use a default speed, as in ``def spin_left(speed=2)``.
+| Use a default speed, as in ``def spin_left(speed=, duration=None)``.
 | Allow positive values for speed, 0 <= speed <= 10.
 
 .. admonition:: Tasks
 
-    #. Write code to turn spin left using: ``spin_left(speed=2)``.
+    #. Write code to turn spin left using: speed=4, duration=2000.
 
     .. dropdown::
         :icon: codescan
@@ -455,14 +470,17 @@ Spin left
                     def speed_scaled(speed=2):
                         return scale(speed, 0, 10, 0, 1023)
 
-                    def spin_left(speed=2):
+                    def spin_left(speed=2, duration=None):
                         analog_speed = speed_scaled(speed)
                         LMF.write_digital(0)
                         LMB.write_analog(analog_speed)
                         RMF.write_analog(analog_speed)
                         RMB.write_digital(0)
+                        if duration is not None:
+                            utime.sleep_ms(duration)
+                            stop()
 
-                    spin_left(speed=2)
+                    spin_left(speed=4, duration=2000)
 
 ----
 
@@ -470,12 +488,12 @@ Spin right
 ----------------------------------------
 
 | To spin lerigrighthtft, drive the left motor forwards and the right motor backwards.
-| Use a default speed, as in ``def spin_right(speed=2)``.
+| Use a default speed, as in ``def spin_right(speed=2, duration=None)``.
 | Allow positive values for speed, 0 <= speed <= 10.
 
 .. admonition:: Tasks
 
-    #. Write code to turn spin right using: ``spin_right(speed=2)``.
+    #. Write code to turn spin right using: speed=3, duration=3000.
 
     .. dropdown::
         :icon: codescan
@@ -501,14 +519,17 @@ Spin right
                     def speed_scaled(speed=2):
                         return scale(speed, 0, 10, 0, 1023)
 
-                    def spin_right(speed=2):
+                    def spin_right(speed=2, duration=None):
                         analog_speed = speed_scaled(speed)
                         LMF.write_analog(analog_speed)
                         LMB.write_digital(0)
                         RMF.write_digital(0)
                         RMB.write_analog(analog_speed)
+                        if duration is not None:
+                            utime.sleep_ms(duration)
+                            stop()
 
-                    spin_right(speed=2)
+                    spin_right(speed=3, duration=3000)
 
 
 
