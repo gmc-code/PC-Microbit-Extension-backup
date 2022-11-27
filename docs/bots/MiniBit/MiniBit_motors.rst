@@ -90,7 +90,7 @@ Scaling speeds
 
 | The miniBit motors take an analogue value of 0 to 1023 for their speed.
 | Rather than specifying analogue speed from 0 to 1023, it may be more convenient to use a speed scale from 0 to 10.
-| To do this use: int(((from_value - from_min) / (from_max - from_min)) * (to_max - to_min) + to_min)
+| To do this use: ``int(((from_value - from_min) / (from_max - from_min)) * (to_max - to_min) + to_min)``.
 
 .. image:: images/scale.png
     :scale: 50 %
