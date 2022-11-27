@@ -132,8 +132,14 @@ Distance to an object
             pulse_start = utime.ticks_us()
         while DSP.read_digital() == 1: # wait for Echo pulse to return
             pulse_end = utime.ticks_us()
+
+        try:
+            pulse_duration = pulse_end - pulse_start
+        except ValueError:
+            pulse_duration = 0
+        else:
+            pulse_duration = 0
         
-        pulse_duration = pulse_end - pulse_start
         distance = int(0.01715 * pulse_duration)
         return distance
         
@@ -146,7 +152,7 @@ Distance to an object
 
 ----
 
-| The code below, using ``distance() < 50``,  measures the distance to objects and if the distance is less than 50cm it spins the buggy to the left for 1 second.
+| The code below, using ``distance() < 50``,  measures the distance to objects and if the distance is less than 50cm it spins the buggy to the right for 0.1 second and checks again.
 
 .. code-block:: python
 
@@ -169,41 +175,69 @@ Distance to an object
         while DSP.read_digital() == 1: # wait for Echo pulse to return
             pulse_end = utime.ticks_us()
         
-        pulse_duration = pulse_end - pulse_start
+        try:
+            pulse_duration = pulse_end - pulse_start
+        except NameError:
+            pulse_duration = 0
+        except:
+            pulse_duration = 0
+        else:
+            pulse_duration = pulse_end - pulse_start
+        
         distance = int(0.01715 * pulse_duration)
         return distance
+
+
+    def scale(from_value, from_min, from_max, to_min, to_max):
+        return int(((from_value - from_min) / (from_max - from_min)) * (to_max - to_min) + to_min)
+
+    def speed_scaled(speed=2):
+        return scale(speed, 0, 10, 0, 1023)
+
+    def stop():
+        LMF.write_digital(0)
+        LMB.write_digital(0)
+        RMF.write_digital(0)
+        RMB.write_digital(0)
+
+    def forwards(speed=2):
+        analog_speed = speed_scaled(speed)
+        LMF.write_analog(analog_speed)
+        LMB.write_digital(0)
+        RMF.write_analog(analog_speed)
+        RMB.write_digital(0)
         
-    def forwards(speed=200):
-        LMF.write_analog(speed)    # left forward
-        LMB.write_digital(0)    # left backward
-        RMF.write_analog(speed)    # right forward
-        RMB.write_digital(0)    # right backward
+    def backwards(speed=2):
+        analog_speed = speed_scaled(speed)
+        LMF.write_digital(0)
+        LMB.write_analog(analog_speed)
+        RMF.write_digital(0)
+        RMB.write_analog(analog_speed)
+                            
+    def spin_right(speed=2):
+        analog_speed = speed_scaled(speed)
+        LMF.write_analog(analog_speed)
+        LMB.write_digital(0)
+        RMF.write_digital(0)
+        RMB.write_analog(analog_speed)
 
-    def spinright(speed=200):
-        LMF.write_analog(speed)    # left forward
-        LMB.write_digital(0)    # left backward
-        RMF.write_digital(0)     # right forward
-        RMB.write_analog(speed)    # right backward
-
-    def spinleft(speed=200):
-        LMF.write_digital(0)    # left forward
-        LMB.write_analog(speed)    # left backward
-        RMF.write_analog(speed)     # right forward
-        RMB.write_digital(0)    # right backward
-
-    
     while True:
-        forwards(speed=200)
+        forwards(speed=2)
+        sleep(100)
         # check for obstacle and spin
         d = distance()
+        # display.scroll(d, delay=40)
         if d < 50:
             while d < 50:
-                spinleft(speed=200)
+                spin_right(speed=2)
+                sleep(100)
+                # stop()
                 d = distance()
+                # display.scroll(d, delay=40)
 
 ----
 
 .. admonition:: Tasks
 
     #. Write code to drive the buggy forward until it measures an object 30cm in front and then stops.
-    #. Write code to drive the buggy forward until it measures an object 20cm in front and then it stops for 500ms, goes backwards for 500ms, then spins, goes forwards and repeats.
+    #. Write code to drive the buggy forward until it measures an object 20cm in front and then it stops for 500ms, goes backwards for 500ms, then spins until no object is detected within 20cm, then goes forwards and repeats.

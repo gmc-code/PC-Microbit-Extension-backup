@@ -21,6 +21,8 @@ PC-microbit-extension
     bots/MiniBit/MiniBit_info.rst
     bots/MiniBit/MiniBit_motors.rst
     bots/MiniBit/MiniBit_distance_sensor.rst
+    bots/MiniBit/MiniBit_module.rst
+    bots/MiniBit/MiniBit_radio.rst
 
 
 .. toctree::

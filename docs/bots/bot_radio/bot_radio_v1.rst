@@ -61,6 +61,40 @@ Radio for controller
 
 ----
 
+Radio for microbit on MiniBit
+--------------------------------------
+
+| The code below moves the BitBotXL at maximum speed, since its top speed is relatively slow.
+| The tightness of 5 gives a tight turn.
+
+.. code-block:: python
+
+
+    from microbit import *
+    import radio
+
+
+    radio.config(group=8)  # 0-255
+    radio.on()
+    
+
+    while True:
+        msg = radio.receive()
+        if msg is not None:
+            display.show(msg)
+            if msg == "X":
+                buggy.stop()
+            elif msg == "B":
+                buggy.backward(speed=10)
+            elif msg == "F":
+                buggy.forward(speed=10)
+            elif msg == "R":
+                buggy.right(speed=10, tightness=5)
+            elif msg == "L":
+                buggy.left(speed=10, tightness=5)
+
+----
+
 Radio for microbit on BitBotXL
 --------------------------------------
 
