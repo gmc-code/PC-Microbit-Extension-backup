@@ -109,7 +109,7 @@ Scaling speeds
     | Converts a value from a range of (0, 10) to an equivalent value in the range (0, 1023).
 
 
-| The code below converts a speed from a range of (0, 10) to an equivalent value in the range (0, 1023).
+| The code below converts a speed from a value in the range of (0, 10) to an equivalent value in the range (0, 1023).
 
 .. code-block:: python
     
