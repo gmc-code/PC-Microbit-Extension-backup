@@ -90,10 +90,14 @@ Scaling speeds
 
 | Rather than specifying analogue speed from 0 to 1023, it may be more convenient to use a speed scle from 0 to 10.
 
+.. image:: images/scale.png
+    :scale: 50 %
+    :align: center
+    :alt: MiniBit
 
 .. py:function:: scale(from_value, from_min, from_max, to_min, to_max)
 
-    | Converts a value, from_value, from a range of (from_min, from_max), to a range of (to_min, to_max)
+    | Converts a value, from_value, from a range of (from_min, from_max), to a range of (to_min, to_max).
 
 
 .. py:function:: speed_scaled(speed=2)
@@ -127,7 +131,7 @@ Drive forwards
 
 .. admonition:: Tasks
 
-    #. Write code to drive forwards using: ``def forwards(speed=200)``.
+    #. Write code to drive forwards using: ``def forwards(speed=2)``.
 
     .. dropdown::
         :icon: codescan

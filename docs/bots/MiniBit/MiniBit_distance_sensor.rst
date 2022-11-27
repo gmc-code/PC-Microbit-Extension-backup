@@ -129,11 +129,9 @@ Distance to an object
         DSP.write_digital(0)
         
         while DSP.read_digital() == 0: # ensure Ping pulse has cleared
-            pass
-        pulse_start = utime.ticks_us()
+            pulse_start = utime.ticks_us()
         while DSP.read_digital() == 1: # wait for Echo pulse to return
-            pass
-        pulse_end = utime.ticks_us()
+            pulse_end = utime.ticks_us()
         
         pulse_duration = pulse_end - pulse_start
         distance = int(0.01715 * pulse_duration)
@@ -193,11 +191,6 @@ Distance to an object
         RMF.write_analog(speed)     # right forward
         RMB.write_digital(0)    # right backward
 
-
-    while True:
-        d = distance()
-        display.scroll(d, delay=60)
-        sleep(1000)
     
     while True:
         forwards(speed=200)
