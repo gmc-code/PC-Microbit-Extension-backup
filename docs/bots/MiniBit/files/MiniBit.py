@@ -11,40 +11,23 @@ from microbit import *
 import utime
 
 # constants
-
-DISTANCE_SENSOR_PIN = pin15
-LEFT_FWD_PIN = pin12
-LEFT_BWD_PIN = pin8
-RIGHT_FWD_PIN = pin14
-RIGHT_BWD_PIN = pin16
-
- 
+LMF = pin12
+LMB = pin8
+RMF = pin16
+RMB = pin14
+DSP = pin15
+                   
 class MiniBitMotors:
 
     def __init__(self):
-        # left and right motor adjustments
-        self.dec_left = 1
-        self.dec_right = 1
-
-    def stop_left(self):
-        LEFT_FWD_PIN.write_digital(0)
-        LEFT_BWD_PIN.write_digital(0)
-
-    def stop_right(self):
-        RIGHT_FWD_PIN.write_digital(0)
-        RIGHT_BWD_PIN.write_digital(0)
+        # no need to do anything
+        pass
 
     def stop(self):
-        self.stop_left()
-        self.stop_right()
-
-    def set_bias_correction(self, direction='left', percent=0):
-        """Set left/right bias to match motors."""
-        factor = (percent + 100) / 100
-        if direction == 'left':
-            self.dec_left = factor
-        elif direction == 'right':
-            self.dec_right = factor
+        LMF.write_digital(0)
+        LMB.write_digital(0)
+        RMF.write_digital(0)
+        RMB.write_digital(0)
 
     @staticmethod
     def _analog_speed(speed):
@@ -57,40 +40,21 @@ class MiniBitMotors:
         else:
             return 0
 
-    def left_motor(self, speed=2, duration=None):
-        an_speed = self._analog_speed(speed / self.dec_left)
-        # an_speed = self._analog_speed(speed)
-        # display.scroll(an_speed, delay=60)
-        if (speed > 0):
-            LEFT_FWD_PIN.write_analog(an_speed)
-            LEFT_BWD_PIN.write_digital(0)
-        else:
-            LEFT_FWD_PIN.write_digital(0)
-            LEFT_BWD_PIN.write_analog(an_speed)
-        if duration is not None:
-            utime.sleep_ms(duration)
-            self.stop_left()
+    def scale(from_value, from_min, from_max, to_min, to_max):
+        return int(((from_value - from_min) / (from_max - from_min)) * (to_max - to_min) + to_min)
 
-    def right_motor(self, speed=2, duration=None):
-        an_speed = self._analog_speed(speed / self.dec_right)
-        # an_speed = self._analog_speed(speed)
-        # display.scroll(an_speed, delay=60)
-        if (speed > 0):
-            RIGHT_FWD_PIN.write_analog(an_speed)
-            RIGHT_BWD_PIN.write_digital(0)
-        else:
-            RIGHT_FWD_PIN.write_digital(0)
-            RIGHT_BWD_PIN.write_analog(an_speed)
+    def speed_scaled(speed):
+        return scale(speed, 0, 10, 0, 1023)
+        
+    def forwards(speed=2, duration=None):
+        analog_speed = speed_scaled(speed)
+        LMF.write_analog(analog_speed)
+        LMB.write_digital(0)
+        RMF.write_analog(analog_speed)
+        RMB.write_digital(0)
         if duration is not None:
             utime.sleep_ms(duration)
-            self.stop_right()
-
-    def forward(self, speed=2, duration=None):
-        self.right_motor(speed)
-        self.left_motor(speed)
-        if duration is not None:
-            utime.sleep_ms(duration)
-            self.stop()
+            stop()
 
     def backward(self, speed=2, duration=None):
         self.right_motor(-speed)
@@ -142,13 +106,13 @@ class MiniBitMotors:
 class MiniBitDistanceSensor():
 
     def distance(self):
-        DISTANCE_SENSOR_PIN.write_digital(1)
+        DSP.write_digital(1)
         utime.sleep_us(10)
-        DISTANCE_SENSOR_PIN.write_digital(0)
+        DSP.write_digital(0)
 
-        while DISTANCE_SENSOR_PIN.read_digital() == 0:
+        while DSP.read_digital() == 0:
             pulse_start = utime.ticks_us()
-        while DISTANCE_SENSOR_PIN.read_digital() == 1:
+        while DSP.read_digital() == 1:
             pulse_end = utime.ticks_us()
 
         try:
@@ -157,7 +121,7 @@ class MiniBitDistanceSensor():
             pulse_duration = 0
         else:
             pulse_duration = 0
-            
+
         distance = int(0.01715 * pulse_duration)
         return distance
 

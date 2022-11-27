@@ -200,21 +200,21 @@ Distance to an object
         RMF.write_digital(0)
         RMB.write_digital(0)
 
-    def forwards(speed=2):
+    def forwards(speed=2, duration=None):
         analog_speed = speed_scaled(speed)
         LMF.write_analog(analog_speed)
         LMB.write_digital(0)
         RMF.write_analog(analog_speed)
         RMB.write_digital(0)
         
-    def backwards(speed=2):
+    def backwards(speed=2, duration=None):
         analog_speed = speed_scaled(speed)
         LMF.write_digital(0)
         LMB.write_analog(analog_speed)
         RMF.write_digital(0)
         RMB.write_analog(analog_speed)
                             
-    def spin_right(speed=2):
+    def spin_right(speed=2, duration=None):
         analog_speed = speed_scaled(speed)
         LMF.write_analog(analog_speed)
         LMB.write_digital(0)
@@ -222,16 +222,13 @@ Distance to an object
         RMB.write_analog(analog_speed)
 
     while True:
-        forwards(speed=2)
-        sleep(100)
+        forwards(speed=2, duration=100)
         # check for obstacle and spin
         d = distance()
         # display.scroll(d, delay=40)
         if d < 50:
             while d < 50:
-                spin_right(speed=2)
-                sleep(100)
-                # stop()
+                spin_right(speed=2, duration=100)
                 d = distance()
                 # display.scroll(d, delay=40)
 

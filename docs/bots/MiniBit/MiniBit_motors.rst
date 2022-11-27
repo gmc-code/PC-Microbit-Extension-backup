@@ -107,7 +107,7 @@ Scaling speeds
     | Returns a value, from_value, from a range of (from_min, from_max), to an equivalent value in a range of (to_min, to_max).
 
 
-.. py:function:: speed_scaled(speed=2)
+.. py:function:: speed_scaled(speed)
 
     | Converts a value from a range of (0, 10) to an equivalent value in the range (0, 1023).
 
@@ -120,7 +120,8 @@ Scaling speeds
 
     def scale(from_value, from_min, from_max, to_min, to_max):
         return int(((from_value - from_min) / (from_max - from_min)) * (to_max - to_min) + to_min)
-    def speed_scaled(speed=2):
+
+    def speed_scaled(speed):
         return scale(speed, 0, 10, 0, 1023)
 
 
@@ -132,7 +133,7 @@ Drive forwards
 | Drive the buggy forwards.
 | Use a default speed as in ``def forwards(speed=2, duration=None)``.
 | If a duration, in milliseconds, is passed, stop() is used after that duration.
-| Use ``speed_scaled(speed=2)`` to convert from a speed in the 0-10 range to an analog_speed.
+| Use ``speed_scaled(speed)`` to convert from a speed in the 0-10 range to an analog_speed.
 | Use ``write_analog(analog_speed)`` to drive the motor where analog_speed is from 0 to 1023.
 | Use ``write_digital(0)`` to stop the other motors.
 | If the motor drives forwards, the backwards pin should be sent ``write_digital(0)`` to turn it off.
@@ -163,7 +164,7 @@ Drive forwards
                     def scale(from_value, from_min, from_max, to_min, to_max):
                         return int(((from_value - from_min) / (from_max - from_min)) * (to_max - to_min) + to_min)
 
-                    def speed_scaled(speed=2):
+                    def speed_scaled(speed):
                         return scale(speed, 0, 10, 0, 1023)
                         
                     def forwards(speed=2, duration=None):
@@ -213,7 +214,7 @@ Drive backwards
                     def scale(from_value, from_min, from_max, to_min, to_max):
                         return int(((from_value - from_min) / (from_max - from_min)) * (to_max - to_min) + to_min)
 
-                    def speed_scaled(speed=2):
+                    def speed_scaled(speed):
                         return scale(speed, 0, 10, 0, 1023)
                      
                     def backwards(speed=2, duration=None):
@@ -281,7 +282,7 @@ Turn left
                     def scale(from_value, from_min, from_max, to_min, to_max):
                         return int(((from_value - from_min) / (from_max - from_min)) * (to_max - to_min) + to_min)
 
-                    def speed_scaled(speed=2):
+                    def speed_scaled(speed):
                         return scale(speed, 0, 10, 0, 1023)
 
                     def inner_turn_speed(speed, tightness=2):
@@ -336,7 +337,7 @@ Turn left forwards or backwards
                     def scale(from_value, from_min, from_max, to_min, to_max):
                         return int(((from_value - from_min) / (from_max - from_min)) * (to_max - to_min) + to_min)
 
-                    def speed_scaled(speed=2):
+                    def speed_scaled(speed):
                         return scale(speed, 0, 10, 0, 1023)
 
                     def inner_turn_speed(speed, tightness=2):
@@ -402,7 +403,7 @@ Turn right forwards or backwards
                     def scale(from_value, from_min, from_max, to_min, to_max):
                         return int(((from_value - from_min) / (from_max - from_min)) * (to_max - to_min) + to_min)
 
-                    def speed_scaled(speed=2):
+                    def speed_scaled(speed):
                         return scale(speed, 0, 10, 0, 1023)
 
                     def inner_turn_speed(speed, tightness=2):
@@ -467,7 +468,7 @@ Spin left
                     def scale(from_value, from_min, from_max, to_min, to_max):
                         return int(((from_value - from_min) / (from_max - from_min)) * (to_max - to_min) + to_min)
 
-                    def speed_scaled(speed=2):
+                    def speed_scaled(speed):
                         return scale(speed, 0, 10, 0, 1023)
 
                     def spin_left(speed=2, duration=None):
@@ -516,7 +517,7 @@ Spin right
                     def scale(from_value, from_min, from_max, to_min, to_max):
                         return int(((from_value - from_min) / (from_max - from_min)) * (to_max - to_min) + to_min)
 
-                    def speed_scaled(speed=2):
+                    def speed_scaled(speed):
                         return scale(speed, 0, 10, 0, 1023)
 
                     def spin_right(speed=2, duration=None):
