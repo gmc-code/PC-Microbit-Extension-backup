@@ -92,14 +92,14 @@ class BitBotXLMotors:
             utime.sleep_ms(duration)
             self.stop_right()
 
-    def forward(self, speed=2, duration=None):
+    def forwards(self, speed=2, duration=None):
         self.right_motor(speed)
         self.left_motor(speed)
         if duration is not None:
             utime.sleep_ms(duration)
             self.stop()
 
-    def backward(self, speed=2, duration=None):
+    def backwards(self, speed=2, duration=None):
         self.right_motor(-speed)
         self.left_motor(-speed)
         if duration is not None:

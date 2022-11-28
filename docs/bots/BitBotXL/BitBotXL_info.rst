@@ -45,8 +45,8 @@ The pin numbers used to control different parts are below.
  pin0    Buzzer
  pin1    Right Light Sensor
  pin2    Left Light Sensor
- pin8    Left Motor Backward
- pin12   Right Motor Backward
+ pin8    Left Motor Backwards
+ pin12   Right Motor Backwards
  pin13   12x LEDs
  pin14   Right Motor
  pin15   Ultrasonic

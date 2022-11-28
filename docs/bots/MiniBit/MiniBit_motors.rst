@@ -22,7 +22,7 @@ Motor pin constants
 ----------------------------------------
 
 | Set constants for the 4 motor pins.
-| e.g. left motor forward ``LMF = pin12``
+| e.g. left motor forwards ``LMF = pin12``
 
 
 .. admonition:: Tasks

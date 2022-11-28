@@ -19,9 +19,9 @@ Unique groups
 Radio for controller
 ----------------------
 
-| The code below gives messages based on forward - backward tilting and sideways tilting.
+| The code below gives messages based on forwards - backwards tilting and sideways tilting.
 | The code displays the message on the microbit for testing purposes.
-| For the forward and backward tilting, make sure not to tilt the microbit sideways.
+| For the forwards and backwards tilting, make sure not to tilt the microbit sideways.
 | If the microbit is level, ``-200 <= y_reading <= 200 and -200 <= x_reading <= 200`` send an "X", to stop.
 
 .. code-block:: python
@@ -85,9 +85,9 @@ Radio for microbit on MiniBit
             if msg == "X":
                 buggy.stop()
             elif msg == "B":
-                buggy.backward(speed=10)
+                buggy.backwards(speed=10)
             elif msg == "F":
-                buggy.forward(speed=10)
+                buggy.forwards(speed=10)
             elif msg == "R":
                 buggy.right(speed=10, tightness=5)
             elif msg == "L":
@@ -122,9 +122,9 @@ Radio for microbit on BitBotXL
             if msg == "X":
                 buggy.stop()
             elif msg == "B":
-                buggy.backward(speed=10)
+                buggy.backwards(speed=10)
             elif msg == "F":
-                buggy.forward(speed=10)
+                buggy.forwards(speed=10)
             elif msg == "R":
                 buggy.right(speed=10, tightness=5)
             elif msg == "L":
@@ -160,9 +160,9 @@ Radio for microbit on MOVEMotor
             if msg == "X":
                 buggy.stop()
             elif msg == "B":
-                buggy.backward(speed=5)
+                buggy.backwards(speed=5)
             elif msg == "F":
-                buggy.forward(speed=5)
+                buggy.forwards(speed=5)
             elif msg == "R":
                 buggy.right(speed=2, radius=5)
             elif msg == "L":

@@ -184,7 +184,7 @@ Distance to an object
 
 ----
 
-| The code below, using ``distance_sensor.distance() < 50``,  measures the distance to objects and if the distance is less than 50cm it spins the buggy to the left for 1 second. The code for the buggy motor functions (move_forward and spin_from_obstacle) is not included below. 
+| The code below, using ``distance_sensor.distance() < 50``,  measures the distance to objects and if the distance is less than 50cm it spins the buggy to the left for 1 second. The code for the buggy motor functions (move_forwards and spin_from_obstacle) is not included below. 
 
 .. code-block:: python
 
@@ -198,7 +198,7 @@ Distance to an object
     distance_sensor = BitBotXL.BitBotXLDistanceSensor()
     
     while True:
-        move_forward(drive_time=200)
+        move_forwards(drive_time=200)
         # check for obstacle and spin
         d = distance_sensor.distance()
         if d < 50:
@@ -210,5 +210,5 @@ Distance to an object
 
 .. admonition:: Tasks
 
-    #. Write code to drive the buggy forward until it measures an object 30cm in front and then stops.
-    #. Write code to drive the buggy forward until it measures an object 20cm in front and then it stops for 500ms, goes backwards for 500ms, then spins, goes forwards and repeats.
+    #. Write code to drive the buggy forwards until it measures an object 30cm in front and then stops.
+    #. Write code to drive the buggy forwards until it measures an object 20cm in front and then it stops for 500ms, goes backwards for 500ms, then spins, goes forwards and repeats.

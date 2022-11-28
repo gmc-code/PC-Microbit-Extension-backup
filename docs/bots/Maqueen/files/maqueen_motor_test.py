@@ -37,10 +37,10 @@ def spin_test():
 
 def forward_backward_test():
     display.scroll('fb')
-    buggy.forward(duration=1000)
-    buggy.backward(duration=1000)
-    buggy.forward(5, 1000)
-    buggy.backward(5, 1000)
+    buggy.forwards(duration=1000)
+    buggy.backwards(duration=1000)
+    buggy.forwards(5, 1000)
+    buggy.backwards(5, 1000)
     buggy.stop()
     sleep(2000)
 
@@ -48,9 +48,9 @@ def forward_backward_speed_test():
     display.scroll('fb+')
     for spd in range(1, 5, 1):
         display.scroll(spd)
-        buggy.forward(spd, duration=1000)
+        buggy.forwards(spd, duration=1000)
         buggy.stop()
-        buggy.backward(spd, duration=1000)
+        buggy.backwards(spd, duration=1000)
         buggy.stop()
     sleep(2000)
 
@@ -96,7 +96,7 @@ def spiral_test():
 def polygon_test():
     display.scroll('polygon')
     for i in range(13):
-        buggy.forward(5, 800)
+        buggy.forwards(5, 800)
         buggy.spin_left(5, 280)
     buggy.stop()
     sleep(2000)

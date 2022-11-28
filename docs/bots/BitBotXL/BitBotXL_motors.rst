@@ -7,8 +7,8 @@ Pins for the motors are below.
 =======  ===========================
  Pin     Purpose
 =======  ===========================
- pin8    Left Motor Backward
- pin12   Right Motor Backward
+ pin8    Left Motor Backwards
+ pin12   Right Motor Backwards
  pin14   Right Motor
  pin16   Left Motor
 =======  ===========================
@@ -40,8 +40,8 @@ Duration parameter
 | The Buggy methods that drive the motors have a duration parameter. 
 | The duration parameter specifies how long the motor runs for.
 | The default duration is ``None``. If the duration is ``None`` or is not specified the motor will run continuously until another command is sent to it.
-| e.g. using the duration parameter: ``buggy.forward(10, duration=5000)``  the buggy stops after 5 sec.
-| e.g. not using the duration parameter: ``buggy.forward(10)`` the buggy runs forward continuously.
+| e.g. using the duration parameter: ``buggy.forwards(10, duration=5000)``  the buggy stops after 5 sec.
+| e.g. not using the duration parameter: ``buggy.forwards(10)`` the buggy runs forwards continuously.
 
 ----
 
@@ -62,7 +62,7 @@ left_motor
     | Make the left motor run. 
     | ``speed`` values are integers or floats (decimals) from -10 to 10.
     | Default ``speed`` is 1.
-    | If speed < 0 the motor turns the wheel backward.
+    | If speed < 0 the motor turns the wheel backwards.
     | ``duration`` values are integers above 0.
     | Default ``duration`` is None.
     | The motor will stop after a given duration in milliseconds.
@@ -107,7 +107,7 @@ right_motor
     | Make the right motor run. 
     | ``speed`` values are integers or floats (decimals) from -10 to 10.
     | Default ``speed`` is 1.
-    | If speed < 0 the motor turns the wheel backward.
+    | If speed < 0 the motor turns the wheel backwards.
     | ``duration`` values are integers above 0.
     | Default ``duration`` is None.
     | The motor will stop after a given duration in milliseconds.
@@ -129,7 +129,7 @@ right_motor
 
     buggy.right_motor(speed=4, duration=3000)
 
-| The code below, using ``right_motor(-10)``, runs the right motor backward at full speed.
+| The code below, using ``right_motor(-10)``, runs the right motor backwards at full speed.
 
 .. code-block:: python
 
@@ -230,17 +230,17 @@ Stop both motors
     #. Write code to drive the right motor at speed 3 while the left motor runs at speed 2 for 3 sec then stop it.
     #. Write code to drive the left motor at speed 3 while the right motor runs at speed 2 for 3 sec then stop it.
     #. Write code that drives the left side faster than the right side then the right side faster the left side so that it zig zags for 5 sec then stop it.
-    #. Write code so that the buggy repetitively zig zags forward for 5 zigs and zags then backward backward for 5 zigs and zags.
-    #. Modify the zig zag code so that it uses variables for the 2 motor speeds, the number of zig zags forward and backward, and the time for each zig and zag.
+    #. Write code so that the buggy repetitively zig zags forwards for 5 zigs and zags then backwards for 5 zigs and zags.
+    #. Modify the zig zag code so that it uses variables for the 2 motor speeds, the number of zig zags forwards and backward, and the time for each zig and zag.
 
 ----
 
 Straight line control
 ----------------------------------------
 
-| The left and right motors can be run so that the buggy moves forward or backward in a straight line:
-| ``forward(speed=1, duration=None, decrease_left=0, decrease_right=0)``
-| ``backward(speed=1, duration=None, decrease_left=0, decrease_right=0)``
+| The left and right motors can be run so that the buggy moves forwards or backwards in a straight line:
+| ``forwards(speed=1, duration=None, decrease_left=0, decrease_right=0)``
+| ``backwards(speed=1, duration=None, decrease_left=0, decrease_right=0)``
 | ``decrease_left`` is used to reduce the motor speed on the left side in case the buggy drifts to the right due to the left motor being slightly faster than the right.
 | ``decrease_right`` is used to reduce the motor speed on the right side in case the buggy drifts to the left due to the right motor being slightly faster than the left.
 | Any ``decrease_left`` and ``decrease_right`` values used to give a straight line are best found by experimentation.
@@ -250,7 +250,7 @@ Straight line control
 forward
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. py:method:: forward(speed=1, duration=None, decrease_left=0, decrease_right=0)
+.. py:method:: forwards(speed=1, duration=None, decrease_left=0, decrease_right=0)
 
     | Drive the buggy forward.
     | ``speed`` values are integers or floats (decimals) from 0 to 10.
@@ -263,11 +263,11 @@ forward
     | ``decrease_left`` and ``decrease_right`` default values are 0.
 
 
-| ``forward(10, None, 6)`` and ``forward(10, None, 6, 0)`` and ``forward(speed=10, decrease_left=6)`` all set the speed to 10 with the left wheel slowed by roughly 2% (6/255).
+| ``forwards(10, None, 6)`` and ``forwards(10, None, 6, 0)`` and ``forwards(speed=10, decrease_left=6)`` all set the speed to 10 with the left wheel slowed by roughly 2% (6/255).
 
 | The code below, has an adjustment of 6 to the left motor. 
 | This is roughly a 2% (6/255) decrease in speed.
-| It drives the buggy forward at speed 10 for 5 secs.
+| It drives the buggy forwards at speed 10 for 5 secs.
 
 .. code-block:: python
 
@@ -278,7 +278,7 @@ forward
     # setup buggy
     buggy = BitBotXL.BitBotXLMotors()
 
-    buggy.forward(speed=10, duration=5000, decrease_left=6, decrease_right=0)
+    buggy.forwards(speed=10, duration=5000, decrease_left=6, decrease_right=0)
 
 
 ----
@@ -286,9 +286,9 @@ forward
 backward
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. py:method:: backward(speed=1, duration=None, decrease_left=0, decrease_right=0)
+.. py:method:: backwards(speed=1, duration=None, decrease_left=0, decrease_right=0)
 
-    | Drive the buggy backward.
+    | Drive the buggy backwards.
     | ``speed`` values are integers or floats (decimals) from 0 to 10.
     | Default ``speed`` is 1.
     | ``duration`` values are integers above 0.
@@ -299,12 +299,12 @@ backward
     | ``decrease_left`` and ``decrease_right`` default values are 0.
 
 
-| ``backward(10, None, 0, 3)`` and ``backward(speed=10, decrease_right=3)`` both set the speed to 10 with the right wheel slowed by roughly 1% (3/255).
+| ``backwards(10, None, 0, 3)`` and ``backwards(speed=10, decrease_right=3)`` both set the speed to 10 with the right wheel slowed by roughly 1% (3/255).
 
 | The code below, has an adjustment of 3 to the right motor. 
 | This is roughly a 1% (3/255) decrease in speed.
-| The parameter names have been omitted in ``forward(8, 4000, 0, 3)``; instead values are in their specified order.
-| It drives the buggy backward at speed 8 for 4 secs.
+| The parameter names have been omitted in ``forwards(8, 4000, 0, 3)``; instead values are in their specified order.
+| It drives the buggy backwards at speed 8 for 4 secs.
 
 .. code-block:: python
 
@@ -315,7 +315,7 @@ backward
     # setup buggy
     buggy = BitBotXL.BitBotXLMotors()
 
-    buggy.backward(8, 4000, 0, 3)
+    buggy.backwards(8, 4000, 0, 3)
 
 
 
@@ -324,7 +324,7 @@ backward
 .. admonition:: Tasks
 
     #. Write code to drive the buggy forward, as close as possible to a straight line, by experimenting with the ``decrease_left`` and ``decrease_right`` values.
-    #. Write code to drive the buggy forward and backwards, as close as possible to a straight line, by experimenting with the ``decrease_left`` and ``decrease_right`` values.
+    #. Write code to drive the buggy forwards and backwards, as close as possible to a straight line, by experimenting with the ``decrease_left`` and ``decrease_right`` values.
 
 ----
 
@@ -345,8 +345,8 @@ left
 
     | Drive the buggy to the left.
     | ``speed`` values are integers or floats (decimals) from -10 to 10.
-    | ``speed`` values above 0 drive the buggy forward to the left.
-    | ``speed`` values below 0 drive the buggy backward to the left.
+    | ``speed`` values above 0 drive the buggy forwards to the left.
+    | ``speed`` values below 0 drive the buggy backwards to the left.
     | Default ``speed`` is 1.
     | ``tightness`` values are best between 1 and 10.
     | Default ``tightness`` is 2 (speed ratio).
@@ -358,7 +358,7 @@ left
 | ``left()`` and ``left(1, 2)`` and ``left(speed=1, tightness=2)`` all set the speed to 1 with a left turn of tightness 2.
 | ``left(2, 4, 1000)`` and ``left(2, tightness=4, duration=1000)`` and ``left(speed=2, tightness=4, duration=1000)`` all set the speed to 2 with a left turn of tightness 4 for 1sec.
 
-| The code below, ``left(speed=3, tightness=4, duration=4000)``, drives the buggy forward at speed 3 while it turns left in a curved path of approximate tightness 4 for 4 secs.
+| The code below, ``left(speed=3, tightness=4, duration=4000)``, drives the buggy forwards at speed 3 while it turns left in a curved path of approximate tightness 4 for 4 secs.
 
 .. code-block:: python
 
@@ -389,8 +389,8 @@ right
 
     | Drive the buggy to the right.
     | ``speed`` values are integers or floats (decimals) from -10 to 10.
-    | ``speed`` values above 0 drive the buggy forward to the right.
-    | ``speed`` values below 0 drive the buggy backward to the right.
+    | ``speed`` values above 0 drive the buggy forwards to the right.
+    | ``speed`` values below 0 drive the buggy backwards to the right.
     | Default ``speed`` is 1.
     | ``tightness`` values are best between 1 and 10.
     | Default ``tightness`` is 2.
@@ -402,7 +402,7 @@ right
 | ``right()`` and ``right(1, 2)`` and ``right(speed=1, tightness=2)`` all set the speed to 1 with tightness 2.
 | ``right(2, 4, 1000)`` and ``right(2, tightness=4, duration=1000)`` and ``right(speed=2, tightness=4, duration=1000)`` all set the speed to 2 with a right turn of tightness 4 for 1sec.
 
-| The code below, ``right(speed=2, tightness=4, duration=3000)``, drives the buggy forward at speed 2 while it turns right in a circular path of tightness 4 for 3 secs.
+| The code below, ``right(speed=2, tightness=4, duration=3000)``, drives the buggy forwards at speed 2 while it turns right in a circular path of tightness 4 for 3 secs.
 
 .. code-block:: python
 
@@ -431,8 +431,8 @@ Spinning
 | Spin the buggy to the left or right at the chosen speed using:
 | ``spin_left(speed=1, duration=None)``
 | ``spin_right(speed=1, duration=None)``
-| When spining left, the left wheel goes backward while the right wheel goes forward.
-| When spining right, the right wheel goes backward while the left wheel goes forward.
+| When spining left, the left wheel goes backwards while the right wheel goes forward.
+| When spining right, the right wheel goes backwards while the left wheel goes forward.
 
 
 .. py:method:: spin_left(speed=1, duration=None)
@@ -478,7 +478,7 @@ Spinning
     #. Write code to spin the buggy to the left at speed 4 for 5 seconds.
     #. Write code to spin the buggy to the right at speed 6 for 3 seconds.
     #. Write code to spin the buggy to the left for 3 seconds then to right for 3 seconds at speed 6.
-    #. Write code to drive the buggy in a polygonal path (many straight sides) by combining short drives forward with short spins.
+    #. Write code to drive the buggy in a polygonal path (many straight sides) by combining short drives forwards with short spins.
 
 
 

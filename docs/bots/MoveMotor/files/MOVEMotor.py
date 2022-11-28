@@ -132,7 +132,7 @@ class MOVEMotorMotors:
             adjustment = 20
         return int(analog_speed * (255 - adjustment)/255)
 
-    def backward(self, speed=1, duration=None, decrease_left=0, decrease_right=0):
+    def backwards(self, speed=1, duration=None, decrease_left=0, decrease_right=0):
         analog_speed = abs(self._analog_speed(speed))
         motor_buffer = bytearray(5)
         motor_buffer[0] = ALL_MOTOR
@@ -146,7 +146,7 @@ class MOVEMotorMotors:
             utime.sleep_ms(duration)
             self.stop()
 
-    def forward(self, speed=1, duration=None, decrease_left=0, decrease_right=0):
+    def forwards(self, speed=1, duration=None, decrease_left=0, decrease_right=0):
         analog_speed = abs(self._analog_speed(speed))
         motor_buffer = bytearray(5)
         motor_buffer[0] = ALL_MOTOR

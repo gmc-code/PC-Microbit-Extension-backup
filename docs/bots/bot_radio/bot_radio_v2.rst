@@ -20,19 +20,19 @@ Unique groups
 Radio for controller
 ----------------------
 
-| The code below gives messages based on forward - backward tilting and sideways tilting.
+| The code below gives messages based on forwards - backwards tilting and sideways tilting.
 | The code displays the message on the microbit for testing purposes.
-| For the forward and backward tilting, make sure not to tilt the microbit sideways.
+| For the forwards and backwards tilting, make sure not to tilt the microbit sideways.
 
 | If the microbit is level, ``-200 <= y_reading <= 200 and -200 <= x_reading <= 200``, send an "X", to stop.
 
 | For increasing speed forward, send: F, G, H. 
-| Tilt forward a bit, F is sent, and a slow speed results.
-| Tilt forward a bit more, G is sent, and a medium speed results.
-| Tilt forward a lot, H is sent, and a fast speed results.
+| Tilt forwards a bit, F is sent, and a slow speed results.
+| Tilt forwards a bit more, G is sent, and a medium speed results.
+| Tilt forwards a lot, H is sent, and a fast speed results.
 
 | For increasing speed backward, send: B, C, D
-| Tilt backward more and more.
+| Tilt backwards more and more.
 
 | For increasing speed left, send: L, M, N
 | Tilt left more and more.
@@ -116,17 +116,17 @@ Radio for microbit on BitBotXL
         if msg is not None:
             display.show(msg)
             if msg == "B":
-                buggy.backward(speed=5)
+                buggy.backwards(speed=5)
             elif msg == "C":
-                buggy.backward(speed=8)
+                buggy.backwards(speed=8)
             elif msg == "D":
-                buggy.backward(speed=10)
+                buggy.backwards(speed=10)
             elif msg == "F":
-                buggy.forward(speed=5)
+                buggy.forwards(speed=5)
             elif msg == "G":
-                buggy.forward(speed=8)
+                buggy.forwards(speed=8)
             elif msg == "H":
-                buggy.forward(speed=10)
+                buggy.forwards(speed=10)
             elif msg == "X":
                 buggy.stop()
             elif msg == "L":
@@ -170,17 +170,17 @@ Radio for microbit on MOVEMotor
         if msg is not None:
             display.show(msg)
             if msg == "B":
-                buggy.backward(speed=5)
+                buggy.backwards(speed=5)
             elif msg == "C":
-                buggy.backward(speed=8)
+                buggy.backwards(speed=8)
             elif msg == "D":
-                buggy.backward(speed=10)
+                buggy.backwards(speed=10)
             elif msg == "F":
-                buggy.forward(speed=5)
+                buggy.forwards(speed=5)
             elif msg == "G":
-                buggy.forward(speed=8)
+                buggy.forwards(speed=8)
             elif msg == "H":
-                buggy.forward(speed=10)
+                buggy.forwards(speed=10)
             elif msg == "X":
                 buggy.stop()
             elif msg == "L":

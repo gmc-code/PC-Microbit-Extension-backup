@@ -11,7 +11,7 @@ Calibrating the Motors on BitBot XL v1.2
 
 | Download the calibration file :download:`microbit-SetCalibration.hex <files/microbit-SetCalibration.hex>`.| Load the program into the Microbit by dragging it onto the drive icon for the microbit, then  plug the microbit into the bot, facing forward.
 | Switch on the robot. It will display 5 (indicating a v1.2 BitBot XL), then change to show 3 (meaning speed 3)
-| Press A or B buttons to affect the turning left or right, then press both A+B simultaneously and the robot will display the current calibration value, then move forward for 2 seconds at speed 3.
+| Press A or B buttons to affect the turning left or right, then press both A+B simultaneously and the robot will display the current calibration value, then move forwards for 2 seconds at speed 3.
 | If it is still not moving straight, press the appropriate button one or more times to straighten it up, then press A+B again to test it
 | When you're happy that it is moving straight, give the robot a shake and it will store the values for speed 3 and move onto Speed 6.
 | Repeat for speed 6 and speed 9.

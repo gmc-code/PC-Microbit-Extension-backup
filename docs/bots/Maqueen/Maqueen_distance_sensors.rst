@@ -63,7 +63,7 @@ Distance to an object
     distance_sensor = maqueen.MaqueenDistanceSensor()
     
     while True:
-        buggy.forward()
+        buggy.forwards()
         if distance_sensor.distance() < 10:
             buggy.spin(speed=1, direction='left', duration=1000)
         sleep(200)
@@ -72,8 +72,8 @@ Distance to an object
 
 .. admonition:: Tasks
 
-    #. Write code to drive the buggy forward until it measures an object 50cm in front and then stops.
-    #. Write code to drive the buggy forward until it measures an object 20cm in front and then it stops for 500ms, goes backwards for 500ms, then spins, goes forwards and repeats.
+    #. Write code to drive the buggy forwards until it measures an object 50cm in front and then stops.
+    #. Write code to drive the buggy forwards until it measures an object 20cm in front and then it stops for 500ms, goes backwards for 500ms, then spins, goes forwards and repeats.
 
 ----
 

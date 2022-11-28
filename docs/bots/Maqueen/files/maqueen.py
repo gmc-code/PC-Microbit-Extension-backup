@@ -16,8 +16,8 @@ from neopixel import NeoPixel as leds
 CHIP_ADDR = 0x10
 LEFT_MOTOR = 0x00
 RIGHT_MOTOR = 0x02
-FORWARD = 0x00
-BACKWARD = 0x01
+forwards = 0x00
+backwards= 0x01
 SERVO_ONE = 0x14
 SERVO_TWO = 0x15
 
@@ -92,7 +92,7 @@ class MaqueenMotors:
             utime.sleep_ms(duration)
             self.stop_right()
 
-    def backward(self, speed=1, duration=None):
+    def backwards(self, speed=1, duration=None):
         analog_speed = abs(self._analog_speed(self, speed))
         buffer = bytearray(3)
         buffer[0] = LEFT_MOTOR
@@ -108,7 +108,7 @@ class MaqueenMotors:
             utime.sleep_ms(duration)
             self.stop()
 
-    def forward(self, speed=1, duration=None):
+    def forwards(self, speed=1, duration=None):
         analog_speed = abs(self._analog_speed(self, speed))
         buffer = bytearray(3)
         buffer[0] = LEFT_MOTOR

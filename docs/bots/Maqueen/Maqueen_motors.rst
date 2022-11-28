@@ -30,8 +30,8 @@ Duration parameter
 | The Buggy methods that drive the motors have a duration parameter. 
 | The duration parameter specifies how long the motor runs for.
 | The default duration is ``None``. If the duration is ``None`` or is not specified the motor will run continuously until another command is sent to it.
-| e.g. using the duration parameter: ``buggy.forward(1, duration=5000)``  the buggy stops after 5 sec.
-| e.g. not using the duration parameter: ``buggy.forward(1)`` the buggy runs forward continuously.
+| e.g. using the duration parameter: ``buggy.forwards(1, duration=5000)``  the buggy stops after 5 sec.
+| e.g. not using the duration parameter: ``buggy.forwards(1)`` the buggy runs forwards continuously.
 
 ----
 
@@ -52,7 +52,7 @@ left_motor
     | Make the left motor run. 
     | ``speed`` values are **integers** from -5 to 5.
     | Default ``speed`` is 1.
-    | If speed < 0 the motor turns the wheel backward.
+    | If speed < 0 the motor turns the wheel backwards.
     | ``duration`` values are **integers** above 0.
     | Default ``duration`` is None.
     | The motor will stop after a given duration in milliseconds.
@@ -97,7 +97,7 @@ right_motor
     | Make the left motor run. 
     | ``speed`` values are **integers** from -5 to 5.
     | Default ``speed`` is 1.
-    | If speed < 0 the motor turns the wheel backward.
+    | If speed < 0 the motor turns the wheel backwards.
     | ``duration`` values are **integers** above 0.
     | Default ``duration`` is None.
     | The motor will stop after a given duration in milliseconds.
@@ -119,7 +119,7 @@ right_motor
 
     buggy.right_motor(speed=4, duration=3000)
 
-| The code below, using ``right_motor(-5)``, runs the right motor backward at full speed.
+| The code below, using ``right_motor(-5)``, runs the right motor backwards at full speed.
 
 .. code-block:: python
 
@@ -219,22 +219,22 @@ Stop both motors
     #. Write code to drive the right motor at speed 3 while the left motor runs at speed 2 for 3 sec then stop it.
     #. Write code to drive the left motor at speed 3 while the right motor runs at speed 2 for 3 sec then stop it.
     #. Write code that drives the left side faster than the right side then the right side faster the left side so that it zig zags for 5 sec then stop it.
-    #. Write code so that the buggy repetitively zig zags forward for 5 zigs and zags then forward forward for 5 zigs and zags.
-    #. Modify the zig zag code so that it uses variables for the 2 motor speeds, the number of zig zags forward and backward, and the time for each zig and zag.
+    #. Write code so that the buggy repetitively zig zags forwards for 5 zigs and zags then forwards forwards for 5 zigs and zags.
+    #. Modify the zig zag code so that it uses variables for the 2 motor speeds, the number of zig zags forwards and backward, and the time for each zig and zag.
 
 ----
 
-Forward and backward
+forwards and backward
 ----------------------------------------
 
-| The left and right motors can be run so that the buggy moves forward or backward in a straight line:
-| ``forward(speed=1, duration=None)``
-| ``backward(speed=1, duration=None)``
+| The left and right motors can be run so that the buggy moves forwards or backwards in a straight line:
+| ``forwards(speed=1, duration=None)``
+| ``backwards(speed=1, duration=None)``
 
 forward
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. py:method:: forward(speed=1, duration=None)
+.. py:method:: forwards(speed=1, duration=None)
 
     | Drive the buggy forward.
     | ``speed`` values are integers from 0 to 5.
@@ -244,7 +244,7 @@ forward
     | The motor will stop after a given duration in milliseconds.
 
 
-| The code below, drives the buggy forward at speed 5 for 4 secs.
+| The code below, drives the buggy forwards at speed 5 for 4 secs.
 
 .. code-block:: python
 
@@ -255,7 +255,7 @@ forward
     # setup buggy
     buggy = maqueen.MaqueenMotors()
 
-    buggy.forward(speed=5, duration=4000)
+    buggy.forwards(speed=5, duration=4000)
 
 
 ----
@@ -263,9 +263,9 @@ forward
 backward
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. py:method:: backward(speed=1, duration=None)
+.. py:method:: backwards(speed=1, duration=None)
 
-    | Drive the buggy backward.
+    | Drive the buggy backwards.
     | ``speed`` values are integers from 0 to 5.
     | Default ``speed`` is 1.
     | ``duration`` values are integers above 0.
@@ -273,7 +273,7 @@ backward
     | The motor will stop after a given duration in milliseconds.
     | If the duration is None, the motor runs without stopping.
 
-| The code below drives the buggy backward at speed 5 for 3 secs.
+| The code below drives the buggy backwards at speed 5 for 3 secs.
 
 .. code-block:: python
 
@@ -284,16 +284,16 @@ backward
     # setup buggy
     buggy = maqueen.MaqueenMotors()
 
-    buggy.backward(5, 3000)
+    buggy.backwards(5, 3000)
 
 
 ----
 
 .. admonition:: Tasks
 
-    #. Write code to drive the buggy forward at speed 3 for 3 seconds.
-    #. Write code to drive the buggy backward at speed 1 for 2 seconds.
-    #. Write code to drive the buggy forward at speed 1 for 3 seconds then backward at speed 1 for 3 seconds.
+    #. Write code to drive the buggy forwards at speed 3 for 3 seconds.
+    #. Write code to drive the buggy backwards at speed 1 for 2 seconds.
+    #. Write code to drive the buggy forwards at speed 1 for 3 seconds then backwards at speed 1 for 3 seconds.
 
 ----
 
@@ -386,8 +386,8 @@ Spinning
 | Spin the buggy to the left or right at the chosen speed using:
 | ``spin_left(speed=1, duration=None)``
 | ``spin_right(speed=1, duration=None)``
-| When spining left, the left wheel goes forward while the right wheel goes forward.
-| When spining right, the right wheel goes forward while the left wheel goes forward.
+| When spining left, the left wheel goes forwards while the right wheel goes forward.
+| When spining right, the right wheel goes forwards while the left wheel goes forward.
 
 
 .. py:method:: spin_left(speed=1, duration=None)
@@ -434,4 +434,4 @@ Spinning
     #. Write code to spin the buggy to the left at speed 4 for 5 seconds.
     #. Write code to spin the buggy to the right at speed 2 for 3 seconds.
     #. Write code to spin the buggy to the left for 3 seconds then to right for 3 seconds at speed 4.
-    #. Write code to drive the buggy in a polygonal path (many straight sides) by combining short drives forward with short spins.
+    #. Write code to drive the buggy in a polygonal path (many straight sides) by combining short drives forwards with short spins.

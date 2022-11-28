@@ -134,17 +134,17 @@ Radio for microbit on MOVEMotor
         msg = radio.receive()
         if msg is not None:
             if msg == "B":
-                buggy.backward(speed=2)
+                buggy.backwards(speed=2)
             elif msg == "C":
-                buggy.forward(speed=5)
+                buggy.forwards(speed=5)
             elif msg == "D":
-                buggy.forward(speed=10)
+                buggy.forwards(speed=10)
             elif msg == "F":
-                buggy.forward(speed=2)
+                buggy.forwards(speed=2)
             elif msg == "G":
-                buggy.forward(speed=5)
+                buggy.forwards(speed=5)
             elif msg == "H":
-                buggy.forward(speed=10)
+                buggy.forwards(speed=10)
             elif msg == "X":
                 buggy.stop()
             elif msg == "L":
@@ -168,5 +168,5 @@ Turning backwards
 
 .. admonition:: Tasks
 
-    #. Add B button pressing to allow backward movement while turning.
+    #. Add B button pressing to allow backwards movement while turning.
 

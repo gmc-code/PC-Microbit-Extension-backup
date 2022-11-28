@@ -236,5 +236,5 @@ Distance to an object
 
 .. admonition:: Tasks
 
-    #. Write code to drive the buggy forward until it measures an object 30cm in front and then stops.
-    #. Write code to drive the buggy forward until it measures an object 20cm in front and then it stops for 500ms, goes backwards for 500ms, then spins until no object is detected within 20cm, then goes forwards and repeats.
+    #. Write code to drive the buggy forwards until it measures an object 30cm in front and then stops.
+    #. Write code to drive the buggy forwards until it measures an object 20cm in front and then it stops for 500ms, goes backwards for 500ms, then spins until no object is detected within 20cm, then goes forwards and repeats.

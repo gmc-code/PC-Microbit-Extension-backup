@@ -6,10 +6,10 @@ MOVEMotor motor tests
 | Vary the paths the buggy takes.
 | When testing, it is useful to test the various forms of the syntax:
 
-#. Test defaults by not passing arguments. e.g. ``buggy.forward()``
-#. Test using named arguments. e.g. ``buggy.forward(speed=2, duration=200, decrease_left=5, decrease_right=0)``
-#. Test using named arguments not in order. e.g. ``buggy.forward(decrease_left=5, decrease_right=0, speed=2, duration=200)``
-#. Test using positional arguments. e.g ``buggy.forward(2, 200, 5, 0)``
+#. Test defaults by not passing arguments. e.g. ``buggy.forwards()``
+#. Test using named arguments. e.g. ``buggy.forwards(speed=2, duration=200, decrease_left=5, decrease_right=0)``
+#. Test using named arguments not in order. e.g. ``buggy.forwards(decrease_left=5, decrease_right=0, speed=2, duration=200)``
+#. Test using positional arguments. e.g ``buggy.forwards(2, 200, 5, 0)``
 
 | The tests below generally use positional arguments for simplicity, with the syntax on a commented line as a reminder.
 
@@ -32,15 +32,15 @@ Set up the buggy
 
 ----
 
-Forward backward test
+forwards backwards test
 ----------------------------------------
 
 | Test the use of:
 
-.. py:method:: forward(speed=1, duration=None, decrease_left=0, decrease_right=0)
-.. py:method:: backward(speed=1, duration=None, decrease_left=0, decrease_right=0)
+.. py:method:: forwards(speed=1, duration=None, decrease_left=0, decrease_right=0)
+.. py:method:: backwards(speed=1, duration=None, decrease_left=0, decrease_right=0)
 
-| Use ``for i in range(2, 11, 2)`` to go forward then backward from speed 2 to speed 10 in steps of 2.
+| Use ``for i in range(2, 11, 2)`` to go forwards then backwards from speed 2 to speed 10 in steps of 2.
 
 .. code-block:: python
 
@@ -52,12 +52,12 @@ Forward backward test
     buggy = MOVEMotor.MOVEMotorMotors()
 
     def forward_backward_test():
-        # forward(speed=1, duration=None, decrease_left=0, decrease_right=0)
-        # backward(speed=1, duration=None, decrease_left=0, decrease_right=0)
+        # forwards(speed=1, duration=None, decrease_left=0, decrease_right=0)
+        # backwards(speed=1, duration=None, decrease_left=0, decrease_right=0)
         for i in range(2, 11, 2):
-            buggy.forward(i, 1000)
+            buggy.forwards(i, 1000)
             buggy.stop()
-            buggy.backward(i, 1000)
+            buggy.backwards(i, 1000)
             buggy.stop()
         buggy.stop()
         sleep(2000)
@@ -68,19 +68,19 @@ Forward backward test
 
 .. admonition:: Tasks
 
-    #. Modify the code to just go forward at increasing speeds.
-    #. Modify the code to just go backward at increasing speeds.
-    #. Modify the code to go forward at increasing speeds then backward at increasing speeds.
+    #. Modify the code to just go forwards at increasing speeds.
+    #. Modify the code to just go backwards at increasing speeds.
+    #. Modify the code to go forwards at increasing speeds then backwards at increasing speeds.
 
 ----
 
 Straight line test
 ----------------------------------------
 
-| Test the use of ``decrease_left`` when going forward or backward:
+| Test the use of ``decrease_left`` when going forwards or backward:
 
-.. py:method:: forward(speed=1, duration=None, decrease_left=0, decrease_right=0)
-.. py:method:: backward(speed=1, duration=None, decrease_left=0, decrease_right=0)
+.. py:method:: forwards(speed=1, duration=None, decrease_left=0, decrease_right=0)
+.. py:method:: backwards(speed=1, duration=None, decrease_left=0, decrease_right=0)
 
 | Start at speed 2, increase to speed 5 then go to speed 9, then slow down in short steps.
 | Test with a ``decrease_left`` of 5 (delta) and vary this manually until a straight line is achieved.
@@ -96,17 +96,17 @@ Straight line test
 
     def straight_line_test(delta=5):
         # straight line test with smooth start and stop
-        buggy.forward(speed=2, duration=200, decrease_left=delta, decrease_right=0)
-        buggy.forward(5, 200, delta, 0)
-        buggy.forward(9, 1000, delta, 0)
-        buggy.forward(5, 200, delta, 0)
-        buggy.forward(2, 200, delta, 0)
+        buggy.forwards(speed=2, duration=200, decrease_left=delta, decrease_right=0)
+        buggy.forwards(5, 200, delta, 0)
+        buggy.forwards(9, 1000, delta, 0)
+        buggy.forwards(5, 200, delta, 0)
+        buggy.forwards(2, 200, delta, 0)
         buggy.stop()
-        buggy.backward(2, 200, delta, 0)
-        buggy.backward(5, 200, delta, 0)
-        buggy.backward(9, 1000, delta, 0)
-        buggy.backward(5, 200, delta, 0)
-        buggy.backward(2, 200, delta, 0)
+        buggy.backwards(2, 200, delta, 0)
+        buggy.backwards(5, 200, delta, 0)
+        buggy.backwards(9, 1000, delta, 0)
+        buggy.backwards(5, 200, delta, 0)
+        buggy.backwards(2, 200, delta, 0)
         buggy.stop()
         sleep(2000)
 
@@ -129,8 +129,8 @@ Individual motors test
 .. py:method:: left_motor(speed=1, duration=None)
 .. py:method:: right_motor(speed=1, duration=None)
 
-| Test the left motor backward and forward.
-| Then, test the right motor backward and forward.
+| Test the left motor backwards and forward.
+| Then, test the right motor backwards and forward.
 | Use a for-loop to vary the speed from -10 (max backward) to 10 (max forward) for each motor separately.
 
 .. code-block:: python
@@ -161,8 +161,8 @@ Individual motors test
 
     #. Modify the code to just use the left motor.
     #. Modify the code to just use the right motor.
-    #. Modify the for-loops for each motor to just go forward at varying speeds.
-    #. Modify the for-loop for each motor to just go backward at varying speeds.
+    #. Modify the for-loops for each motor to just go forwards at varying speeds.
+    #. Modify the for-loop for each motor to just go backwards at varying speeds.
     #. Modify the for-loop to change the speed in steps of 1 for 100ms each.
     #. Modify the for-loop to change the speed in steps of 5 for 400ms each.
 
@@ -254,7 +254,7 @@ Zig Zag test
 ----------------------------------------
 
 | Zigzag left then right by setting different left and right motor speeds.
-| Zigzag forward then backward using two separate for loops.
+| Zigzag forwards then backwards using two separate for loops.
 
 .. code-block:: python
 
@@ -290,14 +290,14 @@ Zig Zag test
 .. admonition:: Tasks
 
     #. Modify the code to just zig zag forward.
-    #. Modify the new zig zag forward code with ``zigzag_count=1``, and place ``zigzag_test(2, fast_speed, 5, 1000)`` in a for-loop and vary ``fast_speed`` from 3 to 8.
+    #. Modify the new zig zag forwards code with ``zigzag_count=1``, and place ``zigzag_test(2, fast_speed, 5, 1000)`` in a for-loop and vary ``fast_speed`` from 3 to 8.
 
 ----
 
 Polygon test
 ----------------------------------------
 
-| Move the buggy forward in straight lines then spin it and repeat to move in the shape of a polygon.
+| Move the buggy forwards in straight lines then spin it and repeat to move in the shape of a polygon.
 
 .. code-block:: python
 
@@ -310,7 +310,7 @@ Polygon test
 
     def polygon_test(spin_duration=240, sides=20):
         for i in range(sides):
-            buggy.forward(3, 800)
+            buggy.forwards(3, 800)
             buggy.spin(1, 'left', spin_duration)
         buggy.stop()
         sleep(2000)
