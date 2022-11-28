@@ -33,11 +33,13 @@ The pin numbers used to control different parts are below.
 =======  ===========================
  Pin     Purpose
 =======  ===========================
- pin8    Left Motor Backward
  pin12   Left Motor
- pin13   4x LEDs
+ pin8    Left Motor Backwards
  pin14   Right Motor
+ pin16   Right Motor Backwards
+
  pin15   Ultrasonic
- pin16   Right Motor Backward
+
+ pin13   4x LEDs
 =======  ===========================
 

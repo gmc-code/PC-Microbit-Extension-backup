@@ -8,10 +8,10 @@ Pins for the motors are below.
  Pin     Purpose
 =======  ===========================
  pin12   Left Motor
- pin8    Left Motor Backward
+ pin8    Left Motor Backwards
 
  pin14   Right Motor
- pin16   Right Motor Backward
+ pin16   Right Motor Backwards
 
  pin15   Ultrasonic
 =======  ===========================
