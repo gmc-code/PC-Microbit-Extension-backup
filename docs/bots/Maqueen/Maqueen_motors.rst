@@ -44,6 +44,8 @@ Independent motor control
 | ``stop_left()`` stops the left motor.
 | ``stop_right()`` stops the right motor.
 
+----
+
 left_motor
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -224,14 +226,14 @@ Stop both motors
 
 ----
 
-forwards and backward
+forwards and backwards
 ----------------------------------------
 
 | The left and right motors can be run so that the buggy moves forwards or backwards in a straight line:
 | ``forwards(speed=1, duration=None)``
 | ``backwards(speed=1, duration=None)``
 
-forward
+forwards
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. py:method:: forwards(speed=1, duration=None)
@@ -260,7 +262,7 @@ forward
 
 ----
 
-backward
+backwards
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. py:method:: backwards(speed=1, duration=None)
