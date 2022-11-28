@@ -46,12 +46,16 @@ The pin numbers used to control different parts are below.
  pin0    Buzzer
  pin1    Right Light Sensor
  pin2    Left Light Sensor
- pin8    Left Motor Backwards
- pin12   Right Motor Backwards
- pin13   12x LEDs
- pin14   Right Motor
- pin15   Ultrasonic
+
  pin16   Left Motor
+ pin8    Left Motor Backwards
+
+ pin14   Right Motor
+ pin12   Right Motor Backwards
+
+ pin13   12x LEDs
+ pin15   Ultrasonic
+ 
 =======  ===========================
 
 | I2C address 0x1c  (28)
