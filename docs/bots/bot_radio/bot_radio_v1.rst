@@ -69,16 +69,16 @@ Radio for microbit on MiniBit
 
 .. code-block:: python
 
-
-    from microbit import *
-    import radio
+    import MiniBit
 
 
     radio.config(group=8)  # 0-255
     radio.on()
-    
+
+    buggy = MiniBit.MiniBitMotors()
 
     while True:
+        sleep(50)
         msg = radio.receive()
         if msg is not None:
             display.show(msg)

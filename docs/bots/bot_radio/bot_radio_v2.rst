@@ -86,6 +86,58 @@ Radio for controller
                 msg = "L"
         radio.send(msg)
         display.show(msg)
+----
+
+Radio for microbit on MiniBit
+--------------------------------------
+
+| The code below moves the MiniBit at maximum speed, since its top speed is relatively slow.
+| The tightness of 5 gives a tight turn.
+| High turning speed settings are used below for best control based on testing.
+
+.. code-block:: python
+
+    from microbit import *
+    import radio
+    import MiniBit
+
+    radio.config(group=8)  # 0-255
+    radio.on()
+
+    buggy = MiniBit.MiniBitMotors()
+
+    while True:
+        sleep(50)
+        msg = radio.receive()
+        if msg is not None:
+            display.show(msg)
+            if msg == "B":
+                buggy.backwards(speed=5)
+            elif msg == "C":
+                buggy.backwards(speed=8)
+            elif msg == "D":
+                buggy.backwards(speed=10)
+            elif msg == "F":
+                buggy.forwards(speed=5)
+            elif msg == "G":
+                buggy.forwards(speed=8)
+            elif msg == "H":
+                buggy.forwards(speed=10)
+            elif msg == "X":
+                buggy.stop()
+            elif msg == "L":
+                buggy.left(speed=10, tightness=5)
+            elif msg == "M":
+                buggy.left(speed=10, tightness=3)
+            elif msg == "N":
+                buggy.left(speed=10, tightness=2)
+            elif msg == "R":
+                buggy.right(speed=10, tightness=5)
+            elif msg == "S":
+                buggy.right(speed=10, tightness=3)
+            elif msg == "T":
+                buggy.right(speed=10, tightness=2)
+
 
 ----
 
@@ -94,10 +146,9 @@ Radio for microbit on BitBotXL
 
 | The code below moves the BitBotXL at maximum speed, since its top speed is relatively slow.
 | The tightness of 5 gives a tight turn.
-| High turning speed settings are used belwo for bset contorl based on testing.
+| High turning speed settings are used below for best control based on testing.
 
 .. code-block:: python
-
 
     from microbit import *
     import radio
