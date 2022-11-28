@@ -309,6 +309,8 @@ Turning
 | When turning right, the right wheel is slowed based on the tightness value.
 | The turning tightness is greatest with a value of 5.
 
+----
+
 left
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -391,6 +393,10 @@ Spinning
 | When spining left, the left wheel goes forwards while the right wheel goes forward.
 | When spining right, the right wheel goes forwards while the left wheel goes forward.
 
+----
+
+spin left
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. py:method:: spin_left(speed=1, duration=None)
 
@@ -405,6 +411,10 @@ Spinning
 | ``spin_left()`` and ``spin_left(1)`` and ``spin_left(speed=1)`` all spin the buggy to the left at speed 1.
 | ``spin_left(3, 2000)`` and ``spin_left(3, duration=2000)`` and ``spin_left(speed=3, duration=2000)`` all spin the buggy to the left at speed 3 for 2 secs.
 
+----
+
+spin right
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. py:method:: spin_right(speed=1, duration=None)
 
