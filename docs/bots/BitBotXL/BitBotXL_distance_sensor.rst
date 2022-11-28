@@ -2,6 +2,11 @@
 BitBotXL distance sensor
 ====================================================
 
+| The BitBotXL fits the Ultrasonic Distance Sensor Breakout distance sensor at the front.
+| It can be treated as if it is a the standard HC_SR04P distance sensor, but with one pin connection.
+
+----
+
 HC_SR04P
 --------------
 

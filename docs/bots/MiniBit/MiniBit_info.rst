@@ -38,7 +38,7 @@ The pin numbers used to control different parts are below.
  pin14   Right Motor
  pin16   Right Motor Backwards
 
- pin15   Ultrasonic
+ pin15   Ultrasonic Distance sensor
 
  pin13   4x LEDs
 =======  ===========================

@@ -2,13 +2,18 @@
 MiniBit distance sensor
 ====================================================
 
+| The MiniBit fits the Ultrasonic Distance Sensor Breakout distance sensor at the front.
+| It can be treated as if it is a the standard HC_SR04P distance sensor, but with one pin connection.
+
+----
+
 HC_SR04P
 --------------
 
-| For general info on the HC_SR04P distance sensor, 
+| For general info on the HC_SR04P distance sensor:
 | see: https://shop.4tronix.co.uk/products/hc-sr04p-low-voltage-ultrasonic-distance-sensor
 | Also see: https://shop.4tronix.co.uk/collections/robobit/products/ultrasonic-breakout
-| Note: the distance sensor does not use the example code in hte above link, but uses code based on the BitBoxXL sample code.
+| Note: the distance sensor does not use the example code in the above link, but uses code based on the BitBoxXL sample code.
 
 .. image:: images/ultrasonic-sensor-for-bitbot-xl.png
     :scale: 50 %
