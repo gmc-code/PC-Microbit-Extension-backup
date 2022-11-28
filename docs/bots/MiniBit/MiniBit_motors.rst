@@ -488,7 +488,7 @@ Spin left
 Spin right
 ----------------------------------------
 
-| To spin lerigrighthtft, drive the left motor forwards and the right motor backwards.
+| To spin right, drive the left motor forwards and the right motor backwards.
 | Use a default speed, as in ``def spin_right(speed=2, duration=None)``.
 | Allow positive values for speed, 0 <= speed <= 10.
 

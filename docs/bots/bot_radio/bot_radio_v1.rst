@@ -64,7 +64,7 @@ Radio for controller
 Radio for microbit on MiniBit
 --------------------------------------
 
-| The code below moves the BitBotXL at maximum speed, since its top speed is relatively slow.
+| The code below moves the MiniBit at maximum speed, since its top speed is relatively slow.
 | The tightness of 5 gives a tight turn.
 
 .. code-block:: python

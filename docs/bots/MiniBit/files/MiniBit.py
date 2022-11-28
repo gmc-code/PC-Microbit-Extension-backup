@@ -30,74 +30,92 @@ class MiniBitMotors:
         RMB.write_digital(0)
 
     @staticmethod
-    def _analog_speed(speed):
-        # input speed = -10 to 0 to 10
-        # output = 0 to 1023
-        if speed < 0 and speed >= -10:
-            return - int((speed * 100) - 23)
-        elif speed > 0 and speed <= 10:
-            return int((speed * 100) + 23)
-        else:
-            return 0
-
     def scale(from_value, from_min, from_max, to_min, to_max):
         return int(((from_value - from_min) / (from_max - from_min)) * (to_max - to_min) + to_min)
 
+    @staticmethod
     def speed_scaled(speed):
-        return scale(speed, 0, 10, 0, 1023)
+        return __class__.scale(speed, 0, 10, 0, 1023)
         
-    def forwards(speed=2, duration=None):
-        analog_speed = speed_scaled(speed)
+    def forwards(self, speed=2, duration=None):
+        analog_speed = self.speed_scaled(speed)
         LMF.write_analog(analog_speed)
         LMB.write_digital(0)
         RMF.write_analog(analog_speed)
         RMB.write_digital(0)
         if duration is not None:
             utime.sleep_ms(duration)
-            stop()
+            self.stop()
 
-    def backward(self, speed=2, duration=None):
-        self.right_motor(-speed)
-        self.left_motor(-speed)
+    def backwards(self, speed=2, duration=None):
+        analog_speed = self.speed_scaled(speed)
+        LMF.write_digital(0)
+        LMB.write_analog(analog_speed)
+        RMF.write_digital(0)
+        RMB.write_analog(analog_speed)
         if duration is not None:
             utime.sleep_ms(duration)
             self.stop()
 
     @staticmethod
-    def _inner_turn_speed(speed, tightness=2):
-        return speed / tightness
+    def inner_turn_speed(speed, tightness=2):
+        if tightness == 0:
+            return 0
+        else:
+            return int(speed / tightness)
+
 
     def left(self, speed=2, tightness=2, duration=None):
-        # right motor faster than left
-        # display.scroll(outer_speed)
-        # display.scroll(tightness)
-        inner_speed = self._inner_turn_speed(speed, tightness)
-        # display.scroll(inner_speed)
-        self.left_motor(inner_speed)
-        self.right_motor(speed)
+        outer_speed = speed_scaled(speed)
+        inner_speed = inner_turn_speed(outer_speed, tightness)
+        if speed > 0:
+            LMF.write_analog(inner_speed)
+            LMB.write_digital(0)
+            RMF.write_analog(outer_speed)
+            RMB.write_digital(0)
+        else:
+            LMF.write_digital(0)
+            LMB.write_analog(-inner_speed)
+            RMF.write_digital(0)
+            RMB.write_analog(-outer_speed)
         if duration is not None:
             utime.sleep_ms(duration)
-            self.stop()
+            stop()
+
 
     def right(self, speed=2, tightness=2, duration=None):
-        # left motor faster than right
-        inner_speed = self._inner_turn_speed(speed, tightness)
-        self.left_motor(speed)
-        self.right_motor(inner_speed)
+        outer_speed = self.speed_scaled(speed)
+        inner_speed = self.inner_turn_speed(outer_speed, tightness)
+        if speed > 0:
+            LMF.write_analog(outer_speed)
+            LMB.write_digital(0)
+            RMF.write_analog(inner_speed)
+            RMB.write_digital(0)
+        else:
+            LMF.write_digital(0)
+            LMB.write_analog(-outer_speed)
+            RMF.write_digital(0)
+            RMB.write_analog(-inner_speed)
         if duration is not None:
             utime.sleep_ms(duration)
             self.stop()
 
     def spin_left(self, speed=2, duration=None):
-        self.left_motor(-speed)
-        self.right_motor(speed)
+        analog_speed = self.speed_scaled(speed)
+        LMF.write_digital(0)
+        LMB.write_analog(analog_speed)
+        RMF.write_analog(analog_speed)
+        RMB.write_digital(0)
         if duration is not None:
             utime.sleep_ms(duration)
             self.stop()
 
     def spin_right(self, speed=2, duration=None):
-        self.left_motor(speed)
-        self.right_motor(-speed)
+        analog_speed = self.speed_scaled(speed)
+        LMF.write_analog(analog_speed)
+        LMB.write_digital(0)
+        RMF.write_digital(0)
+        RMB.write_analog(analog_speed)
         if duration is not None:
             utime.sleep_ms(duration)
             self.stop()

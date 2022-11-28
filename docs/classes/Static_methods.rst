@@ -50,3 +50,10 @@ Static methods
     #. Write a static method that calculates a level bonus score using the formula: ``bonus = level * 5.`` 
 
 
+.. admonition:: Note
+
+    | If a static method needs to call another static method, self is not avalailable.
+    | The class itself can be used or the special method, __class__, can be used.
+    | e.g return MyClass.staticmethod2()
+    | e.g return __class__.staticmethod2()
+
