@@ -126,17 +126,17 @@ Radio for microbit on MiniBit
             elif msg == "X":
                 buggy.stop()
             elif msg == "L":
-                buggy.left(speed=10, tightness=5)
+                buggy.left(speed=10, tightness=2)
             elif msg == "M":
                 buggy.left(speed=10, tightness=3)
             elif msg == "N":
-                buggy.left(speed=10, tightness=2)
+                buggy.left(speed=10, tightness=5)
             elif msg == "R":
-                buggy.right(speed=10, tightness=5)
+                buggy.right(speed=10, tightness=2)
             elif msg == "S":
                 buggy.right(speed=10, tightness=3)
             elif msg == "T":
-                buggy.right(speed=10, tightness=2)
+                buggy.right(speed=10, tightness=5)
 
 
 ----
@@ -181,17 +181,17 @@ Radio for microbit on BitBotXL
             elif msg == "X":
                 buggy.stop()
             elif msg == "L":
-                buggy.left(speed=10, tightness=5)
+                buggy.left(speed=10, tightness=2)
             elif msg == "M":
                 buggy.left(speed=10, tightness=3)
             elif msg == "N":
-                buggy.left(speed=10, tightness=2)
+                buggy.left(speed=10, tightness=5)
             elif msg == "R":
-                buggy.right(speed=10, tightness=5)
+                buggy.right(speed=10, tightness=2)
             elif msg == "S":
                 buggy.right(speed=10, tightness=3)
             elif msg == "T":
-                buggy.right(speed=10, tightness=2)
+                buggy.right(speed=10, tightness=5)
 
 ----
 
@@ -235,17 +235,17 @@ Radio for microbit on MOVEMotor
             elif msg == "X":
                 buggy.stop()
             elif msg == "L":
-                buggy.left(speed=2, radius=5)
+                buggy.left(speed=2, radius=25)
             elif msg == "M":
                 buggy.left(speed=3, radius=15)
             elif msg == "N":
-                buggy.left(speed=4, radius=25)
+                buggy.left(speed=4, radius=5)
             elif msg == "R":
-                buggy.right(speed=2, radius=5)
+                buggy.right(speed=2, radius=25)
             elif msg == "S":
                 buggy.right(speed=3, radius=15)
             elif msg == "T":
-                buggy.right(speed=4, radius=25)
+                buggy.right(speed=4, radius=5)
             
 
 
@@ -258,6 +258,7 @@ Radio Racing
 
     #. Create an obstacle course and race another bot using radio controls.
     #. Modify the speed settings to suit the obstacle course.
+    #. Add B button pressing to allow backwards movement while turning.
     #. Add a variable to keep track of the last msg sent and only send a new msg if it is different to the last msg.
 
 

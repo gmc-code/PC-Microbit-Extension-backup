@@ -148,17 +148,17 @@ Radio for microbit on MOVEMotor
             elif msg == "X":
                 buggy.stop()
             elif msg == "L":
-                buggy.left(speed=2, radius=5)
+                buggy.left(speed=2, radius=25)
             elif msg == "M":
                 buggy.left(speed=3, radius=15)
             elif msg == "N":
-                buggy.left(speed=4, radius=25)
+                buggy.left(speed=4, radius=5)
             elif msg == "R":
-                buggy.right(speed=2, radius=5)
+                buggy.right(speed=2, radius=25)
             elif msg == "S":
                 buggy.right(speed=3, radius=15)
             elif msg == "T":
-                buggy.right(speed=4, radius=25)
+                buggy.right(speed=4, radius=5)
 
 
 ----
