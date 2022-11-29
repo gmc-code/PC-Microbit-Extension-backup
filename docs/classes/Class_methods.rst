@@ -6,19 +6,19 @@ Class methods
 | The class methods can access and modify the class state.
 
 | To define a class method:
-| First place the @classmethod decorator above the method definition. 
-| For now, you just need to understand that the @classmethod decorator will change an instance method to a class method.
-| Second, rename the self parameter to cls. 
-| The cls means class. However, class is a keyword so you cannot use it as a parameter.
+| First place the ``@classmethod`` decorator above the method definition. 
+| For now, you just need to understand that the ``@classmethod`` decorator will change an instance method to a class method.
+| Second, rename the ``self`` parameter to ``cls``. 
+| The ``cls`` means class. However, class is a keyword so you cannot use it as a parameter.
 
 ----
 
 @classmethod and cls parameter
 -------------------------------------------------
 
-| Class methods use the **cls** parameter as the first parameter for passing the class.
+| Class methods use the ``cls`` parameter as the first parameter for passing the class.
 | In the code below, ``game_number`` is a class variable.
-| The ``set_game_number`` function takes **cls** as the first parameter, and has ``game_number`` as a second parameter.
+| The ``set_game_number`` function takes ``cls`` as the first parameter, and has ``game_number`` as a second parameter.
 | The class variable, ``cls.game_number``, is set to the value of ``game_number``.
 | The function is preceded by the decorator, ``@classmethod``, which is required to make the function work as a class method, so the function acts on the class rather than an instance of the class.
 | The class method is called on the class using ``LevelGame.set_game_number(1)`` which sets the class variable, ``game_number``, to 1. 
