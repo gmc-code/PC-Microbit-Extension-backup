@@ -28,7 +28,7 @@ Static methods
 | In the code below, when the game is instantiated at a particular game level, ``game = LevelGame(game_level=1)``, it will use the static method, ``get_required_level_score``, and then print the value for it.
 
 | ``def get_required_level_score(level):`` does not pass in **self** to the function. 
-| The decorator, ``@staticmethod``, is needed to make the function not require self to be passed in.
+| The decorator, ``@staticmethod``, is needed to make it so that the function does not require **self** to be passed in.
 
 .. code-block:: python
 

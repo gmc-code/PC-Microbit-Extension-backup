@@ -4,6 +4,9 @@ Inheritance
 
 | The examples given are for use in python3 mode in Mu editor and are not microbit specific.
 | See: https://www.w3schools.com/python/python_classes.asp
+| See: https://www.geeksforgeeks.org/inheritance-and-composition-in-python/
+
+----
 
 Class Inheritance
 --------------------
