@@ -79,8 +79,8 @@ Pixel Classes
 Pixel animation using classes
 --------------------------------
 
-| The Class ``LED`` is used to create several LED objects used in the animation.
-| The definitions within the class allow easy use of methods to control the microbit LED brightness. 
+| The Class ``Pixel`` is used to create several Pixel objects used in the animation.
+| The definitions within the class allows easy use of methods to control the microbit LED brightness. 
 
 .. code-block:: python
 
