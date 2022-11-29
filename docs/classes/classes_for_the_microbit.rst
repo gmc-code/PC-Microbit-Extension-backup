@@ -11,7 +11,7 @@ Classes for the microbit
 Pixel Classes
 -------------------
 
-| The code below blinks a pixel on the display which moves as the microbit is tilted.
+| The code below blinks a pixel which moves as the microbit is tilted.
 | The ``acc_x_change()`` and ``acc_y_change()`` functions return the change in x and y as the microbit is tilted.
 | These are passed to the ``move`` method of the BlinkPixel object as in ``mypix.move(acc_x_change(), acc_y_change())``
 | The ``move`` method uses ``min`` amd ``max`` to prevent the x or y values going outside the range 0 to 4, as seen in ``self.x_position = min(4, max(0, self.x_position + x_delta))``
