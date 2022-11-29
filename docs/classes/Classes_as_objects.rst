@@ -25,5 +25,5 @@ Classes and Objects
 ----------------------
 
 | A Class is a code template, an object constructor, a blueprint for creating instances (objects).
+| An instance of a class is an object which has a collection of data (variables) and methods (functions) that act on those data.
 
-| The name of the class is in camel case. e.g. **LevelGame**. Each word is capitalized and there are no underscores. 

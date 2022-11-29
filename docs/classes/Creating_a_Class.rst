@@ -2,6 +2,14 @@
 Creating a Class
 ====================================================
 
+
+Naming Classes
+----------------------
+
+| The name of the class is in camel case. e.g. **LevelGame**. Each word is capitalized and there are no underscores. 
+
+----
+
 Class Creation
 ----------------------
 
