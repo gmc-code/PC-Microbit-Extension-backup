@@ -27,5 +27,6 @@ Self in methods
     .. code-block:: python
 
         class LevelGame:
-            def __init__(game, level):
-                game.game_level = level
+            def __init__(game, game_level):
+                game.game_level = game_level
+

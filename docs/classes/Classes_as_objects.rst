@@ -8,7 +8,7 @@ Classes as objects
 Objects
 ----------------------
 
-| In Python, strings, integers, floats, lists, tuples, dictionaries etc. are objects, with their own data and methods.
+| In Python, strings, integers, floats, lists, tuples, dictionaries etc. are objects with their own data and methods.
 | Every object has:
 * a type
 * data

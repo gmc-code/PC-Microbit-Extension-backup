@@ -18,6 +18,10 @@ Variables unique to the instance
     game = LevelGame()
     print(game.game_level)
 
+----
+
+Instantiating a class instance with arguments
+---------------------------------------------------
 
 | Parameters can be used in the ``__init__`` definition so that arguments can be passed when the object is instantiated.
 | e.g. the ``level`` parameter has been used in ``__init__(self, level)``.
@@ -32,9 +36,26 @@ Variables unique to the instance
     game = LevelGame(1)
     print(game.game_level)
 
-| Is it customary to use the same name for the parameters as it is for the instance variables.
+----
+
+Customary variable names
+---------------------------------------------------
+
+| Is it customary to use the same name for the parameters as for the instance variables.
 | e.g. ``self.game_level = game_level``
 | In the code above, a different variable name, ``level``, has been used instead of ``game_level`` to help see what is happening with the variables.
+| The code below follows the custom.
+
+.. code-block:: python
+
+    class LevelGame:
+        def __init__(self, game_level):
+            self.game_level = game_level
+
+    game = LevelGame(1)
+    print(game.game_level)
+
+----
 
 .. admonition:: Tasks
 

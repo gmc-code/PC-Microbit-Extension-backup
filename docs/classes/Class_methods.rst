@@ -2,6 +2,17 @@
 Class methods
 ====================================================
 
+| A class method isn't bound to any specific instance. It's bound to the class only.
+| The class methods can access and modify the class state.
+
+| To define a class method:
+| First place the @classmethod decorator above the method definition. 
+| For now, you just need to understand that the @classmethod decorator will change an instance method to a class method.
+| Second, rename the self parameter to cls. 
+| The cls means class. However, class is a keyword so you cannot use it as a parameter.
+
+----
+
 @classmethod and cls parameter
 -------------------------------------------------
 

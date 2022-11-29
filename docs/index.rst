@@ -99,18 +99,19 @@ PC-microbit-extension
     :numbered:
 
 
-    classes/classes_for_the_microbit.rst
+
     classes/Classes_as_objects.rst
     classes/Creating_a_Class.rst
     classes/Class_variables.rst
     classes/Instance_variables.rst
     classes/The_init_function.rst
     classes/Self.rst
-    classes/Regular_Methods.rst
+    classes/Instance_Methods.rst
     classes/Class_methods.rst
     classes/Static_methods.rst
     classes/inheritance.rst
     classes/composition.rst
+    classes/classes_for_the_microbit.rst
 
 .. toctree::
     :maxdepth: 2

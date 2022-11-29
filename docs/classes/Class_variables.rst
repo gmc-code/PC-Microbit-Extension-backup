@@ -103,11 +103,11 @@ Modifying Class variables during instantiation
             LevelGame.game_number += 1
 
     game = LevelGame(1)
-    game2 = LevelGame(2)
+    print(game.game_number)
 
+    game2 = LevelGame(2)
     print(game.game_number)
     print(game2.game_number)
-
 
 .. admonition:: Tasks
 

@@ -14,16 +14,16 @@ The __init__() function
 |  ``game = LevelGame(1)`` and ``game = LevelGame(level=1)`` do the same thing.
 | e.g. ``game = LevelGame(level=1, lives=3)`` passes in ``level=1`` and ``lives=3`` to the ``__init__()`` function.
 
-| In the sample code, 2 instance variables are created.
+| In the sample code, two instance variables, game_level and player_lives, are created.
 
 .. code-block:: python
 
     class LevelGame:
-        def __init__(self, level, lives):
-            self.game_level = level
-            self.player_lives = lives
+        def __init__(self, game_level, player_lives):
+            self.game_level = game_level
+            self.player_lives = player_lives
 
-    game = LevelGame(level=1, lives=3)
+    game = LevelGame(game_level=1, player_lives=3)
 
 
 .. admonition:: Tasks

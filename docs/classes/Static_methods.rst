@@ -2,11 +2,13 @@
 Static methods
 ====================================================
 
-| Static methods do not pass anything automatically.
+| Static methods do not pass anything automatically (such as self or cls).
+| Static methods cannot access and modify an object state.
 | Compare this to regular methods which pass **self** automatically.
 | Compare this to class methods which pass the **class** automatically.
 | Static methods behave like regular functions and are included in the class since they have some logical connection with it.
 | Choose to use static methods when there are no references to instance variables or class variables within it.
+| In practice, use static methods to define utility methods or group functions that have some logical relationships in a class.
 
 | Static methods do not require a class instance to be created first.
 | The simplified code below illustrates this:
