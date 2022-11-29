@@ -38,7 +38,7 @@ PC-microbit-extension
     bots/BitBotXL/BitBotXL_motors.rst
     bots/BitBotXL/BitBotXL_distance_sensor.rst
     bots/BitBotXL/BitBotXL_LEDs.rst
-
+    bots/BitBotXL/BitBotXL_summary.rst
 
 
 .. toctree::
