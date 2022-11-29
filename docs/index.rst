@@ -98,8 +98,6 @@ PC-microbit-extension
     :caption: Classes
     :numbered:
 
-
-
     classes/Classes_as_objects.rst
     classes/Creating_a_Class.rst
     classes/Class_variables.rst
@@ -112,6 +110,15 @@ PC-microbit-extension
     classes/inheritance.rst
     classes/composition.rst
     classes/classes_for_the_microbit.rst
+
+
+.. toctree::
+    :maxdepth: 2
+    :caption: Class examples
+    :numbered:
+
+    class_examples/dog_class.rst
+
 
 .. toctree::
     :maxdepth: 2
