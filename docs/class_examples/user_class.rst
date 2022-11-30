@@ -21,7 +21,7 @@ User Class
         def greet_user(self):
             print(f"Welcome, {self.first_name}!")
 
-    user_1 = User("Tim", "Lum", "1999-12-24")
+    user_1 = User("Aaron", "Green, "1999-12-24")
     user_2 = User("Kim", "Zhang", "2002-03-13")
 
     user_1.greet_user()
