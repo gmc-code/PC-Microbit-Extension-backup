@@ -2,37 +2,47 @@
 Car Class
 ====================================================
     
-| Set the dog's name and age on calling the Dog class.
-| Call the dog methods.
+| Set the car's make, model, year, colour. 
+| Use the car's methods to update and read the odometer.
 
 
 .. code-block:: python
 
-    class Dog:
+    class Car:
 
-        def __init__(self, name, age):
-            self.name = name
-            self.age = age
+        def __init__(self, make, model, year, colour):
+            self.make = make
+            self.model = model
+            self.year = year
+            self.colour = colour
+            self.odometer = 0
             
         def get_info(self):
-            print(f"{self.name} is {self.age} years old.")
+            return f"{self.year} {self.colour} {self.make} {self.model}"
 
-        def sit(self):
-            print(f"{self.name} is sitting.")
+        def read_odometer(self):
+            print(f"{self.get_info()} has done {self.odometer} km.")
 
-        def roll_over(self):
-            print(f"{self.name} rolled over!")
+        def update_odometer(self, km):
+            if km >= self.odometer:
+                self.odometer = km
+            else:
+                print("You can't lower km on an odometer!")
 
-        def chase_ball(self):
-            print(f"{self.name} ran after the ball.")
+        def increment_odometer(self, miles):
+            self.odometer += miles
+        
+    my_car = Car('ford', 'territory', 2005, "tan")
+    print(my_car.get_info())
 
+    # update odometer using attribute
+    my_car.odometer_reading = 20
+    my_car.read_odometer()
 
-    # instantiate 2 dogs
-    his_dog = Dog('Milo', 2)
-    her_dog = Dog('Daisy', 4)
-    # call dog methods
-    his_dog.get_info()
-    his_dog.roll_over()
-    his_dog.sit()
-    her_dog.get_info()
-    her_dog.chase_ball()
+    # update odometer using method
+    my_car.update_odometer(100_000)
+    my_car.read_odometer()
+
+    # update odometer using method
+    my_car.increment_odometer(275)
+    my_car.read_odometer()
