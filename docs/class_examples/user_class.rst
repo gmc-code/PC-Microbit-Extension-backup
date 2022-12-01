@@ -58,6 +58,7 @@ User Class
             user_1.get_login_info()
 
 
+    .. dropdown::
         :icon: codescan
         :color: primary
         :class-container: sd-dropdown-container

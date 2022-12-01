@@ -30,8 +30,11 @@ Car Class
                     self.       = colour
                     self.odometer =
                     
-                def get_info(self):
+                def info(self):
                     return f"{       year} {      colour} {      make} {           model}".title()
+
+                def get_info(self):
+                    print(f"{self.info()}")
 
                 def read_odometer(self):
                     print(f"{self.get_info()} has done {             } km.")
@@ -93,11 +96,14 @@ Car Class
                             self.colour = colour
                             self.odometer = 0
                             
-                        def get_info(self):
+                        def info(self):
                             return f"{self.year} {self.colour} {self.make} {self.model}".title()
 
+                        def get_info(self):
+                            print(f"{self.info()}")
+
                         def read_odometer(self):
-                            print(f"{self.get_info()} has done {self.odometer} km.")
+                            print(f"{self.info()} has done {self.odometer_reading} km.")
 
                         def update_odometer(self, km):
                             """
