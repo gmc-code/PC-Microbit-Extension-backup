@@ -9,7 +9,7 @@ Class methods
 | First place the ``@classmethod`` decorator above the method definition. 
 | The ``@classmethod`` decorator will change an instance method to a class method.
 | Second, rename the ``self`` parameter to ``cls``. 
-| The ``cls`` means class. However, class is a keyword so you cannot use it as a parameter.
+| The ``cls`` means class. Since ``class`` is a keyword, it can't be used as a parameter.
 
 ----
 
@@ -22,7 +22,9 @@ Class methods
 | The class variable, ``cls.game_number``, is set to the value of ``game_number``.
 | The function is preceded by the decorator, ``@classmethod``, which is required to make the function work as a class method, so the function acts on the class rather than an instance of the class.
 | The class method is called on the class using ``LevelGame.set_game_number(1)`` which sets the class variable, ``game_number``, to 1. 
-| The class method, ``set_game_number``,  can be called on an instance, ``game``,  such as, ``game.set_game_number(1)``. This works like calling on the class, but it makes more sense to call it on the class itself.
+
+| The class method, ``set_game_number``,  can also be called on an instance, ``game``,  such as, ``game.set_game_number(1)``. 
+| While this works like calling on the class, it makes more sense to call it on the class itself.
 
 
 .. code-block:: python
