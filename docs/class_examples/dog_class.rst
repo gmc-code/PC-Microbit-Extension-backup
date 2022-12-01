@@ -12,7 +12,7 @@ Dog Class
 
 .. admonition:: Tasks
 
-    #. Write a dog class scaffolded below
+    #. Write a dog class scaffolded below.
 
         .. code-block:: python
 
@@ -53,7 +53,7 @@ Dog Class
 
             .. tab-item:: Q1
 
-                Write a class for a dog
+                Write a class for a dog.
 
                 .. code-block:: python
 
