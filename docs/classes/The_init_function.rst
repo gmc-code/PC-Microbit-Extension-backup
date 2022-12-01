@@ -5,7 +5,7 @@ The init function
 The __init__() function
 --------------------------
 
-| The ``__init__()`` function is a built-in-function that is used to assign values to object properties, and to do other operations that are necessary when the object is created.
+| The ``__init__()`` function is a built-in-function that is used to assign values to object attributes, and to do other operations that are necessary when the object is created.
 | The ``__init__()`` function is called automatically every time the class is called when creating a new object.
 | The first parameter in the ``__init__()`` function is self, referring to the object itself.
 | Other parameters can follow self. e.g. ``__init__(self, level)``

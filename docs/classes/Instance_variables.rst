@@ -6,7 +6,8 @@ Variables unique to the instance
 --------------------------------------
 
 | Instance variables are variables, created in a class, that are unique to the instance.
-| The __init__() function assigns values to instance variables when the object is created. e.g. ``self.game_level = 1``
+| The __init__() function assigns values to instance variables when the object is created. 
+| e.g. ``self.game_level = 1``
 | ``self.game_level`` is an instance variable. It is referenced using the self keyword.
 
 .. code-block:: python
