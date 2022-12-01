@@ -8,30 +8,29 @@ Classes as objects
 
 ----
 
-Objects
-----------------------
-
-| In Python, strings, integers, floats, lists, tuples, dictionaries etc. are objects with their own data and methods.
-| Every object has:
-* a type
-* data
-* methods
-
-| e.g.  the string object 'hello'
-* type is str
-* data is 'hello'
-* methods are the standard string methods such a ``.title()`` and ``.lower()``.
-
-----
-
 Classes and Objects
 ----------------------
 
-| A Class is a code template, an object constructor, a blueprint for creating instances (objects).
+| A Class is a code template or blueprint for creating instances (objects).
 | An instance of a class is an object which has a collection of data (variables) and methods (functions) that act on those data.
 
 | Classes provide a means of bundling data and functionality together. 
-| Creating a new class creates a new type of object, allowing new instances of that type to be made. 
 | Each class instance can have attributes attached to it for maintaining its state. 
-| Class instances can also have methods for modifying its state.
+| Each class instance can also have methods for modifying its state.
+
+
+----
+
+Object data and methods
+-----------------------------
+
+.. image:: images/encapsulation.png
+    :scale: 50 %
+    :align: center
+    :alt: encapsulation
+
+| Variables and definitions can be gathered together in a class.
+| Classes are an **encapsulation** of variables and functions. 
+| Classes get their data attributes (properties) from variables within the class.
+| Classes get their procedural attributes (methods) from functions within the class.
 

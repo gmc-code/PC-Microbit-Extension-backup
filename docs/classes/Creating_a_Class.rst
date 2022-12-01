@@ -39,19 +39,3 @@ Object instantiation
         pass
 
     game = LevelGame()
-
-----
-
-Object data and methods
------------------------------
-
-.. image:: images/encapsulation.png
-    :scale: 50 %
-    :align: center
-    :alt: encapsulation
-
-| Variables and definitions can be gathered together in a class.
-| Classes are an **encapsulation** of variables and functions. 
-| Classes get their data attributes (properties) from variables within the class.
-| Classes get their procedural attributes (methods) from functions within the class.
-
