@@ -13,7 +13,6 @@ Dog Class
 | chase_ball()
 
 | Ouput:
-
 | Milo is 2 years old.
 | Milo rolled over!
 | Milo is sitting.
