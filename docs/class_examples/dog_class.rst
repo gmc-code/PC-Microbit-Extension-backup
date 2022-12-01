@@ -12,7 +12,7 @@ Dog Class
 | sit()
 | chase_ball()
 
-| Ouput:
+| Write code to ouput:
 | Milo is 2 years old.
 | Milo rolled over!
 | Milo is sitting.

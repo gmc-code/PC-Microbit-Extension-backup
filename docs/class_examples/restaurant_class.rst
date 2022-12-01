@@ -7,7 +7,7 @@ Restaurant Class
 | Write a method, get_info(), to print a descriptive line, using f-strings: 
 | Write a method to set the number of tables booked and a method to increment them.
 
-| Output:
+| Write code to ouput:
 | Pierre's serves French food 6-10pm. 8 tables booked.
 | Louie's Bistro serves Italian food 10am - 2pm. 6 tables booked.
 
@@ -38,14 +38,14 @@ Restaurant Class
                     
             # instantiate 2 Restaurants
             res_1 = Restaurant("Pierre's", "French", "6-10pm")
-            res_2 = Restaurant("Louie's Bistro", "Italian", "10am - 2pm")
-            # set booked tables
             res_1.set_number_tables_booked(8)
+            res_1.get_info()
+
+            res_2 = Restaurant("Louie's Bistro", "Italian", "10am - 2pm")
             res_2.set_number_tables_booked(4)
             res_2.increment_number_tables_booked(2)
-            # print info
-            res_1.get_info()
             res_2.get_info()
+
 
     .. dropdown::
         :icon: codescan
@@ -81,11 +81,10 @@ Restaurant Class
                             
                     # instantiate 2 Restaurants
                     res_1 = Restaurant("Pierre's", "French", "6-10pm")
-                    res_2 = Restaurant("Louie's Bistro", "Italian", "10am - 2pm")
-                    # set booked tables
                     res_1.set_number_tables_booked(8)
+                    res_1.get_info()
+
+                    res_2 = Restaurant("Louie's Bistro", "Italian", "10am - 2pm")
                     res_2.set_number_tables_booked(4)
                     res_2.increment_number_tables_booked(2)
-                    # print info
-                    res_1.get_info()
                     res_2.get_info()

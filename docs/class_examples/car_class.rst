@@ -9,7 +9,7 @@ Car Class
 | Write a greeting method, greet_user().
 | Write a method to update the odometer to a specified amount and a method to increment the odometer by a specified amount.
 
-| Ouput:
+| Write code to ouput:
 | 2005 Tan Ford Territory
 | 2005 Tan Ford Territory has done 0 km.
 | 2005 Tan Ford Territory has done 100000 km.

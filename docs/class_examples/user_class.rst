@@ -2,13 +2,22 @@
 User Class
 ====================================================
     
-| Set the user first_name, last_name, date_of_birth
+| Set the user first_name, last_name, user_status
 | Call the user methods.
 
-| Set the User's first_name, last_name, date_of_birth on calling the User class, as well as setting the number of logins to 0.
+| Set the User's first_name, last_name, user_status on calling the User class, as well as setting the number of logins to 0.
 | Write the methods, get_info() and get_login_info(self) to print a descriptive line, using f-strings: 
 | Write a greeting method, greet_user().
 | Write a method to reset the number of logins and a method to increment them.
+
+| Write code to ouput:
+| Welcome, Tim!
+| Tim Lang is a Subscriber.
+| logins: 1
+| logins: 2
+| Tim Lum has logged in 2 times.
+| logins: 0
+| Tim Lum has logged in 0 times.
 
 .. admonition:: Tasks
 
@@ -17,14 +26,14 @@ User Class
         .. code-block:: python
 
             class User:
-                def __init__(self, first_name, last_name, date_of_birth):
+                def __init__(self, first_name, last_name, user_status):
                     self.first_name = 
                     self.last_name = 
-                    self.date_of_birth = 
+                    self.user_status = 
                     self.logins = 
 
                 def get_info(self):
-                    print(f"{       first_name} {      last_name} was born {      date_of_birth}.")
+                    print(f"{       first_name} {      last_name} is a {      user_status}.")
 
                 def get_login_info(self):
                     print(f"{     first_name} {      last_name} has logged in {     logins} times.")
@@ -41,12 +50,13 @@ User Class
                     print(f"logins: {             }")
                     
                     
-            user_1 = User("Tim", "Lum", "1999-12-24")
-            user_2 = User("Kim", "Zhang", "2002-03-13")
-
+            user_1 = User("Tim", "Lang", "Subscriber")
             user_1.greet_user()
             user_1.get_info()
             user_1.increment_logins()
+            user_1.increment_logins()
+            user_1.get_login_info()
+            user_1.reset_logins()
             user_1.get_login_info()
 
 
@@ -63,14 +73,14 @@ User Class
                 .. code-block:: python
 
                     class User:
-                        def __init__(self, first_name, last_name, date_of_birth):
+                        def __init__(self, first_name, last_name, user_status):
                             self.first_name = first_name
                             self.last_name = last_name
-                            self.date_of_birth = date_of_birth
+                            self.user_status = user_status
                             self.logins = 0
 
                         def get_info(self):
-                            print(f"{self.first_name} {self.last_name} was born {self.date_of_birth}.")
+                            print(f"{self.first_name} {self.last_name} is a {self.user_status}.")
 
                         def get_login_info(self):
                             print(f"{self.first_name} {self.last_name} has logged in {self.logins} times.")
@@ -87,10 +97,13 @@ User Class
                             print(f"logins: {self.logins}")
                             
                             
-                    user_1 = User("Tim", "Lum", "1999-12-24")
-                    user_2 = User("Kim", "Zhang", "2002-03-13")
-
+                    user_1 = User("Tim", "Lang", "Subscriber")
                     user_1.greet_user()
                     user_1.get_info()
                     user_1.increment_logins()
+                    user_1.increment_logins()
                     user_1.get_login_info()
+                    user_1.reset_logins()
+                    user_1.get_login_info()
+
+
