@@ -11,10 +11,7 @@ User Class
 | Write code to ouput:
 | Welcome, Tim!
 | Tim Lang is a Subscriber.
-| logins: 1
-| logins: 2
 | Tim Lum has logged in 2 times.
-| logins: 0
 | Tim Lum has logged in 0 times.
 
 .. admonition:: Tasks
@@ -41,11 +38,9 @@ User Class
 
                 def increment_logins(self):
                     self.logins += 1
-                    print(f"logins: {               }")
 
                 def reset_logins(self):
                     self.logins = 0
-                    print(f"logins: {             }")
                     
                     
             user_1 = User("Tim", "Lang", "Subscriber")
@@ -89,11 +84,9 @@ User Class
 
                         def increment_logins(self):
                             self.logins += 1
-                            print(f"logins: {self.logins}")
 
                         def reset_logins(self):
                             self.logins = 0
-                            print(f"logins: {self.logins}")
                             
                             
                     user_1 = User("Tim", "Lang", "Subscriber")
