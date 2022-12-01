@@ -17,7 +17,7 @@ Dog Class
 | Milo rolled over!
 | Milo is sitting.
 | Daisy is 4 years old.
-| Daisy ran after ball.
+| Daisy ran after the ball.
 
 .. admonition:: Tasks
 

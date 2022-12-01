@@ -46,7 +46,7 @@ Car Class
                     if km >= self.odometer:
                         self. 
                     else: 
-                        print("You can't lower km on an odometer!")
+                        print("Km on an odometer can't be lowered.")
 
                 def increment_odometer(self, km):
                     """
