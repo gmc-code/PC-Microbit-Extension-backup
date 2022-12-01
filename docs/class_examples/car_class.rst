@@ -24,13 +24,23 @@ Car Class
             print(f"{self.get_info()} has done {self.odometer} km.")
 
         def update_odometer(self, km):
+            """
+            Set the odometer reading to the given value if greater than current reading
+            """
             if km >= self.odometer:
                 self.odometer = km
             else:
                 print("You can't lower km on an odometer!")
 
-        def increment_odometer(self, miles):
-            self.odometer += miles
+        def increment_odometer(self, km):
+            """
+            increase the odometer reading
+            """
+            if km >= 0:
+                self.odometer += km
+            else:
+                print("You can't lower km on an odometer!")
+            
         
     my_car = Car('ford', 'territory', 2005, "tan")
     print(my_car.get_info())

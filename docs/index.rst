@@ -121,6 +121,8 @@ PC-microbit-extension
     class_examples/restaurant_class.rst
     class_examples/user_class.rst
     class_examples/car_class.rst
+    class_examples/car_class_inheritance.rst
+    class_examples/car_class_composition.rst
 
 
 .. toctree::
