@@ -114,5 +114,5 @@ Class methods as alternative constructors
 
 .. admonition:: Tasks
 
-    #. Modify the code to create a game at level 10 with 2 lives.
+    #. Write code to create a game at level 10 with 2 lives.
 
