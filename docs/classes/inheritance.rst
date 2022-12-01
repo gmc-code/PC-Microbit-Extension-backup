@@ -86,7 +86,7 @@ super
             self.colour = colour
 
     col_rect = ColouredRectangle(2, 3, 'red')
-    print(col_rect.length, col_rect.width, col_rect.colour)
+    print(col_rect.length, col_rect.width, col_rect.area(), col_rect.colour)
 
 ----
 
