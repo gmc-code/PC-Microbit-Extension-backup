@@ -11,12 +11,11 @@ Classes as objects
 Classes and Objects
 ----------------------
 
+| Classes provide a means of bundling data and functionality together. 
 | A Class is a code template or blueprint for creating instances (objects).
 | An instance of a class is an object which has a collection of data (variables) and methods (functions) that act on those data.
-
-| Classes provide a means of bundling data and functionality together. 
-| Each class instance can have attributes attached to it for maintaining its state. 
-| Each class instance can also have methods for modifying its state.
+| Each class instance can have attributes for data. 
+| Each class instance can also have methods for modifying its data.
 
 
 ----
