@@ -12,7 +12,7 @@ Composition
 
 | Composition models a has-a-relationship.
 | Use composition to create components that can be reused by multiple classes.
-
+| A composite class can be assigned to an instance variable.
 ----
 
 Employee Salary
@@ -39,7 +39,7 @@ Employee Salary
             self.cls_salary = Salary(self.monthly_income, bonus_rate)
 
         def annual_salary(self):
-            return "Annual Salary= $" + str(self.cls_salary.get_annual_salary() + self.cls_salary.get_bonus())
+            return f"Annual Salary is $ {self.cls_salary.get_annual_salary() + self.cls_salary.get_bonus()}"
 
 
     emp = Employee(monthly_income=8000, bonus_rate=5)
