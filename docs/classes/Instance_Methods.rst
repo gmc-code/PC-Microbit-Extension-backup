@@ -14,9 +14,9 @@ Regular Methods without parameters
 
 | In the code below, ``game.level_up()`` calls the method ``level_up``.
 | ``self.game_level += 1`` adds 1 to ``self.game_level``.
-| When calling the method on the game object, self is not written in the parentheses since it is automatically passed.
-| The first print statement outputs 1, since the game object is instantiated with a game_level of 1.
-| Then, after the ``level_up()`` method has been called, the second print statement outputs 2.
+| When calling the method on the game object, ``game.level_up()``, self is not written in the parentheses since it is automatically passed.
+| The first print statement outputs 1, since the game object is instantiated with a game_level of 1 via ``game = LevelGame(game_level=1)``.
+| Then, after the ``level_up()`` method has been called via ``game.level_up()``, the second print statement outputs 2.
 
 | In the code below
 
