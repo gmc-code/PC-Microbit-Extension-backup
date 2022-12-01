@@ -4,7 +4,7 @@ Dog Class
     
 | Write a dog class.
 | Set the dog's name and age on calling the Dog class.
-| Write 4 methods to print a descriptive line for each method, using f strings: 
+| Write 4 methods to print a descriptive line for each method, using f-strings: 
 | get_info()
 | roll_over()
 | sit()

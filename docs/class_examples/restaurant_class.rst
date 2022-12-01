@@ -2,9 +2,9 @@
 Restaurant Class
 ====================================================
     
-| Set the Restaurant's name, food type, open hours on calling the Restaurant classas well as setting the number of tables booked to 0.
-| Write a method, get_info(), to print a descriptive line, using f strings: 
-| Write methods ot set the number of tables booked and increment them.
+| Set the Restaurant's name, food type, open hours on calling the Restaurant class, as well as setting the number of tables booked to 0.
+| Write a method, get_info(), to print a descriptive line, using f-strings: 
+| Write a method to set the number of tables booked and a method to increment them.
 
 .. admonition:: Tasks
 
