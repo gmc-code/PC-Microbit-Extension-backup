@@ -29,8 +29,9 @@ Object data and methods
     :align: center
     :alt: encapsulation
 
-| Variables and definitions can be gathered together in a class.
-| Classes are an **encapsulation** of variables and functions. 
-| Classes get their data attributes (properties) from variables within the class.
-| Classes get their procedural attributes (methods) from functions within the class.
+| Related variables and definitions can be gathered together in a class.
+| Classes are an **encapsulation** of variables and functions.
+
+| Variables in a class are known as data attributes or properties.
+| Functions in a class are known as methods.
 

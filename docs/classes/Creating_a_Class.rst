@@ -6,7 +6,8 @@ Creating a Class
 Naming Classes
 ----------------------
 
-| The name of the class is in camel case. e.g. **LevelGame**. Each word is capitalized and there are no underscores. 
+| By convention, the name of the class is in camel case. e.g. **LevelGame**. 
+| Each word is capitalized and there are no underscores. 
 
 ----
 
@@ -15,7 +16,9 @@ Class Creation
 
 | The code below creates a class, ``LevelGame``.
 | The keyword **class** is followed by the name of the class then a colon. e.g. ``class LevelGame:``
-| ``pass`` is used as a placeholder for future code. When the pass statement is executed, nothing happens, but getting an error is avoided since empty code is not allowed in a class.
+
+| ``pass`` is used as a placeholder for future code, since empty code is not allowed in a class.
+| When the pass statement is executed, nothing happens, but getting an error is avoided. 
 
 .. code-block:: python
 
