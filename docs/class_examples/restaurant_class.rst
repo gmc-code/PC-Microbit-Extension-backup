@@ -28,7 +28,7 @@ Restaurant Class
                     self.
                 
                 def increment_number_tables_booked(self, new_bookings):
-                    ''' Increment the number of customers who've been served'''
+                    '''Increment the number of tables booked'''
                     self.tables_booked
                     
             # instantiate 2 Restaurants
@@ -71,7 +71,7 @@ Restaurant Class
                             self.tables_booked = tables_booked
                         
                         def increment_number_tables_booked(self, new_bookings):
-                            ''' Increment the number of customers who've been served'''
+                            '''Increment the number of tables booked'''
                             self.tables_booked += new_bookings
                             
                     # instantiate 2 Restaurants
