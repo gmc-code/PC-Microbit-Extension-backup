@@ -2,8 +2,9 @@
 Dog Class
 ====================================================
     
+| Write a dog class.
 | Set the dog's name and age on calling the Dog class.
-| Write 4 methods to print a descriptive line for each method: 
+| Write 4 methods to print a descriptive line for each method, using f strings: 
 | get_info()
 | roll_over()
 | sit()
@@ -75,12 +76,14 @@ Dog Class
                             print(f"{self.name} ran after the ball.")
 
 
-    # instantiate 2 dogs
-    his_dog = Dog('Milo', 2)
-    her_dog = Dog('Daisy', 4)
-    # call dog methods
-    his_dog.get_info()
-    his_dog.roll_over()
-    his_dog.sit()
-    her_dog.get_info()
-    her_dog.chase_ball()
+                    # instantiate 2 dogs
+                    his_dog = Dog('Milo', 2)
+                    her_dog = Dog('Daisy', 4)
+
+                    # call dog methods
+                    his_dog.get_info()
+                    his_dog.roll_over()
+                    his_dog.sit()
+
+                    her_dog.get_info()
+                    her_dog.chase_ball()
