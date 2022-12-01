@@ -7,7 +7,7 @@ Class variables common to instances
 
 | A class variable is shared by all instances of a class.
 | In the code below, ``game_level`` is a class variable.
-| In the code below, both variables, ``game1.game_level`` and ``game2.game_level`` have the same value.
+| In the code below, both ``game1.game_level`` and ``game2.game_level`` have the same value.
 
 .. code-block:: python
 
@@ -80,7 +80,7 @@ Changing Class variables in an instance
 
     #. Use Class variables when the same value is needed in all instances. 
     #. Avoid changing class variables in instances since it can lead to confusion.
-    #. Use Instance variables when different values are needed in various instances.
+    #. Use Instance variables instead of class variables when different values are needed in each instance.
 
 ----
 
