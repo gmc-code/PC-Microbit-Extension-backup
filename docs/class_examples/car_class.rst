@@ -1,15 +1,19 @@
 ====================================================
 Car Class
 ====================================================
-    
-| Use the car's methods to update and read the odometer.
 
+| Write a Car class.  
 | Set the car's make, model, year, colour on calling the Car class, as well as setting the odometer to 0.
 | e.g. my_car = Car('ford', 'territory', 2005, "tan")
 | Write the methods, get_info() and read_odometer(self) to print a descriptive line, using f-strings: 
 | Write a greeting method, greet_user().
-| Write a method to update the odometer to a spcified amount and a method to increment the odometer by a spcified amount.
+| Write a method to update the odometer to a specified amount and a method to increment the odometer by a specified amount.
 
+| Ouput:
+| 2005 Tan Ford Territory
+| 2005 Tan Ford Territory has done 0 km.
+| 2005 Tan Ford Territory has done 100000 km.
+| 2005 Tan Ford Territory has done 100275 km.
 
 .. admonition:: Tasks
 
@@ -27,7 +31,7 @@ Car Class
                     self.odometer =
                     
                 def get_info(self):
-                    return f"{       year} {      colour} {      make} {           model}"
+                    return f"{       year} {      colour} {      make} {           model}".title()
 
                 def read_odometer(self):
                     print(f"{self.get_info()} has done {             } km.")
@@ -90,7 +94,7 @@ Car Class
                             self.odometer = 0
                             
                         def get_info(self):
-                            return f"{self.year} {self.colour} {self.make} {self.model}"
+                            return f"{self.year} {self.colour} {self.make} {self.model}".title()
 
                         def read_odometer(self):
                             print(f"{self.get_info()} has done {self.odometer} km.")
