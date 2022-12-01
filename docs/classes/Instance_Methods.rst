@@ -2,10 +2,9 @@
 Instance Methods
 ====================================================
 
-| When you define a function inside a class, and call the function via an instance of a class, the function becomes a method. e.g ``game.level_up()`` below.
-| A method, ``def level_up(self)``, has the first argument, ``(self)``.
+| When you define a function inside a class, and call the function via an instance of a class, the function is a method. e.g ``game.level_up()`` below.
+| The method, ``def level_up(self)``, has the first argument, ``(self)``.
 | Python automatically passes the object to the method as the first argument. 
-| By convention, its name is self.
 
 ----
 

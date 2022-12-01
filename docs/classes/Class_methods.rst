@@ -7,7 +7,7 @@ Class methods
 
 | To define a class method:
 | First place the ``@classmethod`` decorator above the method definition. 
-| For now, you just need to understand that the ``@classmethod`` decorator will change an instance method to a class method.
+| The ``@classmethod`` decorator will change an instance method to a class method.
 | Second, rename the ``self`` parameter to ``cls``. 
 | The ``cls`` means class. However, class is a keyword so you cannot use it as a parameter.
 
