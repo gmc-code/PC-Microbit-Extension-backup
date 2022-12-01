@@ -2,7 +2,6 @@
 Inheritance
 ====================================================
 
-| The examples given are for use in python3 mode in Mu editor and are not microbit specific.
 | See: https://www.w3schools.com/python/python_classes.asp
 | See: https://www.geeksforgeeks.org/inheritance-and-composition-in-python/
 
@@ -21,12 +20,13 @@ Class Inheritance
     :alt: Inheritance
 
 | Inheritance models an is-a relationship. 
-| e.g A dog **is an** animal. The dog is a specialized version of an animal.
+| e.g A dog **is an** animal. The dog is a specialized version of an animal. Animal is the parent class. Dog is the child class.
+
 | Use Inheritance when the child classes have common features (variables/attributes and functions/methods) with the parent class.
 | The child class inherits from the parent class.
 | The child class can change (override) some features or add (extend) features without affecting the parent class.
 
-| To create a child class from a parent class, place the name of the parent class in parentheses after the child class name. e.g ChildGame(ParentGame)
+| To create a child class from a parent class, place the name of the parent class in parentheses after the child class name. e.g ``ChildGame(ParentGame)``.
 
 ----
 

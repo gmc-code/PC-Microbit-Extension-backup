@@ -2,7 +2,6 @@
 Composition
 ====================================================
 
-| The examples given are for use in python3 mode in Mu editor and are not microbit specific.
 | See: https://www.geeksforgeeks.org/inheritance-and-composition-in-python/
 | See: https://medium.com/swlh/the-best-way-to-understand-composition-in-python-5-case-studies-and-solution-4b23a6a2cc38
 
