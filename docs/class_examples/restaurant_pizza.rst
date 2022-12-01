@@ -3,8 +3,18 @@ Pizza Restaurant Class
 ====================================================
     
 | Write a PizzaShop class as a child class of the Restaurant class.
-| Set the PizzaShop's name, food type, open hours on calling the PizzaShop class, as well as setting the manu.
+| Set the PizzaShop's name, food type, open hours on calling the PizzaShop class, as well as setting the menu.
 | Write a method, show_menu(), to print the PizzaShop's menu.
+
+| Write code to ouput:
+| Joe's Pizza serves Pizza food 6-10pm. 0 tables booked.
+| Joe's Pizza has the following menu:
+| 	- BBQ Chicken
+| 	- Capricossa
+| 	- Hawaiian
+| 	- Margarita
+| 	- Pepperoni
+
 
 .. admonition:: Tasks
 
@@ -35,21 +45,19 @@ Pizza Restaurant Class
             class PizzaShop(Restaurant):
                 '''child class of Restaurant'''
                 
-                def __init__(self, restaurant_name, food_type, open_hours):
+                def __init__(self, restaurant_name, food_type, open_hours, menu):
                              .__init__(restaurant_name, food_type, open_hours)
-                    self.menu = ["Capricossa",
-                                    "Hawaiian",
-                                    "BBQ Chicken",
-                                    "Pepperoni",
-                                    "Margarita"]
+                    self.menu = 
                 
                 def show_menu(self):
-                    print(f"\n{                   } has the following menu:")
-                    for menu_item in sorted(self.menu):
-                        print(f"\t- {         }")
+                    print(f"\n{self.                } has the following menu:")
+                    for menu_item in sorted(self.     ):
+                        print(f"\t- {          }")
+
 
             # instantiate Restaurant
-            res_1 = PizzaShop("Joe's Pizza", "Pizza", "6-10pm")
+            menu = ["Capricossa", "Hawaiian", "BBQ Chicken", "Pepperoni", "Margarita"]
+            res_1 = PizzaShop("Joe's Pizza", "Pizza", "6-10pm", menu)
             res_1.get_info()
             res_1.show_menu()
 
@@ -90,21 +98,18 @@ Pizza Restaurant Class
                     class PizzaShop(Restaurant):
                         '''child class of Restaurant'''
                         
-                        def __init__(self, restaurant_name, food_type, open_hours):
+                        def __init__(self, restaurant_name, food_type, open_hours, menu):
                             super().__init__(restaurant_name, food_type, open_hours)
-
-                            self.menu = ["Capricossa",
-                                            "Hawaiian",
-                                            "BBQ Chicken",
-                                            "Pepperoni",
-                                            "Margarita"]
+                            self.menu = menu
                         
                         def show_menu(self):
                             print(f"\n{self.restaurant_name} has the following menu:")
                             for menu_item in sorted(self.menu):
                                 print(f"\t- {menu_item}")
 
+
                     # instantiate Restaurant
-                    res_1 = PizzaShop("Joe's Pizza", "Pizza", "6-10pm")
+                    menu = ["Capricossa", "Hawaiian", "BBQ Chicken", "Pepperoni", "Margarita"]
+                    res_1 = PizzaShop("Joe's Pizza", "Pizza", "6-10pm", menu)
                     res_1.get_info()
                     res_1.show_menu()
