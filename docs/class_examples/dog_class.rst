@@ -4,6 +4,8 @@ Dog Class
     
 | Write a dog class.
 | Set the dog's name and age on calling the Dog class.
+| e.g. his_dog = Dog('Milo', 2)
+
 | Write 4 methods to print a descriptive line for each method, using f-strings: 
 | get_info()
 | roll_over()
@@ -36,11 +38,11 @@ Dog Class
 
                 # instantiate 2 dogs
                 his_dog = Dog('Milo', 2)
-                her_dog = Dog('Daisy', 4)
-                # call dog methods
                 his_dog.get_info()
                 his_dog.roll_over()
                 his_dog.sit()
+
+                her_dog = Dog('Daisy', 4)
                 her_dog.get_info()
                 her_dog.chase_ball()
 
@@ -78,12 +80,20 @@ Dog Class
 
                     # instantiate 2 dogs
                     his_dog = Dog('Milo', 2)
-                    her_dog = Dog('Daisy', 4)
-
-                    # call dog methods
                     his_dog.get_info()
                     his_dog.roll_over()
                     his_dog.sit()
 
+                    her_dog = Dog('Daisy', 4)
                     her_dog.get_info()
                     her_dog.chase_ball()
+
+
+| Ouput:
+
+| Milo is 2 years old.
+| Milo rolled over!
+| Milo is sitting.
+| Daisy is 4 years old.
+| Daisy ran after ball.
+
