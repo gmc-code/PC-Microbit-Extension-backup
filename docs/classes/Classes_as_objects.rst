@@ -2,9 +2,9 @@
 Classes as objects
 ====================================================
 
-| The examples given are for use in python3 mode in Mu editor and are not microbit specific.
 | See: https://www.w3schools.com/python/python_classes.asp
 | See: https://docs.python.org/3/tutorial/classes.html
+| If using Mu editor, use python3 mode for the examples given.
 
 ----
 
