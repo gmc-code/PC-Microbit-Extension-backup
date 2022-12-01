@@ -12,6 +12,14 @@ Dog Class
 | sit()
 | chase_ball()
 
+| Ouput:
+
+| Milo is 2 years old.
+| Milo rolled over!
+| Milo is sitting.
+| Daisy is 4 years old.
+| Daisy ran after ball.
+
 .. admonition:: Tasks
 
     #. Write a dog class scaffolded below.
@@ -89,11 +97,5 @@ Dog Class
                     her_dog.chase_ball()
 
 
-| Ouput:
 
-| Milo is 2 years old.
-| Milo rolled over!
-| Milo is sitting.
-| Daisy is 4 years old.
-| Daisy ran after ball.
 

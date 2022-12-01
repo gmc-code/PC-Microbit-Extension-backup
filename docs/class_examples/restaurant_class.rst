@@ -7,6 +7,10 @@ Restaurant Class
 | Write a method, get_info(), to print a descriptive line, using f-strings: 
 | Write a method to set the number of tables booked and a method to increment them.
 
+| Output:
+| Pierre's serves French food 6-10pm. 8 tables booked.
+| Louie's Bistro serves Italian food 10am - 2pm. 6 tables booked.
+
 .. admonition:: Tasks
 
     #. Write a Restaurant class scaffolded below.

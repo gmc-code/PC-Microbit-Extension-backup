@@ -5,6 +5,7 @@ Car Class
 | Use the car's methods to update and read the odometer.
 
 | Set the car's make, model, year, colour on calling the Car class, as well as setting the odometer to 0.
+| e.g. my_car = Car('ford', 'territory', 2005, "tan")
 | Write the methods, get_info() and read_odometer(self) to print a descriptive line, using f-strings: 
 | Write a greeting method, greet_user().
 | Write a method to update the odometer to a spcified amount and a method to increment the odometer by a spcified amount.
@@ -54,15 +55,15 @@ Car Class
             print(my_car.get_info())
 
             # update odometer using attribute
-            my_car.odometer_reading = 20
+            my_car.                = 20
             my_car.read_odometer()
 
-            # update odometer using method
-            my_car.update_odometer(100_000)
+            # set odometer using method
+            my_car.                 (100_000)
             my_car.read_odometer()
 
-            # update odometer using method
-            my_car.increment_odometer(275)
+            # increment odometer using method
+            my_car.                 (275)
             my_car.read_odometer()
 
 
@@ -120,11 +121,11 @@ Car Class
                     my_car.odometer_reading = 20
                     my_car.read_odometer()
 
-                    # update odometer using method
+                    # set odometer using method
                     my_car.update_odometer(100_000)
                     my_car.read_odometer()
 
-                    # update odometer using method
+                    # increment odometer using method
                     my_car.increment_odometer(275)
                     my_car.read_odometer()
 
