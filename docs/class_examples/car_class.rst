@@ -5,7 +5,7 @@ Car Class
 | Write a Car class.  
 | Set the car's **make**, **model**, **year**, **colour** on calling the Car class, as well as setting the **odometer** to 0.
 | e.g. ``my_car = Car('ford', 'territory', 2005, "tan")``
-| Write the methods, **get_info()** and **read_odometer()** to print a descriptive line, using f-strings: 
+| Write the methods, **get_info()** and **read_odometer()** to print a descriptive line, using f-strings.
 | Write a greeting method, **greet_user()**.
 | Write a method to update the odometer to a specified amount and a method to increment the odometer by a specified amount.
 
@@ -40,22 +40,18 @@ Car Class
                     print(f"{self.get_info()} has done {             } km.")
 
                 def update_odometer(self, km):
-                    """
-                    Set the odometer reading to the given value if greater than current reading
-                    """
+                    """Set the odometer reading if km > current reading"""
                     if km >= self.odometer:
                         self. 
                     else: 
                         print("Km on an odometer can't be lowered.")
 
                 def increment_odometer(self, km):
-                    """
-                    increase the odometer reading
-                    """
+                    """increase the odometer reading"""
                     if km >= 0:
                         self. 
                     else:
-                        print("You can't lower km on an odometer!")
+                        print("Km on an odometer can't be lowered.")
                     
                 
             my_car = Car('ford', 'territory', 2005, "tan")
@@ -106,22 +102,18 @@ Car Class
                             print(f"{self.info()} has done {self.odometer_reading} km.")
 
                         def update_odometer(self, km):
-                            """
-                            Set the odometer reading to the given value if greater than current reading
-                            """
+                            """Set the odometer reading if km > current reading"""
                             if km >= self.odometer:
                                 self.odometer = km
                             else:
-                                print("You can't lower km on an odometer!")
+                                print("Km on an odometer can't be lowered.")
 
                         def increment_odometer(self, km):
-                            """
-                            increase the odometer reading
-                            """
+                            """increase the odometer reading"""
                             if km >= 0:
                                 self.odometer += km
                             else:
-                                print("You can't lower km on an odometer!")
+                                print("Km on an odometer can't be lowered.")
                             
                         
                     my_car = Car('ford', 'territory', 2005, "tan")

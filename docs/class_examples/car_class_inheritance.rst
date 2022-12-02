@@ -27,13 +27,13 @@ Car Class Inheritance
             if km >= self.odometer_reading:
                 self.odometer_reading = km
             else:
-                print("You can't lower km on an odometer!")
+                print("Km on an odometer can't be lowered.")
 
         def increment_odometer(self, km):
             if km >= 0:
                 self.odometer += km
             else:
-                print("You can't lower km on an odometer!")
+                print("Km on an odometer can't be lowered.")
                 
         def fill_tank(self):
             print("Tank is full.")
