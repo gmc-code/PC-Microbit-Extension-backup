@@ -63,3 +63,34 @@ Customary variable names
     #. Run the code above and check the print output is 1.
     #. Modify the code to use ``game = LevelGame(2)`` and check the print output.
 
+----
+
+Changing Instance variables in an instance
+----------------------------------------------
+
+| An instance variable can be altered for a particular instance.
+| ``game.game_level = 2`` changes the value of the variable within the instance.
+
+.. code-block:: python
+
+    class LevelGame:
+        def __init__(self, game_level):
+            self.game_level = game_level
+
+    game = LevelGame(1)
+    game.game_level = 2
+    print(game.game_level)
+
+.. admonition:: Tasks
+
+    #. Check the print output to verify that the instance has a different value to that set when the instance was created.
+    #. Add code after the instance value is changed so that the ``game.game_level`` is set to 3, then check the value for the instance to see if it is affected.
+
+----
+
+.. admonition:: Tip
+
+    #. Direct access to instance variables outside of the class code can be prevented by using double underscores.
+    #. ``self.game_level`` could be changed to ``self.__game_level`` so that ``game.__game_level`` would be blocked.
+    #. Setters (a method to set self.__game_level) and getters (a method to return self.__game_level) are methods used along with this approach, known as encapsulation.
+
