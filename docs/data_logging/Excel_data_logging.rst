@@ -65,5 +65,5 @@ Excel's Data Streamer Add-in gathers data from external devices via the USB seri
         #. Set Data channels to 1
         #. Set Data orientation to Newest first using the drop down.
     #. navigate to the **Data In** sheet to see micro:bit data.
-    #. 
+
 
