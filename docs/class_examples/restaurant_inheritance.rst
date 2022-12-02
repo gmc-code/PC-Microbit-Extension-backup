@@ -1,12 +1,12 @@
 ====================================================
-Pizza Restaurant Class
+Restaurant inheritance
 ====================================================
     
-| Write a PizzaShop class as a child class of the Restaurant class.
-| Set the PizzaShop's name, food type, open hours on calling the PizzaShop class, as well as setting the menu.
-| e.g. menu = ["Capricossa", "Hawaiian", "BBQ Chicken", "Pepperoni", "Margarita"]
-| e.g. res_1 = PizzaShop("Joe's Pizza", "Pizza", "6-10pm", menu)
-| Write a method, show_menu(), to print the PizzaShop's menu.
+| Write a **PizzaShop** class as a child class of the **Restaurant** class.
+| Set the PizzaShop's **name**, **food type**, **open hours** on calling the PizzaShop class, as well as setting the **menu**.
+| e.g. ``menu = ["Capricossa", "Hawaiian", "BBQ Chicken", "Pepperoni", "Margarita"]``
+| e.g. ``res_1 = PizzaShop("Joe's Pizza", "Pizza", "6-10pm", menu)``
+| Write a method, **show_menu**(), to print the PizzaShop's menu.
 
 | Write code to ouput:
 | Joe's Pizza serves Pizza food 6-10pm. 0 tables booked.
