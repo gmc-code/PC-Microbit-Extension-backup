@@ -2,7 +2,7 @@
 Car Class
 ====================================================
 
-| Write a Car class.  
+| Write a **Car** class.  
 | Set the car's **make**, **model**, **year**, **colour** on calling the Car class, as well as setting the **odometer** to 0.
 | e.g. ``my_car = Car('ford', 'territory', 2005, "tan")``
 | Write the methods, **get_info()** and **read_odometer()** to print a descriptive line, using f-strings.
@@ -17,7 +17,7 @@ Car Class
 
 .. admonition:: Tasks
 
-    #. Write a Car class scaffolded below.
+    #. Write a **Car** class using the scaffold below.
 
         .. code-block:: python
 

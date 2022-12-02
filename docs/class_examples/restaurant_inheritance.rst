@@ -20,7 +20,7 @@ Restaurant inheritance
 
 .. admonition:: Tasks
 
-    #. Write a Pizza class as a child class of the Restaurant class, scaffolded below.
+    #. Write a **PizzaShop** class as a child class of the **Restaurant** class using the scaffold below.
 
         .. code-block:: python
 
@@ -65,19 +65,7 @@ Restaurant inheritance
             res_1.show_menu()
 
 
-    .. dropdown::
-        :icon: codescan
-        :color: primary
-        :class-container: sd-dropdown-container
-
-        .. tab-set::
-
-            .. tab-item:: Q1
-
-                Write a class for a Restaurant.
-
-                .. code-block:: python
-
+w
                     class Restaurant:
 
                         def __init__(self, restaurant_name, food_type, open_hours):

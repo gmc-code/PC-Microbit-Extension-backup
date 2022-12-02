@@ -2,7 +2,7 @@
 Dog Class
 ====================================================
     
-| Write a Dog class.
+| Write a **Dog** class.
 | Set the dog's **name** and **age** on calling the Dog class.
 | e.g. ``his_dog = Dog('Milo', 2)``
 
@@ -18,7 +18,7 @@ Dog Class
 
 .. admonition:: Tasks
 
-    #. Write a dog class scaffolded below.
+    #. Write a **Dog** class using the scaffold below.
 
         .. code-block:: python
 

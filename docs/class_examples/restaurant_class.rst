@@ -2,7 +2,7 @@
 Restaurant Class
 ====================================================
     
-| Write a Restaurant class.
+| Write a **Restaurant** class.
 | Set the Restaurant's **name**, **food type**, **open hours** on calling the Restaurant class, as well as setting the number of **tables booked** to 0.
 | e.g. ``res_1 = Restaurant("Pierre's", "French", "6-10pm")``
 | Write a method, **get_info()**, to print a descriptive line, using f-strings: 
@@ -14,7 +14,7 @@ Restaurant Class
 
 .. admonition:: Tasks
 
-    #. Write a Restaurant class scaffolded below.
+    #. Write a **Restaurant** class using the scaffold below.
 
         .. code-block:: python
 
