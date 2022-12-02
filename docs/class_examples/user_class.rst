@@ -4,8 +4,8 @@ User Class
     
 | Write a User class.
 | Set the User's **first_name**, **last_name**, **user_status** on calling the User class, as well as setting the number of **logins** to 0.
-| Write the methods, **get_info**() and **get_login_info**(self) to print a descriptive line, using f-strings.
-| Write a greeting method, **greet_user**().
+| Write the methods, **get_info()** and **get_login_info**(self) to print a descriptive line, using f-strings.
+| Write a greeting method, **greet_user()**.
 | Write a method to **reset** the number of logins and a method to **increment** them.
 
 | Write code to ouput:
