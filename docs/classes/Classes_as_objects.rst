@@ -23,10 +23,10 @@ Classes and Objects
 Object data and methods
 -----------------------------
 
-.. image:: images/encapsulation.png
+.. image:: images/class_objects.png
     :scale: 50 %
     :align: center
-    :alt: encapsulation
+    :alt: class_objects
 
 | Variables in a class are known as attributes.
 | Functions in a class are known as methods.
