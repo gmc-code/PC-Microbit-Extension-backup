@@ -14,7 +14,7 @@ Composition
 | Use composition to create components that can be reused by multiple classes.
 | A composite class can be assigned to an instance variable.
 
-| In the code below, ``emp.cls_salary.monthly_income``, the composite class, Salary, is accessed via the cls_salary object.
+| In the code below, ``emp.cls_salary.monthly_income``, the composite class, Salary, is accessed via the cls_salary attribute of the emp intance of the Employee class.
 
 ----
 
