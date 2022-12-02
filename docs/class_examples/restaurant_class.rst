@@ -27,7 +27,8 @@ Restaurant Class
                     self.tables_booked
                     
                 def get_info(self):
-                    print(f"{          } serves {       } food {        }. {        } tables booked.")
+                    print(f"{          } serves {       } food {        }.")
+                    print(f"{        } tables booked.")
 
                 def set_number_tables_booked(self, tables_booked):
                     '''Set the number of tables booked'''
@@ -70,7 +71,8 @@ Restaurant Class
                             self.tables_booked = 0
                             
                         def get_info(self):
-                            print(f"{self.restaurant_name} serves {self.food_type} food {self.open_hours}. {self.tables_booked} tables booked.")
+                            print(f"{self.restaurant_name} serves {self.food_type} food {self.open_hours}.")
+                            print(f"{self.tables_booked} tables booked.")
 
                         def set_number_tables_booked(self, tables_booked):
                             '''Set the number of tables booked'''
