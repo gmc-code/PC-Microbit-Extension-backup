@@ -30,8 +30,3 @@ Object data and methods
 
 | Variables in a class are known as attributes.
 | Functions in a class are known as methods.
-
-.. image:: images/class_objects.svg
-    :scale: 50 %
-    :align: center
-    :alt: class_objects

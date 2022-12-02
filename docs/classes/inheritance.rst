@@ -19,10 +19,6 @@ Class Inheritance
     :align: center
     :alt: Inheritance
 
-.. image:: images/inheritance.svg
-    :scale: 100 %
-    :align: center
-    :alt: Inheritance
 
 | Inheritance models an is-a relationship. 
 | e.g A dog **is an** animal. The dog is a specialized version of an animal. Animal is the parent class. Dog is the child class.
