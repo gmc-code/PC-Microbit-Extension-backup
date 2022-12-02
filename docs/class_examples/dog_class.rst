@@ -4,7 +4,7 @@ Dog Class
     
 | Write a Dog class.
 | Set the dog's **name** and **age** on calling the Dog class.
-| e.g. his_dog = Dog('Milo', 2)
+| e.g. ``his_dog = Dog('Milo', 2)``
 
 | Write 4 methods to print a descriptive line for each method, using f-strings: 
 | **get_info**(), **roll_over**(), **sit**(), **chase_ball**()
