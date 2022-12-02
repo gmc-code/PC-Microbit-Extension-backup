@@ -33,7 +33,8 @@ Restaurant inheritance
                     self.tables_booked = 0
 
                 def get_info(self):
-                    print(f"{self.restaurant_name} serves {self.food_type} food {self.open_hours}. {self.tables_booked} tables booked.")
+                    print(f"{self.restaurant_name} serves {self.food_type} food {self.open_hours}.")
+                    print(f"{self.tables_booked} tables booked.")
 
                 def set_number_tables_booked(self, tables_booked):
                     '''Set the number of tables booked'''
@@ -48,7 +49,7 @@ Restaurant inheritance
                 '''child class of Restaurant'''
                 
                 def __init__(self, restaurant_name, food_type, open_hours, menu):
-                             .__init__(restaurant_name, food_type, open_hours)
+                             .__init__(              ,          ,           )
                     self.menu = 
                 
                 def show_menu(self):
@@ -86,12 +87,13 @@ Restaurant inheritance
                             self.tables_booked = 0
 
                         def get_info(self):
-                            print(f"{self.restaurant_name} serves {self.food_type} food {self.open_hours}. {self.tables_booked} tables booked.")
+                            print(f"{self.restaurant_name} serves {self.food_type} food {self.open_hours}.")
+                            print(f"{self.tables_booked} tables booked.")
 
                         def set_number_tables_booked(self, tables_booked):
                             '''Set the number of tables booked'''
-                            self.tables_booked = tables_booked
-        
+                           self.tables_booked = tables_booked
+         
                         def increment_number_tables_booked(self, new_bookings):
                             '''Increment the number of tables booked'''
                             self.tables_booked += new_bookings
