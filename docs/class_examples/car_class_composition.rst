@@ -2,6 +2,9 @@
 Car Class Composition
 ====================================================
     
+| Write a child class of the **Car** class, **ElectricCar**.     
+| Set the car's **make**, **model**, **year**, **colour**. 
+
 | Set the car's make, model, year, colour. 
 | The child class, ElectricCar, assigns an instance of the Battery class the battery attribute.
 
@@ -62,14 +65,11 @@ Car Class Composition
         """ElectricCar child of Car class."""
         
         def __init__(self, make, model, year, colour, battery_size):
-            """
-            Initialize attributes of the parent class.
-            Then initialize attributes specific to an electric car.
-            """
             super().__init__(make, model, year, colour)
             self.battery = Battery()
 
         def fill_tank(self):
+            """Override parent method"""
             print("No tank in this electric car.")
             
     my_tesla = ElectricCar('tesla', 'model S', 2019, "grey", 90)
