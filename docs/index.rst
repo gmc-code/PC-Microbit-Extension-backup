@@ -118,6 +118,7 @@ PC-microbit-extension
     :numbered:
 
     class_examples/dog_class.rst
+    class_examples/polygon_class.rst
     class_examples/restaurant_class.rst
     class_examples/restaurant_inheritance.rst
     class_examples/user_class.rst

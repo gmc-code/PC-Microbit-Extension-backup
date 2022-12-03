@@ -8,8 +8,8 @@ Classes as objects
 
 ----
 
-Classes and Objects
-----------------------
+Class attributes and methods
+------------------------------
 
 | Classes provide a means of bundling data and functionality together. 
 | A Class is a code template or blueprint for creating instances (objects).
@@ -17,16 +17,12 @@ Classes and Objects
 | Each class instance can have attributes for data. 
 | Each class instance can also have methods for modifying its data.
 
-
-----
-
-Object data and methods
------------------------------
+| Variables in a class are known as attributes.
+| Functions in a class are known as methods.
 
 .. image:: images/class_objects.png
     :scale: 50 %
     :align: center
     :alt: class_objects
 
-| Variables in a class are known as attributes.
-| Functions in a class are known as methods.
+

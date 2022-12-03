@@ -31,3 +31,43 @@ The __init__() function
     #. Modify the code so that the game level starts at level 0 with 5 lives.
     #. Modify the code so the parameters and the instance variables have matching names.
     #. Modify the code by adding a third instance variable using a parameter called level_score and initialize it to 0.
+
+----
+
+``*args`` in the __init__() function
+---------------------------------------
+
+| Polygons are shaped with many sides.
+| To enable many sides to be passed to the class Polygon, ``*args`` is used for the parameter. 
+| ``*args`` packs all the arguments into one single variable that can be treated like a normal tuple.
+| e.g ``triangle1 = Polygon(3, 4, 5)`` instantiates a Polygon with 3 sides.
+
+.. code-block:: python
+
+    class Polygon:
+        """A model of a Polygon."""
+
+        def __init__(self, *args):
+            self.sides = args
+
+        triangle1 = Polygon(3, 4, 5)
+
+| ``*args`` can be renamed to something more meaningful. e.g  ``*sides_args``        
+| e.g ``triangle1 = Polygon(3, 4, 5)`` instantiates a Polygon with 3 sides.
+
+.. code-block:: python
+
+    class Polygon:
+        """A model of a Polygon."""
+
+        def __init__(self, *sides_args):
+            self.sides = sides_args
+
+    triangle1 = Polygon(3, 4, 5)
+
+----
+
+.. admonition:: Tasks
+
+    #. Test the Polygon examples above by printing the sides using the instance attribute for the sides.
+
