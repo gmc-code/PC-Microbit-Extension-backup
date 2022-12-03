@@ -132,7 +132,7 @@ PC-microbit-extension
     :caption: Class Games
     :numbered:
 
-    classes/classes_for_the_microbit.rst
+    class_games/classes_for_the_microbit.rst
     class_games/introduction.rst
     class_games/magic_8.rst
     class_games/tilt_pixels.rst
