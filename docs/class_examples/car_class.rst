@@ -3,9 +3,10 @@ Car Class
 ====================================================
 
 | Write a **Car** class.  
-| Set the car's **make**, **model**, **year**, **colour** on calling the Car class, as well as setting the **odometer** to 0.
+| Set the car's **make**, **model**, **year**, **colour** on calling the Car class.
+| Also set the **odometer** to 0.
 | e.g. ``my_car = Car('ford', 'territory', 2005, "tan")``
-| Write the methods, **get_info()** and **read_odometer()** to print a descriptive line, using f-strings.
+| Write the methods, **get_info()** and **get_odometer()** to print a descriptive line, using f-strings.
 | Write a greeting method, **greet_user()**.
 | Write a method to update the odometer to a specified amount and a method to increment the odometer by a specified amount.
 
@@ -36,7 +37,7 @@ Car Class
                 def get_info(self):
                     print(f"{self.info()}")
 
-                def read_odometer(self):
+                def get_odometer(self):
                     print(f"{self.get_info()} has done {             } km.")
 
                 def update_odometer(self, km):
@@ -59,15 +60,15 @@ Car Class
 
             # update odometer using attribute
             my_car.                = 20
-            my_car.read_odometer()
+            my_car.get_odometer()
 
             # set odometer using method
             my_car.                 (100_000)
-            my_car.read_odometer()
+            my_car.get_odometer()
 
             # increment odometer using method
             my_car.                 (275)
-            my_car.read_odometer()
+            my_car.get_odometer()
 
 
     .. dropdown::
@@ -98,7 +99,7 @@ Car Class
                         def get_info(self):
                             print(f"{self.info()}")
 
-                        def read_odometer(self):
+                        def get_odometer(self):
                             print(f"{self.info()} has done {self.odometer_reading} km.")
 
                         def update_odometer(self, km):
@@ -121,13 +122,13 @@ Car Class
 
                     # update odometer using attribute
                     my_car.odometer_reading = 20
-                    my_car.read_odometer()
+                    my_car.get_odometer()
 
                     # set odometer using method
                     my_car.update_odometer(100_000)
-                    my_car.read_odometer()
+                    my_car.get_odometer()
 
                     # increment odometer using method
                     my_car.increment_odometer(275)
-                    my_car.read_odometer()
+                    my_car.get_odometer()
 
