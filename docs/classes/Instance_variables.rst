@@ -92,5 +92,20 @@ Changing Instance variables in an instance
 
     #. Direct access to instance variables outside of the class code can be prevented by using double underscores.
     #. ``self.game_level`` could be changed to ``self.__game_level`` so that ``game.__game_level`` would be blocked.
+    #. However, ``game._LevelGame__game_level`` still enables access to the attribute.
     #. Setters (a method to set self.__game_level) and getters (a method to return self.__game_level) are methods used along with this approach, known as encapsulation.
+
+    .. code-block:: python
+
+        class LevelGame:
+            def __init__(self, game_level):
+                self.__game_level = game_level
+                
+            def get_game_level(self):
+                return self.__game_level 
+
+        game = LevelGame(3)
+        print(game._LevelGame__game_level)
+        print(game.get_game_level())
+
 
