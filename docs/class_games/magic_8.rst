@@ -167,7 +167,8 @@ Pass arguments to the class
     #. Use '?' as an argument for ``Magic8()`` to show '?' instead of '8'.
 
 | When no argument is passed when instantiating the game object, **magic_text** defaults to 8.
-| ``game = Magic8('?')`` replaces the default value of 8 with '?'. ``'?'`` is passed to the __init__ method in place of the ``magic_text`` parameter.
+| ``game = Magic8('?')`` replaces the default value of 8 with '?'. 
+| ``'?'`` is passed to the __init__ method in place of the ``magic_text`` parameter.
 | ``self`` is automatically passed to the instance methods.
 
 .. code-block:: python
