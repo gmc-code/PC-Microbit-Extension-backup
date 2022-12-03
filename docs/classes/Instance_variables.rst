@@ -65,6 +65,24 @@ Customary variable names
 
 ----
 
+Default paramaters
+---------------------------------------------------
+
+| A default value for a pareter can be set.
+| e.g. the ``level`` parameter can be set to a value of 1 by default in ``__init__(self, level=1)``.
+| When game is instantiated using ``game = LevelGame()``, ``level`` = 1 by default.
+
+.. code-block:: python
+
+    class LevelGame:
+        def __init__(self, level=1):
+            self.game_level = level
+
+    game = LevelGame()
+    print(game.game_level)
+
+----
+
 Changing Instance variables in an instance
 ----------------------------------------------
 
