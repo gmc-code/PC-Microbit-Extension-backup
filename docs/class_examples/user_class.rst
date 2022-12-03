@@ -63,12 +63,12 @@ User Class
 
             .. tab-item:: Q1
 
-                Write a class for a Restaurant.
+                Write a class for a User.
 
                 .. code-block:: python
 
                     class User:
-                    
+
                         def __init__(self, first_name, last_name, user_status):
                             self.first_name = first_name
                             self.last_name = last_name
