@@ -60,8 +60,8 @@ The __init__() method
     class Polygon:
         """A model of a Polygon."""
 
-        def __init__(self, *sides_args):
-            self.sides = sides_args
+        def __init__(self, *sides):
+            self.sides = sides
 
     triangle1 = Polygon(3, 4, 5)
 
