@@ -21,7 +21,7 @@ Class Inheritance
 
 
 | Inheritance models an is-a relationship. 
-| e.g A dog **is an** animal. The dog is a specialized version of an animal. Animal is the parent class. Dog is the child class.
+| e.g. A dog **is an** animal. The dog is a specialized version of an animal. Animal is the parent class. Dog is the child class.
 
 | Use Inheritance when the child classes have common features (variables/attributes and functions/methods) with the parent class.
 | The child class inherits from the parent class.
