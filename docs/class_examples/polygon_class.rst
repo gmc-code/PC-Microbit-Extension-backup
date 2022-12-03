@@ -21,7 +21,6 @@ Polygon Class with \*args
         .. code-block:: python
 
             class Polygon:
-                """A model of a Polygon."""
 
                 def __init__(self, *args):
                     self.sides = args
@@ -48,7 +47,6 @@ Polygon Class with \*args
                 .. code-block:: python
 
                     class Polygon:
-                        """A model of a Polygon."""
 
                         def __init__(self, *args):
                             self.sides = args
