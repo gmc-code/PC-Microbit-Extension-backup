@@ -53,6 +53,10 @@ Car Class Inheritance
                 """ElectricCar child of Car class."""
                 
                 def __init__(       , make, model, year, colour,          ):
+                    """
+                    Initialize attributes of the parent class.
+                    Then initialize attributes specific to an electric car.
+                    """
                            .__init__(make, model, year, colour)
                     self.battery_size
 
@@ -128,6 +132,7 @@ Car Class Inheritance
                             print(f"This car has a {self.battery_size}-kWh battery.")
                             
                         def fill_tank(self):
+                            """Override parent method"""
                             print("No tank in this electric car.")
                             
                     my_tesla = ElectricCar('tesla', 'model S', 2019, "grey", 90)

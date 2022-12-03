@@ -1,5 +1,5 @@
 ====================================================
-Inheritance
+Class Inheritance
 ====================================================
 
 | See: https://www.w3schools.com/python/python_classes.asp
@@ -19,10 +19,6 @@ Class Inheritance
     :align: center
     :alt: Inheritance
 
-
-| Inheritance models an is-a relationship. 
-| e.g. A dog **is an** animal. The dog is a specialized version of an animal. Animal is the parent class. Dog is the child class.
-
 | Use Inheritance when the child classes have common features (variables/attributes and functions/methods) with the parent class.
 | The child class inherits from the parent class.
 | The child class can change (override) some features or add (extend) features without affecting the parent class.
@@ -38,56 +34,87 @@ super
 | The super() function is used to extend their functionality with minimal code changes. 
 | The super() function returns an object that represents the parent class.
 
-| In the code below, the Square class uses the super() function to modify the __init__ method that would be inherited from the Rectangle class.
+----
+
+ Magic8Pos(Magic8) - modify attribute
+---------------------------------------
+
+| In the code below, the Magic8Pos class uses the super() function and modifies the self.responses attribute that would be inherited from the Magic8 class.
 
 .. code-block:: python
 
-    class Rectangle:
-        def __init__(self, length, width):
-            self.length = length
-            self.width = width
-
-        def area(self):
-            return self.length * self.width
-
-    class Square(Rectangle):
-        def __init__(self, length):
-            super().__init__(length, length)
-            
-    square = Square(3)
-    print(square.area())
+    from microbit import *
+    import random
 
 
-.. admonition:: Tip
+    class Magic8:
+        def __init__(self, magic_text=8):
+            self.magic_text = magic_text
+            self.responses = ["For sure", "Yes", "No", "No way"]
 
-    #. The Square ``__init__`` method could also be written like that below to achieve the same result.
+        def run_game(self):
+            display.show(self.magic_text)
+            sleep(1000)
+            if accelerometer.was_gesture("shake"):
+                display.clear()
+                sleep(100)
+                display.scroll(random.choice(self.responses), delay=120)
 
-    .. code-block:: python
 
-        class Square(Rectangle):
-            def __init__(self, length):
-                self.length = length
-                self.width = length
+    class Magic8Pos(Magic8):
+        """modifies responses to just positive ones"""
+        def __init__(self, magic_text=8):
+            super().__init__(magic_text=8)
+            self.responses = ["It is certain", "Yes"]
 
-| In the code below, the ColouredRectangle class has its own ``__init__`` method that uses the super() function to reuse the ``__init__`` method from the Rectangle class and to allow other attributes to be set separately.
+    game = Magic8Pos(Magic8)
+    while True:
+        game.run_game()
+
+----
+
+ Magic8Button(Magic8)- modify method
+-------------------------------------
+
+| In the code below, the Magic8button class modifies the run_game method that would be inherited from the Magic8 class.
 
 .. code-block:: python
 
-    class Rectangle:
-        def __init__(self, length, width):
-            self.length = length
-            self.width = width
+    from microbit import *
+    import random
 
-        def area(self):
-            return self.length * self.width
+    class Magic8:
+        def __init__(self, magic_text=8):
+            self.magic_text = magic_text
+            self.responses = ["For sure", "Yes", "No", "No way"]
 
-    class ColouredRectangle(Rectangle):
-        def __init__(self, length, width, colour):
-            super().__init__(length, width)
-            self.colour = colour
+        def run_game(self):
+            display.show(self.magic_text)
+            sleep(1000)
+            if accelerometer.was_gesture("shake"):
+                display.clear()
+                sleep(100)
+                display.scroll(random.choice(self.responses), delay=120)
 
-    col_rect = ColouredRectangle(2, 3, 'red')
-    print(col_rect.length, col_rect.width, col_rect.area(), col_rect.colour)
+
+    class Magic8Button(Magic8):
+        """modifies run_game to use button pressing"""
+
+        def __init__(self, magic_text=8):
+            super().__init__(magic_text=8)
+
+        def run_game(self):
+            display.show(self.magic_text)
+            sleep(1000)
+            if button_a.is_pressed() or button_b.is_pressed():
+                display.clear()
+                sleep(100)
+                display.scroll(random.choice(self.responses), delay=120)
+
+    game = Magic8Button()
+    while True:
+        game.run_game()
+
 
 ----
 

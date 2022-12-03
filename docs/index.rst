@@ -107,8 +107,8 @@ PC-microbit-extension
     classes/Instance_Methods.rst
     classes/Class_methods.rst
     classes/Static_methods.rst
-    classes/inheritance.rst
-    classes/composition.rst
+    classes/Class_inheritance.rst
+    classes/Class_composition.rst
 
 
 .. toctree::
