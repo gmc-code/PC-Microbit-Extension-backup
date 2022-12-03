@@ -1,11 +1,11 @@
 ====================================================
-Polygon Class
+Polygon Class with \*args
 ====================================================
     
 | Write a **Polygon** class.
 | Set the Polygon's **sides** on calling the Polygon class.
-| Use Packing of positional arguments into a tuple when there are an arbitrary number of arguments.
-| Use ``def __init__(self, *sides)`` to pack the arguments.
+| Since a polygon can have varying numbers of sides, use packing of positional arguments, via \*args.
+| Use ``def __init__(self, *args)`` to pack the arguments.
 | e.g. ``tri1 = Polygon(3, 4, 5)``
 | e.g. ``rect1 = Polygon(6, 8, 6, 8)``
 
@@ -23,8 +23,8 @@ Polygon Class
             class Polygon:
                 """A model of a Polygon."""
 
-                def __init__(self, *sides):
-                    self.sides = sides
+                def __init__(self, *args):
+                    self.sides = args
 
                 def perimeter(self):
                     return sum(           )
@@ -50,8 +50,8 @@ Polygon Class
                     class Polygon:
                         """A model of a Polygon."""
 
-                        def __init__(self, *sides):
-                            self.sides = sides
+                        def __init__(self, *args):
+                            self.sides = args
 
                         def perimeter(self):
                             return sum(self.sides)
