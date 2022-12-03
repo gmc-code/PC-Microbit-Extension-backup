@@ -137,6 +137,7 @@ PC-microbit-extension
     class_games/magic_8.rst
     class_games/tilt_pixels.rst
     class_games/press_it.rst
+    class_games/asteroids.rst
 
 .. toctree::
     :maxdepth: 2
@@ -155,7 +156,6 @@ PC-microbit-extension
     :numbered:
 
     games/introduction.rst
-    games/asteroids.rst
     games/slalom.rst
     games/snake.rst
     games/space_invaders.rst

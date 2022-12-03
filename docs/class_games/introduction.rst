@@ -13,6 +13,7 @@ Games using classes
 | Modifying the game while keeping the original game intact is possible thanks to Polymorphism and Inheritance.
 | **Inheritance**: Subclasses can be created which inherit the attributes and methods from the original game class.
 | **Polymorphism**: Selected attributes or methods in the subclasses can be adjusted to create different versions of the game.
+| **Composition**: Classes can be assigned to attributes in the main game class.
 
 | See https://pc-microbit-extension.readthedocs.io/en/latest/games/magic_8.html for examples of using child classes derived from the original game in the parent class in order to make variations of the game.
 
