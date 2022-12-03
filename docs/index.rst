@@ -102,7 +102,7 @@ PC-microbit-extension
     classes/Creating_a_Class.rst
     classes/Self.rst
     classes/Instance_variables.rst
-    classes/The_init_function.rst
+    classes/The_init_method.rst
     classes/Class_variables.rst
     classes/Instance_Methods.rst
     classes/Class_methods.rst
