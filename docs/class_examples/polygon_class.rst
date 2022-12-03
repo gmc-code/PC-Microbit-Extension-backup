@@ -4,13 +4,15 @@ Polygon Class
     
 | Write a **Polygon** class.
 | Set the Polygon's **sides** on calling the Polygon class.
+| Use Packing of positional arguments into a tuple when there are an arbitrary number of arguments.
+| Use ``def __init__(self, *sides)`` to pack the arguments.
+| e.g. ``tri1 = Polygon(3, 4, 5)``
 | e.g. ``rect1 = Polygon(6, 8, 6, 8)``
 
-| Write 1 method to return the perimeter: 
-| **perimeter**()
-
+| Write a method to return the perimeter of a polygon.
 | Write code to ouput:
-| rect1 with sides 6, 8, 6, 8, has perimeter of 28.
+| tri1 with sides (3, 4, 5), has a perimeter of 12.
+| rect1 with sides (6, 8, 6, 8), has a perimeter of 28.
 
 .. admonition:: Tasks
 
@@ -21,15 +23,16 @@ Polygon Class
             class Polygon:
                 """A model of a Polygon."""
 
-                def __init__(self, *args):
-                    self.sides = args
+                def __init__(self, *sides):
+                    self.sides = sides
 
                 def perimeter(self):
-                    return sum(self.sides)
+                    return sum(           )
 
-
-            rect1 = Polygon( 6, 8, 6, 8,)
-            print(f'rect1 with sides 6, 8, 6, 8, has perimeter of {rect1.perimeter()}.')
+            tri1 = Polygon( 3, 4, 5)
+            print(f'tri1 with sides {      }, has a perimeter of {            }.')
+            rect1 = Polygon( 6, 8, 6, 8)
+            print(f'rect1 with sides {      }, has a perimeter of {            }.')
 
     .. dropdown::
         :icon: codescan
@@ -40,27 +43,21 @@ Polygon Class
 
             .. tab-item:: Q1
 
-                Write a class for a dog.
+                Write a Polygon class.
 
                 .. code-block:: python
 
                     class Polygon:
                         """A model of a Polygon."""
 
-                        def __init__(self, *args):
-                            self.sides = args
+                        def __init__(self, *sides):
+                            self.sides = sides
 
                         def perimeter(self):
                             return sum(self.sides)
 
-                        def count(self):
-                            return len(self.sides)
+                    tri1 = Polygon(3, 4, 5)
+                    print(f'tri1 with sides {tri1.sides}, has a perimeter of {tri1.perimeter()}.')
+                    rect1 = Polygon(6, 8, 6, 8)
+                    print(f'rect1 with sides {rect1.sides}, has a perimeter of {rect1.perimeter()}.')
 
-                        def average(self):
-                            return round(self.perimeter() / self.count(), 1)
-
-
-                    shape = Polygon(7, 12, 13)
-                    print(shape.count())
-                    print(shape.average())
-                    print(shape.perimeter())

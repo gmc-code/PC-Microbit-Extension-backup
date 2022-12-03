@@ -150,7 +150,7 @@ PC-microbit-extension
 
 .. toctree::
     :maxdepth: 2
-    :caption: Games
+    :caption: Microbit Games
     :numbered:
 
     games/introduction.rst
