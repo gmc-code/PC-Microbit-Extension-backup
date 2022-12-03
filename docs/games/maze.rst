@@ -10,10 +10,8 @@ Maze
 
 .. code-block:: python
 
-    ## Based on http://www.multiwingspan.co.uk/micro.php?page=maze
     from microbit import *
     import random
-
 
     class Maze:
 
@@ -87,7 +85,6 @@ Maze
         ]
 
         def __init__(self):
-            # Set up the tetris self.grid
             self.maze = random.choice([self.maze0, self.maze1, self.maze2])
             self.x = 2
             self.y = 2
@@ -127,9 +124,6 @@ Maze
             game = Maze()
             game.run_game()
         sleep(1000)
-
-
-
 
 
 ----

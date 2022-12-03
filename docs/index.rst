@@ -120,11 +120,12 @@ PC-microbit-extension
     class_examples/polygon_class.rst
     class_examples/restaurant_class.rst
     class_examples/restaurant_inheritance.rst
+    class_examples/rectangle_inheritance.rst
     class_examples/user_class.rst
     class_examples/car_class.rst
-    class_examples/car_class_inheritance.rst
-    class_examples/car_class_composition.rst
-
+    class_examples/car_inheritance.rst
+    class_examples/car_composition.rst
+    class_examples/employee_salary_composition.rst
 
 .. toctree::
     :maxdepth: 2

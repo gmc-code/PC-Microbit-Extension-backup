@@ -11,12 +11,11 @@ French numbers
 
 .. code-block:: python
 
-    # based on http://www.multiwingspan.co.uk/micro.php?page=french
     from microbit import *
 
-
-    # function to create an image consisting of value LEDs
+    
     def nleds(value):
+        """ function to create an image consisting of value LEDs """
         img = Image("00000:" * 5)
         sp = img.set_pixel
         counter = 0
@@ -77,9 +76,6 @@ French numbers
             display.scroll(french[counter])
             display.show(nleds(counter))
         sleep(100)
-
-
-
 
 
 ----

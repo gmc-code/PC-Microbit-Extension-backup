@@ -10,10 +10,6 @@ Space Invaders
 
 .. code-block:: python
 
-    # Space Invaders https://www.mfitzp.com/article/microbit-space-invaders/
-    # press A to fire, press B to bomb 3 if bombs are available
-    # tilt to move side to side
-
     from microbit import *
     import random
 
@@ -32,22 +28,18 @@ Space Invaders
 
 
     def wait_for_button():
-        # Wait for either button to be pressed.
+        """ Wait for either button to be pressed. """"
         while not (button_a.was_pressed() or button_b.was_pressed()):
             sleep(1)
 
 
     def move(sprite, x, y):
-        """
-        Move the given sprite by the given x & y amounts.
-        """
+        """ Move the given sprite by the given x & y amounts. """
         return sprite[0] + x, sprite[1] + y
 
 
     def in_bounds(pos):
-        """
-        Return True if the position is within the valid screen coordinates.
-        """
+        """ Return True if the position is within the valid screen coordinates. """
         if pos[0] < MIN_COORD or pos[0] > MAX_COORD:
             return False
         if pos[1] < MIN_COORD or pos[1] > MAX_COORD:
@@ -56,9 +48,7 @@ Space Invaders
 
 
     class Game:
-        """
-        Game class holds the current game state.
-        """
+        """ Game class holds the current game state. """
 
         def game_reset(self):
             # Initial values
@@ -115,9 +105,7 @@ Space Invaders
             self.tick = 0
 
         def advance_aliens(self):
-            """
-            If aliens have reached the screen edge, advance them all downwards.
-            """
+            """ If aliens have reached the screen edge, advance them all downwards. """
             for alien in self.aliens:
                 if (self.alien_velocity_x == -1 and alien[0] == MIN_COORD) or (
                     self.alien_velocity_x == +1 and alien[0] == MAX_COORD

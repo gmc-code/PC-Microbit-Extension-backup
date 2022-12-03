@@ -12,9 +12,6 @@ Fill the grid
 
 .. code-block:: python
 
-    # Based on http://www.multiwingspan.co.uk/micro.php?page=shut
-    # A to start, B to roll
-
     from microbit import *
     import random
 

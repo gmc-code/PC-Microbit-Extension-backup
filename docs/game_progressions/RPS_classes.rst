@@ -215,17 +215,17 @@ Microbit version
     human = Player('human')
     microbit = Player('microbit')
 
-    display.scroll('A for R, B for S, AB for P', delay=80)
+    display.scroll('A for R, B for P, AB for S', delay=80)
     while True:
         microbit.set_move(random.choice(['R', 'P', 'S']))
         while True:
             # short pause to allow time to hold down 2 buttons
             sleep(300)
             if button_a.is_pressed() and button_b.is_pressed():
-                human.set_move('R')
+                human.set_move('S')
                 break
             elif button_a.is_pressed():
-                human.set_move('S')
+                human.set_move('R')
                 break
             elif button_b.is_pressed():
                 human.set_move('P')

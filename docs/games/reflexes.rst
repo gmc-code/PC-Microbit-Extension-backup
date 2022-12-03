@@ -8,9 +8,7 @@ Reflexes
 
 .. code-block:: python
 
-    # based on http://www.multiwingspan.co.uk/micro.php?page=concentrate
     from microbit import *
-
 
     score = 0
     start = 100

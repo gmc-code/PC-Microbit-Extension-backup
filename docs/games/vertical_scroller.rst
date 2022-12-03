@@ -10,7 +10,6 @@ Vertical scroller
 
 .. code-block:: python
 
-    # http://www.multiwingspan.co.uk/micro.php?page=scroll
     from microbit import *
     import random
 

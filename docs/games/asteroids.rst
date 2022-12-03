@@ -3,18 +3,16 @@ Asteroids
 ====================================================
 
 
-| Asteroids; based on http://www.multiwingspan.co.uk/micro.php?page=charlie
+| Asteroids; based on http://www.multiwingspan.co.uk/micro.php?page=charlie2
 | The game involves moving a ship, shown on the bottom row of the matrix. 
 | The other pixel represents an asteroid that is falling towards the ship. 
 | The player moves the ship left or right by pressing the A & B buttons to avoid contact with the asteroid.
 
 .. code-block:: python
 
-    # Asteroids; based on http://www.multiwingspan.co.uk/micro.php?page=charlie2
 
     from microbit import *
     import random
-
 
     class Asteroid:
         def __init__(self, x, y):
@@ -34,7 +32,7 @@ Asteroids
             self.y = y
 
 
-    def DrawGame(ship, asteroid1, asteroid2, t):
+    def DrawGame(ship, asteroid1, asteroid2):
         img = Image("00000:" * 5)
         img.set_pixel(ship.x, ship.y, 9)
         img.set_pixel(asteroid1.x, asteroid1.y, 5)
@@ -65,7 +63,7 @@ Asteroids
                 asteroid1.update()
                 asteroid2.update()
                 score += 1
-                i = DrawGame(ship, asteroid1, asteroid2, tick)
+                i = DrawGame(ship, asteroid1, asteroid2)
             if asteroid1.y == 4:
                 if ship.x == asteroid1.x:
                     playing = False

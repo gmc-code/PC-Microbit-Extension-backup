@@ -8,9 +8,7 @@ Clock Reflexes
 
 .. code-block:: python
 
-    # based on http://www.multiwingspan.co.uk/micro.php?page=concentrate2
     from microbit import *
-
 
     clocks = [
         Image.CLOCK1,

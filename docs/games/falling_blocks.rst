@@ -13,10 +13,6 @@ Falling blocks
 
 .. code-block:: python
 
-    # Falling blocks based on https://www.101computing.net/bbc-microbit-tetris-game/
-    # for V2 microbit
-    # move left and right with A and B buttons
-    # rotate with A and B together
 
     from microbit import *
     from random import choice

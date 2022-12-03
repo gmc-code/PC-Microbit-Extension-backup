@@ -9,12 +9,8 @@ Slalom
 
 .. code-block:: python
 
-    # Simple Slalom by Larry Hastings, September 2015 in the public domain.
-    # https://the.computing.cafe/add868/slalom-with-micro%3abit-and-micropython
-
     import microbit as m
     import random
-
 
     p = m.display.show
 

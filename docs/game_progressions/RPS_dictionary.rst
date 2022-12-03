@@ -83,7 +83,7 @@ Microbit version
         ('S', 'S'): 'tie',
     }
 
-    display.scroll('A for R   B for S   A&B for P', delay=80)
+    display.scroll('A for R   B for P   A&B for S', delay=80)
 
     while True:
         microbit_move = random.choice(['R', 'P', 'S'])
@@ -91,10 +91,10 @@ Microbit version
             # short pause to allow time to hold down 2 buttons
             sleep(300)
             if button_a.is_pressed() and button_b.is_pressed():
-                human_move = 'R'
+                human_move = 'S'
                 break
             elif button_a.is_pressed():
-                human_move = 'S'
+                human_move = 'R'
                 break
             elif button_b.is_pressed():
                 human_move = 'P'
