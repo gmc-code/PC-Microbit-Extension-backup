@@ -6,7 +6,7 @@ Restaurant inheritance
 | Set the PizzaShop's **name**, **food type**, **open hours** on calling the PizzaShop class, as well as setting the **menu**.
 | e.g. ``menu = ["Capricossa", "Hawaiian", "BBQ Chicken", "Pepperoni", "Margarita"]``
 | e.g. ``res_1 = PizzaShop("Joe's Pizza", "Pizza", "6-10pm", menu)``
-| Write a method, **show_menu**(), to print the PizzaShop's menu.
+| Write a method, **show_menu()**, to print the PizzaShop's menu.
 
 | Write code to ouput:
 | Joe's Pizza serves Pizza food 6-10pm. 0 tables booked.
@@ -65,7 +65,19 @@ Restaurant inheritance
             res_1.show_menu()
 
 
-w
+    .. dropdown::
+        :icon: codescan
+        :color: primary
+        :class-container: sd-dropdown-container
+
+        .. tab-set::
+
+            .. tab-item:: Q1
+
+                Write a **Restaurant** class.
+
+                .. code-block:: python
+
                     class Restaurant:
 
                         def __init__(self, restaurant_name, food_type, open_hours):
