@@ -25,4 +25,6 @@ Class attributes and methods
     :align: center
     :alt: class_objects
 
+| Attributes are variables related to objects.
+| Methods are functions related to objects.
 
