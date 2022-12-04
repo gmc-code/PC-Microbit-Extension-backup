@@ -45,15 +45,15 @@ The __init__() method
 
     class Enemies:
         def __init__(self, *args):
-            self.enemies_levels = args
+            self.enemy_levels = args
 
 
     enemies = Enemies(1, 2, 3)
-    print(enemies.enemies_levels)
+    print(enemies.enemy_levels)
 
 ----
 
 .. admonition:: Tasks
 
-    #. Test the Enemies example above by printing the enemy levels using the instance attribute for the enemies_levels.
+    #. Test the Enemies example above by printing the enemy levels using the instance attribute for the enemy_levels.
 
