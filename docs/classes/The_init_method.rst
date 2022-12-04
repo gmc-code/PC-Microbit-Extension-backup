@@ -37,37 +37,23 @@ The __init__() method
 ``*args`` in the __init__() function
 ---------------------------------------
 
-| Polygons are shaped with many sides.
-| To enable many sides to be passed to the class Polygon, ``*args`` is used for the parameter. 
+| To enable multiple values to be passed to the class Enemies, ``*args`` can be used for the parameter. 
 | ``*args`` packs all the arguments into one single variable that can be treated like a normal tuple.
-| e.g ``triangle1 = Polygon(3, 4, 5)`` instantiates a Polygon with 3 sides.
+| e.g ``enemies = Enemies(1, 2, 3)`` instantiates Enemies with 3 different enemies_levels.
 
 .. code-block:: python
 
-    class Polygon:
-        """A model of a Polygon."""
-
+    class Enemies:
         def __init__(self, *args):
-            self.sides = args
+            self.enemies_levels = args
 
-        triangle1 = Polygon(3, 4, 5)
 
-| ``*args`` can be renamed to something more meaningful. e.g  ``*sides_args``        
-| e.g ``triangle1 = Polygon(3, 4, 5)`` instantiates a Polygon with 3 sides.
-
-.. code-block:: python
-
-    class Polygon:
-        """A model of a Polygon."""
-
-        def __init__(self, *sides):
-            self.sides = sides
-
-    triangle1 = Polygon(3, 4, 5)
+    enemies = Enemies(1, 2, 3)
+    print(enemies.enemies_levels)
 
 ----
 
 .. admonition:: Tasks
 
-    #. Test the Polygon examples above by printing the sides using the instance attribute for the sides.
+    #. Test the Enemies example above by printing the enemy levels using the instance attribute for the enemies_levels.
 
