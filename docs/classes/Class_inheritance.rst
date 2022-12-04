@@ -36,30 +36,17 @@ super
 
 ----
 
- Magic8Pos(Magic8) - modify attribute
+Magic8Pos(Magic8) - modify attribute
 ---------------------------------------
 
 | In the code below, the Magic8Pos class uses the super() function and modifies the self.responses attribute that would be inherited from the Magic8 class.
 
 .. code-block:: python
 
-    from microbit import *
-    import random
-
-
     class Magic8:
         def __init__(self, magic_text=8):
             self.magic_text = magic_text
             self.responses = ["For sure", "Yes", "No", "No way"]
-
-        def run_game(self):
-            display.show(self.magic_text)
-            sleep(1000)
-            if accelerometer.was_gesture("shake"):
-                display.clear()
-                sleep(100)
-                display.scroll(random.choice(self.responses), delay=120)
-
 
     class Magic8Pos(Magic8):
         """modifies responses to just positive ones"""
@@ -67,53 +54,42 @@ super
             super().__init__(magic_text=8)
             self.responses = ["It is certain", "Yes"]
 
-    game = Magic8Pos(Magic8)
-    while True:
-        game.run_game()
+    game1 = Magic8()
+    print(game1.responses)
+    game2 = Magic8Pos(Magic8)
+    print(game2.responses)
 
 ----
 
- Magic8Button(Magic8)- modify method
+Magic8Button(Magic8)- modify method
 -------------------------------------
 
-| In the code below, the Magic8button class modifies the run_game method that would be inherited from the Magic8 class.
+| In the code below, the Magic8Pos class modifies the get_score method that would be inherited from the Magic8 class.
 
 .. code-block:: python
 
-    from microbit import *
-    import random
-
     class Magic8:
         def __init__(self, magic_text=8):
+            self.score = 10
             self.magic_text = magic_text
             self.responses = ["For sure", "Yes", "No", "No way"]
 
-        def run_game(self):
-            display.show(self.magic_text)
-            sleep(1000)
-            if accelerometer.was_gesture("shake"):
-                display.clear()
-                sleep(100)
-                display.scroll(random.choice(self.responses), delay=120)
-
-
-    class Magic8Button(Magic8):
-        """modifies run_game to use button pressing"""
-
+        def get_score(self):
+            return self.score
+            
+    class Magic8Pos(Magic8):
+        """modifies responses to just positive ones"""
         def __init__(self, magic_text=8):
             super().__init__(magic_text=8)
+            self.responses = ["It is certain", "Yes"]
 
-        def run_game(self):
-            display.show(self.magic_text)
-            sleep(1000)
-            if button_a.is_pressed() or button_b.is_pressed():
-                display.clear()
-                sleep(100)
-                display.scroll(random.choice(self.responses), delay=120)
-
-    game = Magic8Button()
-    while True:
-        game.run_game()
+        def get_score(self):
+            return self.score * 2
+            
+    game1 = Magic8()
+    print(game1.get_score())
+    game2 = Magic8Pos(Magic8)
+    print(game2.get_score())
 
 
 ----
